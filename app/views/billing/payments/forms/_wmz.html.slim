@@ -1,0 +1,11 @@
+- require 'active_merchant/billing/integrations/action_view_helper'
+- ActionView::Base.send(:include, ActiveMerchant::Billing::Integrations::ActionViewHelper)
+
+= payment_service_for @payment.id, Settings.webmoney.wallet.wmz,
+                        :amount => @payment.amount,
+                        :description => "##{@payment.id}",
+                        :fail_url => billing_webmoney_fail_url,
+                        :success_url => billing_webmoney_success_url,
+                        :result_url => billing_webmoney_result_url,
+                        :service => :webmoney do |s|
+  = submit_tag t('billing.payments.merchant.submit'), class: "btn btn-large btn-primary"

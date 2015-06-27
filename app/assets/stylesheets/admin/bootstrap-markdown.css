@@ -1,0 +1,44 @@
+.md-editor {
+	display: block;
+	border: 1px solid #ddd
+}
+.md-editor > .md-header, .md-editor .md-footer {
+	display: block;
+	padding: 6px 4px;
+	background: #fff
+}
+.md-editor > .md-preview {
+	background: #fff;
+	border-top: 1px dashed #ddd;
+	border-bottom: 1px dashed #ddd;
+	min-height: 10px
+}
+.md-editor > textarea {
+	font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
+	font-size: 14px;
+	outline: 0;
+	outline: thin dotted \9;
+	margin: 0;
+	display: block;
+	padding: 10px;
+	width: 100%;
+	min-height:185px;
+	border: 0;
+	border-top: 1px dashed #ddd;
+	border-bottom: 1px dashed #ddd;
+	border-radius: 0;
+	box-shadow: none;
+	background: #eee
+}
+.md-editor > textarea:focus {
+	box-shadow: none;
+	background: #fff
+}
+.md-editor.active {
+	outline: 0;
+}
+
+.md-preview {
+	min-height:185px !important;
+	padding:10px !important;
+}

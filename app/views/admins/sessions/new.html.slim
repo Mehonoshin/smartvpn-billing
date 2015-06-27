@@ -1,0 +1,8 @@
+= form_for resource, as: resource_name, url: session_path(resource_name), html: { class: "form-login form-wrapper form-narrow" } do |f|
+  h3.title-divider
+    span= t('.staff_entrance')
+
+  = f.email_field :email, class: "input-block-level", placeholder: t('.email')
+  = f.password_field :password, class: "input-block-level", placeholder: t('.password')
+
+  = f.submit t('.sign_in'), class: "btn btn-primary"

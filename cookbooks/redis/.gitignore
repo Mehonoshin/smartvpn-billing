@@ -1,0 +1,11 @@
+.bundle
+.cache
+.kitchen
+.kitchen.local.yml
+bin
+.jamie/
+.jamie.local.yml
+.vagrant
+tmp/
+Gemfile.lock
+Berksfile.lock

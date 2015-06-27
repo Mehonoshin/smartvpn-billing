@@ -1,0 +1,1 @@
+class AdminAccessDeniedException < SmartvpnException; end;

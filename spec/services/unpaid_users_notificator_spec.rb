@@ -1,0 +1,24 @@
+require 'spec_helper'
+
+describe UnpaidUsersNotificator do
+  subject { described_class.new }
+
+  describe '#notify_all' do
+    before do
+      3.times do
+        create(:user, can_not_withdraw_counter: described_class::FAILED_WITHDRAWS)
+      end
+      create(:user, can_not_withdraw_counter: described_class::FAILED_WITHDRAWS + 1)
+      create(:user, can_not_withdraw_counter: described_class::FAILED_WITHDRAWS - 1)
+      create(:user)
+      user = create(:user_with_balance, can_not_withdraw_counter: described_class::FAILED_WITHDRAWS)
+      create(:withdrawal, user: user)
+    end
+
+    it 'creates notification job for each unpaid user' do
+      expect {
+        subject.notify_all
+      }.to change(UnpaidUserNotificationWorker.jobs, :count).by(3)
+    end
+  end
+end

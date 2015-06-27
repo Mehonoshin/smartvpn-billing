@@ -1,0 +1,34 @@
+# System
+Log notice syslog
+
+# Private services (client)
+## SOCKS proxy
+SocksPort 0.0.0.0:<%= node["tor"]["socks-port"] %>
+#SocksPolicy accept *
+SocksPolicy accept 127.0.0.1
+SocksPolicy accept 10.77.2.0/24 # Allow access from VPN
+SocksPolicy reject *
+
+## Control
+ControlPort <%= node["tor"]["control-port"] %>
+HashedControlPassword <%= `tor --quiet --hash-password #{node["tor"]["control-password"]}` %>
+
+## DNS resolver, why not
+DNSPort <%= node["tor"]["dns-port"] %>
+AutomapHostsOnResolve 1
+AutomapHostsSuffixes .exit,.onion
+
+## Freenode address
+#mapaddress 10.40.40.40 p4fsi4ockecnea7l.onion
+
+# Public services (relay)
+## Relay -- needs to be allowed on the firewall
+#ORPort <%= node["tor"]["or-port"] %>
+#RelayBandwidthRate <%= node["tor"]["relay-bandwidth-rate"] %>
+#RelayBandwidthBurst <%= node["tor"]["relay-bandwidth-burst"] %>
+
+## NOT AN EXIT NODE!!!
+ExitPolicy reject *:*
+
+## Directory mirror
+DirPort <%= node["tor"]["dir-port"] %>

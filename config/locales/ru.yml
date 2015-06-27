@@ -1,0 +1,54 @@
+ru:
+  date:
+    formats:
+      default: "%d.%m.%Y"
+
+  activerecord:
+    models:
+      user: "Пользователь"
+    attributes:
+      user:
+        accept_agreement: "Принятие соглашения"
+        password: "Пароль"
+        password_confirmation: "Подтверждение пароля"
+        current_password: "Текущий пароль"
+        period_length: 'Длительность тестового периода'
+      payment:
+        amount: "Сумма"
+        pay_system: "Платежная система"
+        pay_system_id: "Платежная система"
+        submit: "Пополнить"
+        created_at: "Дата операции"
+        description: "Описание"
+        comment: "Комментарий оператора"
+      promo:
+        type: "Тип"
+        promoter_type: "Действие"
+        date_from: "Дата начала"
+        date_to: "Дата конца"
+        name: "Название"
+        types:
+          withdrawal: 'Списание'
+        state: 'Статус'
+        states:
+          pending: 'Неактивна'
+          active: 'Активна'
+        promo_code: 'Промо-код'
+      promoter:
+        types:
+          discount: 'Скидка'
+        attributes:
+          discount_percent: 'Скидка в процентах'
+      promotion:
+        promo_code: 'Введя промо код вы можете получить скидку или дополнительные опции бесплатно'
+      pay_system:
+        name: 'Название'
+        code: 'Код'
+        description: 'Описание'
+        state: 'Статус'
+    validations:
+      user:
+        accept_agreement: ""
+        regular_plan: "Вы выбрали некорретный тарифный план"
+      withdrawal:
+        not_enough_funds: "Недостаточно средств для списания"

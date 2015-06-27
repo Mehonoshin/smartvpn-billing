@@ -1,0 +1,9 @@
+h2.title-divider
+  span
+    span.de-em
+      = t('.payment_finalization')
+
+.hero-unit
+  = image_tag "pay_system_logos/#{@payment.pay_system.code}_logo.png"
+  p= raw t('.payment_finalization_text')
+  p= render partial: "billing/payments/forms/#{@payment.pay_system.code}"

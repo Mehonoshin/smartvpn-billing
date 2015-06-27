@@ -1,0 +1,9 @@
+{
+  "id": "memory_slave",
+  "bind": "0.0.0.0",
+  "port": 7000,
+  "save":[],
+  "slaveof_ip": "198.18.0.1",
+  "slaveof_port": 7000,
+  "name": "memory"
+}

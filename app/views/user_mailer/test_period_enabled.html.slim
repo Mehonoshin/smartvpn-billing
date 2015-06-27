@@ -1,0 +1,11 @@
+p
+  = "#{t('.hello')}, #{@user.email}"
+
+p
+  = t('.test_period_is_activated')
+  br
+  = t('.test_period_range', from: human_date(@user.test_period_started_at, time: false), to: human_date(@user.test_period.test_period_until, time: false))
+  br
+  = t('.instructions')
+
+= render partial: "signature"

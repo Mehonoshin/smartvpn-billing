@@ -1,0 +1,32 @@
+{
+  "name": "locale",
+  "description": "Installs/Configures locale",
+  "long_description": "Description\n===========\n\nSets default system locale\n\nYou can see which languages are available by \n$ locale -a \n\nOn debian based systems you can set the locale by running\n update-locale LANG={lang}\ne.g.\n update-locale LANG=en_AU.utf8\n\nIt updates the file /etc/default/locale\n\nOn rhel based systems you can set default locale updating /etc/sysconfig/i18n\nThere doesn't seem to be a command line tool to update this file?!?\n\nRequirements\n============\n\nTested on Ubuntu, CentOS\n\nAttributes\n==========\n\n* `node[:locale][:lang]` -- defaults to \"en_US.utf8\"\n\nUsage\n=====\n\nInclude the default recipe in your run list.\n",
+  "maintainer": "Heavy Water Software Inc.",
+  "maintainer_email": "darrin@heavywater.ca",
+  "license": "Apache 2.0",
+  "platforms": {
+    "ubuntu": ">= 0.0.0",
+    "debian": ">= 0.0.0",
+    "centos": ">= 0.0.0"
+  },
+  "dependencies": {
+  },
+  "recommendations": {
+  },
+  "suggestions": {
+  },
+  "conflicting": {
+  },
+  "providing": {
+  },
+  "replacing": {
+  },
+  "attributes": {
+  },
+  "groupings": {
+  },
+  "recipes": {
+  },
+  "version": "0.0.2"
+}

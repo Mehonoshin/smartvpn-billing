@@ -1,0 +1,17 @@
+{
+  "smartvpn": {
+    "api_ip": "192.168.33.11",
+    "hostname": "test.smartvpn.biz"
+  },
+
+  "openvpn": {
+    "port": "443",
+    "proto": "udp",
+    "local": "192.168.33.12",
+    "subnet": "10.77.2.0"
+  },
+
+  "run_list": [
+    "role[node]"
+  ]
+}

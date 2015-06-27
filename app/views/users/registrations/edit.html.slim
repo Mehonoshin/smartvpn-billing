@@ -1,0 +1,22 @@
+= render partial: "promo"
+br
+br
+
+
+legend= t('.edit_profile')
+= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+  = f.input :email
+  = f.input :password
+  = f.input :password_confirmation
+  = f.input :current_password
+  /TODO:
+  /here select to change plan
+  = f.submit t('.update'), class: 'btn btn-primary'
+
+br
+br
+
+legend= t('.cancel_registration')
+.cancel-account
+  p.alert.alert-error= t('.canceling_attention')
+  = button_to t('.cancel_registration'), registration_path(resource_name), data: { confirm: t('.confirm.cancel_registration') }, method: :delete, class: 'btn btn-large btn-danger'

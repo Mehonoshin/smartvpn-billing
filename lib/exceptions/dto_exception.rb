@@ -1,0 +1,1 @@
+class DtoException < SmartvpnException; end;

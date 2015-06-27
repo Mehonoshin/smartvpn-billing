@@ -1,0 +1,15 @@
+require 'resolv'
+
+proxy do |data|
+  return if data.size < 9
+  v, c, port, o1, o2, o3, o4, user = data.unpack("CCnC4a*")
+  return {:close => "\0\x5b\0\0\0\0\0\0"} if v != 4 or c != 1
+  return if ! idx = user.index("\0")
+  begin
+    cname = Resolv::DNS.new.getresource(user.gsub("\0", ''), Resolv::DNS::Resource::IN::CNAME).name.to_s
+    request = [v, c, port, o1, o2, o3, o4, cname + "\0"].pack("CCnC4a*")
+    {:remote => "127.0.0.1:<%= node["tor"]["socks-port"] %>", :data => request}
+  rescue Resolv::ResolvError => e
+    {:close => "\0\x5b\0\0\0\0\0\0"}
+  end
+end

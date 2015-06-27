@@ -1,0 +1,19 @@
+h2 Траффик по серверам
+= render partial: "submenu"
+= render partial: "filter"
+
+.info
+  table.table.table-bordered
+    tr
+      th Сервер
+      th Входящий траффик
+      th Исходящий траффик
+      th Итого
+
+    - traffic_reports.each do |report|
+      tr
+        td= report.server.hostname
+        td= human_traffic report.traffic_in
+        td= human_traffic report.traffic_out
+        td= human_traffic report.traffic_in + report.traffic_out
+

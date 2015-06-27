@@ -1,0 +1,140 @@
+#highlighted.hero
+  .inner
+    /! Static Banner
+    section.static-banner.container
+      .row-fluid
+        .span7
+          = image_tag("/assets/openvpn.jpg")
+        .span5.caption
+          h2 Подпишитесь
+          p и мы сообщим, когда нас сервис откроется
+          a.btn.btn-large.btn-primary href="#"
+            = "Подписаться"
+#content
+  .container
+    /! Services
+    .block.features
+      h2.title-divider
+        span
+          | 
+          span.de-em Отличительные особенности
+        small То, то отличает нас от других провайдеров VPN
+      ul.thumbnails
+        li.span3
+          a href="features.htm"
+            img alt="Feature 1" src="/assets/img/features/feature-1.png"
+          h3.title
+            a href="features.htm"
+              | Защита и 
+              span.de-em Анонимность
+          p Ваша активность в интернете под надежной защитой
+        li.span3
+          a href="features.htm"
+            img alt="Feature 2" src="/assets/img/features/feature-2.png"
+          h3.title
+            a href="features.htm"
+              | 24/7 
+              span.de-em Техническая поддержка
+          p Наши технические специалисты помогут вам решить любую проблему
+        li.span3
+          a href="features.htm"
+            img alt="Feature 3" src="/assets/img/features/feature-3.png"
+          h3.title
+            a href="features.htm"
+              | Гибкая настройка
+              span.de-em
+          p Выберите сами пакет дополнительных опций
+        li.span3
+          a href="features.htm"
+            img alt="Feature 4" src="/assets/img/features/feature-4.png"
+          h3.title
+            a href="features.htm"
+              | 99.9% 
+              span.de-em Максимальная доступность
+          p В любую секунду наш сервис доступен вам на максимальной скорости
+
+
+    /! Pricing Table
+    .block
+      h2.title-divider
+        span
+          | Тарифные 
+          span.de-em планы
+        small От бюджетных до премиум предложений
+      .row.pricing-stack
+        .offset1.span3
+          .well
+            h3.title Эконом
+            p.price
+              span.fancy 1$!
+            ul.unstyled.points
+              li Неограниченный траффик
+              li Статический IP
+              li Логи хранятся 20 дней
+              li Скорость делится между клиентами
+            a.btn.btn-primary Купить подписку
+        .span4
+          .well.active
+            h3.title
+              span.em Премиум
+              span.fancy
+            p.price
+              span.currency $
+              span.digits
+                | 30
+                span .0
+              span.term /MO
+            ul.unstyled.points
+              li Double chained VPN
+              li Автоматическое подключение Socks
+              li Возможность использования Tor
+              li Гарантия отсутствия логов
+            a.btn.btn-primary Купить подписку
+        .span3
+          .well
+            h3.title
+              | Стандарт
+              span.fancy
+            p.price
+              span.currency $
+              span.digits
+                | 10
+                span .0
+              span.term /MO
+            ul.unstyled.points
+              li Гарантированая скорость
+              li Неограниченный траффик
+              li Возможность использования Tor
+              li Гарантия отсутствия логов
+            a.btn.btn-primary Купить подписку
+
+      .row-fluid
+        /! Plan features
+        .well.well-mini.pull-center
+          h4.inline-el.pad-right
+            span
+              | Все тарифы 
+              span.de-em включают
+              = ":"
+          p.inline-el.pad-left.muted
+            | неограниченный траффик, 
+            span.spacer
+            | 24/7 техническую поддержку, 
+            span.spacer
+            | выбор расположения сервера, 
+
+#content-below.wrapper
+  .container
+    .row-fluid
+      .upsell
+        small.muted
+          | 99.9% доступность, 
+          span.spacer
+          | неограниченная скорость, 
+          span.spacer
+          | 24/7 техническая поддержка, 
+          span.spacer
+          | тарифы от 1$ в месяц 
+        a.btn.btn-primary href="pricing.htm"
+          | Стать клиентом!
+          i.icon-arrow-right

@@ -1,0 +1,1 @@
+class NotImplementedException < SmartvpnException; end;

@@ -1,0 +1,17 @@
+{
+  "smartvpn": {
+    "api_ip": "95.85.41.85",
+    "hostname": "de1.smartvpn.biz"
+  },
+
+  "openvpn": {
+    "port": "443",
+    "proto": "tcp",
+    "local": "78.47.103.140",
+    "subnet": "10.77.2.0"
+  },
+
+  "run_list": [
+    "role[node]"
+  ]
+}

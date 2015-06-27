@@ -1,0 +1,17 @@
+{
+  "json_class":"Chef::Role",
+  "run_list": [
+    "recipe[apt::default]",
+    "recipe[locale::default]",
+    "recipe[smartvpn-node::default]",
+    "recipe[smartvpn-node::hosts]",
+    "recipe[chef-sudo::default]",
+    "recipe[openvpn]",
+    "recipe[any_proxy]",
+    "recipe[zeromq]",
+    "recipe[i2p]",
+    "recipe[tor]",
+    "recipe[privoxy]",
+    "recipe[dnsmasq]"
+  ]
+}

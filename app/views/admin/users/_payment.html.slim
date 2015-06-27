@@ -1,0 +1,7 @@
+legend= t('admin.users.new_payment')
+= simple_form_for [:admin, Payment.new], url: payment_admin_user_path(@user), method: :put do |f|
+  = f.input :pay_system_id, collection: PaySystem.all.map { |p| [p.name, p.id] }, include_blank: false
+  = f.input :amount
+  = f.input :comment, as: :string
+  = f.submit t('global.apply'), class: 'btn btn-primary'
+

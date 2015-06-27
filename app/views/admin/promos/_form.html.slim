@@ -1,0 +1,19 @@
+= simple_form_for [:admin, @promo], class: 'smart-form' do |f|
+  = f.input :name
+  = f.input :type, promo_types
+  = f.input :promoter_type, promoter_types
+  = f.input :date_from
+  = f.input :date_to
+  = f.input :promo_code
+  = f.input :state, as: :select, collection: Promo.state_machine.states.map { |s| [t("activerecord.attributes.promo.states.#{s.name}"), s.name] }, include_blank: false
+
+  = f.simple_fields_for :attrs do |a|
+    - if @promo.promoter
+      legend Аттрибуты
+      br
+      - @promo.promoter.attributes.each do |attribute_name|
+        = a.input attribute_name, input_html: { value: @promo.attrs[attribute_name.to_s] }, label: t("activerecord.attributes.promoter.attributes.#{attribute_name}")
+
+  br
+  = f.submit "Применить", class: 'btn btn-primary btn-large'
+

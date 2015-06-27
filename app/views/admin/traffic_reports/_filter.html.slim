@@ -1,0 +1,6 @@
+h2 Фильтр
+
+= simple_form_for TrafficReport.new(params[:traffic_report]), url: request.fullpath, method: :get do |f|
+  = f.input :date_from, as: :datepicker
+  = f.input :date_to, as: :datepicker
+  = f.submit :submit

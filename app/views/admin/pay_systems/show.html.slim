@@ -1,0 +1,11 @@
+= page_title('Платежная система', 'money', @pay_system.name)
+
+= link_to "Редактировать", edit_admin_pay_system_path(@pay_system), method: :get
+br
+
+= show_for @pay_system do |pay_system|
+  = pay_system.attribute :id
+  = pay_system.attribute :name
+  = pay_system.attribute :code
+  = pay_system.attribute :description
+  = pay_system.attribute :state

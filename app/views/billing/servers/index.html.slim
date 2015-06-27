@@ -1,0 +1,19 @@
+legend=t('billing.servers.title')
+
+table.table.table-bordered
+  thead
+    tr
+      th= t('billing.servers.country')
+      th= t('billing.servers.hostname')
+      th= t('billing.servers.port')
+      th= t('billing.servers.protocol')
+      th= t('billing.servers.config')
+  tbody
+    - @servers.each do |server|
+      tr
+        td= server_country_flag(server)
+        td= server.hostname
+        td= server.port
+        td= server.protocol.upcase
+        td= button_to t('billing.servers.download_config'), download_config_billing_server_path(server), method: :get, class: 'btn btn-primary'
+

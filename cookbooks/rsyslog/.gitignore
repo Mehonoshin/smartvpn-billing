@@ -1,0 +1,5 @@
+.kitchen
+Berksfile.lock
+Gemfile.lock
+
+vendor/

@@ -1,0 +1,15 @@
+.state {
+  font-weight: bold;
+
+  &.disabled {
+    color: red;
+  }
+
+  &.enabled, &.active {
+    color: green;
+  }
+
+  &.pending {
+    color: yellow;
+  }
+}

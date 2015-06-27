@@ -1,0 +1,11 @@
+robokassa:
+  login: ""
+  secret1: ""
+  secret2: ""
+webmoney:
+  secret: ""
+  wallet:
+    wmz: ""
+    wmr: ""
+mailchimp:
+  api_key: ''

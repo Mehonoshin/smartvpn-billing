@@ -1,0 +1,26 @@
+= form_for resource, as: resource_name, url: registration_path(resource_name), html: { class: "form-login form-wrapper form-medium" } do |f|
+  = devise_error_messages!
+
+  h3.title-divider
+    span= t('.registration')
+    small
+      = t('.already_signed_up')
+      = " "
+      = link_to t('.sign_in_here'), new_user_session_path
+  h5= t('.price_plan')
+  - selected_plan = Plan.find_by(code: params[:plan])
+  - selected_id = selected_plan ? selected_plan.id : nil
+  = f.select :plan_id, options_for_select(Plan.regular.enabled.map { |p| [p.name, p.id] }, selected_id)
+
+
+  h5= t('.account_information')
+  = f.email_field :email, class: "input-block-level", placeholder: t('.email')
+  = f.password_field :password, class: "input-block-level", placeholder: t('.password')
+  = f.password_field :password_confirmation, class: "input-block-level", placeholder: t('.password_confirmation')
+
+  = f.label :accept_agreement, class: "checkbox" do
+    = "#{t('.accept')} "
+    = link_to t('.agreement'), '/EULA.pdf', target: '_blank'
+    = f.check_box :accept_agreement
+
+  = f.submit t('.sign_up'), class: "btn btn-primary"

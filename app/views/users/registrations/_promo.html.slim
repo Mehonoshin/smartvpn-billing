@@ -1,0 +1,5 @@
+legend= t('.promo_code')
+
+= simple_form_for [:billing, Promotion.new] do |f|
+  = f.input :promo_code
+  = f.submit t('global.apply'), class: 'btn btn-primary'

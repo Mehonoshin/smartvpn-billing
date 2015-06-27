@@ -1,0 +1,7 @@
+p
+  = "#{t('.hello')}, #{@user.email}"
+
+p
+  = t('.could_not_withdraw', amount: @amount)
+
+= render partial: "signature"

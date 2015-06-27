@@ -1,0 +1,16 @@
+h2.title-divider
+  span.de-em= t('.connection_info')
+.info
+  p
+    = "#{t('.connection_exists')}: "
+    = t(".connection_status.#{@connected.present?}")
+  - if @connected
+    p= "#{t('.connection_server')}: #{@connection_server.hostname}"
+  p
+    - if was_connected?
+      = "#{t('.last_connect')}: "
+      = "#{human_date(current_user.last_connect.created_at)}"
+      - unless @connected
+        = "#{t('.server')} #{current_user.last_connect.server.hostname}"
+
+

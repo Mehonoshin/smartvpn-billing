@@ -1,0 +1,8 @@
+legend=t('billing.referrals.title')
+p= raw t('billing.referrals.disclaimer')
+
+h4= t('billing.referrals.account_balance', balance: @account.balance)
+= text_field_tag :reflink, referrer_url(code: current_user.reflink), disabled: true, class: 'reflink-input'
+
+= render partial: 'referrals'
+= render partial: 'operations'

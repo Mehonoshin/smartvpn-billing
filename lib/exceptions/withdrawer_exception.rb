@@ -1,0 +1,1 @@
+class WithdrawerException < SmartvpnException; end;

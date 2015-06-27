@@ -1,0 +1,132 @@
+doctype html
+html lang="ru"
+  head
+    meta content="text/html; charset=UTF-8" http-equiv="Content-Type"
+    meta charset="utf-8"
+    title SmartVPN
+    meta content="width=device-width, initial-scale=1.0" name="viewport"
+    meta content="" name="description"
+    meta content="Themelize.me" name="author"
+    = javascript_include_tag :application
+    = stylesheet_link_tag :application
+    link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,300|Rambla|Calligraffitti" rel="stylesheet" type="text/css"
+
+  body.page.page-index-static
+    #navigation.wrapper
+      .navbar.navbar-static-top
+        /! Header & Branding region
+        .header
+          .header-inner.container
+            .row-fluid
+              .span6
+                /! branding/logo
+                = link_to root_path, class: "brand", title: "Home" do
+                  h1
+                    span Smart
+                    | VPN
+                    span .
+                .slogan
+                  = "Умный VPN провайдер"
+
+              /! header rightside
+              .span6
+                /! social media icons
+                .social-media.pull-right
+                  a href="#"
+                    i.icon-twitter
+                  | &nbsp;
+                  a href="#"
+                    i.icon-facebook
+                  | &nbsp;
+                  a href="#"
+                    i.icon-linkedin
+                  | &nbsp;
+                  a href="#"
+                    i.icon-google-plus
+
+        .container
+          .navbar-inner
+            /! mobile collapse menu button
+            a.btn.btn-navbar.pull-left data-target=".nav-collapse" data-toggle="collapse"
+              span.icon-bar
+              span.icon-bar
+              span.icon-bar
+              span.icon-bar
+
+            /! user menu
+            ul.nav.user-menu.pull-right
+              - if current_user
+                li= link_to t('main.billing'), "#", class: "btn btn-primary signup"
+                li= button_to t('main.auth.sign_out'), destroy_user_session_path, method: :delete, class: "btn btn-primary login"
+              - else
+                li= link_to t('main.auth.sign_up'), new_user_registration_path, class: "btn btn-primary signup"
+                li.dropdown= link_to t('main.auth.sign_in'), new_user_session_path, class: "btn btn-primary login", id: "login-drop"
+
+            /! everything within this div is collapsed on mobile
+            .nav-collapse.collapse
+              /! main navigation
+              ul#main-menu.nav
+                li.home-link
+                  = link_to root_path do
+                    i.icon-home.hidden-phone
+                    span.visible-phone Home
+                li
+                  a#about-drop
+                    = "О компании"
+                li.dropdown
+                  a#features-drop.dropdown-toggle.menu-item data-toggle="dropdown" href="features.htm"
+                    = "Услуги"
+                li
+                  a.menu-item href="#"
+                    = "Тарифы"
+                li
+                  = link_to "Блог", "#", id: "blog-drop"
+                li
+                  a.menu-item href="#"
+                    = "Помощь"
+                li
+                  a#pages-drop
+                    = "Контакты"
+
+          = render partial: "notifications"
+          = yield
+
+    /! FOOTER
+    footer#footer
+      .container
+        .row
+          .span3.col
+            .block.contact-block
+              h3 Контакты
+              address
+                p
+                  abbr title="Email"
+                    i.icon-envelope= " admin@smartvpn.biz"
+          .span5.col
+            .block
+              h3 О компании
+              p Наша компания предоставляет полный спектр услуг VPN. От базовых для домашнего использования до профессиональных тарифных планов.
+          .span4.col
+            .block.newsletter
+              h3 Рассылка
+              p Подпишитесь на нашу рассылку и будьте в курсе всех последних новостей и специальных предложений сервиса
+              form.form-inline
+                .input-append
+                  input.input-medium placeholder="Email" type="text"
+                  button.btn.btn-primary type="button" Подписаться
+
+        .row-fluid
+          .subfooter
+            .span6
+              p
+                a href="#"
+                | Copyright © SmartVPN.
+            .span6
+              ul.inline.pull-right
+                li
+                  a href="#"
+                li
+                  a href="#"
+                li
+                  a href="#"
+

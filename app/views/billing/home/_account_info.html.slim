@@ -1,0 +1,21 @@
+- # TODO: move all this complex logic to decorator
+h2.title-divider
+  span.de-em= t('.account_info')
+.info
+  p= "Email: #{current_user.email}"
+  p= "#{t('.balance')}: #{human_usd_amount current_user.balance}"
+  p= "#{t('.plan')}: #{current_user.plan.name}"
+  p
+    = "#{t('.vpn_state')}: "
+    = t(".states.#{current_user.service_enabled?}")
+  p= "#{t('.promotions')}: #{enabled_options}" if current_user.promotions.with_active_promos.any?
+
+  - if current_user.test_period.enabled?
+    p
+      = t('.test_period')
+      = t('.test_period_range', from: human_date(current_user.test_period_started_at.to_date, time: false), to: human_date(current_user.test_period.test_period_until, time: false))
+
+  .hero-unit.collapsable-credentials
+    .toggler= link_to t('.vpn_credentials'), "#"
+    .vpn-credential= "#{t('.login')}: #{current_user.vpn_login}"
+    .vpn-credential= "#{t('.password')}: #{current_user.vpn_password}"

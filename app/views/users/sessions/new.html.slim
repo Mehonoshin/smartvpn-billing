@@ -1,0 +1,17 @@
+= form_for resource, as: resource_name, url: session_path(resource_name), html: { class: "form-login form-wrapper form-narrow" } do |f|
+  h3.title-divider
+    span= t('.client_entrance')
+    small
+      = t('.not_signed_up')
+      = link_to t('.sign_up_here'), new_user_registration_path
+
+  = f.email_field :email, class: "input-block-level", placeholder: t('.email')
+  = f.password_field :password, class: "input-block-level", placeholder: t('.password')
+
+  = f.label :remember_me, class: "checkbox" do
+    = t('.remember_me')
+    = f.check_box :remember_me
+
+  = f.submit t('.sign_in'), class: "btn btn-primary"
+  = " | "
+  = link_to "#{t('.forgotten_password')}", new_password_path(resource_name)

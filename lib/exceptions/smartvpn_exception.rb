@@ -1,0 +1,1 @@
+class SmartvpnException < StandardError; end;

@@ -1,0 +1,3 @@
+#!/bin/sh
+ulimit -n 65536
+chpst -u <%= @options['user'] %> <%= @options['dst_dir'] %>/bin/redis-server <%= @options['conf_dir'] %>/<%= @options['name'] %>.conf

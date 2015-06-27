@@ -1,0 +1,16 @@
+legend=t('billing.referrals.referrals')
+
+- if @referrals.any?
+  table.table.table-bordered
+    thead
+      tr
+        th= t('billing.referrals.email')
+        th= t('billing.referrals.registration_date')
+    tbody
+      - @referrals.each do |referral|
+        tr
+          td= referral.email
+          td= human_date referral.created_at, time: true
+- else
+  p= t('billing.referrals.no_referrals')
+

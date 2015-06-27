@@ -1,0 +1,10 @@
+= form_for resource, as: resource_name, url: password_path(resource_name), html: { class: 'form-login reset-password form-wrapper form-medium', method: :post } do |f|
+  = devise_error_messages!
+
+  h3.title-divider
+    span= t('.reset_password')
+    small
+      = link_to t('.sign_in_here'), new_user_session_path
+
+  = f.email_field :email, class: "input-block-level", placeholder: t('.email')
+  = f.submit t('.send'), class: "btn btn-primary"

@@ -1,0 +1,7 @@
+legend= t('admin.users.test_period')
+
+- if @user.test_period.enabled?
+  = t('admin.users.test_period_until', start: @user.test_period_started_at.to_date, finish: @user.test_period.test_period_until)
+  = button_to 'Disable', disable_test_period_admin_user_path(@user), method: :put, class: 'btn btn-danger'
+- else
+  = button_to 'Enable', enable_test_period_admin_user_path(@user), method: :put, class: 'btn btn-success'

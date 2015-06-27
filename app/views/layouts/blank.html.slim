@@ -1,0 +1,35 @@
+doctype 5
+html lang="ru"
+  head
+    meta content="text/html; charset=UTF-8" http-equiv="Content-Type"
+    meta charset="utf-8"
+    title SmartVPN
+    meta content="width=device-width, initial-scale=1.0" name="viewport"
+    meta content="" name="description"
+    meta content="Themelize.me" name="author"
+    = javascript_include_tag :application
+    = stylesheet_link_tag :application
+    link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,300|Rambla|Calligraffitti" rel="stylesheet" type="text/css"
+
+  body.page.page-index-static
+    #navigation.wrapper
+      .navbar.navbar-static-top
+        .header
+          .header-inner.container
+            .row-fluid
+              .span6
+                = link_to root_path, class: "brand", title: "Home" do
+                  h1
+                    span Smart
+                    | VPN
+                    span .
+                .slogan
+                  = "Умный VPN провайдер"
+
+    .content
+      .container
+        = render partial: "notifications"
+        = yield
+      = render partial: 'shared/footer'
+
+

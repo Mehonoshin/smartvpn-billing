@@ -1,0 +1,10 @@
+= form_for resource, as: resource_name, url: password_path(resource_name), html: { class: 'form-login reset-password form-wrapper form-narrow', method: :put } do |f|
+  = devise_error_messages!
+
+  h3.title-divider
+    span= t('.enter_new_password')
+
+  = f.hidden_field :reset_password_token
+  = f.password_field :password, placeholder: t('.new_password')
+  = f.password_field :password_confirmation, placeholder: t('.password_confirmation')
+  = f.submit t('.save'), class: "btn btn-primary"

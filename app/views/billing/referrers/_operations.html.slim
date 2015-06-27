@@ -1,0 +1,18 @@
+legend=t('billing.referrals.operations')
+- if @operations.any?
+  table.table.table-bordered
+      thead
+        tr
+          th= t('billing.referrals.email')
+          th= t('billing.referrals.amount')
+          th= t('billing.referrals.date')
+      tbody
+        - @operations.each do |reward|
+          tr
+            td= reward.operation.user.email
+            td= reward.amount
+            td= human_date reward.created_at, time: true
+- else
+  p= t('billing.referrals.no_operations')
+
+

@@ -1,0 +1,22 @@
+h2.title-divider
+  span Транзакции
+
+.info
+  table.table.table-bordered
+    thead
+      tr
+        th= t('transaction.id')
+        th= t('transaction.amount')
+        th= t('transaction.user')
+        th= t('transaction.date')
+        th= t('transaction.description')
+    tbody
+      - @transactions.each do |transaction|
+        tr
+          td= transaction.id
+          td= transaction.amount
+          td= transaction.user
+          td= transaction.date
+          td= transaction.description
+
+= paginate @transactions

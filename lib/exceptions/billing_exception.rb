@@ -1,0 +1,1 @@
+class BillingException < SmartvpnException; end;

@@ -1,0 +1,20 @@
+- if options.any?
+  legend=t('billing.options.enabled')
+  table.table.table-bordered
+    thead
+      tr
+        th= t('billing.options.name')
+        th= t('billing.options.settings')
+        th= t('billing.options.subscription_status')
+    tbody
+      - options.each do |option|
+        tr.option
+          td= option.name
+          td
+            - if !current_user.connected?
+              = option_settings(option)
+              = option_toggle_button(option)
+            - else
+              = t('billing.options.disconnect_to_tune_options')
+          td= unsubscribe_option_button(option)
+

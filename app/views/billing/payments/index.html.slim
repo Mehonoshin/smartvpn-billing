@@ -1,0 +1,16 @@
+h2.title-divider
+  span
+    span.de-em
+      = "#{t('.accepted')} "
+      = t('.pay_systems')
+  small= t('.all')
+
+ul.thumbnails.block.customers
+  - @pay_systems.each do |pay_system|
+    li.span4.type-web
+      = link_to new_billing_payment_path(code: pay_system.code) do
+        span.inner-wrapper
+          span.img-wrapper
+            = image_tag "pay_system_logos/#{pay_system.code}_logo.png"
+          span.title= pay_system.name
+          span.description= pay_system.description

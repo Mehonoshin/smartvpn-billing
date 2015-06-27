@@ -1,0 +1,18 @@
+en:
+  main:
+    auth:
+      sign_in: "Sign in"
+      sign_up: "Sign up"
+  users:
+    sessions:
+      sign_in: "Sign in"
+      not_signed_up: "Not signed up?"
+      sign_up_here: "Sign"
+      email: ""
+      password: ""
+      remember_me: ""
+      client_entrance: ""
+      forgotten_password: ""
+  posts:
+    index:
+      posts_list: "Posts list"

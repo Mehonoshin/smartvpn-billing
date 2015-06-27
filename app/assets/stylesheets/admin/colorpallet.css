@@ -1,0 +1,147 @@
+
+	/*
+	 * USED WITH DEMO
+	 */
+	.square {
+		display: block;
+		float: left;
+		margin-right: 10px;
+		height: 20px;
+		width: 20px;
+	}
+	
+	/*
+	 * RESET BOOTSTRAP DEFAULT IE FILTER
+	 */
+	[class^="bg-"], 
+	[class*=" bg-"] {
+		filter:none !important;
+	}
+	
+	/*
+	 * TEXT COLOR
+	 */
+	.txt-color-blue {
+	  color: #57889C !important;
+	}
+	.txt-color-blueLight {
+	  color: #92A2A8 !important;
+	}
+	.txt-color-blueDark {
+	  color: #4c4f53 !important;
+	}
+	.txt-color-green {
+	  color: #356e35 !important;
+	}
+	.txt-color-greenLight {
+	  color: #71843f !important;
+	}
+	.txt-color-greenDark {
+	  color: #496949  !important;
+	}
+	.txt-color-red {
+	  color: #a90329 !important;
+	}
+	.txt-color-yellow {
+	  color: #b09b5b !important;
+	}
+	.txt-color-orange {
+	  color: #b19a6b !important;
+	}
+	.txt-color-orangeDark {
+	  color: #A57225 !important;
+	}
+	.txt-color-pink {
+	  color: #6e3671 !important;
+	}
+	.txt-color-pinkDark {
+	  color: #a8829f !important;
+	}
+	.txt-color-purple {
+	  color: #6E587A !important;
+	}
+	.txt-color-darken {
+	  color: #474544 !important;
+	}
+	.txt-color-lighten {
+	  color: #d5e7ec !important;
+	}
+	.txt-color-white {
+	  color: #ffffff !important;
+	}
+	.txt-color-grayDark {
+	  color: #525252 !important;
+	}
+	.txt-color-magenta {
+	  color: #ac5287 !important;
+	}
+	.txt-color-teal {
+	  color: #568a89 !important;
+	}
+	.txt-color-redLight {
+	  color: #a65858 !important;
+	}
+	
+	/*
+	 * BACKGROUNDS
+	 */
+	.bg-color-blue {
+	  background-color: #57889C !important;
+	}
+	.bg-color-blueLight {
+	  background-color: #92A2A8 !important;
+	}
+	.bg-color-blueDark {
+	  background-color: #4c4f53 !important;
+	}
+	.bg-color-green {
+	  background-color: #356e35 !important;
+	}
+	.bg-color-greenLight {
+	  background-color: #71843f !important;
+	}
+	.bg-color-greenDark {
+	  background-color: #496949  !important;
+	}
+	.bg-color-red {
+	  background-color: #a90329 !important;
+	}
+	.bg-color-yellow {
+	  background-color: #b09b5b !important;
+	}
+	.bg-color-orange {
+	  background-color: #C79121 !important;
+	}
+	.bg-color-orangeDark {
+	  background-color: #A57225 !important;
+	}
+	.bg-color-pink {
+	  background-color: #ac5287!important; 
+	}
+	.bg-color-pinkDark {
+	  background-color: #a8829f !important;
+	}
+	.bg-color-purple {
+	  background-color: #6E587A !important;
+	}
+	.bg-color-darken {
+	  background-color: #404040 !important;
+	}
+	.bg-color-lighten {
+	  background-color: #d5e7ec !important;
+	}
+	.bg-color-white {
+	  background-color: #ffffff !important;
+	}
+	.bg-color-grayDark {
+	  background-color: #525252 !important;
+	}
+	.bg-color-magenta {
+	  background-color: #6e3671 !important; 
+	}
+	.bg-color-teal {
+	  background-color: #568a89 !important;
+	}
+	.bg-color-redLight {
+	  background-color: #a65858 !important;
+	}

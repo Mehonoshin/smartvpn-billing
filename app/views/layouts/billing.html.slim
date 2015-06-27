@@ -1,0 +1,65 @@
+doctype html
+html lang="ru"
+  head
+    meta content="text/html; charset=UTF-8" http-equiv="Content-Type"
+    meta charset="utf-8"
+    title SmartVPN | Billing
+    meta content="width=device-width, initial-scale=1.0" name="viewport"
+    meta content="" name="description"
+    meta content="Themelize.me" name="author"
+    = render partial: "shared/rollbar_js"
+    = javascript_include_tag :application
+    = stylesheet_link_tag :application
+    = csrf_meta_tags
+    link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,300|Rambla|Calligraffitti" rel="stylesheet" type="text/css"
+
+  body.page.page-index-static
+    #navigation.wrapper
+      .navbar.navbar-static-top
+        .header
+          .header-inner.container
+            .row-fluid
+              .span6
+                = link_to root_path, class: "brand", title: "Home" do
+                  h1
+                    span Smart
+                    | VPN
+                    span .
+                .slogan
+                  = t('.billing')
+
+        .container
+          .navbar-inner
+            /! mobile collapse menu button
+            a.btn.btn-navbar.pull-left data-target=".nav-collapse" data-toggle="collapse"
+              span.icon-bar
+              span.icon-bar
+              span.icon-bar
+              span.icon-bar
+
+            /! user menu
+            ul.nav.user-menu.pull-right
+              li= button_to t('main.auth.sign_out'), destroy_user_session_path, method: :delete, class: "btn btn-primary login"
+
+            /! everything within this div is collapsed on mobile
+            .nav-collapse.collapse
+              /! main navigation
+              ul#main-menu.nav
+                li.home-link
+                  = link_to billing_root_path do
+                    i.icon-home.hidden-phone
+                    span.visible-phone Home
+                li= link_to t('.menu.servers'), billing_servers_path
+                li= link_to t('.menu.payment'), billing_payments_path
+                li= link_to t('.menu.options'), billing_options_path
+                li= link_to t('.menu.referrers'), billing_referrers_path
+                li= link_to t('.menu.feedback'), "http://smartvpn.zendesk.com/hc/ru"
+                li= link_to t('.menu.profile'), edit_user_registration_path
+
+          = render partial: "notifications"
+          = yield
+          = render partial: "shared/zendesk"
+
+
+  - if Rails.env.production?
+    = render partial: "shared/yandex_metrika"

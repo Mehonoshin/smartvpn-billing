@@ -1,0 +1,17 @@
+= page_title('Серверы', 'linux', @server.hostname)
+
+= show_for @server do |s|
+  = s.attribute :id
+  = s.attribute :hostname
+  = s.attribute :ip_address
+  = s.attribute :port
+  = s.attribute :protocol
+  = s.attribute :auth_key
+  = s.attribute :state
+  = s.attribute :config_file do
+    = link_to @server.hostname, generate_config_admin_server_path(@server)
+
+  = s.attribute :plans do
+    - @server.plans.each do |plan|
+      ul
+        li= link_to plan.name, edit_admin_plan_path(plan)

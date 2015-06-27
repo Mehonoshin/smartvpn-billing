@@ -1,0 +1,25 @@
+= page_title('Услуги', 'cogs')
+
+.jarviswidget.jarviswidget-color-blue.jarviswidget-sortable
+  = button_to "Добавить", new_admin_option_path, method: :get, class: "btn btn-primary"
+
+  br
+
+  table.table.table-bordered
+    thead
+      tr
+        th= "ID"
+        th= "Название"
+        th= "Код"
+        th= "Статус"
+        th
+
+    tbody
+      - @options.each do |option|
+        tr
+          td= option.id
+          td= option.name
+          td= option.code
+          td= option.state
+          th
+            = link_to "Изменить", edit_admin_option_path(option)

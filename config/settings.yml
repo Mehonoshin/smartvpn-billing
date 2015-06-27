@@ -1,0 +1,8 @@
+partners:
+  referrer_percent: 20
+
+servers:
+  sample_config_path: 'config/sample.smartvpn.biz.ovpn'
+
+mailchimp:
+  all_clients_list_id: ''

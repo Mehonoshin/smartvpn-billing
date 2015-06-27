@@ -1,0 +1,86 @@
+// Place all the styles related to the Main controller here.
+
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+html {
+  height: 100%;
+}
+body {
+  height: 100%;
+}
+ul.nav.nav-tabs {
+  li > a {
+    color: #00adbb;
+  }
+  li > a:hover {
+    color: #00adbb;
+  }
+
+}
+
+.navbar .nav {
+  float: none;
+}
+
+.green, .active, .enabled {
+  color: green;
+}
+
+.red, .disabled {
+  color: red;
+}
+
+.pending {
+  color: yellow;
+}
+
+.orange {
+  color: orange;
+}
+
+.bold, .state {
+  font-weight: bold;
+}
+
+.content {
+  margin-bottom: 20px;
+  min-height: 1000px;
+  height: 100%;
+}
+
+.notifications {
+  margin-top: 20px;
+}
+
+#footer {
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+}
+
+.container {
+  .info {
+    line-height: 0.7;
+  }
+}
+
+form.button_to {
+  margin: 0px;
+}
+
+.collapsable-credentials {
+  float: right;
+  position: relative;
+  top: -110px;
+  min-height: 20px;
+  max-width: 400px;
+  padding: 10px;
+
+  .vpn-credential {
+    display: none;
+  }
+}
+
+input.reflink-input {
+  width: 500px;
+}

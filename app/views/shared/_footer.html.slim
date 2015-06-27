@@ -1,0 +1,12 @@
+footer#footer
+  - if Rails.env.production?
+    = render partial: "shared/yandex_metrika"
+  .container
+    .row
+      .span3.col
+        .block.contact-block
+          h3 Контакты
+          address
+            p
+              abbr title="Email"
+                i.icon-envelope= " admin@smartvpn.biz"

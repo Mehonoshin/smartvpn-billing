@@ -1,0 +1,6 @@
+- if current_user.paid?
+  = render partial: 'subscribed_options', locals: { options: @subscribed_user_options }
+  = render partial: 'unsubscribed_options', locals: { options: @unsubscribed_user_options }
+- else
+  .alert.alert-warning= t('billing.options.notices.activate_subscription_first')
+

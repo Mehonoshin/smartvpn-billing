@@ -1,0 +1,25 @@
+= page_title('Платежные системы', 'money')
+
+.jarviswidget.jarviswidget-color-blue.jarviswidget-sortable
+  = button_to "Добавить", new_admin_pay_system_path, method: :get, class: "btn btn-primary"
+  br
+
+  table.table.table-bordered
+    thead
+      tr
+        th= "#"
+        th= "Название"
+        th= "Код"
+        th= "Статус"
+        th
+
+    tbody
+      - @pay_systems.each do |pay_system|
+        tr
+          td= pay_system.id
+          td= pay_system.title
+          td= pay_system.code
+          td class="state #{pay_system.state}"
+            = pay_system.human_state
+          th
+            = link_to "Изменить", edit_admin_pay_system_path(pay_system)

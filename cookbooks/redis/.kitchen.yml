@@ -1,0 +1,86 @@
+---
+driver_plugin: vagrant
+
+platforms:
+<% %w(11.6.0 10.26.0).each do |chef_version| %>
+- name: ubuntu-12.04-<%= chef_version %>-chef-redis
+  driver_config:
+    box: opscode-ubuntu-12.04
+    box_url: https://opscode-vm-bento.s3.amazonaws.com/vagrant/opscode_ubuntu-12.04_provisionerless.box
+    require_chef_omnibus: <%= chef_version %>
+  run_list:
+  - recipe[apt]
+- name: ubuntu-10.04-<%= chef_version %>-chef-redis
+  driver_config:
+    box: opscode-ubuntu-10.04
+    box_url: https://opscode-vm-bento.s3.amazonaws.com/vagrant/opscode_ubuntu-10.04_provisionerless.box
+    require_chef_omnibus: <%= chef_version %>
+  run_list:
+  - recipe[apt]
+- name: centos-6.4-<%= chef_version %>-chef-redis
+  driver_config:
+    box: opscode-centos-6.4
+    box_url: https://opscode-vm-bento.s3.amazonaws.com/vagrant/opscode_centos-6.4_provisionerless.box
+    require_chef_omnibus: <%= chef_version %>
+  run_list:
+  - recipe[yum::epel]
+- name: centos-5.9-<%= chef_version %>-chef-redis
+  driver_config:
+    box: opscode-centos-5.9
+    box_url: https://opscode-vm-bento.s3.amazonaws.com/vagrant/opscode_centos-5.9_provisionerless.box
+    require_chef_omnibus: <%= chef_version %>
+  run_list:
+  - recipe[yum::epel]
+- name: debian-7.1.0-<%= chef_version %>-chef-redis
+  driver_config:
+    box: opscode-debian-7.1.0
+    box_url: https://opscode-vm-bento.s3.amazonaws.com/vagrant/opscode_debian-7.1.0_provisionerless.box
+    require_chef_omnibus: <%= chef_version %>
+  run_list:
+  - recipe[apt]
+<% end %>
+suites:
+- name: sentinel
+  run_list:
+    - "recipe[redis::sentinel]"
+  attributes:
+    redis:
+      install_type: source
+- name: replication
+  run_list:
+    - "recipe[redis::data_bag]"
+  attributes:
+    redis:
+      instances:
+      - "memory"
+      - "persistant"
+      - "sentinel"
+- name: data_bag
+  run_list:
+    - "recipe[redis::data_bag]"
+  attributes:
+    redis:
+      instances:
+      - "memory_slave"
+      - "persistant"
+- name: package
+  run_list:
+    - "recipe[redis::server]"
+- name: source
+  run_list:
+    - "recipe[redis::server]"
+  attributes:
+    redis:
+      install_type: source
+      config:
+        logfile: /var/log/redis/server.log
+- name: slaveof
+  run_list:
+    - "recipe[redis::server]"
+  attributes:
+    redis:
+      install_type: source
+      config:
+        logfile: /var/log/redis/server.log
+        slaveof_ip: 198.18.0.1
+        slaveof_port: 3000

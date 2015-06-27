@@ -1,0 +1,9 @@
+= simple_form_for [:admin, @option] do |f|
+  = f.input :name
+  = f.input :code, input_html: { enabled: @option.new_record? }
+  = f.input :state, as: :select, collection: object_states_select_collection(Option)
+
+  legend Тарифы
+  = f.association :plans, as: :select
+
+  = f.submit "Применить"
