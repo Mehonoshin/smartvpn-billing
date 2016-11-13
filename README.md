@@ -1,4 +1,8 @@
-#### SmartVPN Billing
+## SmartVPN Billing
+
+### Installation
+
+All documentation is located in this repository: [https://github.com/Mehonoshin/smartvpn-docs](https://github.com/Mehonoshin/smartvpn-docs)
 
 
 ### Disclaimer
