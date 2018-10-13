@@ -18,8 +18,8 @@ ActiveRecord::Schema.define(version: 20150125141501) do
   enable_extension "hstore"
 
   create_table "admins", force: :cascade do |t|
-    t.string   "email",              limit: 255
-    t.string   "encrypted_password", limit: 255
+    t.string   "email"
+    t.string   "encrypted_password"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -29,18 +29,18 @@ ActiveRecord::Schema.define(version: 20150125141501) do
     t.integer  "server_id"
     t.float    "traffic_in"
     t.float    "traffic_out"
-    t.string   "type",              limit: 255
+    t.string   "type"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.json     "option_attributes"
   end
 
   create_table "options", force: :cascade do |t|
-    t.string   "name",       limit: 255
-    t.string   "code",       limit: 255
+    t.string   "name"
+    t.string   "code"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "state",      limit: 255
+    t.string   "state"
   end
 
   create_table "options_plans", id: false, force: :cascade do |t|
@@ -49,24 +49,24 @@ ActiveRecord::Schema.define(version: 20150125141501) do
   end
 
   create_table "pay_systems", force: :cascade do |t|
-    t.string   "name",        limit: 255
-    t.string   "code",        limit: 255
+    t.string   "name"
+    t.string   "code"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "description"
-    t.string   "state",       limit: 255
-    t.string   "currency",    limit: 255, default: "usd"
+    t.string   "state"
+    t.string   "currency",    default: "usd"
   end
 
   create_table "payments", force: :cascade do |t|
     t.integer  "user_id"
     t.decimal  "amount"
     t.integer  "pay_system_id"
-    t.string   "state",          limit: 255
+    t.string   "state"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.decimal  "usd_amount",                 precision: 12, scale: 2
-    t.boolean  "manual_payment",                                      default: false
+    t.decimal  "usd_amount",     precision: 12, scale: 2
+    t.boolean  "manual_payment",                          default: false
     t.text     "comment"
   end
 
@@ -78,36 +78,36 @@ ActiveRecord::Schema.define(version: 20150125141501) do
   end
 
   create_table "plans", force: :cascade do |t|
-    t.string   "name",          limit: 255
+    t.string   "name"
     t.decimal  "price"
     t.text     "description"
-    t.string   "code",          limit: 255
+    t.string   "code"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "special",                   default: false
-    t.boolean  "enabled",                   default: false
+    t.boolean  "special",       default: false
+    t.boolean  "enabled",       default: false
     t.hstore   "option_prices"
   end
 
   create_table "posts", force: :cascade do |t|
-    t.string   "title",      limit: 255
+    t.string   "title"
     t.text     "body"
-    t.string   "tags",       limit: 255
+    t.string   "tags"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "promos", force: :cascade do |t|
-    t.string   "name",          limit: 255
-    t.string   "type",          limit: 255
+    t.string   "name"
+    t.string   "type"
     t.date     "date_from"
     t.date     "date_to"
-    t.string   "promoter_type", limit: 255
-    t.string   "promo_code",    limit: 255
+    t.string   "promoter_type"
+    t.string   "promo_code"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.hstore   "attrs",                     default: {}
-    t.string   "state",         limit: 255
+    t.hstore   "attrs"
+    t.string   "state"
   end
 
   create_table "promotions", force: :cascade do |t|
@@ -122,20 +122,20 @@ ActiveRecord::Schema.define(version: 20150125141501) do
   create_table "proxy_connects", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "proxy_id"
-    t.string   "state",      limit: 255
+    t.string   "state"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "proxy_nodes", force: :cascade do |t|
-    t.string   "host",       limit: 255
+    t.string   "host"
     t.integer  "port"
-    t.string   "country",    limit: 255
-    t.string   "location",   limit: 255
+    t.string   "country"
+    t.string   "location"
     t.integer  "ping"
     t.integer  "bandwidth"
-    t.string   "protocol",   limit: 255
-    t.string   "anonymity",  limit: 255
+    t.string   "protocol"
+    t.string   "anonymity"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -149,16 +149,16 @@ ActiveRecord::Schema.define(version: 20150125141501) do
   end
 
   create_table "servers", force: :cascade do |t|
-    t.string   "hostname",     limit: 255
-    t.string   "ip_address",   limit: 255
-    t.string   "auth_key",     limit: 255
-    t.string   "state",        limit: 255
+    t.string   "hostname"
+    t.string   "ip_address"
+    t.string   "auth_key"
+    t.string   "state"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "config",       limit: 255
-    t.string   "protocol",     limit: 255, default: "udp"
-    t.integer  "port",                     default: 443
-    t.string   "country_code", limit: 255, default: "de"
+    t.string   "config"
+    t.string   "protocol",     default: "udp"
+    t.integer  "port",         default: 443
+    t.string   "country_code", default: "de"
   end
 
   add_index "servers", ["hostname"], name: "index_servers_on_hostname", unique: true, using: :btree
@@ -169,38 +169,37 @@ ActiveRecord::Schema.define(version: 20150125141501) do
     t.hstore   "attrs"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "state",      limit: 255
+    t.string   "state",      default: "enabled"
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                    limit: 255, default: "",    null: false
-    t.string   "encrypted_password",       limit: 255, default: "",    null: false
-    t.string   "reset_password_token",     limit: 255
+    t.string   "email",                    default: "",  null: false
+    t.string   "encrypted_password",       default: "",  null: false
+    t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",                        default: 0
+    t.integer  "sign_in_count",            default: 0
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip",       limit: 255
-    t.string   "last_sign_in_ip",          limit: 255
-    t.string   "confirmation_token",       limit: 255
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.string   "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
-    t.string   "unconfirmed_email",        limit: 255
-    t.integer  "failed_attempts",                      default: 0
-    t.string   "unlock_token",             limit: 255
+    t.string   "unconfirmed_email"
+    t.integer  "failed_attempts",          default: 0
+    t.string   "unlock_token"
     t.datetime "locked_at"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.decimal  "balance",                              default: 0.0
+    t.decimal  "balance",                  default: 0.0
     t.integer  "plan_id"
-    t.string   "vpn_login",                limit: 255
-    t.string   "vpn_password",             limit: 255
-    t.string   "state",                    limit: 255
-    t.integer  "can_not_withdraw_counter",             default: 0
-    t.string   "reflink",                  limit: 255
+    t.string   "vpn_login"
+    t.string   "vpn_password"
+    t.string   "state"
+    t.integer  "can_not_withdraw_counter", default: 0
+    t.string   "reflink"
     t.integer  "referrer_id"
-    t.boolean  "test_period_enabled",                  default: false
     t.integer  "period_length"
     t.datetime "test_period_started_at"
   end
