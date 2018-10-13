@@ -7,6 +7,7 @@ gem 'rails', '4.2.0'
 
 gem 'pg'
 gem 'pghero'
+gem 'thin'
 
 gem 'slim'
 gem 'cancan'
@@ -53,7 +54,6 @@ gem 'jquery-ui-rails'
 gem 'jbuilder', '~> 1.0.1'
 
 gem 'knife-solo'
-#gem 'ffi-rzmq'
 
 group :development do
   gem 'awesome_print'
@@ -61,7 +61,6 @@ group :development do
   gem "better_errors"
   gem 'letter_opener'
   gem 'migration_opener'
-  gem "dev_log_in"
   gem 'quiet_assets'
   gem 'forward'
   gem 'foreman'

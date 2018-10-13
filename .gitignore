@@ -18,7 +18,6 @@
 .powrc
 .DS_Store
 coverage/*
-bin/*
 
 config/settings.local.yml
 config/settings/*.local.yml

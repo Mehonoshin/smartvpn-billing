@@ -4,6 +4,10 @@
 
 All documentation is located in this repository: [https://github.com/Mehonoshin/smartvpn-docs](https://github.com/Mehonoshin/smartvpn-docs)
 
+### Running
+
+Visit [http://localhost:3000/admins/sign_in](http://localhost:3000/admins/sign_in) with `admin@smartvpn.biz:1234567`
+
 
 ### Disclaimer
 
