@@ -23,4 +23,6 @@ config/settings.local.yml
 config/settings/*.local.yml
 config/environments/*.local.yml
 
+.envrc
 public/uploads/*
+config/database.yml
