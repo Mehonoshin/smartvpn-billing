@@ -1,6 +1,20 @@
 # Additional translations at https://github.com/plataformatec/devise/wiki/I18n
 
 en:
+  users:
+    registrations:
+      edit:
+        edit_profile: 'Edit profile'
+        update: 'Apply'
+        cancel_registration: 'Cancel'
+        canceling_attention: >
+          Please note, this operation is irreversible!
+          Funds remaining on your account balance will not be returned!
+        confirm:
+          cancel_registration: >
+            Are you sure want to delete your profile?
+            It's irreversible and funds remaining on your account balance will be completely lost.
+
   errors:
     messages:
       expired: "has expired, please request a new one"
