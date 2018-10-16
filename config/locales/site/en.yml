@@ -1,18 +1,45 @@
 en:
   main:
+    billing: "Personal area"
     auth:
-      sign_in: "Sign in"
-      sign_up: "Sign up"
+      sign_in: "Sign In"
+      sign_up: "Sign Up"
+      sign_out: "Sign Out"
   users:
     sessions:
-      sign_in: "Sign in"
-      not_signed_up: "Not signed up?"
-      sign_up_here: "Sign"
-      email: ""
-      password: ""
-      remember_me: ""
-      client_entrance: ""
-      forgotten_password: ""
+      new:
+        sign_in: "Sign In"
+        not_signed_up: "Not signet up?"
+        sign_up_here: "Sign up here"
+        email: "Email"
+        password: "Password"
+        remember_me: "remember me"
+        client_entrance: "Sign in for clients"
+        forgotten_password: "Forget your password?"
+    registrations:
+      new:
+        registration: "Registration"
+        already_signed_up: "Already signed up?"
+        sign_in_here: "Sign in here"
+        price_plan: "Price plan plan"
+        account_information: "Account information"
+        email: "Email"
+        password: "Password"
+        password_confirmation: "Password confirmation"
+        accept: "Accept"
+        agreement: "user agreement"
+        sign_up: "Create account"
+    passwords:
+      new:
+        reset_password: "Password recovery"
+        sign_in_here: "Sign In"
+        email: "Your email"
+        send: "Send"
+      edit:
+        enter_new_password: "Enter new password"
+        new_password: "New password"
+        password_confirmation: "New password confirmation"
+        save: "Save"
   posts:
     index:
-      posts_list: "Posts list"
+      posts_list: "Blog"

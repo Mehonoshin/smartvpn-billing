@@ -2,27 +2,27 @@ ru:
   admins:
     sessions:
       new:
-        email: 'Email'
-        password: 'Пароль'
-        sign_in: 'Войти'
-        staff_entrance: 'Служебный вход'
+        email: "Email"
+        password: "Пароль"
+        sign_in: "Войти"
+        staff_entrance: "Служебный вход"
   admin:
     users:
-      current_connection: 'Текущее подключение'
-      not_connected: 'Нет подключения'
+      current_connection: "Текущее подключение"
+      not_connected: "Нет подключения"
       connected_to_server_at: "Подключен к серверу %{server} в %{date}"
-      not_paid: 'Не оплачен'
+      not_paid: "Не оплачен"
       prolongation_not_possible: "Пролонгация невозможна, у пользователя нет активного платежа"
-      new_payment: 'Пополнение баланса'
-      test_period: 'Тестовый доступ'
-      test_period_until: 'Активен c %{start} до %{finish}'
+      new_payment: "Пополнение баланса"
+      test_period: "Тестовый доступ"
+      test_period_until: "Активен c %{start} до %{finish}"
       filter:
-        never_paid_users: 'С нулевым оборотом'
+        never_paid_users: "С нулевым оборотом"
       notices:
-        payment_created: 'Баланс пользователя успешно пополнен'
-        test_period_enabled: 'Тестовый период активирован'
-        test_period_disabled: 'Тестовый период деактивирован'
+        payment_created: "Баланс пользователя успешно пополнен"
+        test_period_enabled: "Тестовый период активирован"
+        test_period_disabled: "Тестовый период деактивирован"
     pay_systems:
       states:
-        enabled: 'Включена'
-        disabled: 'Выключена'
+        enabled: "Включена"
+        disabled: "Выключена"

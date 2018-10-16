@@ -10,7 +10,7 @@ ru:
       new:
         sign_in: "Вход"
         not_signed_up: "Нет аккаунта?"
-        sign_up_here: " Регистрация"
+        sign_up_here: "Регистрация"
         email: "Email"
         password: "Пароль"
         remember_me: "Запомнить меня"
@@ -26,20 +26,20 @@ ru:
         email: "Email"
         password: "Пароль"
         password_confirmation: "Подтверждение пароля"
-        accept: 'Я принимаю'
+        accept: "Я принимаю"
         agreement: "пользовательское соглашение"
         sign_up: "Создать аккаунт"
     passwords:
       new:
-        reset_password: 'Восстановление пароля'
-        sign_in_here: 'Войти'
-        email: 'Ваш email'
-        send: 'Отправить'
+        reset_password: "Восстановление пароля"
+        sign_in_here: "Войти"
+        email: "Ваш email"
+        send: "Отправить"
       edit:
-        enter_new_password: 'Введите новый пароль'
-        new_password: 'Новый пароль'
-        password_confirmation: 'Подтвердите пароль'
-        save: 'Сохранить'
+        enter_new_password: "Введите новый пароль"
+        new_password: "Новый пароль"
+        password_confirmation: "Подтвердите пароль"
+        save: "Сохранить"
   posts:
     index:
       posts_list: "Блог"

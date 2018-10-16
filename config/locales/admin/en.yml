@@ -1,0 +1,28 @@
+en:
+  admins:
+    sessions:
+      new:
+        email: "Email"
+        password: "Password"
+        sign_in: "Log In"
+        staff_entrance: "Staff entrance"
+  admin:
+    users:
+      current_connection: "Current connection"
+      not_connected: "Not connected"
+      connected_to_server_at: "Connected to the server %{server} at %{date}"
+      not_paid: "Not paid"
+      prolongation_not_possible: "Prolongation is not possible, the user has no active payment"
+      new_payment: "New payment"
+      test_period: "Test period"
+      test_period_until: "Active from %{start} to %{finish}"
+      filter:
+        never_paid_users: "Never paid users"
+      notices:
+        payment_created: "The balance of the user is successfully replenished"
+        test_period_enabled: "Test period activated"
+        test_period_disabled: "Test period deactivated"
+    pay_systems:
+      states:
+        enabled: "Enabled"
+        disabled: "Disabled"
