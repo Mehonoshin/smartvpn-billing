@@ -12,7 +12,7 @@ ru:
         password: "Пароль"
         password_confirmation: "Подтверждение пароля"
         current_password: "Текущий пароль"
-        period_length: 'Длительность тестового периода'
+        period_length: "Длительность тестового периода"
       payment:
         amount: "Сумма"
         pay_system: "Платежная система"
@@ -28,27 +28,27 @@ ru:
         date_to: "Дата конца"
         name: "Название"
         types:
-          withdrawal: 'Списание'
-        state: 'Статус'
+          withdrawal: "Списание"
+        state: "Статус"
         states:
-          pending: 'Неактивна'
-          active: 'Активна'
-        promo_code: 'Промо-код'
+          pending: "Неактивна"
+          active: "Активна"
+        promo_code: "Промо-код"
       promoter:
         types:
-          discount: 'Скидка'
+          discount: "Скидка"
         attributes:
-          discount_percent: 'Скидка в процентах'
+          discount_percent: "Скидка в процентах"
       promotion:
-        promo_code: 'Введя промо код вы можете получить скидку или дополнительные опции бесплатно'
+        promo_code: "Введя промо код вы можете получить скидку или дополнительные опции бесплатно"
       pay_system:
-        name: 'Название'
-        code: 'Код'
-        description: 'Описание'
-        state: 'Статус'
+        name: "Название"
+        code: "Код"
+        description: "Описание"
+        state: "Статус"
     validations:
       user:
         accept_agreement: ""
-        regular_plan: "Вы выбрали некорретный тарифный план"
+        regular_plan: "Вы выбрали некорректный тарифный план"
       withdrawal:
         not_enough_funds: "Недостаточно средств для списания"

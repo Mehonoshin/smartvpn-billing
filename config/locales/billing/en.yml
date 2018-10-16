@@ -1,2 +1,159 @@
 en:
-
+  global:
+    free: "Free"
+    apply: "Accept"
+    authorize_please: "Please log in before proceeding"
+  layouts:
+    billing:
+      billing: "Personal area"
+      menu:
+        dashboard: "Dashboard"
+        profile: "Settings"
+        payment: "Payment"
+        feedback: "Instructions"
+        options: "Services"
+        referrers: "Affiliate program"
+        servers: "Servers"
+  user_mailer:
+    signature:
+      with_great_honor: "With respect"
+      support: "technical support"
+    funds_recieved:
+      hello: "Hello"
+      subject: "Your account balance is replenished"
+      your_balance_was_fulfilled_on: "Your account balance is replenished to"
+    balance_withdrawal:
+      subject: "The funds are debited from the account"
+      hello: "Hello"
+      we_have_withdrawed: "Your account has been charged a monthly fee of %{amount} USD."
+    could_not_withdraw_funds:
+      subject: "Insufficient funds to withdraw from the account"
+      hello: "Hello"
+      could_not_withdraw: "Your account balance does not allow you to debit the monthly payment of %{amount} USD. Please note that the VPN service will not be available until the payment is charged."
+    test_period_enabled:
+      subject: "Test period activated"
+      hello: "Hello"
+      test_period_is_activated: "Test access is activated for you"
+      test_period_range: "From %{from} to %{to}"
+      instructions: "To get started, configure the client and connect in accordance with the "Instructions" section in your account."
+    unpaid_user_notification:
+      subject: "Questions about SmartVPN.biz rates?"
+      message: "Hello!<br />
+        My name is Victor Ivanov, I am your manager in the service SmartVPN.biz.<br />
+        <br />
+        Today you have registered but have not replenished the balance in our system.<br />
+        Do you have any questions about rates or services? Or you have problems with replenishment of the account?<br />
+        <br />
+        If you have any questions, we are ready to help you :)"
+  transaction:
+    descriptions:
+      payment: "Replenishment through the payment system %{pay_system_name}"
+      withdrawal: "%{plan_name} tariff write-off"
+    id: "Number"
+    amount: "Amount"
+    date: "Date"
+    description: "Operation"
+    user: "User"
+  billing:
+    home:
+      index:
+      account_info:
+        account_info: "Account information"
+        balance: "Balance"
+        vpn_state: "VPN status"
+        plan: "Tariff plan"
+        vpn_credentials: "Details for connection"
+        login: "Login"
+        password: "Pasword"
+        test_period: "Test period: "
+        test_period_range: "from %{from} to %{to}"
+        states:
+          "true": "Enabled"
+          "false": "Disabled"
+        promotions: "Promo"
+      current_connection:
+        connection_info: "Information about connection"
+        connection_exists: "Have a current connection"
+        connection_server: "Connected to server"
+        not_exists: "No"
+        input: "Enter"
+        connection_status:
+          "true": "Yes"
+          "false": "No"
+        last_connect: "Last connection"
+        server: " to server"
+      last_transactions:
+        payments_stat: "Transaction history"
+    servers:
+      title: "Available servers"
+      country: "Country"
+      hostname: "Host"
+      port: "Port"
+      protocol: "Protocol"
+      config: "Config"
+      download_config: "Download"
+    payments:
+      index:
+        accepted: "Accepted"
+        pay_systems: "currencies"
+        all: "If you want to pay in a currency that is not in the list - please contact the support service"
+      new:
+        balance_fullfillment: "Balance replenishment"
+        submit: "Top up"
+      merchant:
+        payment_finalization: "The completion of the payment"
+        attention: "Attention!"
+        payment_finalization_text: "To complete the payment you need to click on the 'Pay' button. <br / > After that you will be redirected to the page of the selected payment system, and there you will be able to make a payment."
+        submit: "Pay"
+      notices:
+        success: "The funds were received and successfully credited to your account in the system"
+        fail: "An error occurred while receiving funds. Please contact technical support."
+    promotions:
+      notices:
+        promotion_activated: "The promo is activated"
+        no_promos_found: "There are no promotions for this promo code"
+        promotion_already_activated: "The promotion is already activated"
+    options:
+      available: "Available option"
+      enabled: "Active options"
+      name: "Name"
+      activate: "Connect"
+      deactivate: "Disconnect"
+      price: "Price/month"
+      settings: "Settings"
+      subscription_status: "Status"
+      disconnect_to_tune_options: "To configure the options - disconnect from VPN"
+      states:
+        enable: "Disable"
+        disable: "Enable"
+      confirms:
+        activate: "Are you sure you want to activate a paid service?"
+        deactivate: "Are you sure you want to disable the service?"
+      notices:
+        updated: "Service settings are saved"
+        activated: "The service has successfully activated"
+        deactivated: "The service has successfully deactivated"
+        not_activated: "It is impossible to activate the service"
+        activate_subscription_first: "Before connecting the services, you must activate the basic VPN service"
+    referrals:
+      title: "Affiliate program"
+      disclaimer: "It does not matter whether you own resources with high traffic (promoted sites, forums, blogs, etc.) or just are our client, we invite you to earn with us.
+      You can use several ways of our affiliate program.
+      <p/> the easiest is a referral link. Each of our registered users has a unique referral link. Place this link on third-party resources, sharing experience of cooperation with us and talking about the schemes of our service. Users who register on your referral link automatically become your referrals and you will receive a lifetime income of 10% of the profits from all payments.
+      <p/> you will have access to statistics on all payments that will make your referrals, as well as a complete history of your affiliate earnings."
+      total_amount: "Сirculation"
+      referrals: "Your referrals"
+      registration_date: "Registration date"
+      operations: "Account movement"
+      amount: "Amount"
+      date: "Date"
+      no_referrals: "You have no referrals yet"
+      no_operations: "You don't have affiliate rewards yet"
+      account_balance: "Balance: %{balance} $"
+  users:
+    registrations:
+      client_configs:
+        client_bundles: "Configuration files"
+        ca_download: "Download certificate"
+      promo:
+        promo_code: "Enter promo code"

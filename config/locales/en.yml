@@ -1,1 +1,54 @@
 en:
+  date:
+    formats:
+      default: "%d.%m.%Y"
+
+  activerecord:
+    models:
+      user: "User"
+    attributes:
+      user:
+        accept_agreement: "Accept agreement"
+        password: "Password"
+        password_confirmation: "Password confirmation"
+        current_password: "Current password"
+        period_length: "The duration of the test period"
+      payment:
+        amount: "Amount"
+        pay_system: "Payment system"
+        pay_system_id: "Payment system"
+        submit: "Submit"
+        created_at: "Operation date"
+        description: "Description"
+        comment: "Operator comment"
+      promo:
+        type: "Type"
+        promoter_type: "Promoter type"
+        date_from: "Start date"
+        date_to: "End date"
+        name: "Name"
+        types:
+          withdrawal: "Withdrawal"
+        state: "State"
+        states:
+          pending: "Pending"
+          active: "Active"
+        promo_code: "Promo code"
+      promoter:
+        types:
+          discount: "Discount"
+        attributes:
+          discount_percent: "Discount in percent"
+      promotion:
+        promo_code: "By entering the promo code you can get a discount or additional options for free"
+      pay_system:
+        name: "Name"
+        code: "Code"
+        description: "Description"
+        state: "State"
+    validations:
+      user:
+        accept_agreement: ""
+        regular_plan: "You have chosen an incorrect tariff plan"
+      withdrawal:
+        not_enough_funds: "Not enough funds to write off"

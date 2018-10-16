@@ -1,7 +1,7 @@
 ru:
   views:
     pagination:
-      next: "Следующая"
-      last: ">>"
-      first: "<<"
-      previous: "Предыдущая"
+      next: 'Следующая'
+      last: '>>'
+      first: '<<'
+      previous: 'Предыдущая'
