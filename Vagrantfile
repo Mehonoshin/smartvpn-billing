@@ -4,15 +4,14 @@
 require 'date'
 
 # Vagrantfile API/syntax version. Don't touch unless you know what you're doing!
-VAGRANTFILE_API_VERSION = "2"
-DEFAULT_BOX = "debian7"
-SUBNET = "192.168.33"
+VAGRANTFILE_API_VERSION = '2'
+DEFAULT_BOX = 'Sgoettschkes/debian7'
+SUBNET = '192.168.33'
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box = DEFAULT_BOX
-  config.vm.box_url = "https://dl.dropboxusercontent.com/u/5884236/vanilla-deb7.box"
 
-  config.vm.define "dev", primary: true do |dev|
+  config.vm.define 'dev', primary: true do |dev|
     dev.vm.network :private_network, ip: "#{SUBNET}.10"
     dev.vm.network :forwarded_port, guest: 5432, host: 5432 # pq
     dev.vm.network :forwarded_port, guest: 6379, host: 6379 # redis
@@ -22,6 +21,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       set -e
 
       DEBIAN_FRONTEND=noninteractive
+
+      apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 9D6D8F6BC857C906
+      apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 7638D0442B90D010
+      apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 7638D0442B90D010
 
       apt-get -qqy update
 
@@ -40,7 +43,7 @@ Value: true
 Owners: libssl1.0.0
 Flags: seen' >> /var/cache/debconf/config.dat
 
-        apt-get -qy install postgresql postgresql-contrib
+        apt-get -qyf install postgresql-10 postgresql-contrib-10 postgresql postgresql-contrib
 
         sed -i "s|#listen_addresses.*$|listen_addresses = '*' |g" /etc/postgresql/9.3/main/postgresql.conf
         echo "host    all             all             all               trust" > /etc/postgresql/9.3/main/pg_hba.conf
@@ -60,11 +63,11 @@ SCRIPT
     dev.vm.provision :shell, inline: script
   end
 
-  config.vm.define "stage" do |stage|
+  config.vm.define 'stage' do |stage|
     stage.vm.network :private_network, ip: "#{SUBNET}.11"
   end
 
-  config.vm.define "node" do |node|
+  config.vm.define 'node' do |node|
     node.vm.network :private_network, ip: "#{SUBNET}.12"
   end
 end
