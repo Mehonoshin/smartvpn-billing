@@ -27,3 +27,5 @@ config/environments/*.local.yml
 public/uploads/*
 config/database.yml
 .ruby-version
+
+.vagrant/
