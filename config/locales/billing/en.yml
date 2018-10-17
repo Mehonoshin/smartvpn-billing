@@ -40,13 +40,13 @@ en:
       instructions: 'To start using service, you need to setup VPN client and connect to the servers using instructions from your profile "Help" section.'
     unpaid_user_notification:
       subject: 'Do you have questions?'
-      message: 'Good afternoon!<br />
+      message: "Good afternoon!<br />
         My name is Victor. I am your personal manager from SmartVPN.biz.<br />
         <br />
         You have been registered today, but not credited your account balance.<br />
         Do you have a questions regarding services or price plans? Or you either have a problems with payment systems?<br />
         <br />
-        Should you have any questions, please don\'t hesitate to contact us any time.'
+        Should you have any questions, please don't hesitate to contact us any time."
 
   transaction:
     descriptions:

@@ -19,7 +19,7 @@ en:
       filter:
         never_paid_users: 'Never paying users'
       notices:
-        payment_created: 'User's balance successfully topped up'
+        payment_created: "User's account balance top-up successfully"
         test_period_enabled: 'Trial period activated'
         test_period_disabled: 'Trial period deactivated'
     pay_systems:
