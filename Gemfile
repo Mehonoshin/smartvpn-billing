@@ -3,6 +3,8 @@ source 'http://rubygems.org'
 # temporary disable http, until ruby upgrade with new openssl
 # source 'https://rubygems.org'
 
+ruby '2.1.1'
+
 gem 'rails', '4.2.0'
 
 gem 'pg'
