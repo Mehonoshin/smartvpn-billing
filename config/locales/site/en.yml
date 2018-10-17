@@ -1,18 +1,45 @@
 en:
   main:
+    billing: 'Profile'
     auth:
-      sign_in: "Sign in"
-      sign_up: "Sign up"
+      sign_in: 'Sign in'
+      sign_up: 'Sign up'
+      sign_out: 'Sign out'
   users:
     sessions:
-      sign_in: "Sign in"
-      not_signed_up: "Not signed up?"
-      sign_up_here: "Sign"
-      email: ""
-      password: ""
-      remember_me: ""
-      client_entrance: ""
-      forgotten_password: ""
+      new:
+        sign_in: 'Sign in'
+        not_signed_up: 'New user?'
+        sign_up_here: ' Sign up here'
+        email: 'Email'
+        password: 'Password'
+        remember_me: 'Remember me'
+        client_entrance: 'Registered users'
+        forgotten_password: 'Forgot password?'
+    registrations:
+      new:
+        registration: 'Sign up'
+        already_signed_up: 'Already registered?'
+        sign_in_here: 'Sign in here'
+        price_plan: 'Price plan'
+        account_information: 'Account info'
+        email: 'Email'
+        password: 'Password'
+        password_confirmation: 'Password confirmation'
+        accept: 'I accept'
+        agreement: 'end-user agreement'
+        sign_up: 'Create account'
+    passwords:
+      new:
+        reset_password: 'Password restore'
+        sign_in_here: 'Sign in'
+        email: 'Your email'
+        send: 'Restore'
+      edit:
+        enter_new_password: 'Enter new password'
+        new_password: 'New password'
+        password_confirmation: 'Confirm password'
+        save: 'Save'
   posts:
     index:
-      posts_list: "Posts list"
+      posts_list: 'Blog'
