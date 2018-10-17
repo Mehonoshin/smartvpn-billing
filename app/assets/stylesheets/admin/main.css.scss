@@ -26,7 +26,7 @@
     padding: 0;
     height: 100%;
     overflow-x: hidden !important;
-    /*background:url('../img/pattern/lightpaperfibers.png') repeat #fff;*/
+    /*background:image('pattern/lightpaperfibers.png') repeat #fff;*/
     background:image-url('mybg.png');
   }
   
@@ -703,7 +703,7 @@
     input[type="search"].ui-autocomplete-loading, 
     input[type="tel"].ui-autocomplete-loading, 
     input[type="color"].ui-autocomplete-loading {
-      background-image: url("../img/select2-spinner.gif") !important;
+      background-image: image("select2-spinner.gif") !important;
       background-repeat: no-repeat;
       background-position: 99% 50%;
       padding-right:27px
@@ -6238,7 +6238,7 @@
   }
   
   #login .hero {
-    background-image: url("../img/gradient/login.png");
+    background-image: image("gradient/login.png");
     background-repeat: no-repeat;
     background-position: 0 137px;
     height: 360px;
@@ -6710,7 +6710,7 @@ border-top-color: #F89406;
 }
 
 .editableform-loading {
-    background: url('../img/loading.gif') center center no-repeat;  
+    background: image('loading.gif') center center no-repeat;  
     height: 25px;
     width: auto; 
     min-width: 25px; 
@@ -6778,7 +6778,7 @@ border-top-color: #F89406;
 
 /* IOS-style clear button for text inputs */
 .editable-clear-x {
-   background: url('../img/clear.png') center center no-repeat;
+   background: image('clear.png') center center no-repeat;
    display: block;
    width: 13px;    
    height: 13px;
@@ -6952,7 +6952,7 @@ a.editable-click.editable-disabled:hover {
         text-decoration: none;
     
         border: 0;
-        background: url('../img/select2.png') right top no-repeat;
+        background: image('select2.png') right top no-repeat;
         cursor: pointer;
         outline: 0;
     }
@@ -7022,7 +7022,7 @@ a.editable-click.editable-disabled:hover {
         display: block;
         width: 100%;
         height: 100%;
-        background: url('../img/select2.png') no-repeat 0 1px;
+        background: image('select2.png') no-repeat 0 1px;
     }
     
     .select2-search {
@@ -7062,13 +7062,13 @@ a.editable-click.editable-disabled:hover {
            -moz-box-shadow: none;
                 box-shadow: none;
     
-        background: #fff url('../img/select2.png') no-repeat 100% 4px;
-        background: url('../img/select2.png') no-repeat 100% 4px, -webkit-gradient(linear, left bottom, left top, color-stop(0.85, white), color-stop(0.99, #eeeeee));
-        background: url('../img/select2.png') no-repeat 100% 4px, -webkit-linear-gradient(center bottom, white 85%, #eeeeee 99%);
-        background: url('../img/select2.png') no-repeat 100% 4px, -moz-linear-gradient(center bottom, white 85%, #eeeeee 99%);
-        background: url('../img/select2.png') no-repeat 100% 4px, -o-linear-gradient(bottom, white 85%, #eeeeee 99%);
-        background: url('../img/select2.png') no-repeat 100% 4px, -ms-linear-gradient(top, #ffffff 85%, #eeeeee 99%);
-        background: url('../img/select2.png') no-repeat 100% 4px, linear-gradient(top, #ffffff 85%, #eeeeee 99%);
+        background: #fff image('select2.png') no-repeat 100% 4px;
+        background: image('select2.png') no-repeat 100% 4px, -webkit-gradient(linear, left bottom, left top, color-stop(0.85, white), color-stop(0.99, #eeeeee));
+        background: image('select2.png') no-repeat 100% 4px, -webkit-linear-gradient(center bottom, white 85%, #eeeeee 99%);
+        background: image('select2.png') no-repeat 100% 4px, -moz-linear-gradient(center bottom, white 85%, #eeeeee 99%);
+        background: image('select2.png') no-repeat 100% 4px, -o-linear-gradient(bottom, white 85%, #eeeeee 99%);
+        background: image('select2.png') no-repeat 100% 4px, -ms-linear-gradient(top, #ffffff 85%, #eeeeee 99%);
+        background: image('select2.png') no-repeat 100% 4px, linear-gradient(top, #ffffff 85%, #eeeeee 99%);
     }
     
     .select2-drop.select2-drop-above .select2-search input {
@@ -7076,13 +7076,13 @@ a.editable-click.editable-disabled:hover {
     }
     
     .select2-search input.select2-active {
-        background: #fff url('../img/select2-spinner.gif') no-repeat 100%;
-        background: url('../img/select2-spinner.gif') no-repeat 100%, -webkit-gradient(linear, left bottom, left top, color-stop(0.85, white), color-stop(0.99, #eeeeee));
-        background: url('../img/select2-spinner.gif') no-repeat 100%, -webkit-linear-gradient(center bottom, white 85%, #eeeeee 99%);
-        background: url('../img/select2-spinner.gif') no-repeat 100%, -moz-linear-gradient(center bottom, white 85%, #eeeeee 99%);
-        background: url('../img/select2-spinner.gif') no-repeat 100%, -o-linear-gradient(bottom, white 85%, #eeeeee 99%);
-        background: url('../img/select2-spinner.gif') no-repeat 100%, -ms-linear-gradient(top, #ffffff 85%, #eeeeee 99%);
-        background: url('../img/select2-spinner.gif') no-repeat 100%, linear-gradient(top, #ffffff 85%, #eeeeee 99%);
+        background: #fff image('select2-spinner.gif') no-repeat 100%;
+        background: image('select2-spinner.gif') no-repeat 100%, -webkit-gradient(linear, left bottom, left top, color-stop(0.85, white), color-stop(0.99, #eeeeee));
+        background: image('select2-spinner.gif') no-repeat 100%, -webkit-linear-gradient(center bottom, white 85%, #eeeeee 99%);
+        background: image('select2-spinner.gif') no-repeat 100%, -moz-linear-gradient(center bottom, white 85%, #eeeeee 99%);
+        background: image('select2-spinner.gif') no-repeat 100%, -o-linear-gradient(bottom, white 85%, #eeeeee 99%);
+        background: image('select2-spinner.gif') no-repeat 100%, -ms-linear-gradient(top, #ffffff 85%, #eeeeee 99%);
+        background: image('select2-spinner.gif') no-repeat 100%, linear-gradient(top, #ffffff 85%, #eeeeee 99%);
     }
     
     .select2-container-active .select2-choice,
@@ -7204,7 +7204,7 @@ a.editable-click.editable-disabled:hover {
     }
     
     .select2-more-results.select2-active {
-        background: #f4f4f4 url('../img/select2-spinner.gif') no-repeat 100%;
+        background: #f4f4f4 image('select2-spinner.gif') no-repeat 100%;
     }
     
     .select2-more-results {
@@ -7285,7 +7285,7 @@ a.editable-click.editable-disabled:hover {
     }
     
     .select2-container-multi .select2-choices .select2-search-field input.select2-active {
-        background: #fff url('../img/select2-spinner.gif') no-repeat 100% !important;
+        background: #fff image('select2-spinner.gif') no-repeat 100% !important;
     }
     
     .select2-default {
