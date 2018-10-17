@@ -1,0 +1,7 @@
+ru:
+  views:
+    pagination:
+      next: 'Next'
+      last: '>>'
+      first: '<<'
+      previous: 'Previous'

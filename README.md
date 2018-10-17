@@ -11,6 +11,8 @@ You can find some information about it at [https://news.ycombinator.com/item?id=
 
 All documentation is located in this repository: [https://github.com/Mehonoshin/smartvpn-docs](https://github.com/Mehonoshin/smartvpn-docs)
 
+VPN node configuration is located in the following [repo](https://github.com/Mehonoshin/smartvpn-node).
+
 ### Up and Running with Docker
 
 For this type of installation we assume that you already have a VPS for billing with root access.

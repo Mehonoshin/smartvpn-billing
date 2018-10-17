@@ -1,0 +1,28 @@
+en:
+  admins:
+    sessions:
+      new:
+        email: 'Email'
+        password: 'Password'
+        sign_in: 'Sign in'
+        staff_entrance: 'Administration'
+  admin:
+    users:
+      current_connection: 'Current connection'
+      not_connected: 'No connection'
+      connected_to_server_at: 'Connected to server %{server} at %{date}'
+      not_paid: 'Unpaid'
+      prolongation_not_possible: 'Impossible to prolong. User has no active payment'
+      new_payment: 'Top up balance'
+      test_period: 'Trial account'
+      test_period_until: 'Active from %{start} to %{finish}'
+      filter:
+        never_paid_users: 'Never paying users'
+      notices:
+        payment_created: "User's account balance top-up successfully"
+        test_period_enabled: 'Trial period activated'
+        test_period_disabled: 'Trial period deactivated'
+    pay_systems:
+      states:
+        enabled: 'Activated'
+        disabled: 'Deactivated'

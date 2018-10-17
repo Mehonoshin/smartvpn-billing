@@ -1,1 +1,54 @@
 en:
+  date:
+    formats:
+      default: '%d.%m.%Y'
+
+  activerecord:
+    models:
+      user: 'User'
+    attributes:
+      user:
+        accept_agreement: 'Agreement acceptance'
+        password: 'Password'
+        password_confirmation: 'Password confirmation'
+        current_password: 'Current password'
+        period_length: 'Trail access period'
+      payment:
+        amount: 'Amount'
+        pay_system: 'Payment system'
+        pay_system_id: 'Payment system'
+        submit: 'Pay'
+        created_at: 'Transaction date'
+        description: 'Description'
+        comment: 'Comments'
+      promo:
+        type: 'Type'
+        promoter_type: 'Action'
+        date_from: 'Start date'
+        date_to: 'End date'
+        name: 'Name'
+        types:
+          withdrawal: 'Withdrawal'
+        state: 'Status'
+        states:
+          pending: 'Pending'
+          active: 'Active'
+        promo_code: 'Promo code'
+      promoter:
+        types:
+          discount: 'Discount'
+        attributes:
+          discount_percent: 'Discount %'
+      promotion:
+        promo_code: 'By entering promo code you can get a discount or additional services for free'
+      pay_system:
+        name: 'Name'
+        code: 'Code'
+        description: 'Description'
+        state: 'Status'
+    validations:
+      user:
+        accept_agreement: ''
+        regular_plan: 'Invalid price plan'
+      withdrawal:
+        not_enough_funds: 'Not enough funds'
