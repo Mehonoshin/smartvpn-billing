@@ -420,7 +420,7 @@
 	 */
 	
 	.widget-body-ajax-loading::before {
-		content: url('../img/ajax-loader.gif');
+		content: image('ajax-loader.gif');
 		padding-top:18%;
 		text-align:center;
 		font-weight:bold;
