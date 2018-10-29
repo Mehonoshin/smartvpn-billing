@@ -3,9 +3,9 @@ source 'http://rubygems.org'
 # temporary disable http, until ruby upgrade with new openssl
 # source 'https://rubygems.org'
 
-ruby '2.1.1'
+ruby '2.5.3'
 
-gem 'rails', '4.2.0'
+gem 'rails', '5.2.1'
 
 gem 'pg'
 gem 'pghero'
@@ -13,8 +13,8 @@ gem 'thin'
 
 gem 'slim'
 gem 'cancan'
-gem 'devise', '3.4.1'
-gem 'devise-i18n', '~> 0.10.3'
+gem 'devise'
+gem 'devise-i18n'
 gem 'rails-i18n'
 gem 'simple_form', github: 'plataformatec/simple_form'
 gem 'activemerchant'
@@ -23,13 +23,13 @@ gem 'kaminari'
 # Temporary broken with rails 4.2
 gem "active_model_serializers"#, github: 'rails-api/active_model_serializers', branch: '0-9-stable'
 
-gem 'ransack', '1.5.1'
+gem 'ransack'
 
 gem 'show_for', github: 'plataformatec/show_for'
-gem "rails_config"
-gem 'whenever', '0.9.0', require: false
+gem 'rails_config'
+gem 'whenever', require: false
 gem 'carrierwave'
-gem 'draper', '1.4.0'
+gem 'draper'
 gem 'russian_central_bank'
 gem 'mechanize'
 gem 'world-flags'
@@ -42,36 +42,35 @@ gem 'sidekiq-failures'
 gem 'rollbar'
 gem 'newrelic_rpm'
 
-gem 'thread_safe', '0.3.4'
+gem 'thread_safe'
 
 group :assets do
-  gem 'sass-rails',   '~> 5.0'
-  gem 'coffee-rails', '~> 4.1.0'
-  gem 'uglifier', '>= 1.0.3'
+  gem 'sass-rails'
+  gem 'coffee-rails'
+  gem 'uglifier'
 end
 
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 
-gem 'jbuilder', '~> 1.0.1'
+gem 'jbuilder'
 
 gem 'knife-solo'
 
 group :development do
   gem 'awesome_print'
-  gem 'web-console', '~> 2.0'
-  gem "better_errors"
+  gem 'web-console'
+  gem 'better_errors'
   gem 'letter_opener'
   gem 'migration_opener'
-  gem 'quiet_assets'
   gem 'forward'
   gem 'foreman'
 
-  gem 'capistrano', '~> 3.0.1'
-  gem 'capistrano-rbenv', '~> 2.0'
+  gem 'capistrano'
+  gem 'capistrano-rbenv'
   gem 'capistrano-bundler'
-  gem 'capistrano-rails', '~> 1.1.0'
-  gem 'capistrano-nc', '~> 0.1.0'
+  gem 'capistrano-rails'
+  gem 'capistrano-nc'
 
   gem 'rubocop', require: false
   gem 'sandi_meter', require: false
@@ -81,16 +80,16 @@ group :test, :development do
   gem 'rb-inotify', :require => false
   gem 'rb-fsevent', :require => false
   gem 'rb-fchange', :require => false
-  gem "hirb"
-  gem "vcr", "~> 2.3.0"
-  gem "mocha", require: false
+  gem 'hirb'
+  gem 'vcr'
+  gem 'mocha', require: false
   gem 'capybara'
   gem 'poltergeist'
-  gem 'database_cleaner', "1.0.0.RC1"
-  gem "shoulda-matchers", github: 'thoughtbot/shoulda-matchers'
+  gem 'database_cleaner'
+  gem 'shoulda-matchers', github: 'thoughtbot/shoulda-matchers'
   gem 'timecop'
-  gem "rspec-rails", '3.1.0'
-  gem "factory_girl_rails", "~> 4.0"
+  gem 'rspec-rails', '~> 3.8'
+  gem 'factory_girl_rails', '~> 4.0'
   gem 'faker'
 end
 
