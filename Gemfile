@@ -86,7 +86,7 @@ group :test, :development do
   gem 'database_cleaner', "1.0.0.RC1"
   gem "shoulda-matchers", github: 'thoughtbot/shoulda-matchers'
   gem 'timecop'
-  gem "rspec-rails", '3.1.0'
+  gem "rspec-rails"
   gem "factory_girl_rails", "~> 4.0"
   gem 'faker'
 end
