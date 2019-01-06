@@ -29,7 +29,7 @@ jobs:
       name: "Build docker image"
       services:
         - docker
-      install: true
+      install: false
       rvm: 2.5.3
       script: skip
       deploy:
@@ -37,6 +37,6 @@ jobs:
         script: bash bin/deploy
 
 stages:
-  - tests
+  - test
   - name: build
     if: branch = master AND type = push
