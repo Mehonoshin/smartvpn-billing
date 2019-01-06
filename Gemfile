@@ -3,9 +3,7 @@ source 'http://rubygems.org'
 # temporary disable http, until ruby upgrade with new openssl
 # source 'https://rubygems.org'
 
-ruby '2.1.1'
-
-gem 'rails', '4.2.0'
+gem 'rails', '4.2.10'
 
 gem 'pg'
 gem 'pghero'
@@ -13,11 +11,12 @@ gem 'thin'
 
 gem 'slim'
 gem 'cancan'
-gem 'devise', '3.4.1'
+gem 'devise', '4.5.0'
 gem 'devise-i18n', '~> 0.10.3'
 gem 'rails-i18n'
-gem 'simple_form', github: 'plataformatec/simple_form'
+gem 'simple_form'
 gem 'activemerchant'
+# TODO: switch to stable version
 gem 'state_machine', github: "pluginaweek/state_machine"
 gem 'kaminari'
 # Temporary broken with rails 4.2
@@ -25,6 +24,7 @@ gem "active_model_serializers"#, github: 'rails-api/active_model_serializers', b
 
 gem 'ransack', '1.5.1'
 
+# TODO: switch to stable version
 gem 'show_for', github: 'plataformatec/show_for'
 gem "rails_config"
 gem 'whenever', '0.9.0', require: false
@@ -37,12 +37,14 @@ gem 'gibbon'
 
 gem 'sinatra', require: false
 gem 'sidekiq'
-gem 'sidekiq-failures'
 
+# TODO: make it optional via ENV flag
 gem 'rollbar'
+# TODO: make it optional via ENV flag
 gem 'newrelic_rpm'
 
-gem 'thread_safe', '0.3.4'
+gem 'thread_safe', '0.3.6'
+gem 'json', '~> 1.8'
 
 group :assets do
   gem 'sass-rails',   '~> 5.0'
@@ -54,8 +56,6 @@ gem 'jquery-rails'
 gem 'jquery-ui-rails'
 
 gem 'jbuilder', '~> 1.0.1'
-
-gem 'knife-solo'
 
 group :development do
   gem 'awesome_print'
@@ -85,17 +85,13 @@ group :test, :development do
   gem "vcr", "~> 2.3.0"
   gem "mocha", require: false
   gem 'capybara'
-  gem 'poltergeist'
   gem 'database_cleaner', "1.0.0.RC1"
+  # TODO: switch to stable version
   gem "shoulda-matchers", github: 'thoughtbot/shoulda-matchers'
   gem 'timecop'
-  gem "rspec-rails", '3.1.0'
+  gem "rspec-rails"
   gem "factory_girl_rails", "~> 4.0"
   gem 'faker'
-end
-
-group :production do
-  gem 'unicorn'
 end
 
 group :test do

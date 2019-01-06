@@ -47,6 +47,8 @@ describe Billing::WebmoneyController do
         let(:attrs) { Hash["LMI_MODE"=>"1", "LMI_PAYMENT_AMOUNT"=>"9.99", "LMI_PAYEE_PURSE"=>"Z164234536204", "LMI_PAYMENT_NO"=>"15", "LMI_PAYER_WM"=>"273350110703", "LMI_PAYER_PURSE"=>"Z133417776395", "LMI_SYS_INVS_NO"=>"407", "LMI_SYS_TRANS_NO"=>"601", "LMI_SYS_TRANS_DATE"=>"20131129 16:39:38", "LMI_HASH"=>"EDB5707A4FFC27225E59BFBB1CFB5CEA", "LMI_PAYMENT_DESC"=>"#15", "LMI_LANG"=>"ru-RU"] }
 
         before do
+          ActiveMerchant::Billing::Integrations::Webmoney::Notification.any_instance.expects(:recognizes?).returns(true)
+          ActiveMerchant::Billing::Integrations::Webmoney::Notification.any_instance.expects(:acknowledge).returns(true)
           Payment.stubs(:find).returns(payment)
           post :result, attrs
         end

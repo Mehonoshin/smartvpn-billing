@@ -7,13 +7,12 @@ require 'rspec/rails'
 require 'sidekiq/testing'
 require 'capybara/rails'
 require 'capybara/rspec'
-require 'capybara/poltergeist'
 require 'shoulda-matchers'
 Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
 Dir[Rails.root.join("app/helpers/**/*.rb")].each {|f| require f}
 Dir[Rails.root.join("spec/shared_examples/*.rb")].each {|f| require f}
 
-Capybara.javascript_driver = :poltergeist
+Capybara.javascript_driver = :selenium_chrome_headless
 Zonebie.set_random_timezone
 FakeWeb.allow_net_connect = false
 ActiveRecord::Migration.check_pending! if defined?(ActiveRecord::Migration)
@@ -31,7 +30,7 @@ RSpec.configure do |config|
   config.infer_spec_type_from_file_location!
 
   config.include ApplicationHelper, :type => :feature
-  config.include Devise::TestHelpers, :type => :controller
+  config.include Devise::Test::ControllerHelpers, :type => :controller
   config.include FactoryGirl::Syntax::Methods
   config.include Requests::JsonHelpers, :type => :controller
   config.extend  Requests::ControllerMacros, :type => :controller

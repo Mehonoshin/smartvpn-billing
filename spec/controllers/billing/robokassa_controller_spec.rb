@@ -23,6 +23,7 @@ describe Billing::RobokassaController do
       let(:attrs) { Hash["OutSum"=>"9.99", "InvId"=>"10", "SignatureValue"=>"D25F8F107E3482EF3CCAFC620CC8BA3E"] }
 
       before do
+        ActiveMerchant::Billing::Integrations::Robokassa::Notification.any_instance.expects(:acknowledge).returns(true)
         Payment.stubs(:find).returns(payment)
         post :result, attrs
       end
@@ -40,5 +41,4 @@ describe Billing::RobokassaController do
       end
     end
   end
-
 end

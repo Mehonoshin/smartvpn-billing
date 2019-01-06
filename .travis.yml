@@ -1,0 +1,22 @@
+dist: xenial
+language: ruby
+sudo: true
+
+rvm:
+  - 2.1.2
+  - 2.5.3
+  - 2.6.0
+
+services:
+  - postgresql
+  - redis-server
+
+before_install:
+  - gem install bundler -v '1.17.3'
+  - cp config/database.yml.sample config/database.yml
+
+before_script:
+  - bundle exec rake db:create
+  - bundle exec rake db:schema:load
+
+script: bundle exec rspec
