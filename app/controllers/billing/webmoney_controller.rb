@@ -1,3 +1,5 @@
+# This controller contains endpoints for Webmoney paysystem HTTP callbacks,
+# that notifies system about incoming payments.
 class Billing::WebmoneyController < Billing::MerchantController
   include ActiveMerchant::Billing::Integrations
 

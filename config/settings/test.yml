@@ -1,10 +1,10 @@
 robokassa:
-  login: ""
-  secret1: ""
-  secret2: ""
+  login: "login"
+  secret1: "password"
+  secret2: "password2"
 webmoney:
-  secret: ""
+  secret: "secret value"
   wallet:
-    wmz: ""
+    wmz: "Z1234567890"
 mailchimp:
   api_key: ''

@@ -1,3 +1,5 @@
+# This controller contains endpoints for Robokassa paysystem HTTP callbacks,
+# that notifies system about incoming payments.
 class Billing::RobokassaController < Billing::MerchantController
   include ActiveMerchant::Billing::Integrations
 
@@ -21,5 +23,4 @@ class Billing::RobokassaController < Billing::MerchantController
   def payment_id
     params["InvId"]
   end
-
 end
