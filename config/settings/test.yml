@@ -7,4 +7,4 @@ webmoney:
   wallet:
     wmz: "Z1234567890"
 mailchimp:
-  api_key: ''
+  api_key: 'mailchimp-key'
