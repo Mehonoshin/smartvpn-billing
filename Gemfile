@@ -85,7 +85,6 @@ group :test, :development do
   gem "vcr", "~> 2.3.0"
   gem "mocha", require: false
   gem 'capybara'
-  gem 'poltergeist'
   gem 'database_cleaner', "1.0.0.RC1"
   gem "shoulda-matchers", github: 'thoughtbot/shoulda-matchers'
   gem 'timecop'
