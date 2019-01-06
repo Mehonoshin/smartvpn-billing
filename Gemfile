@@ -16,6 +16,7 @@ gem 'devise-i18n', '~> 0.10.3'
 gem 'rails-i18n'
 gem 'simple_form'
 gem 'activemerchant'
+# TODO: switch to stable version
 gem 'state_machine', github: "pluginaweek/state_machine"
 gem 'kaminari'
 # Temporary broken with rails 4.2
@@ -23,6 +24,7 @@ gem "active_model_serializers"#, github: 'rails-api/active_model_serializers', b
 
 gem 'ransack', '1.5.1'
 
+# TODO: switch to stable version
 gem 'show_for', github: 'plataformatec/show_for'
 gem "rails_config"
 gem 'whenever', '0.9.0', require: false
@@ -84,6 +86,7 @@ group :test, :development do
   gem "mocha", require: false
   gem 'capybara'
   gem 'database_cleaner', "1.0.0.RC1"
+  # TODO: switch to stable version
   gem "shoulda-matchers", github: 'thoughtbot/shoulda-matchers'
   gem 'timecop'
   gem "rspec-rails"
