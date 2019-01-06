@@ -1,0 +1,7 @@
+dist: xenial
+language: ruby
+sudo: true
+
+rvm:
+  - 2.1.1
+  - 2.6.0
