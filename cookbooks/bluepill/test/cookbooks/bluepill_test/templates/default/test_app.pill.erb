@@ -1,8 +1,0 @@
-# -*- mode: ruby -*-
-Bluepill.application("test_app") do |app|
-  app.process("netcat") do |process|
-    process.pid_file = "/var/run/netcat.pid"
-    process.start_command = "sh -c 'echo <%= node['bluepill_test']['secret'] %> | " +
-      "nc -v localhost <%= node['bluepill_test']['tcp_server_listen_port'] %>'; sleep"
-  end
-end

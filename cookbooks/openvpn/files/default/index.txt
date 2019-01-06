@@ -1,1 +1,0 @@
-V	230731141239Z		01	unknown	/C=SC/ST=SC/L=Victoria/O=SmartVPN Ltd./OU=OpenVPN Server/CN=server/emailAddress=admin@smartvpn.biz

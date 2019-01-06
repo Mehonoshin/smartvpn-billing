@@ -29,3 +29,4 @@ config/database.yml
 .ruby-version
 
 .vagrant/
+sandi_meter/**/*

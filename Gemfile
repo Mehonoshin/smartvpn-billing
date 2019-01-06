@@ -63,16 +63,7 @@ group :development do
   gem "better_errors"
   gem 'letter_opener'
   gem 'migration_opener'
-  gem 'quiet_assets'
-  gem 'forward'
   gem 'foreman'
-
-  gem 'capistrano', '~> 3.0.1'
-  gem 'capistrano-rbenv', '~> 2.0'
-  gem 'capistrano-bundler'
-  gem 'capistrano-rails', '~> 1.1.0'
-  gem 'capistrano-nc', '~> 0.1.0'
-
   gem 'rubocop', require: false
   gem 'sandi_meter', require: false
 end
