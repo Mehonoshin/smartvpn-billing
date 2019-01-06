@@ -1,9 +1,0 @@
-{
-  "smartvpn": {
-    "current_ruby_version": "2.1.1"
-  },
-
-  "run_list": [
-    "role[billing]"
-  ]
-}
