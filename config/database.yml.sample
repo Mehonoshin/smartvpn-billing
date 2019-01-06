@@ -1,20 +1,18 @@
-development:
+default: &default
   adapter: postgresql
-  encoding: unicode
-  database: smartvpn_development
-  pool: 5
-  username: postgres
-  host: localhost
-  min_messages: WARNING
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  host: <%= ENV.fetch('PGHOST') { 'localhost ' } %>
+  user: <%= ENV.fetch('PGUSER') { 'postgres' } %>
+  password: <%= ENV.fetch('PGPASS') { 'root' } %>
+  timeout: 5000
+
+development:
+  <<: *default
+  database: <%= ENV.fetch('PGDATABASE') { 'smartvpn_development' } %>
 
 test:
-  adapter: postgresql
-  encoding: unicode
-  database: smartvpn_test
-  pool: 5
-  username: postgres
-  host: localhost
-  min_messages: WARNING
+  <<: *default
+  database: <%= ENV.fetch('PGDATABASE') { 'smartvpn_test' } %>
 
 production:
   adapter: postgresql
@@ -23,3 +21,5 @@ production:
   username: postgres
   password: root
   host: postgres
+
+

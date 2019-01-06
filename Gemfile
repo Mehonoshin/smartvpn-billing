@@ -3,8 +3,6 @@ source 'http://rubygems.org'
 # temporary disable http, until ruby upgrade with new openssl
 # source 'https://rubygems.org'
 
-ruby '2.1.1'
-
 gem 'rails', '4.2.0'
 
 gem 'pg'
@@ -43,6 +41,7 @@ gem 'rollbar'
 gem 'newrelic_rpm'
 
 gem 'thread_safe', '0.3.4'
+gem 'json', '~> 1.8'
 
 group :assets do
   gem 'sass-rails',   '~> 5.0'
@@ -54,8 +53,6 @@ gem 'jquery-rails'
 gem 'jquery-ui-rails'
 
 gem 'jbuilder', '~> 1.0.1'
-
-gem 'knife-solo'
 
 group :development do
   gem 'awesome_print'
@@ -91,10 +88,6 @@ group :test, :development do
   gem "rspec-rails", '3.1.0'
   gem "factory_girl_rails", "~> 4.0"
   gem 'faker'
-end
-
-group :production do
-  gem 'unicorn'
 end
 
 group :test do
