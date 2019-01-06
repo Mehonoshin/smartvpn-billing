@@ -1,3 +1,5 @@
 #!/bin/bash
 
+docker login -u "$DOCKER_HUB_USERNAME" -p "$DOCKER_HUB_PASSWORD"
 docker build --build-arg secret_token=$SECRET_TOKEN -t mexx/smartvpn-billing .
+docker push mexx/smartvpn-billing
