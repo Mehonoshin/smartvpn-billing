@@ -3,7 +3,7 @@ source 'http://rubygems.org'
 # temporary disable http, until ruby upgrade with new openssl
 # source 'https://rubygems.org'
 
-gem 'rails', '4.2.0'
+gem 'rails', '4.2.10'
 
 gem 'pg'
 gem 'pghero'
@@ -11,10 +11,10 @@ gem 'thin'
 
 gem 'slim'
 gem 'cancan'
-gem 'devise', '3.4.1'
+gem 'devise', '4.5.0'
 gem 'devise-i18n', '~> 0.10.3'
 gem 'rails-i18n'
-gem 'simple_form', github: 'plataformatec/simple_form'
+gem 'simple_form'
 gem 'activemerchant'
 gem 'state_machine', github: "pluginaweek/state_machine"
 gem 'kaminari'
@@ -35,12 +35,13 @@ gem 'gibbon'
 
 gem 'sinatra', require: false
 gem 'sidekiq'
-gem 'sidekiq-failures'
 
+# TODO: make it optional via ENV flag
 gem 'rollbar'
+# TODO: make it optional via ENV flag
 gem 'newrelic_rpm'
 
-gem 'thread_safe', '0.3.4'
+gem 'thread_safe', '0.3.6'
 gem 'json', '~> 1.8'
 
 group :assets do

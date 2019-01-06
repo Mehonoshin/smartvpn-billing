@@ -18,7 +18,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   private
 
   def set_additional_permitted_params
-    devise_parameter_sanitizer.for(:sign_up) do |u|
+    devise_parameter_sanitizer.permit(:sign_up) do |u|
       u.permit(:plan_id, :accept_agreement, :email, :password, 
                :password_confirmation, :referrer_id)
     end
