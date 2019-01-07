@@ -29,6 +29,5 @@ describe 'User sign up:' do
     token_value = extract_token_from_email(token_name)
     visit("/users/confirmation?#{token_name}=#{token_value}")
     expect(page).to have_content I18n.t('devise.confirmations.confirmed')
-
   end
 end

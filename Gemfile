@@ -83,6 +83,7 @@ group :test, :development do
   gem "factory_girl_rails", "~> 4.0"
   gem 'faker'
   gem 'selenium-webdriver'
+  gem 'pry-rails'
 end
 
 group :test do

@@ -5,6 +5,8 @@ describe 'server plans' do
   let!(:plan2) { create(:plan, name: 'plan2') }
   let!(:server) { create(:server) }
 
+  before { I18n.locale = :ru }
+
   it 'displays multiple plan select and updates server' do
     sign_in_admin
     visit edit_admin_server_path(server)

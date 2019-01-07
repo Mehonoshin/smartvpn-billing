@@ -11,6 +11,7 @@ describe 'enabling options' do
     sign_in
     user.plan.options << option
     user.plan.update(option_prices: {option.code => option_price})
+    I18n.locale = :ru
   end
 
   context 'user has withdrawal' do
