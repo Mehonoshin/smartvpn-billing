@@ -38,6 +38,15 @@ Now the billing is ready and you can try to access it:
 
 To accept the first users you need at least one tariff plan, that can be added at [http://vps_ip/admin/plans](http://vps_ip/admin/plans).
 
+## Docker image
+
+```
+docker pull mexx/smartvpn-billing
+```
+
+[mexx/smartvpn-billing](https://hub.docker.com/r/mexx/smartvpn-billing)
+
+
 ## Dockerization todo
 
 * Document the list of ENV variables required for production
