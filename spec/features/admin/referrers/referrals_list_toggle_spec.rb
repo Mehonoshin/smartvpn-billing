@@ -9,6 +9,7 @@ describe 'referrers page', js: true do
   before do
     2.times { create(:user, referrer: referrer1) }
     3.times { create(:user, referrer: referrer2) }
+    I18n.locale = :en
   end
 
   it 'toggles referrals on click on table line', disable_transaction: true do

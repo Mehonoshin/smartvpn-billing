@@ -55,6 +55,7 @@ gem 'jquery-rails'
 gem 'jquery-ui-rails'
 
 gem 'jbuilder', '~> 1.0.1'
+gem 'puma'
 
 group :development do
   gem 'awesome_print'
@@ -72,7 +73,7 @@ group :test, :development do
   gem 'rb-fsevent', :require => false
   gem 'rb-fchange', :require => false
   gem "hirb"
-  gem "vcr", "~> 2.3.0"
+  gem "vcr"
   gem "mocha", require: false
   gem 'capybara'
   gem 'database_cleaner', "1.0.0.RC1"
@@ -88,6 +89,7 @@ end
 
 group :test do
   gem 'simplecov', require: false
-  gem 'fakeweb'
+  # TODO: switch to webmock since fakeweb is not supported anymore
+  gem 'fakeweb', github: 'chrisk/fakeweb'
   gem 'zonebie'
 end
