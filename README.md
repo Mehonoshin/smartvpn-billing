@@ -40,11 +40,13 @@ To accept the first users you need at least one tariff plan, that can be added a
 
 ## Docker image
 
+The docker image is built automatically on every merge to master. You can always pull the latest version of the image from Docker Hub.
+
 ```
 docker pull mexx/smartvpn-billing
 ```
 
-[mexx/smartvpn-billing](https://hub.docker.com/r/mexx/smartvpn-billing)
+For more information about the builds visit docker hub page [mexx/smartvpn-billing](https://hub.docker.com/r/mexx/smartvpn-billing)
 
 
 ## Dockerization todo
