@@ -41,10 +41,7 @@ jobs:
         - docker
       install: false
       rvm: 2.5.3
-      script: skip
-      deploy:
-        provider: script
-        script: bash bin/deploy
+      script: bash bin/build_image
 
 stages:
   - test
