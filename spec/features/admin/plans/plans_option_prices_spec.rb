@@ -5,6 +5,8 @@ describe 'Plans option prices' do
   let!(:option) { create(:option) }
   let!(:option_price) { "777" }
 
+  before { I18n.locale = :ru }
+
   context 'option inactive' do
     it 'does now display option at select' do
       sign_in_admin

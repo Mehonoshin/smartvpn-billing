@@ -98,6 +98,9 @@ GEM
       rack-test (>= 0.6.3)
       regexp_parser (~> 1.2)
       xpath (~> 3.2)
+    capybara-email (3.0.1)
+      capybara (>= 2.4, < 4.0)
+      mail
     carrierwave (0.8.0)
       activemodel (>= 3.2.0)
       activesupport (>= 3.2.0)
@@ -414,6 +417,7 @@ DEPENDENCIES
   better_errors
   cancan
   capybara
+  capybara-email
   carrierwave
   coffee-rails (~> 4.1.0)
   database_cleaner (= 1.0.0.RC1)

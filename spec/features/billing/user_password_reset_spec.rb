@@ -23,7 +23,7 @@ describe 'Password reset' do
 
     ## Follow email link
     token_name = 'reset_password_token'
-    token_value = extract_token_from_email(token_name)
+    token_value = extract_token_from_email(token_name, last_email)
     visit("/users/password/edit?#{token_name}=#{token_value}")
 
     ## Edit password page

@@ -7,6 +7,7 @@ require 'rspec/rails'
 require 'sidekiq/testing'
 require 'capybara/rails'
 require 'capybara/rspec'
+require 'capybara/email/rspec'
 require 'shoulda-matchers'
 Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
 Dir[Rails.root.join("app/helpers/**/*.rb")].each {|f| require f}

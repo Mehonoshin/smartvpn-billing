@@ -92,4 +92,5 @@ group :test do
   # TODO: switch to webmock since fakeweb is not supported anymore
   gem 'fakeweb', github: 'chrisk/fakeweb'
   gem 'zonebie'
+  gem 'capybara-email'
 end
