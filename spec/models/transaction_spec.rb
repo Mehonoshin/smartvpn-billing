@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 describe Transaction do
@@ -16,7 +18,7 @@ describe Transaction do
       create(:payment)
     end
 
-    it "returns user transactions list" do
+    it 'returns user transactions list' do
       expect(subject.user_transactions(user).size).to eq 2
     end
 
@@ -26,27 +28,27 @@ describe Transaction do
     end
   end
 
-  describe ".all" do
+  describe '.all' do
     subject { described_class.all }
     let!(:transaction1) { create(:payment, created_at: 1.day.ago, state: 'accepted') }
     let!(:transaction2) { create(:payment, created_at: 3.day.ago, state: 'accepted') }
     let!(:transaction3) { create(:withdrawal, created_at: 4.day.ago) }
     let!(:transaction4) { create(:withdrawal, created_at: 2.day.ago) }
 
-    it "returns array" do
+    it 'returns array' do
       expect(subject.class).to eq Array
     end
 
-    it "returns collection of payments and withdrawals" do
+    it 'returns collection of payments and withdrawals' do
       expect(subject.count).to eq 4
     end
 
-    it "orders transactions on created_at value" do
-      expect(subject.map{ |t| t.created_at.to_i }).to eq [transaction1.created_at.to_i, transaction4.created_at.to_i, transaction2.created_at.to_i, transaction3.created_at.to_i]
+    it 'orders transactions on created_at value' do
+      expect(subject.map { |t| t.created_at.to_i }).to eq [transaction1.created_at.to_i, transaction4.created_at.to_i, transaction2.created_at.to_i, transaction3.created_at.to_i]
     end
   end
 
-  describe "numerates transactions" do
+  describe 'numerates transactions' do
     let!(:other_transaction1) { create(:withdrawal) }
     let!(:other_transaction2) { create(:withdrawal) }
     let!(:user_transaction1) { create(:withdrawal, user: user) }
@@ -59,7 +61,7 @@ describe Transaction do
     end
   end
 
-  describe "#amount" do
+  describe '#amount' do
     subject { Transaction.new(1, object) }
 
     context 'payment transaction' do

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreatePromotions < ActiveRecord::Migration
   def change
     create_table :promotions do |t|

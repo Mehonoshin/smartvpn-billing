@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Admin::UsersSerializer
   attr_accessor :collection, :format
 
@@ -7,9 +9,7 @@ class Admin::UsersSerializer
   end
 
   def emails
-    if csv?
-      collection.map(&:email).join(',')
-    end
+    collection.map(&:email).join(',') if csv?
   end
 
   private

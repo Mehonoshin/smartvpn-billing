@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Dto::Admin::Dashboard < Dto::Base
   DESCRETE_DAYS_NUMBER = 12
   attr_accessor :income, :customers, :traffic, :courses
@@ -10,15 +12,18 @@ class Dto::Admin::Dashboard < Dto::Base
   private
 
   def collect_data
-    @income, @customers, @traffic, @courses = {}, {}, {}, {}
+    @income = {}
+    @customers = {}
+    @traffic = {}
+    @courses = {}
     fetch_courses
     assign_total_statistics
     assign_discrete_total_statistics
   end
 
   def fetch_courses
-    @courses[:rub_usd] = Currencies::Course.new("rub", "usd").get.to_f
-    @courses[:eur_usd] = Currencies::Course.new("eur", "usd").get.to_f
+    @courses[:rub_usd] = Currencies::Course.new('rub', 'usd').get.to_f
+    @courses[:eur_usd] = Currencies::Course.new('eur', 'usd').get.to_f
     @courses[:updated_at] = Currencies::Course.updated_at.try(:to_datetime)
   end
 
@@ -38,5 +43,4 @@ class Dto::Admin::Dashboard < Dto::Base
     customers = Dto::Admin::DescreteCustomersRegistrations.new(DESCRETE_DAYS_NUMBER)
     @customers[:discrete] = customers.amounts.sort.map { |date| date[1] }
   end
-
 end

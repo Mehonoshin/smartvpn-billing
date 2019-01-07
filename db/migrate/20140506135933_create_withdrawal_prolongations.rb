@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateWithdrawalProlongations < ActiveRecord::Migration
   def change
     create_table :withdrawal_prolongations do |t|

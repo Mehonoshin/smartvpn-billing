@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 describe Option do
@@ -7,11 +9,11 @@ describe Option do
   it { should have_many(:users) }
   it { should have_many(:user_options) }
 
-  describe ".state" do
+  describe '.state' do
     subject { described_class.new }
 
-    context "when new" do
-      it "has disabled state" do
+    context 'when new' do
+      it 'has disabled state' do
         expect(subject.disabled?).to be true
       end
     end

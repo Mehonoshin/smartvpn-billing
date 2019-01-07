@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 describe 'Plans option prices' do
   let!(:plan) { create(:plan) }
   let!(:option) { create(:option) }
-  let!(:option_price) { "777" }
+  let!(:option_price) { '777' }
 
   before { I18n.locale = :ru }
 

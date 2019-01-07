@@ -1,9 +1,12 @@
-class ApiException < Exception; end
+# frozen_string_literal: true
+
+class ApiException < RuntimeError; end
 
 class Api::ServersController < Api::BaseController
   def activate
     if request_ip == server.ip_address
       raise ApiException, "Already activated server #{request_ip} #{server.hostname}" if server.active?
+
       server.activate!
       render json: { auth_key: server.auth_key }.to_json
     else
@@ -18,6 +21,6 @@ class Api::ServersController < Api::BaseController
   end
 
   def server
-    Server.find_by(hostname: params[:hostname]) || raise(ApiException, "Server for activation not found")
+    Server.find_by(hostname: params[:hostname]) || raise(ApiException, 'Server for activation not found')
   end
 end

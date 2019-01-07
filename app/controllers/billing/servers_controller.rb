@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Billing::ServersController < Billing::BaseController
   def index
     @servers = servers

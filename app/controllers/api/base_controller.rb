@@ -1,12 +1,14 @@
+# frozen_string_literal: true
+
 class Api::BaseController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   private
 
   def valid_api_call?
-    raise ApiException, "Server not found" unless server
-    raise ApiException, "Server not active" unless server.active?
-    raise ApiException, "Invalid api call" unless valid_signature?
+    raise ApiException, 'Server not found' unless server
+    raise ApiException, 'Server not active' unless server.active?
+    raise ApiException, 'Invalid api call' unless valid_signature?
   end
 
   def server
@@ -19,12 +21,11 @@ class Api::BaseController < ApplicationController
 
   def clean_params
     attrs = params.dup
-    ["controller", "action", "signature"].each { |param| attrs.delete(param) }
+    %w[controller action signature].each { |param| attrs.delete(param) }
     attrs
   end
 
   def signature
     params[:signature]
   end
-
 end

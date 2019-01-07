@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 describe Proxy::Fetchers::Base do
@@ -13,9 +15,9 @@ describe Proxy::Fetchers::Base do
 
     context 'parent class' do
       it 'raises error' do
-        expect {
+        expect do
           subject.fetch
-        }.to raise_error NotImplementedException
+        end.to raise_error NotImplementedException
       end
     end
   end

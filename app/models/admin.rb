@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Admin < ActiveRecord::Base
   devise :database_authenticatable, :timeoutable, timeout_in: 7.days
 end
@@ -12,4 +14,3 @@ end
 #  created_at         :datetime
 #  updated_at         :datetime
 #
-

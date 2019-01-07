@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Connect < Connection
 end
 
@@ -14,4 +16,3 @@ end
 #  created_at  :datetime
 #  updated_at  :datetime
 #
-

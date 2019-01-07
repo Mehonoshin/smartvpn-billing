@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateServers < ActiveRecord::Migration
   def change
     create_table :servers do |t|
@@ -9,6 +11,6 @@ class CreateServers < ActiveRecord::Migration
 
       t.timestamps
     end
-    add_index "servers", ["hostname"], name: "index_servers_on_hostname", unique: true
+    add_index 'servers', ['hostname'], name: 'index_servers_on_hostname', unique: true
   end
 end

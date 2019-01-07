@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 class CanNotWithdrawNotificationWorker
   include Sidekiq::Worker
-  sidekiq_options queue: "high"
+  sidekiq_options queue: 'high'
 
   def perform(user_id, amount)
     user = User.find(user_id)

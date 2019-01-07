@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateProxyConnects < ActiveRecord::Migration
   def change
     create_table :proxy_connects do |t|

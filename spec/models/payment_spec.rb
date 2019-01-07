@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 describe Payment do
@@ -27,27 +29,26 @@ describe Payment do
     end
   end
 
-  context "when created" do
+  context 'when created' do
     let(:user) { create(:user) }
     let(:pay_system) { create(:pay_system) }
 
-    it "is in peding state" do
+    it 'is in peding state' do
       payment = Payment.create!(user_id: user.id, pay_system_id: pay_system.id, amount: 10)
-      expect(payment.state).to eq "pending"
+      expect(payment.state).to eq 'pending'
     end
   end
 
-  context "on accept event" do
-
+  context 'on accept event' do
     before { Currencies::CourseConverter.any_instance.stubs(:course).returns(0.5) }
 
-    describe "balance increase" do
+    describe 'balance increase' do
       let(:user) { create(:user_with_balance) }
       let(:pay_system) { create(:pay_system) }
       let!(:withdrawal) { create(:withdrawal, user: user) }
       let!(:payment) { create(:payment, user: user, pay_system: pay_system) }
 
-      it "changes user balance on amount" do
+      it 'changes user balance on amount' do
         initial_balance = user.reload.balance
         payment.accept!
         expect(user.reload.balance).to eq (initial_balance + payment.amount)
@@ -70,44 +71,44 @@ describe Payment do
       end
     end
 
-    describe "balance withdrawal" do
+    describe 'balance withdrawal' do
       subject { create(:payment, user: user) }
 
-      context "user is unpaid" do
+      context 'user is unpaid' do
         let(:user) { create(:user_with_balance) }
 
-        it "creates new withdrawal" do
-          expect {
+        it 'creates new withdrawal' do
+          expect do
             subject.accept!
-          }.to change(Withdrawal, :count).by(1)
+          end.to change(Withdrawal, :count).by(1)
         end
       end
 
-      context "user is paid" do
+      context 'user is paid' do
         let(:user) { create(:user_with_balance) }
         before { create :withdrawal, user: user }
 
-        it "does not create withdrawal" do
-          expect {
+        it 'does not create withdrawal' do
+          expect do
             subject.accept!
-          }.not_to change(Withdrawal, :count)
+          end.not_to change(Withdrawal, :count)
         end
       end
 
-      context "user unpaid and has no balance,", focus: true do
+      context 'user unpaid and has no balance,', focus: true do
         let(:user) { create(:user) }
         subject { create(:payment, amount: 5, user: user) }
 
-        it "does not create withdrawal" do
-          expect {
+        it 'does not create withdrawal' do
+          expect do
             subject.accept!
-          }.not_to change(Withdrawal, :count)
+          end.not_to change(Withdrawal, :count)
         end
 
-        it "sends notification" do
-          expect {
+        it 'sends notification' do
+          expect do
             subject.accept!
-          }.to change(CanNotWithdrawNotificationWorker.jobs, :size).by(1)
+          end.to change(CanNotWithdrawNotificationWorker.jobs, :size).by(1)
         end
       end
     end
@@ -126,4 +127,3 @@ end
 #  created_at    :datetime
 #  updated_at    :datetime
 #
-

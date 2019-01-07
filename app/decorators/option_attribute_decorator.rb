@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class OptionAttributeDecorator < Draper::Decorator
   attr_accessor :name, :current_value
 

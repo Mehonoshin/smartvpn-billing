@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 describe 'referrers page', js: true do
@@ -24,7 +26,6 @@ describe 'referrers page', js: true do
 
     click_link referrer1.email
     expect(page).not_to have_content referral1_email
-
 
     # Second referrer
     expect(page).not_to have_content referral2_email

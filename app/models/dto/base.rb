@@ -1,5 +1,6 @@
-module Dto
+# frozen_string_literal: true
 
+module Dto
   class Base
     def initialize(attributes = {})
       attributes.each do |name, value|
@@ -7,5 +8,4 @@ module Dto
       end
     end
   end
-
 end

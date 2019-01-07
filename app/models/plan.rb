@@ -1,13 +1,15 @@
+# frozen_string_literal: true
+
 class Plan < ActiveRecord::Base
   validates :price, :name, :code, :description, presence: true
   has_many :users
 
-  has_many :included_servers, class_name: "PlanHasServer"
+  has_many :included_servers, class_name: 'PlanHasServer'
   has_many :servers, through: :included_servers
   has_and_belongs_to_many :options
 
-  scope :regular, ->{ where("special IS NOT true") }
-  scope :enabled, ->{ where(enabled: true) }
+  scope :regular, -> { where('special IS NOT true') }
+  scope :enabled, -> { where(enabled: true) }
 
   def regular?
     !special
@@ -36,4 +38,3 @@ end
 #  special     :boolean          default(FALSE)
 #  enabled     :boolean          default(FALSE)
 #
-

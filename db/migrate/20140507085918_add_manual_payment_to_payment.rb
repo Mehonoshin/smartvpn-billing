@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddManualPaymentToPayment < ActiveRecord::Migration
   def change
     add_column :payments, :manual_payment, :boolean, default: false

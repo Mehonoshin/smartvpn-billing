@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Transaction
   attr_accessor :object, :id
   delegate :created_at, to: :object
@@ -14,11 +16,11 @@ class Transaction
     end
 
     def cast_collection_to_transactions(payments, withdrawals)
-      (payments.to_a + withdrawals.to_a).
-        sort_by { |t| t.created_at }.
-        each_with_index.
-        map { |t, id| Transaction.new(id + 1, t) }.
-        reverse!
+      (payments.to_a + withdrawals.to_a)
+        .sort_by(&:created_at)
+        .each_with_index
+        .map { |t, id| Transaction.new(id + 1, t) }
+        .reverse!
     end
   end
 

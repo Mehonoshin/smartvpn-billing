@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Disconnect < Connection
   include LastDaysFilterable
 
@@ -17,4 +19,3 @@ end
 #  created_at  :datetime
 #  updated_at  :datetime
 #
-

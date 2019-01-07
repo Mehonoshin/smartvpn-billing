@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class WithdrawalProlongation < ActiveRecord::Base
   belongs_to :withdrawal
 

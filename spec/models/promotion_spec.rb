@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 describe Promotion do
   it { should belong_to :user }
   it { should belong_to :promo }
 
-  describe "uniqueness validation" do
+  describe 'uniqueness validation' do
     let(:promo1) { create(:promo) }
     let(:promo2) { create(:promo) }
     let(:user) { create(:user) }
@@ -13,18 +15,18 @@ describe Promotion do
       create(:promotion, user: user, promo: promo1)
     end
 
-    it "does not allow to create second promotion with same promo for user" do
+    it 'does not allow to create second promotion with same promo for user' do
       second_promotion = build(:promotion, user: user, promo: promo1)
       expect(second_promotion).not_to be_valid
     end
 
-    it "allows user to have multiple promotions with different promos" do
+    it 'allows user to have multiple promotions with different promos' do
       second_promotion = build(:promotion, user: user, promo: promo2)
       expect(second_promotion).to be_valid
     end
   end
 
-  describe "with_active_promos scope" do
+  describe 'with_active_promos scope' do
     subject { described_class }
 
     before do
@@ -43,7 +45,7 @@ describe Promotion do
     end
   end
 
-  describe "#apply method" do
+  describe '#apply method' do
     let(:promo) { create(:promo) }
     let(:promotion) { create(:promotion, promo: promo) }
     let(:amount) { 100 }
@@ -65,4 +67,3 @@ end
 #  created_at :datetime
 #  updated_at :datetime
 #
-

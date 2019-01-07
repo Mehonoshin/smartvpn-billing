@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Proxy
   class Repository
     def self.persist(proxies)
@@ -10,9 +12,7 @@ module Proxy
     end
 
     def self.build_node(proxy)
-      unless Proxy::Node.create(proxy.to_hash)
-        raise ActiveRecord::Rollback
-      end
+      raise ActiveRecord::Rollback unless Proxy::Node.create(proxy.to_hash)
     end
 
     def self.clear_nodes

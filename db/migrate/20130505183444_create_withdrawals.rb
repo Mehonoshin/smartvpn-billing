@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateWithdrawals < ActiveRecord::Migration
   def change
     create_table :withdrawals do |t|

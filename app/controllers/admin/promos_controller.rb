@@ -1,27 +1,27 @@
+# frozen_string_literal: true
+
 class Admin::PromosController < Admin::BaseController
-  before_action :load_promo, only: [:new, :edit, :update, :create]
+  before_action :load_promo, only: %i[new edit update create]
 
   def index
     @promos = Promo.all.page(params[:page]).decorate
   end
 
-  def new
-  end
+  def new; end
 
   def create
     if @promo.update(resource_params)
-      redirect_to edit_admin_promo_path(@promo), notice: "Акция успешно создана"
+      redirect_to edit_admin_promo_path(@promo), notice: 'Акция успешно создана'
     else
       render :new
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @promo.update(resource_params)
-      redirect_to edit_admin_promo_path(@promo), notice: "Акция успешно обновлена"
+      redirect_to edit_admin_promo_path(@promo), notice: 'Акция успешно обновлена'
     else
       render :edit
     end

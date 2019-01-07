@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ServerConfigBuilder
   attr_accessor :config
 
@@ -31,7 +33,7 @@ class ServerConfigBuilder
     tokens = line.strip.split(' ')
     key = tokens[0]
 
-    if rewrite_mappings.keys.include? key
+    if rewrite_mappings.key?(key)
       "#{key} #{rewrite_mappings[key]}"
     else
       line
@@ -44,8 +46,8 @@ class ServerConfigBuilder
 
   def rewrite_mappings
     {
-      "proto" => protocol,
-      "remote" => "#{host} #{port}"
+      'proto' => protocol,
+      'remote' => "#{host} #{port}"
     }
   end
 

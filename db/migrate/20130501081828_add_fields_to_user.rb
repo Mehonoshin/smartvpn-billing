@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddFieldsToUser < ActiveRecord::Migration
   def change
     add_column :users, :balance, :decimal, default: 0

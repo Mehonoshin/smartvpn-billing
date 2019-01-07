@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Promotion < ActiveRecord::Base
   attr_accessor :promo_code
 
@@ -6,7 +8,7 @@ class Promotion < ActiveRecord::Base
 
   validates :user_id, uniqueness: { scope: :promo_id }
 
-  scope :with_active_promos, ->{ where(promo_id: Promo.active.map(&:id)) }
+  scope :with_active_promos, -> { where(promo_id: Promo.active.map(&:id)) }
 
   def apply(amount)
     promo.promoter.apply(promo, amount)
@@ -23,4 +25,3 @@ end
 #  created_at :datetime
 #  updated_at :datetime
 #
-

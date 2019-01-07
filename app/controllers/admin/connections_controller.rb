@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 class Admin::ConnectionsController < Admin::BaseController
   def index
-    @connections = connections.order("id DESC").page params[:page]
+    @connections = connections.order('id DESC').page params[:page]
   end
 
   def active
-    @connections = connections.active.order("id DESC").page params[:page]
+    @connections = connections.active.order('id DESC').page params[:page]
   end
 
   def show

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Billing::MerchantController < Billing::BaseController
   skip_before_filter :check_authorization, :verify_authenticity_token
   before_action :check_if_pay_system_is_enabled, only: [:result]

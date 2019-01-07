@@ -1,1 +1,3 @@
-class WithdrawerException < SmartvpnException; end;
+# frozen_string_literal: true
+
+class WithdrawerException < SmartvpnException; end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddTunnelblickBundleAndIosBundleAndLinuxBundleToServer < ActiveRecord::Migration
   def change
     add_column :servers, :tunnelblick_bundle, :string

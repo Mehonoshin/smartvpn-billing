@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class TrafficReport
   include ActiveModel::Validations
   include ActiveModel::Conversion
@@ -5,14 +7,14 @@ class TrafficReport
 
   attr_accessor :result, :date_from, :date_to
 
-  def initialize(attributes={})
-    attributes.each do |name, value|
+  def initialize(attributes = {})
+    attributes&.each do |name, value|
       send("#{name}=", value)
-    end unless attributes.nil?
+    end
   end
 
   def result
-    @result = build_report.where("created_at >= ? AND created_at <= ?", date_from, date_to)
+    @result = build_report.where('created_at >= ? AND created_at <= ?', date_from, date_to)
   end
 
   def date_from
@@ -27,5 +29,4 @@ class TrafficReport
   def persisted?
     false
   end
-
 end

@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 class Billing::OptionsController < Billing::BaseController
   def index
-    @subscribed_user_options = current_user.user_options.order('id ASC').map { |user_option| user_option.option }
+    @subscribed_user_options = current_user.user_options.order('id ASC').map(&:option)
     @unsubscribed_user_options = current_user.plan.options.order('id ASC') - @subscribed_user_options
   end
 

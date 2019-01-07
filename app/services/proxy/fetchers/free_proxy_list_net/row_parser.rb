@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Proxy
   module Fetchers
     module FreeProxyListNet
@@ -32,16 +34,12 @@ module Proxy
           @row[4].text
         end
 
-        def location
-        end
+        def location; end
 
-        def bandwidth
-        end
+        def bandwidth; end
 
-        def ping
-        end
+        def ping; end
       end
     end
   end
 end
-

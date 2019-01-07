@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 describe User do
@@ -31,34 +33,34 @@ describe User do
   it_behaves_like 'loads created by last days', :user
 end
 
-describe User, "custom validations" do
+describe User, 'custom validations' do
   subject { build(:user, plan_id: plan.id) }
 
-  context "user with regular plan" do
+  context 'user with regular plan' do
     let(:plan) { create(:plan) }
 
     it { should be_valid }
   end
 
-  context "user with special plan created" do
+  context 'user with special plan created' do
     let(:plan) { create(:plan, special: true) }
 
     it { should_not be_valid }
   end
 
-  context "user changed plan from regular to special" do
+  context 'user changed plan from regular to special' do
     let(:plan) { create(:plan) }
     let(:new_plan) { create(:plan, special: true) }
     subject { create(:user, plan_id: plan.id) }
 
-    it "allowes user to change plan" do
+    it 'allowes user to change plan' do
       subject.plan_id = new_plan.id
       expect(subject).to be_valid
     end
   end
 end
 
-describe User, "public methods" do
+describe User, 'public methods' do
   subject { create(:user_with_balance) }
 
   describe '#test period' do
@@ -89,56 +91,56 @@ describe User, "public methods" do
     end
   end
 
-  describe User, "balance increase" do
+  describe User, 'balance increase' do
     before { IncreaseBalanceMailWorker.jobs.clear }
 
-    it "allowes to increase balance" do
+    it 'allowes to increase balance' do
       subject.increase_balance(100)
       subject.reload.balance.should be_eql 200
     end
 
-    it "adds email task to queue" do
-      expect {
+    it 'adds email task to queue' do
+      expect do
         subject.increase_balance(100)
-      }.to change(IncreaseBalanceMailWorker.jobs, :size).by(1)
+      end.to change(IncreaseBalanceMailWorker.jobs, :size).by(1)
     end
 
-    it "notifies user by email" do
-      expect {
+    it 'notifies user by email' do
+      expect do
         subject.increase_balance(100)
         IncreaseBalanceMailWorker.drain
-      }.to change(ActionMailer::Base.deliveries, :count).by(1)
+      end.to change(ActionMailer::Base.deliveries, :count).by(1)
     end
   end
 
-  describe User, "balance decrease" do
+  describe User, 'balance decrease' do
     before { DecreaseBalanceMailWorker.jobs.clear }
 
-    it "allowes to decrease balance" do
+    it 'allowes to decrease balance' do
       subject.decrease_balance(100)
       subject.reload.balance.should be_eql 0
     end
 
-    it "adds email task to queue" do
-      expect {
+    it 'adds email task to queue' do
+      expect do
         subject.decrease_balance(100)
-      }.to change(DecreaseBalanceMailWorker.jobs, :size).by(1)
+      end.to change(DecreaseBalanceMailWorker.jobs, :size).by(1)
     end
 
-    it "notifies user by email" do
-      expect {
+    it 'notifies user by email' do
+      expect do
         subject.decrease_balance(100)
         DecreaseBalanceMailWorker.drain
-      }.to change(ActionMailer::Base.deliveries, :count).by(1)
+      end.to change(ActionMailer::Base.deliveries, :count).by(1)
     end
   end
 
-  describe ".last_connect" do
+  describe '.last_connect' do
     before do
       create(:connect, user: subject)
     end
 
-    it "returns last connect" do
+    it 'returns last connect' do
       last_connect = create(:connect, user: subject)
       expect(subject.last_connect).to eq last_connect
     end
@@ -160,83 +162,83 @@ describe User, "public methods" do
     end
   end
 
-  describe ".service_enabled?" do
+  describe '.service_enabled?' do
     let(:user) { create(:user_with_balance) }
     subject { user.service_enabled? }
 
-    context "user has paid in current billing interval" do
+    context 'user has paid in current billing interval' do
       before { create(:withdrawal, user: user) }
 
-      it "service is enabled" do
+      it 'service is enabled' do
         should be true
       end
     end
 
     context "user hasn't paid" do
-      it "service is disabled" do
+      it 'service is disabled' do
         should be false
       end
     end
   end
 
-  describe ".paid?" do
+  describe '.paid?' do
     let(:user) { create(:user_with_balance) }
 
-    context "user is paid" do
+    context 'user is paid' do
       let!(:withdrawal) { create(:withdrawal, user: subject) }
 
-      it "returns true" do
+      it 'returns true' do
         expect(subject.paid?).to be true
       end
 
-      context "user is prolongated" do
+      context 'user is prolongated' do
         before { create(:withdrawal_prolongation, withdrawal: withdrawal) }
 
-        it "returns true" do
+        it 'returns true' do
           expect(subject.paid?).to be true
         end
       end
     end
 
-    context "user payment expired, but prolongated" do
+    context 'user payment expired, but prolongated' do
       let!(:withdrawal) { create(:withdrawal, user: subject, created_at: 2.month.ago) }
       let!(:prolongation) { create(:withdrawal_prolongation, withdrawal: withdrawal, days_number: 100) }
 
-      it "returns true" do
+      it 'returns true' do
         expect(subject.paid?).to be true
       end
     end
 
-    context "user payment expired, prolongation expired too" do
+    context 'user payment expired, prolongation expired too' do
       let!(:withdrawal) { create(:withdrawal, user: subject, created_at: 2.month.ago) }
       let!(:prolongation) { create(:withdrawal_prolongation, withdrawal: withdrawal, days_number: 10) }
 
-      it "returns false" do
+      it 'returns false' do
         expect(subject.paid?).to be false
       end
     end
 
-    context "user is unpaid" do
-      it "returns false" do
+    context 'user is unpaid' do
+      it 'returns false' do
         expect(subject.paid?).not_to be true
       end
     end
   end
 end
 
-describe User, "callbacks on create" do
+describe User, 'callbacks on create' do
   subject { create(:user) }
 
-  describe "vpn credentials creation" do
-    it "generates login" do
+  describe 'vpn credentials creation' do
+    it 'generates login' do
       expect(subject.vpn_login).not_to be_nil
     end
 
-    it "generates password" do
+    it 'generates password' do
       expect(subject.vpn_password).not_to be_nil
     end
 
-    it "vpn password is 12 digits long" do
+    it 'vpn password is 12 digits long' do
       expect(subject.vpn_password.length).to eq 12
     end
   end
@@ -249,16 +251,15 @@ describe User, "callbacks on create" do
 
   describe 'newsletter subscription' do
     it 'adds to newsletter' do
-      expect {
+      expect do
         create(:user)
-      }.to change(AddUserToNewsletterWorker.jobs, :size).by(1)
+      end.to change(AddUserToNewsletterWorker.jobs, :size).by(1)
     end
   end
 end
 
-describe User, "scopes" do
-
-  describe "by payments" do
+describe User, 'scopes' do
+  describe 'by payments' do
     subject { described_class }
     let!(:paid_user) { create(:user) }
     let!(:earliar_paid_user) { create(:user) }
@@ -270,24 +271,24 @@ describe User, "scopes" do
       old_payment.update(created_at: 2.month.ago)
     end
 
-    describe ".payers" do
-      it "returns this month payers" do
+    describe '.payers' do
+      it 'returns this month payers' do
         expect(subject.payers).to include paid_user
       end
 
-      it "returns old payers" do
+      it 'returns old payers' do
         expect(subject.payers).to include earliar_paid_user
       end
     end
 
-    describe ".this_month_payers" do
-      it "returns obly who paid at this month" do
+    describe '.this_month_payers' do
+      it 'returns obly who paid at this month' do
         expect(subject.payers).to include paid_user
       end
     end
   end
 
-  describe "#non_paid_clients" do
+  describe '#non_paid_clients' do
     before do
       t = Time.local(2014, 9, 15, 12, 0, 0)
       Timecop.travel(t)
@@ -311,23 +312,23 @@ describe User, "scopes" do
         old_withdrawal2.update(created_at: 5.month.ago)
       end
 
-      it "returns 3 clients" do
+      it 'returns 3 clients' do
         expect(result.size).to eq 3
       end
 
-      it "sorts by client registration" do
+      it 'sorts by client registration' do
         expect(result).to eq [new_client, non_paid_client, non_paid_client2]
       end
 
-      it "contains new client" do
+      it 'contains new client' do
         expect(result).to include new_client
       end
 
-      it "contains non paid client" do
+      it 'contains non paid client' do
         expect(result).to include non_paid_client
       end
 
-      it "contains non paid client2" do
+      it 'contains non paid client2' do
         expect(result).to include non_paid_client2
       end
     end
@@ -347,19 +348,19 @@ describe User, "scopes" do
       old_withdrawal.update(created_at: 2.month.ago)
     end
 
-    it "returns 1 client" do
+    it 'returns 1 client' do
       expect(result.size).to eq 1
     end
 
-    it "contains new client" do
+    it 'contains new client' do
       expect(result).to include new_client
     end
 
-    it "does not contain long ago client" do
+    it 'does not contain long ago client' do
       expect(result).not_to include paid_long_ago_client
     end
 
-    it "does not contain paid client" do
+    it 'does not contain paid client' do
       expect(result).not_to include paid_client
     end
   end
@@ -390,30 +391,30 @@ describe User, "scopes" do
   end
 end
 
-describe User, "states" do
+describe User, 'states' do
   subject { build(:user) }
 
-  context "new" do
-    it "has active status" do
+  context 'new' do
+    it 'has active status' do
       expect(subject.active?).to be true
     end
   end
 
-  context ".disable! called" do
-    it "changes state to disabled" do
-      expect {
+  context '.disable! called' do
+    it 'changes state to disabled' do
+      expect do
         subject.disable!
-      }.to change(subject, :state).to("disabled")
+      end.to change(subject, :state).to('disabled')
     end
   end
 
-  context ".activate! called" do
+  context '.activate! called' do
     before { subject.disable! }
 
-    it "changes state to active" do
-      expect {
+    it 'changes state to active' do
+      expect do
         subject.activate!
-      }.to change(subject, :state).to("active")
+      end.to change(subject, :state).to('active')
     end
   end
 end
@@ -448,4 +449,3 @@ end
 #  state                    :string(255)
 #  can_not_withdraw_counter :integer          default(0)
 #
-

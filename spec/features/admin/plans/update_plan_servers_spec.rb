@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 describe 'plan servers' do
   let!(:plan) { create(:plan) }
   let!(:server1) { create(:server) }
   let!(:server2) { create(:server) }
-  
+
   before { I18n.locale = :ru }
 
   it 'displays multiple servers select and updates plan' do

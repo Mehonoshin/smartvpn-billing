@@ -1,1 +1,3 @@
-class NotImplementedException < SmartvpnException; end;
+# frozen_string_literal: true
+
+class NotImplementedException < SmartvpnException; end

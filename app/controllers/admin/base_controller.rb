@@ -1,10 +1,10 @@
+# frozen_string_literal: true
+
 class Admin::BaseController < ApplicationController
   before_action :allow_only_admin
-  layout "admin"
+  layout 'admin'
 
   def allow_only_admin
-    unless admin_signed_in?
-      raise AdminAccessDeniedException
-    end
+    raise AdminAccessDeniedException unless admin_signed_in?
   end
 end

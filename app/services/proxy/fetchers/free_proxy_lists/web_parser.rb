@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'mechanize'
 
 # Implements parser for http://www.freeproxylists.net/ website
@@ -19,29 +21,28 @@ module Proxy
 
         private
 
-          def fetch_proxies
-            @agent.get('http://www.freeproxylists.net/') do |page|
-              parse_proxies_from page
-            end
-            @proxies
+        def fetch_proxies
+          @agent.get('http://www.freeproxylists.net/') do |page|
+            parse_proxies_from page
           end
+          @proxies
+        end
 
-          def parse_proxies_from(page)
-            table = page.search('.DataGrid')
-            rows = table.search('tr.Odd, tr.Even')
-            rows.each do |row|
-              parse(row, @proxies)
-            end
+        def parse_proxies_from(page)
+          table = page.search('.DataGrid')
+          rows = table.search('tr.Odd, tr.Even')
+          rows.each do |row|
+            parse(row, @proxies)
           end
+        end
 
-          def parse(row, proxies)
-            if row.children.size == COLUMNS_IN_PROXY_ROW
-              parser = Proxy::Fetchers::FreeProxyLists::RowParser.new(row.children)
-              @proxies << parser.to_proxy
-            end
+        def parse(row, _proxies)
+          if row.children.size == COLUMNS_IN_PROXY_ROW
+            parser = Proxy::Fetchers::FreeProxyLists::RowParser.new(row.children)
+            @proxies << parser.to_proxy
           end
+        end
       end
     end
   end
 end
-

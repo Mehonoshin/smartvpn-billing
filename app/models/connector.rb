@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Connector
   attr_reader :user, :server
 
@@ -22,7 +24,8 @@ class Connector
     @user = find_user
     @server = Server.find_by(hostname: opts[:hostname])
     @action = opts[:action]
-    @traffic_in, @traffic_out = opts[:traffic_in], opts[:traffic_out]
+    @traffic_in = opts[:traffic_in]
+    @traffic_out = opts[:traffic_out]
   end
 
   def invoke
@@ -40,7 +43,7 @@ class Connector
   end
 
   def connect?
-    @action == "connect"
+    @action == 'connect'
   end
 
   # TODO:

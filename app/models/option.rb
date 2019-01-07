@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Option < ActiveRecord::Base
   validates :name, :code, presence: true
 
@@ -5,25 +7,23 @@ class Option < ActiveRecord::Base
   has_many :user_options
   has_many :users, through: :user_options
 
-  scope :active, ->{ where(state: 'active') }
+  scope :active, -> { where(state: 'active') }
 
-  state_machine :state, :initial => :disabled do
+  state_machine :state, initial: :disabled do
     event :activate do
-      transition :disabled => :active
+      transition disabled: :active
     end
 
     event :disable do
-      transition :active => :disabled
+      transition active: :disabled
     end
   end
 
   def tunable_attributes
-    begin
-      klass = "Options::Attributes::#{code.capitalize}".constantize
-      klass.new.attributes
-    rescue NameError
-      {}
-    end
+    klass = "Options::Attributes::#{code.capitalize}".constantize
+    klass.new.attributes
+  rescue NameError
+    {}
   end
 
   def default_attributes
@@ -34,12 +34,9 @@ class Option < ActiveRecord::Base
   end
 
   def hook(user)
-    begin
-      klass = "Options::Hooks::#{code.capitalize}".constantize
-      klass.new(user, self)
-    rescue NameError
-      nil
-    end
+    klass = "Options::Hooks::#{code.capitalize}".constantize
+    klass.new(user, self)
+  rescue NameError
+    nil
   end
-
 end

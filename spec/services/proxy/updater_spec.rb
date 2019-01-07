@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 describe Proxy::Updater do
   describe '.update' do
-    let(:fetcher_class) { mock() }
+    let(:fetcher_class) { mock }
     let(:proxies) { [] }
     subject { described_class }
 

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 describe Options::Hooks::Proxy do
@@ -16,9 +18,9 @@ describe Options::Hooks::Proxy do
     end
 
     it 'creates proxy connect record' do
-      expect {
+      expect do
         subject.connect
-      }.to change(proxy.connects, :count).by(1)
+      end.to change(proxy.connects, :count).by(1)
     end
 
     it 'returns hash' do

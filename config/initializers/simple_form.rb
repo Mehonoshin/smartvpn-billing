@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Use this setup block to configure all options available in SimpleForm.
 SimpleForm.setup do |config|
   # Components used by the form builder to generate a complete input. You can remove
@@ -56,7 +58,7 @@ SimpleForm.setup do |config|
   # config.label_class = nil
 
   # You can define the class to use on all forms. Default is simple_form.
-   config.default_form_class = 'smart-form'
+  config.default_form_class = 'smart-form'
 
   # Whether attributes are required by default (or not). Default is true.
   # config.required_by_default = true

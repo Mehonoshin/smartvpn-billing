@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 class DecreaseBalanceMailWorker
   include Sidekiq::Worker
-  sidekiq_options queue: "high"
+  sidekiq_options queue: 'high'
 
   def perform(amount, user_id)
     user = User.find(user_id)

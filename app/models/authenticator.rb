@@ -1,6 +1,10 @@
+# frozen_string_literal: true
+
 class Authenticator
   def initialize(login, password, hostname)
-    @login, @password, @hostname = login, password, hostname
+    @login = login
+    @password = password
+    @hostname = hostname
     @server = Server.find_by(hostname: hostname)
     @user = find_user
   end

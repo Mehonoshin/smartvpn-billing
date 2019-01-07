@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 shared_examples 'total statistics result' do |amount|
   it 'is a hash' do
     expect(subject.class).to eq Hash
@@ -12,7 +14,6 @@ shared_examples 'total statistics result' do |amount|
       expect(subject[:total]).to eq amount
     end
   end
-
 end
 
 shared_examples 'total statistics discrete result' do |class_name|

@@ -1,17 +1,18 @@
-module AdminHelper
+# frozen_string_literal: true
 
-  def menu_item(title, path, fa_icon, &block)
+module AdminHelper
+  def menu_item(title, path, fa_icon)
     content_tag :li do
       link_to path do
         content_tag(:i, '', class: "fa fa-lg fa-fw fa-#{fa_icon}") +
-        content_tag(:span, class: 'menu-item-parent') do
-          title
-        end +
-        if block_given?
-          content_tag :ul do
-            yield
+          content_tag(:span, class: 'menu-item-parent') do
+            title
+          end +
+          if block_given?
+            content_tag :ul do
+              yield
+            end
           end
-        end
       end
     end
   end
@@ -22,26 +23,24 @@ module AdminHelper
     end
   end
 
-  def page_title(section, icon, subsection=nil)
+  def page_title(section, icon, subsection = nil)
     content_tag :h1, class: 'page-title txt-color-blueDark' do
       content_tag(:i, '', class: "fa-fw fa fa-#{icon}") +
-      "#{section} " +
-      content_tag(:span) do
-        if subsection
-          "> #{subsection}"
+        "#{section} " +
+        content_tag(:span) do
+          "> #{subsection}" if subsection
         end
-      end
     end
   end
 
   def human_connection(type)
-    if type == "Connect"
-      content_tag :span, class: "green" do
-        "Подключение"
+    if type == 'Connect'
+      content_tag :span, class: 'green' do
+        'Подключение'
       end
     else
-      content_tag :span, class: "red" do
-        "Отключение"
+      content_tag :span, class: 'red' do
+        'Отключение'
       end
     end
   end
@@ -55,7 +54,7 @@ module AdminHelper
   end
 
   def descrete_statistic_values(sequence)
-    sequence.to_s.gsub('[', '').gsub(']', '')
+    sequence.to_s.delete('[').delete(']')
   end
 
   def human_course(course)

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ServerConfig
   attr_accessor :config_lines
 

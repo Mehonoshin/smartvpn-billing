@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 describe TestPeriod do
@@ -10,9 +12,9 @@ describe TestPeriod do
 
   describe '#enable!' do
     it 'persists period start date' do
-      expect {
+      expect do
         subject.enable!
-      }.to change {
+      end.to change {
         user.test_period_started_at.try(:to_date)
       }.to Date.current
     end
@@ -22,9 +24,9 @@ describe TestPeriod do
     before { user.update(test_period_started_at: Date.current) }
 
     it 'removes period start date' do
-      expect {
+      expect do
         subject.disable!
-      }.to change {
+      end.to change {
         user.reload.test_period_started_at
       }.to nil
     end

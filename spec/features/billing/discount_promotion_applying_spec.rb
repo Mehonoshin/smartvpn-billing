@@ -1,21 +1,25 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
-describe "30% discount applying" do
-  let(:promo_code) { "super-code" }
+describe '30% discount applying' do
+  let(:promo_code) { 'super-code' }
   let(:pay_system) { create(:pay_system) }
   let(:user) { User.last }
   let!(:plan) { create(:plan, price: 100) }
-  let!(:promo) { create(:promo, promo_code: promo_code,
-                        date_from: 1.week.ago, date_to: 1.week.from_now,
-                        attrs: { discount_percent: 30 },
-                        state: 'active') }
+  let!(:promo) do
+    create(:promo, promo_code: promo_code,
+                   date_from: 1.week.ago, date_to: 1.week.from_now,
+                   attrs: { discount_percent: 30 },
+                   state: 'active')
+  end
 
   before do
     sign_in
     visit('/users/edit')
   end
 
-  it "enters promo-code and has 30% discount" do
+  it 'enters promo-code and has 30% discount' do
     user.update(plan_id: plan.id)
 
     within('#new_promotion') do
@@ -28,7 +32,7 @@ describe "30% discount applying" do
     payment.accept!
 
     visit('/billing')
-    expect(page).to have_content "-70 USD"
-    expect(page).to have_content "230 USD"
+    expect(page).to have_content '-70 USD'
+    expect(page).to have_content '230 USD'
   end
 end

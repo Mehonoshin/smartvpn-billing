@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
@@ -11,7 +13,7 @@ class ApplicationController < ActionController::Base
     redirect_to new_user_session_path, alert: exception.message
   end
 
-  rescue_from AdminAccessDeniedException do |exception|
+  rescue_from AdminAccessDeniedException do |_exception|
     redirect_to new_admin_session_path
   end
 end

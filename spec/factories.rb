@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # TODO:
 # devide factories by subsystems
 # e.g.:
@@ -8,15 +10,15 @@
 
 FactoryGirl.define do
   factory :admin do
-    sequence(:email)               {|n| "admin#{n}@example.com"}
-    sequence(:password)            {|n| "password#{n}"}
+    sequence(:email)               { |n| "admin#{n}@example.com" }
+    sequence(:password)            { |n| "password#{n}" }
   end
 
   factory :user do
-    sequence(:email)               {|n| "person#{n}@example.com"}
-    sequence(:password)            {|n| "password"}
+    sequence(:email)               { |n| "person#{n}@example.com" }
+    sequence(:password)            { |_n| 'password' }
     plan
-    accept_agreement "1"
+    accept_agreement '1'
     confirmed_at Time.current
 
     factory :user_with_balance do
@@ -25,10 +27,10 @@ FactoryGirl.define do
   end
 
   factory :plan do
-    name "Tariff plan plus"
+    name 'Tariff plan plus'
     price 10
-    description "MyText"
-    code "plus"
+    description 'MyText'
+    code 'plus'
     special false
     enabled true
   end
@@ -40,8 +42,8 @@ FactoryGirl.define do
   end
 
   factory :pay_system do
-    sequence(:name) {|n| "PaySystem#{n}"}
-    sequence(:code) {|n| "code#{n}"}
+    sequence(:name) { |n| "PaySystem#{n}" }
+    sequence(:code) { |n| "code#{n}" }
 
     factory :enabled_pay_system do
       state :enabled
@@ -66,7 +68,7 @@ FactoryGirl.define do
 
   factory :server do
     sequence(:hostname) { |n| "#{Faker::Lorem.word}#{n}" }
-    ip_address "192.168.1.1"
+    ip_address '192.168.1.1'
     protocol 'udp'
     port 443
 
@@ -99,19 +101,19 @@ FactoryGirl.define do
   end
 
   factory :promo do
-    name "Promo name"
-    type "withdrawal"
+    name 'Promo name'
+    type 'withdrawal'
     date_from 2.day.ago
     date_to 2.day.from_now
-    promoter_type "discount"
-    promo_code "MyString"
+    promoter_type 'discount'
+    promo_code 'MyString'
 
     factory :active_promo do
       state 'active'
     end
 
     factory :option_promo do
-      type "option"
+      type 'option'
     end
   end
 
@@ -121,8 +123,8 @@ FactoryGirl.define do
   end
 
   factory :option do
-    name "I2P"
-    sequence(:code) {|n| "option#{n}"}
+    name 'I2P'
+    sequence(:code) { |n| "option#{n}" }
 
     factory :active_option do
       state 'active'
@@ -141,36 +143,35 @@ FactoryGirl.define do
     end
   end
 
-  factory :referrer_reward, :class => 'Referrer::Reward' do
-    amount "9.99"
+  factory :referrer_reward, class: 'Referrer::Reward' do
+    amount '9.99'
     operation_id 1
     referrer_id 1
   end
 
-  factory :proxy_connect, :class => 'Proxy::Connect' do
+  factory :proxy_connect, class: 'Proxy::Connect' do
     user_id 1
     proxy_id 1
   end
 
-  factory :proxy_node, :class => 'Proxy::Node' do
-    host "MyString"
+  factory :proxy_node, class: 'Proxy::Node' do
+    host 'MyString'
     port 1
-    country "MyString"
-    location "MyString"
+    country 'MyString'
+    location 'MyString'
     ping 1
     bandwidth 1
-    protocol "MyString"
-    anonymity "MyString"
+    protocol 'MyString'
+    anonymity 'MyString'
   end
 
   factory :user_option do
     user_id 1
     option_id 1
-    attrs ""
+    attrs ''
 
     trait :disabled do
       state 'disabled'
     end
   end
-
 end

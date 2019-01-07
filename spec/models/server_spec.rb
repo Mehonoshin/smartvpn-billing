@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 describe Server do
@@ -20,26 +22,25 @@ describe Server do
     expect(subject).not_to be_valid
   end
 
-  context "after creation" do
-    it "generates auth key" do
+  context 'after creation' do
+    it 'generates auth key' do
       expect(subject.save).not_to be_nil
     end
 
-    it "auth key is random" do
+    it 'auth key is random' do
       expect(subject.save).not_to eq create(:server).auth_key
     end
 
-    it "is in pending state" do
+    it 'is in pending state' do
       expect(subject.pending?).to be true
     end
   end
 
-  describe ".to_s" do
-    it "returns hostname" do
+  describe '.to_s' do
+    it 'returns hostname' do
       expect(subject.to_s).to eq subject.hostname
     end
   end
-
 end
 
 # == Schema Information
@@ -55,4 +56,3 @@ end
 #  updated_at :datetime
 #  config     :string(255)
 #
-

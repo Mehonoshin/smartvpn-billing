@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreatePlanOptionTable < ActiveRecord::Migration
   def change
     create_table :options_plans, id: false do |t|

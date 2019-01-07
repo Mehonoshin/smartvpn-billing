@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateReferrerRewards < ActiveRecord::Migration
   def change
     create_table :referrer_rewards do |t|

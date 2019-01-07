@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module OptionsHelper
   # TODO:
   # refactor this helper to decorator
@@ -12,15 +14,14 @@ module OptionsHelper
     option_button_to(option, billing_options_path(code: option.code), :post,
                      title: t('billing.options.activate'),
                      confirm: t('billing.options.confirms.activate'),
-                     class: "btn-success")
-
+                     class: 'btn-success')
   end
 
   def unsubscribe_option_button(option)
     option_button_to(option, billing_option_path(option), :delete,
                      title: t('billing.options.deactivate'),
                      confirm: t('billing.options.confirms.deactivate'),
-                     class: "btn-danger")
+                     class: 'btn-danger')
   end
 
   def option_toggle_button(option)
@@ -39,8 +40,8 @@ module OptionsHelper
     OptionAttributeDecorator.new(name, attribute_hash, current_value).render
   end
 
-  def option_button_to(option, url, method, options={})
-    form_tag url, method: method, html: { class: "button_to" } do
+  def option_button_to(_option, url, method, options = {})
+    form_tag url, method: method, html: { class: 'button_to' } do
       concat submit_tag(options[:title], class: "btn #{options[:class]}", data: { confirm: options[:confirm] })
     end
   end
@@ -57,5 +58,4 @@ module OptionsHelper
     user_option = option.user_options.where(user_id: current_user.id).last
     user_option ? user_option.attrs[name.to_s] : nil
   end
-
 end

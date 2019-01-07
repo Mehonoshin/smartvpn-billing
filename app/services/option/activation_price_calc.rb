@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Option::ActivationPriceCalc
   class << self
     def activation_price(user, option)
@@ -11,7 +13,7 @@ class Option::ActivationPriceCalc
     end
 
     def days_left_to_withdrawal(days_passed)
-      if (days_passed != User::BILLING_INTERVAL)
+      if days_passed != User::BILLING_INTERVAL
         User::BILLING_INTERVAL - days_passed
       else
         30

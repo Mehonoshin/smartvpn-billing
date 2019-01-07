@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 describe Admin::OptionsController do
@@ -23,9 +25,9 @@ describe Admin::OptionsController do
       let(:attrs) { attributes_for(:option) }
 
       it 'creates new option' do
-        expect {
+        expect do
           post :create, option: attrs
-        }.to change(Option.all, :count).by(1)
+        end.to change(Option.all, :count).by(1)
       end
 
       it 'redirects to options path' do

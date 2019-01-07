@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Admin::OptionsController < Admin::BaseController
   def index
     @options = Admin::OptionsDecorator.decorate_collection(Option.all)
@@ -10,7 +12,7 @@ class Admin::OptionsController < Admin::BaseController
   def create
     @option = Option.new(resource_params)
     if @option.save
-      redirect_to admin_options_path, notice: "Услуга успешно добавлена"
+      redirect_to admin_options_path, notice: 'Услуга успешно добавлена'
     else
       render :new
     end
@@ -23,7 +25,7 @@ class Admin::OptionsController < Admin::BaseController
   def update
     @option = Option.find(params[:id])
     if @option.update(resource_params)
-      redirect_to admin_options_path, notice: "Услуга успешно обновлена"
+      redirect_to admin_options_path, notice: 'Услуга успешно обновлена'
     else
       render :edit
     end
@@ -35,4 +37,3 @@ class Admin::OptionsController < Admin::BaseController
     params.require(:option).permit(:name, :code, :state, plan_ids: [])
   end
 end
-

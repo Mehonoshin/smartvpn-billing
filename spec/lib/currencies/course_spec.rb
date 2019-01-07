@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 describe Currencies::Course do
@@ -8,7 +10,7 @@ describe Currencies::Course do
     described_class.stubs(:fetch_course_from_web).returns(online_course)
   end
 
-  describe "updating all courses" do
+  describe 'updating all courses' do
     subject { described_class }
 
     before do
@@ -16,33 +18,33 @@ describe Currencies::Course do
       subject.update_courses
     end
 
-    it "sets course for eur" do
-      expect(redis.get("smartvpn:eur_usd")).not_to be_nil
+    it 'sets course for eur' do
+      expect(redis.get('smartvpn:eur_usd')).not_to be_nil
     end
 
-    it "sets course for usd" do
-      expect(redis.get("smartvpn:rub_usd")).not_to be_nil
+    it 'sets course for usd' do
+      expect(redis.get('smartvpn:rub_usd')).not_to be_nil
     end
 
-    it "sets updated_at value" do
-      expect(redis.get("smartvpn:courses:updated_at")).not_to be_nil
+    it 'sets updated_at value' do
+      expect(redis.get('smartvpn:courses:updated_at')).not_to be_nil
     end
   end
 
-  describe "fetching course" do
-    subject { described_class.new("eur", "usd") }
+  describe 'fetching course' do
+    subject { described_class.new('eur', 'usd') }
 
     before { redis.flushall }
 
     context 'currency from equal to currency to' do
-      subject { described_class.new("usd", "usd") }
+      subject { described_class.new('usd', 'usd') }
 
       it 'returns 1' do
         expect(subject.get).to eq 1
       end
     end
 
-    context "redis es empty" do
+    context 'redis es empty' do
       it 'fetching from web' do
         subject.expects(:parse_from_web).once
         subject.get
@@ -53,11 +55,11 @@ describe Currencies::Course do
       end
     end
 
-    context "record exists in redis" do
-      let(:cached_course) { "2" }
+    context 'record exists in redis' do
+      let(:cached_course) { '2' }
       before do
-        redis.set("smartvpn:eur_usd", cached_course)
-        redis.set("smartvpn:courses:updated_at", Time.current)
+        redis.set('smartvpn:eur_usd', cached_course)
+        redis.set('smartvpn:courses:updated_at', Time.current)
       end
 
       it 'returns update date' do

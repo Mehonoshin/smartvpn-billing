@@ -1,9 +1,10 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 describe BytesConverter do
-
   describe '#bytes_to_gigabytes' do
-    let(:bytes) { 2147483658 }
+    let(:bytes) { 2_147_483_658 }
     let(:gbytes) { 2 }
     subject { described_class.bytes_to_gigabytes(bytes) }
 
@@ -39,7 +40,6 @@ describe BytesConverter do
       end
     end
 
-
     context 'triple float' do
       let(:float) { 123.123456 }
 
@@ -49,10 +49,10 @@ describe BytesConverter do
     end
 
     context 'five float' do
-      let(:float) { 12345.123456 }
+      let(:float) { 12_345.123456 }
 
       it 'prettifys' do
-        expect(subject).to eq 12345.1
+        expect(subject).to eq 12_345.1
       end
     end
   end

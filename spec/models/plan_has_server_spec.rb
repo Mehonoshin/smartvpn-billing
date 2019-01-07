@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 describe PlanHasServer do
@@ -15,4 +17,3 @@ end
 #  created_at :datetime
 #  updated_at :datetime
 #
-

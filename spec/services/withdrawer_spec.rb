@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 describe Withdrawer do
@@ -13,28 +15,28 @@ describe Withdrawer do
     old_withdrawal.update(created_at: 2.month.ago)
   end
 
-  describe ".mass_withdrawal" do
+  describe '.mass_withdrawal' do
     let!(:non_paid_clients_number) { User.non_paid_users.size }
 
-    it "creates withdrawal for each non paid client" do
-      expect {
+    it 'creates withdrawal for each non paid client' do
+      expect do
         subject.mass_withdrawal
-      }.to change(Withdrawal, :count).by(non_paid_clients_number)
+      end.to change(Withdrawal, :count).by(non_paid_clients_number)
     end
   end
 
-  describe ".single_withdraw" do
-    context "user is unpaid" do
-      context "user has enough funds" do
+  describe '.single_withdraw' do
+    context 'user is unpaid' do
+      context 'user has enough funds' do
         let!(:user) { create :user_with_balance }
 
-        it "creates withdraw" do
-          expect {
+        it 'creates withdraw' do
+          expect do
             subject.single_withdraw(user)
-          }.to change(Withdrawal, :count).by(1)
+          end.to change(Withdrawal, :count).by(1)
         end
 
-        it "gets withdrawal sum from calculator" do
+        it 'gets withdrawal sum from calculator' do
           WithdrawalAmountCalculator.any_instance.expects(:amount_to_withdraw).returns(10)
           subject.single_withdraw(user)
         end
@@ -48,21 +50,21 @@ describe Withdrawer do
           before { user.update(can_not_withdraw_counter: 1) }
 
           it 'resets the counter' do
-            expect {
+            expect do
               subject.single_withdraw(user)
-            }.to change(user.reload, :can_not_withdraw_counter).to(0)
+            end.to change(user.reload, :can_not_withdraw_counter).to(0)
           end
         end
       end
 
-      context "user has not funds" do
+      context 'user has not funds' do
         context 'first attempt to withdraw funds' do
           let(:user) { create :user }
 
-          it "notifies user by email" do
-            expect {
+          it 'notifies user by email' do
+            expect do
               subject.single_withdraw(user)
-            }.to change(CanNotWithdrawNotificationWorker.jobs, :size).by(1)
+            end.to change(CanNotWithdrawNotificationWorker.jobs, :size).by(1)
           end
         end
 
@@ -75,30 +77,29 @@ describe Withdrawer do
           end
 
           it 'does not send mail' do
-            expect {
+            expect do
               subject.single_withdraw(user)
-            }.not_to change(CanNotWithdrawNotificationWorker.jobs, :size)
+            end.not_to change(CanNotWithdrawNotificationWorker.jobs, :size)
           end
         end
       end
     end
 
-    context "user is paid" do
+    context 'user is paid' do
       let(:user) { create :user_with_balance }
       before { create(:withdrawal, user: user, plan: user.plan) }
 
-      it "does not create withdrawal" do
-        expect {
+      it 'does not create withdrawal' do
+        expect do
           subject.single_withdraw(user)
-        }.not_to change(Withdrawal, :count)
+        end.not_to change(Withdrawal, :count)
       end
 
-      it "does not notify user" do
-        expect {
+      it 'does not notify user' do
+        expect do
           subject.single_withdraw(user)
-        }.not_to change(CanNotWithdrawNotificationWorker.jobs, :size)
+        end.not_to change(CanNotWithdrawNotificationWorker.jobs, :size)
       end
     end
   end
-
 end
