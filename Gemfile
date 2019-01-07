@@ -3,7 +3,7 @@ source 'http://rubygems.org'
 # temporary disable http, until ruby upgrade with new openssl
 # source 'https://rubygems.org'
 
-gem 'rails', '4.2.10'
+gem 'rails', '4.2.11'
 
 gem 'pg'
 gem 'pghero'
@@ -56,6 +56,7 @@ gem 'jquery-ui-rails'
 
 gem 'jbuilder', '~> 1.0.1'
 gem 'puma'
+gem "ffi", ">= 1.9.24"
 
 group :development do
   gem 'awesome_print'
