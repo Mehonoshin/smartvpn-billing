@@ -11,7 +11,7 @@ table.table.table-bordered
   tbody
     - @servers.each do |server|
       tr
-        td= server_country_flag(server)
+        td= server_country_name(server)
         td= server.hostname
         td= server.port
         td= server.protocol.upcase

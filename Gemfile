@@ -32,7 +32,6 @@ gem 'carrierwave'
 gem 'draper', '1.4.0'
 gem 'russian_central_bank'
 gem 'mechanize'
-gem 'world-flags'
 gem 'gibbon'
 
 gem 'sinatra', require: false
@@ -83,6 +82,7 @@ group :test, :development do
   gem "rspec-rails"
   gem "factory_girl_rails", "~> 4.0"
   gem 'faker'
+  gem 'selenium-webdriver'
 end
 
 group :test do

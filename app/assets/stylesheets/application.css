@@ -16,7 +16,4 @@
  *= require jquery.ui.all
  *= require_tree ./theme
  *= require ./main
- *= require flags/basic
- *= require flags/flags16
- *= require flags/flags32
  */
