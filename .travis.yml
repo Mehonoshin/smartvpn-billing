@@ -19,6 +19,7 @@ services:
 before_install:
   - gem install bundler -v '1.17.3'
   - cp config/database.yml.sample config/database.yml
+  - cp .env.test .env
 before_script:
   - bundle exec rake db:create
   - bundle exec rake db:schema:load
