@@ -15,7 +15,18 @@ All documentation is located in this repository: [https://github.com/Mehonoshin/
 
 VPN node configuration is located in the following [repo](https://github.com/Mehonoshin/smartvpn-node).
 
-### Up and Running with Docker
+### Set Up and Running app locally
+
+1. Clone repo `git clone git@github.com:Mehonoshin/smartvpn-billing.git`
+2. `cd smartvpn-billing`
+3. `cp config/database.yml.sample config/database.yml` and enter the username and password for access to your database.
+4. `cp .env.sample .env`
+5. The file `.env` contains all the env variables used in the application.
+6. `bundle install`
+7. `rake db:setup`
+8. `rails server`
+
+### Set Up and Running with Docker
 
 For this type of installation we assume that you already have a VPS for billing with root access.
 Also you should have `docker` and `docker-compose` installed on your machine.

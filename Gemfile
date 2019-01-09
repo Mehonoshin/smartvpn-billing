@@ -86,6 +86,7 @@ group :test, :development do
   gem 'faker'
   gem 'selenium-webdriver'
   gem 'pry-rails'
+  gem 'dotenv-rails'
 end
 
 group :test do
