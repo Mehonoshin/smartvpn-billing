@@ -1,0 +1,34 @@
+doctype html
+html lang='en-us'
+  head
+    meta content='text/html; charset=UTF-8' http-equiv='Content-Type'
+    meta charset='utf-8'
+    title SmartAdmin
+    meta content='width=device-width, initial-scale=1.0' name='viewport'
+    meta content='' name='description'
+    meta content='' name='author'
+    = javascript_include_tag :admin
+    = stylesheet_link_tag :admin
+    link rel='shortcut icon' href='img/favicon/favicon.ico' type='image/x-icon'
+    link rel='icon' href='img/favicon/favicon.ico' type='image/x-icon'
+
+  body.no-right-panel
+    header#header
+      .logo-group
+        span#logo
+          = image_tag 'logo.png'
+      .pull-right
+        #logout.btn-header.transparent.pull-right
+          span
+            = link_to destroy_admin_session_path, method: :delete do
+              i.fa.fa-sign-out
+
+    aside#left-panel
+      = render partial: 'admin/shared/menu'
+      span.minifyme
+        i.fa.fa-arrow-circle-left.hit
+
+    #main role='main'
+      #content
+        = render partial: 'notifications'
+        = yield
