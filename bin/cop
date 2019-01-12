@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+#
+# Run RuboCop check on added, modified and untracked Ruby files
+# diverging from master branch.
+
+# Set cwd to app root to allow calling the script from anywhere.
+self="${BASH_SOURCE[0]}"
+bin="$(cd "$(dirname "$self")" && pwd)"
+cd "$(dirname "$bin")"
+
+changed_files=`git diff --name-only $(git merge-base origin/master HEAD) --diff-filter=AMCR -- '*.rb' '*.rake' | grep -v 'db/schema.rb'`
+untracked_files=`git ls-files --others --exclude-standard -- '*.rb' '*.rake'`
+
+files="$changed_files $untracked_files"
+
+if [[ -n "${files// }" ]]; then
+ echo "$files" | xargs bundle exec rubocop "$@"
+fi
