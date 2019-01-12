@@ -12,6 +12,7 @@ gem 'pghero'
 gem 'thin'
 
 gem 'activemerchant'
+gem 'bootstrap', '~> 4.2.1'
 gem 'cancan'
 gem 'devise', '4.5.0'
 gem 'devise-i18n', '~> 0.10.3'
@@ -49,7 +50,7 @@ gem 'thread_safe', '0.3.6'
 
 group :assets do
   gem 'coffee-rails', '~> 4.1.0'
-  gem 'sass-rails',   '~> 5.0'
+  gem 'sass-rails'
   gem 'uglifier'
 end
 
@@ -77,8 +78,6 @@ group :test, :development do
   gem 'hirb'
   gem 'mocha', require: false
   gem 'rb-fchange', require: false
-  gem 'rb-fsevent', require: false
-  gem 'rb-inotify', require: false
   gem 'vcr'
   # TODO: switch to stable version
   gem 'dotenv-rails'
