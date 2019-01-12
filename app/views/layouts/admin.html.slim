@@ -12,23 +12,19 @@ html lang='en-us'
     link rel='shortcut icon' href='img/favicon/favicon.ico' type='image/x-icon'
     link rel='icon' href='img/favicon/favicon.ico' type='image/x-icon'
 
-  body.no-right-panel
-    header#header
-      .logo-group
-        span#logo
-          = image_tag 'logo.png'
-      .pull-right
-        #logout.btn-header.transparent.pull-right
-          span
-            = link_to destroy_admin_session_path, method: :delete do
-              i.fa.fa-sign-out
+  body
+    header
+      nav.navbar.navbar-expand-md.navbar-dark.bg-dark
+        = link_to 'SmartAdmin', '#', class: 'navbar-brand'
+        .nav.navbar-nav.ml-auto.mr-3
+          = link_to 'Sign out', destroy_admin_session_path, method: :delete
 
-    aside#left-panel
-      = render partial: 'admin/shared/menu'
-      span.minifyme
-        i.fa.fa-arrow-circle-left.hit
+    .container-fluid
+      .row.d-flex
+        aside.col-md-2.p-0.bg-dark
+          nav.navbar.navbar-expand.navbar-dark.bg-dark.flex-md-column.flex-row.align-items-start.py-2
+            = render partial: 'admin/shared/menu'
 
-    #main role='main'
-      #content
-        = render partial: 'notifications'
-        = yield
+        main.col-md-9.ml-sm-auto.col-lg-10.pt-3.px-4 role='main'
+          = render partial: 'notifications'
+          = yield

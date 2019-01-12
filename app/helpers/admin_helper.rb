@@ -1,24 +1,26 @@
 module AdminHelper
 
-  def menu_item(title, path, fa_icon, &block)
-    content_tag :li do
-      link_to path do
+  def menu_item(title, path, fa_icon)
+    content_tag :li, class: 'nav-item' do
+      link_to path, class: 'nav-link' do
         content_tag(:i, '', class: "fa fa-lg fa-fw fa-#{fa_icon}") +
-        content_tag(:span, class: 'menu-item-parent') do
-          title
-        end +
-        if block_given?
-          content_tag :ul do
-            yield
-          end
-        end
+          content_tag(:span, title)
+      end
+    end
+  end
+
+  def menu_item_with_sub(title, path, fa_icon)
+    content_tag :li, class: 'nav-item' do
+      link_to path, class: 'nav-link dropdown-toggle', 'data-toggle': 'collapse', 'aria-expanded': 'false' do
+        content_tag(:i, '', class: "fa fa-lg fa-fw fa-#{fa_icon}") +
+          content_tag(:span, title)
       end
     end
   end
 
   def sub_menu_item(title, path)
-    content_tag :li do
-      link_to title, path
+    content_tag :li, class: 'nav-item' do
+      link_to title, path, class: 'nav-link'
     end
   end
 
