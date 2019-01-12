@@ -31,3 +31,4 @@ config/database.yml
 .vagrant/
 sandi_meter/**/*
 .env
+.idea/
