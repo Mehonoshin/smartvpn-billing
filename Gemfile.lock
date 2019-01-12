@@ -157,6 +157,8 @@ GEM
     faker (1.2.0)
       i18n (~> 0.5)
     ffi (1.9.25)
+    font-awesome-sass (5.6.1)
+      sassc (>= 1.11)
     foreman (0.63.0)
       dotenv (>= 0.7)
       thor (>= 0.13.6)
@@ -454,6 +456,7 @@ DEPENDENCIES
   faker
   fakeweb!
   ffi (>= 1.9.24)
+  font-awesome-sass (~> 5.6.1)
   foreman
   gibbon
   hirb

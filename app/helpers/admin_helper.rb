@@ -4,7 +4,7 @@ module AdminHelper
     content_tag :li, class: 'nav-item' do
       link_to path, class: 'nav-link' do
         content_tag(:i, '', class: "fa fa-lg fa-fw fa-#{fa_icon}") +
-          content_tag(:span, title)
+          content_tag(:span, title, class: 'pl-3')
       end
     end
   end
@@ -13,7 +13,7 @@ module AdminHelper
     content_tag :li, class: 'nav-item' do
       link_to path, class: 'nav-link dropdown-toggle', 'data-toggle': 'collapse', 'aria-expanded': 'false' do
         content_tag(:i, '', class: "fa fa-lg fa-fw fa-#{fa_icon}") +
-          content_tag(:span, title)
+          content_tag(:span, title, class: 'pl-3')
       end
     end
   end
