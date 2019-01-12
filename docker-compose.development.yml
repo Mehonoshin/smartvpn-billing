@@ -1,0 +1,53 @@
+version: '3'
+services:
+  postgres:
+    environment:
+      - POSTGRES_PASSWORD=root
+    image: postgres
+    volumes:
+      - postgres:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+
+  redis:
+    image: redis
+    ports:
+      - 6379:6379
+    volumes:
+      - redis:/data
+
+  app:
+    tty: true
+    stdin_open: true
+    build:
+      context: .
+      dockerfile: app.dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - RAILS_LOG_TO_STDOUT=true
+      - RAILS_ENV=development
+      - PGHOST=postgres
+      - REDIS_URL=redis://redis:6379
+      - SECRET_TOKEN
+    volumes:
+      - bundle_cache:/usr/local/bundle
+      - ./:/app
+    depends_on:
+      - postgres
+      - redis
+    command: >
+      /bin/bash -c "
+        while ! nc -z postgres 5432;
+        do
+          echo Waiting for PG;
+          sleep 1;
+        done;
+        rake db:migrate;
+        rm -f /app/tmp/pids/server.pid;
+        foreman start;"
+
+volumes:
+  bundle_cache:
+  postgres:
+  redis:
