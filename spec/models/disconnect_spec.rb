@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 describe Disconnect do
@@ -12,10 +14,10 @@ describe Disconnect do
 
   it_behaves_like 'loads created by last days', :disconnect
 
-  describe "instance" do
+  describe 'instance' do
     subject { create(:disconnect) }
 
-    it "returns server hostname" do
+    it 'returns server hostname' do
       expect(subject.hostname).to eq subject.server.hostname
     end
   end
@@ -34,4 +36,3 @@ end
 #  created_at  :datetime
 #  updated_at  :datetime
 #
-
