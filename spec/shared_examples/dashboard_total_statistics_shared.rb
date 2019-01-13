@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 shared_examples 'total statistics result' do |amount|
   it 'is a hash' do
     expect(subject.class).to eq Hash
@@ -12,7 +14,6 @@ shared_examples 'total statistics result' do |amount|
       expect(subject[:total]).to eq amount
     end
   end
-
 end
 
 shared_examples 'total statistics discrete result' do |class_name|
@@ -22,7 +23,7 @@ shared_examples 'total statistics discrete result' do |class_name|
     end
 
     it 'size equals discrete days number plus today' do
-      expect(subject[:discrete].size).to eq (class_name::DESCRETE_DAYS_NUMBER + 1)
+      expect(subject[:discrete].size).to eq(class_name::DISCRETE_DAYS_NUMBER + 1)
     end
   end
 end
