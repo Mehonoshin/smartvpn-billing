@@ -69,22 +69,18 @@ gem 'jbuilder', '~> 1.0.1'
 gem 'puma'
 
 group :development do
-  gem 'awesome_print'
   gem 'better_errors'
   gem 'foreman'
   gem 'letter_opener'
   gem 'migration_opener'
   gem 'rubocop', require: false
-  gem 'sandi_meter', require: false
   gem 'web-console', '~> 2.0'
 end
 
 group :test, :development do
   gem 'capybara'
   gem 'database_cleaner', '1.0.0.RC1'
-  gem 'hirb'
   gem 'mocha', require: false
-  gem 'rb-fchange', require: false
   gem 'vcr'
   # TODO: switch to stable version
   gem 'pry-rails'

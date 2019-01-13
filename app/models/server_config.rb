@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# TODO: delete
 class ServerConfig
   attr_accessor :config_lines
 
