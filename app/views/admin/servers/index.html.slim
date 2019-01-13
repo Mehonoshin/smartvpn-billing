@@ -1,30 +1,30 @@
 = page_title('Серверы', 'server')
 
-.jarviswidget.jarviswidget-color-blue.jarviswidget-sortable
-  = button_to "Добавить", new_admin_server_path, method: :get, class: "btn btn-primary"
-  br
+.row.my-4
+  .col
+    = link_to 'Добавить', new_admin_server_path, class: 'btn btn-primary'
 
-  table.table.table-bordered
-    thead
+table.table
+  thead
+    tr
+      th= 'ID'
+      th= 'Host'
+      th= 'IP address'
+      th= 'Тарифы'
+      th= 'Статус'
+      th
+
+  tbody
+    - @servers.each do |server|
       tr
-        th= "ID"
-        th= "Host"
-        th= "IP address"
-        th= "Тарифы"
-        th= "Статус"
+        td= server.id
+        td= link_to server.hostname, admin_server_path(server)
+        td= server.ip_address
+        td
+          - server.plans.each do |plan|
+            = link_to plan.name, edit_admin_plan_path(plan)
+            = ', '
+
+        td= server.state
         th
-
-    tbody
-      - @servers.each do |server|
-        tr
-          td= server.id
-          td= link_to server.hostname, admin_server_path(server)
-          td= server.ip_address
-          td
-            - server.plans.each do |plan|
-              = link_to plan.name, edit_admin_plan_path(plan)
-              = ", "
-
-          td class="state #{server.state}" = server.state
-          th
-            = link_to "Изменить", edit_admin_server_path(server)
+          = link_to 'Изменить', edit_admin_server_path(server), class: 'btn btn-sm btn-info'
