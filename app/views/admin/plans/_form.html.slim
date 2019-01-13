@@ -1,22 +1,25 @@
-= simple_form_for [:admin, @plan] do |f|
-  = f.input :name
-  = f.input :description
-  = f.input :code, input_html: { enabled: false }
-  = f.input :enabled, as: :select
-  = f.input :special, as: :select
+.row.mt-5
+  .col
+    = simple_form_for [:admin, @plan], html: { class: 'form-horizontal' },wrapper: :horizontal_form do |f|
+      = f.input :name
+      = f.input :description
+      = f.input :code, input_html: { enabled: false }
+      = f.input :enabled, as: :select
+      = f.input :special, as: :select
 
-  legend Серверы
-  = f.association :servers, as: :select
+      legend Серверы
+      = f.association :servers, as: :select
 
-  legend Услуги
-  = f.association :options, as: :select, collection: Option.all.active
+      legend Услуги
+      = f.association :options, as: :select, collection: Option.all.active
 
-  legend Цены
-  = f.input :price
+      legend Цены
+      = f.input :price
 
-  .option-prices
-    - @plan.options.active.each do |option|
-      = "#{option.name} price"
-      = text_field_tag "plan[option_prices][#{option.code}]", prettify_number(plans_option_price(@plan, option.code))
+      .row.mb-3
+        .col
+          - @plan.options.active.each do |option|
+            = "#{option.name} price"
+            = text_field_tag "plan[option_prices][#{option.code}]", prettify_number(plans_option_price(@plan, option.code))
 
-  = f.submit "Применить"
+      = f.submit 'Применить', class: 'btn btn-primary'

@@ -1,28 +1,29 @@
 = page_title('Тарифы', 'shopping-cart')
 
-.jarviswidget.jarviswidget-color-blue.jarviswidget-sortable
-  = button_to "Добавить", new_admin_plan_path, method: :get, class: "btn btn-primary"
+.row.my-4
+  .col
+    = link_to 'Добавить', new_admin_plan_path, class: 'btn btn-primary'
 
-  table.table.table-bordered
-    thead
+table.table
+  thead
+    tr
+      th= 'ID'
+      th= 'Название'
+      th= 'Описаие'
+      th= 'Код'
+      th= 'Цена'
+      th
+
+  tbody
+    - @plans.each do |plan|
       tr
-        th= "ID"
-        th= "Название"
-        th= "Описаие"
-        th= "Код"
-        th= "Цена"
+        td= plan.id
+        td= plan.name
+        td= plan.description
+        td= plan.code
+        td= plan.price
         th
-
-    tbody
-      - @plans.each do |plan|
-        tr
-          td= plan.id
-          td= plan.name
-          td= plan.description
-          td= plan.code
-          td= plan.price
-          th
-            = link_to "Изменить", edit_admin_plan_path(plan)
-            /TODO:
-            / при удалении надо архивировать тариф, и переводить всех юзеров на другой
-            /= button_to "Удалить", admin_plan_path(plan), method: :delete, data: { confirm: "Вы уверены?" }, class: "btn btn-danger"
+          = link_to 'Изменить', edit_admin_plan_path(plan), class: 'btn btn-sm btn-info'
+          /TODO:
+          / при удалении надо архивировать тариф, и переводить всех юзеров на другой
+          /= button_to 'Удалить', admin_plan_path(plan), method: :delete, data: { confirm: 'Вы уверены?' }, class: 'btn btn-danger'
