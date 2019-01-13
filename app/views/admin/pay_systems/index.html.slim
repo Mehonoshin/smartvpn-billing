@@ -1,25 +1,24 @@
-= page_title('Платежные системы', 'money')
+= page_title('Платежные системы', 'money-bill')
 
-.jarviswidget.jarviswidget-color-blue.jarviswidget-sortable
-  = button_to "Добавить", new_admin_pay_system_path, method: :get, class: "btn btn-primary"
-  br
+.row.my-4
+  .col
+    = link_to 'Добавить', new_admin_pay_system_path, class: 'btn btn-primary'
 
-  table.table.table-bordered
-    thead
+table.table
+  thead
+    tr
+      th= '#'
+      th= 'Название'
+      th= 'Код'
+      th= 'Статус'
+      th
+
+  tbody
+    - @pay_systems.each do |pay_system|
       tr
-        th= "#"
-        th= "Название"
-        th= "Код"
-        th= "Статус"
+        td= pay_system.id
+        td= pay_system.title
+        td= pay_system.code
+        td= pay_system.human_state
         th
-
-    tbody
-      - @pay_systems.each do |pay_system|
-        tr
-          td= pay_system.id
-          td= pay_system.title
-          td= pay_system.code
-          td class="state #{pay_system.state}"
-            = pay_system.human_state
-          th
-            = link_to "Изменить", edit_admin_pay_system_path(pay_system)
+          = link_to 'Изменить', edit_admin_pay_system_path(pay_system), class: 'btn btn-sm btn-info'

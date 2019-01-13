@@ -13,7 +13,7 @@
 
 .MessageIE{
     background-image: url(../img/bg.png);
-    
+
 }
 
 .MessageBoxContainer{
@@ -50,7 +50,7 @@
 
 .MessageBoxContainer select{
     width: 50%;
-    padding: 5px;   
+    padding: 5px;
 }
 
 
@@ -284,11 +284,11 @@
     top: 0;
     height: 100%;
     z-index: 999999;
-    
+
     /* Specify the width of your pageslide here */
     width: 305px;
     padding: 20px;
-    
+
     /* These styles are optional, and describe how the pageslide will look */
     background-color: #004d60;
     color: #FFF;
@@ -344,7 +344,7 @@
 .SmallBox .textoFoto{
     width: 55%;
 	margin: 3px 20px 3px 80px;
-    float: left;    
+    float: left;
 }
 
 
@@ -414,7 +414,7 @@
 
 .MessageBoxContainer select{
     width: 50%;
-    padding: 5px;   
+    padding: 5px;
 }
 
 
@@ -461,22 +461,22 @@
 }
 
 @-webkit-keyframes fadeIn {
-    0% {opacity: 0;}    
+    0% {opacity: 0;}
     100% {opacity: 1;}
 }
 
 @-moz-keyframes fadeIn {
-    0% {opacity: 0;}    
+    0% {opacity: 0;}
     100% {opacity: 1;}
 }
 
 @-o-keyframes fadeIn {
-    0% {opacity: 0;}    
+    0% {opacity: 0;}
     100% {opacity: 1;}
 }
 
 @keyframes fadeIn {
-    0% {opacity: 0;}    
+    0% {opacity: 0;}
     100% {opacity: 1;}
 }
 
@@ -492,7 +492,7 @@
         opacity: 0;
         -webkit-transform: translateX(20px);
     }
-    
+
     100% {
         opacity: 1;
         -webkit-transform: translateX(0);
@@ -504,7 +504,7 @@
         opacity: 0;
         -moz-transform: translateX(20px);
     }
-    
+
     100% {
         opacity: 1;
         -moz-transform: translateX(0);
@@ -516,7 +516,7 @@
         opacity: 0;
         -o-transform: translateX(20px);
     }
-    
+
     100% {
         opacity: 1;
         -o-transform: translateX(0);
@@ -528,7 +528,7 @@
         opacity: 0;
         transform: translateX(20px);
     }
-    
+
     100% {
         opacity: 1;
         transform: translateX(0);
@@ -547,7 +547,7 @@
         opacity: 0;
         -webkit-transform: translateY(20px);
     }
-    
+
     100% {
         opacity: 1;
         -webkit-transform: translateY(0);
@@ -559,7 +559,7 @@
         opacity: 0;
         -moz-transform: translateY(20px);
     }
-    
+
     100% {
         opacity: 1;
         -moz-transform: translateY(0);
@@ -571,7 +571,7 @@
         opacity: 0;
         -o-transform: translateY(20px);
     }
-    
+
     100% {
         opacity: 1;
         -o-transform: translateY(0);
@@ -583,7 +583,7 @@
         opacity: 0;
         transform: translateY(20px);
     }
-    
+
     100% {
         opacity: 1;
         transform: translateY(0);
@@ -628,7 +628,7 @@
         opacity: 1;
         -webkit-transform: translateX(0);
     }
-    
+
     100% {
         opacity: 0;
         -webkit-transform: translateX(-20px);
@@ -640,7 +640,7 @@
         opacity: 1;
         -moz-transform: translateX(0);
     }
-    
+
     100% {
         opacity: 0;
         -moz-transform: translateX(-20px);
@@ -652,7 +652,7 @@
         opacity: 1;
         -o-transform: translateX(0);
     }
-    
+
     100% {
         opacity: 0;
         -o-transform: translateX(-20px);
@@ -664,7 +664,7 @@
         opacity: 1;
         transform: translateX(0);
     }
-    
+
     100% {
         opacity: 0;
         transform: translateX(-20px);
@@ -677,4 +677,4 @@
     -o-animation-name: fadeOutLeft;
     animation-name: fadeOutLeft;
 }
-/* End of Animations 
+/* End of Animations */

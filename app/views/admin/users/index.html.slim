@@ -1,7 +1,9 @@
 = page_title('Все пользователи', 'user')
 
-.jarviswidget.jarviswidget-color-blue.jarviswidget-sortable
-  = link_to "Список email", emails_export_admin_users_path(q: params[:q]), target: '_blank', class: 'btn btn-primary'
+.row
+  .col
+    = link_to t('admin.links.email_list'), emails_export_admin_users_path(q: params[:q]), target: '_blank', class: 'btn btn-primary'
+  = render partial: 'filter'
 
-= render partial: "filter"
-= render partial: "table"
+= render partial: 'submenu'
+= render partial: 'table'

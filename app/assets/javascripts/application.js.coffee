@@ -19,3 +19,8 @@
 #= require jquery.ui.all
 #= require main
 #= require options
+
+
+#= require jquery3
+#= require popper
+#= require bootstrap-sprockets

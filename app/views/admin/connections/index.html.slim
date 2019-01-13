@@ -1,34 +1,28 @@
-.search
-  = search_form_for [:admin, search] do |f|
-    p
-      = f.label :user
-      = f.select :user_id_eq, options_for_select(User.all.map { |u| [u.email, u.id] }), include_blank: true
-    p
-      = f.label :server
-      = f.select :server_id_eq, options_for_select(Server.all.map { |s| [s.hostname, s.id] }), include_blank: true
-    p
-      = f.submit
-    = link_to "Активные", active_admin_connections_path
+= page_title('Соединения', 'bolt')
 
-.info
-  table.table.table-bordered
-    thead
-      tr
-        th= "ID"
-        th= "Пользователь"
-        th= "Сервер"
-        th= "Событие"
-        th= "Траффик"
-        th= "Дата"
+.row
+  = render 'search'
+  .col.my-3
+    = link_to 'Активные', active_admin_connections_path
 
-    - @connections.each do |connection|
-      tr
-        td= connection.id
-        td= link_to connection.user.email, admin_user_path(connection.user)
-        td= link_to connection.hostname, admin_server_path(connection.server)
-        td= human_connection(connection.type)
-        td= human_traffic(connection.traffic_in + connection.traffic_out) if connection.is_a? Disconnect
-        td= human_date(connection.created_at)
+table.table
+  thead
+    tr
+      th= 'ID'
+      th= 'Пользователь'
+      th= 'Сервер'
+      th= 'Событие'
+      th= 'Траффик'
+      th= 'Дата'
 
-= paginate @connections
+  - @connections.each do |connection|
+    tr
+      td= connection.id
+      td= link_to connection.user.email, admin_user_path(connection.user)
+      td= link_to connection.hostname, admin_server_path(connection.server)
+      td= human_connection(connection.type)
+      td= human_traffic(connection.traffic_in + connection.traffic_out) if connection.is_a? Disconnect
+      td= human_date(connection.created_at)
+
+= render partial: 'admin/shared/paginate', locals: { collection: @connections }
 

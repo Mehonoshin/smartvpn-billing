@@ -7,6 +7,11 @@ en:
         sign_in: 'Sign in'
         staff_entrance: 'Administration'
   admin:
+    links:
+      edit: 'Edit'
+      email_list: 'Email list'
+    buttons:
+      filter: 'Filter'
     users:
       current_connection: 'Current connection'
       not_connected: 'No connection'

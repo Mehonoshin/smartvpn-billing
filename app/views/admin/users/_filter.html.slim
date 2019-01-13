@@ -1,15 +1,14 @@
-.search
-  = search_form_for [:admin, search] do |f|
-    p
-      = f.label :email_cont
-      = f.text_field :email_cont
-    p
-      = f.label :plan
-      = f.select :plan_id_eq, options_for_select(Plan.all.map { |p| [p.name, p.id] }, search_params[:plan_id_cont]), include_blank: true
-    p
-      = f.label t('admin.users.filter.never_paid_users')
+.col-md-12.d-flex.justify-content-end
+  = search_form_for [:admin, search], class: 'form-inline my-3' do |f|
+    .form-group.mr-3
+      = f.label :email_cont, class: 'mr-3'
+      = f.text_field :email_cont, class: 'form-control'
+    .form-group.mr-3
+      = f.label :plan, class: 'mr-3'
+      = f.select :plan_id_eq, options_for_select(Plan.all.map { |p| [p.name, p.id] }, search_params[:plan_id_cont]), { include_blank: true }, { class: 'form-control' }
+    .form-group.mr-3
+      = f.label t('admin.users.filter.never_paid_users'), class: 'mr-3'
       = check_box_search(:never_paid_eq)
-    p
-      = f.submit 'Фильтр', class: 'btn btn-primary'
+    = f.submit t('admin.buttons.filter'), class: 'btn btn-primary'
 
 

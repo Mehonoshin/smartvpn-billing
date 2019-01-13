@@ -1,47 +1,53 @@
-module AdminHelper
+# frozen_string_literal: true
 
-  def menu_item(title, path, fa_icon, &block)
-    content_tag :li do
-      link_to path do
+module AdminHelper
+  def menu_item(title, path, fa_icon)
+    content_tag :li, class: 'nav-item' do
+      link_to path, class: 'nav-link' do
         content_tag(:i, '', class: "fa fa-lg fa-fw fa-#{fa_icon}") +
-        content_tag(:span, class: 'menu-item-parent') do
-          title
-        end +
-        if block_given?
-          content_tag :ul do
-            yield
-          end
-        end
+          content_tag(:span, title, class: 'pl-3')
       end
+    end
+  end
+
+  def menu_item_with_sub(title, path, fa_icon)
+    if block_given?
+      sub_menu = content_tag :ul, id: path[1..-1], class: 'collapse list-unstyled ml-3' do
+        yield
+      end.html_safe
+    end
+    content_tag :li, class: 'nav-item' do
+      link_to path, class: 'nav-link dropdown-toggle', 'data-toggle': 'collapse', 'aria-expanded': 'false' do
+        content_tag(:i, '', class: "fa fa-lg fa-fw fa-#{fa_icon}") +
+          content_tag(:span, title, class: 'pl-3')
+      end.concat(sub_menu)
     end
   end
 
   def sub_menu_item(title, path)
-    content_tag :li do
-      link_to title, path
+    content_tag :li, class: 'nav-item' do
+      link_to title, path, class: 'nav-link'
     end
   end
 
-  def page_title(section, icon, subsection=nil)
-    content_tag :h1, class: 'page-title txt-color-blueDark' do
+  def page_title(section, icon, subsection = nil)
+    content_tag :h3, class: 'page-title txt-color-blueDark' do
       content_tag(:i, '', class: "fa-fw fa fa-#{icon}") +
-      "#{section} " +
-      content_tag(:span) do
-        if subsection
-          "> #{subsection}"
+        content_tag(:span, "#{section} ", class: 'pl-3') +
+        content_tag(:span) do
+          "> #{subsection}" if subsection
         end
-      end
     end
   end
 
   def human_connection(type)
-    if type == "Connect"
-      content_tag :span, class: "green" do
-        "Подключение"
+    if type == 'Connect'
+      content_tag :span, class: 'green' do
+        'Подключение'
       end
     else
-      content_tag :span, class: "red" do
-        "Отключение"
+      content_tag :span, class: 'red' do
+        'Отключение'
       end
     end
   end
@@ -55,7 +61,7 @@ module AdminHelper
   end
 
   def descrete_statistic_values(sequence)
-    sequence.to_s.gsub('[', '').gsub(']', '')
+    sequence.to_s.delete('[').delete(']')
   end
 
   def human_course(course)

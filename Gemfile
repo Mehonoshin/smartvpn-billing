@@ -11,15 +11,19 @@ gem 'pg'
 gem 'pghero'
 gem 'thin'
 
+gem 'chartkick'
+
 gem 'activemerchant'
+gem 'bootstrap', '~> 4.2.1'
 gem 'cancan'
 gem 'devise', '4.5.0'
 gem 'devise-i18n', '~> 0.10.3'
+gem 'font-awesome-sass', '~> 5.6.1'
+gem 'kaminari'
 gem 'rails-i18n'
 gem 'simple_form'
 gem 'slim'
 # TODO: switch to stable version
-gem 'kaminari'
 gem 'state_machine', github: 'pluginaweek/state_machine'
 # Temporary broken with rails 4.2
 gem 'active_model_serializers' # , github: 'rails-api/active_model_serializers', branch: '0-9-stable'
@@ -49,7 +53,7 @@ gem 'thread_safe', '0.3.6'
 
 group :assets do
   gem 'coffee-rails', '~> 4.1.0'
-  gem 'sass-rails',   '~> 5.0'
+  gem 'sass-rails'
   gem 'uglifier'
 end
 
@@ -77,8 +81,6 @@ group :test, :development do
   gem 'hirb'
   gem 'mocha', require: false
   gem 'rb-fchange', require: false
-  gem 'rb-fsevent', require: false
-  gem 'rb-inotify', require: false
   gem 'vcr'
   # TODO: switch to stable version
   gem 'dotenv-rails'

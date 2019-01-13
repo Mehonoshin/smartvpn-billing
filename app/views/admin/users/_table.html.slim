@@ -1,34 +1,36 @@
-.info.users
-  table.table.table-bordered
-    thead
-      tr
-        th ID
-        th Email
-        th Тариф
-        th Дата регистрации
-        th Баланс
-        th Количество подключений
-        th Входил в биллинг
-        th Оборот
-        th Неудачных списаний
-        th Статус
-        th Действия
+table.table
+  thead
+    tr
+      th ID
+      th Email
+      th Тариф
+      th Дата регистрации
+      th Баланс
+      th Количество подключений
+      th Входил в биллинг
+      th Оборот
+      th Неудачных списаний
+      th Статус
+      th Действия
 
-    - @users.each do |user|
-      tr class="#{background_highlight(user)}"
-        td= user.id
-        td= link_to user.email, admin_user_path(user)
-        td= user.plan.name
-        td= human_date(user.created_at)
-        td= user.balance
-        td= user.connects.count
-        td= human_date(user.last_sign_in_at)
-        td= user.total_amount
-        td= user.can_not_withdraw_counter
-        td= user.state
-        td
-          = link_to "Изменить", edit_admin_user_path(user)
-          = button_to "Списать", withdraw_admin_user_path(user), method: :put, class: "btn btn-warning"
+  - @users.each do |user|
+    tr class="#{background_highlight(user)}"
+      td= user.id
+      td= link_to user.email, admin_user_path(user)
+      td= user.plan.name
+      td= human_date(user.created_at)
+      td= user.balance
+      td= user.connects.count
+      td= human_date(user.last_sign_in_at)
+      td= user.total_amount
+      td= user.can_not_withdraw_counter
+      td= user.state
+      td
+        ul.list-unstyled
+          li.pb-1
+            = link_to t('admin.links.edit'), edit_admin_user_path(user), class: 'btn btn-sm btn-info'
+          li
+            = link_to 'Списать', withdraw_admin_user_path(user), method: :put, class: 'btn btn-sm btn-warning'
 
-= paginate @users
+= render partial: 'admin/shared/paginate', locals: {collection: @users}
 

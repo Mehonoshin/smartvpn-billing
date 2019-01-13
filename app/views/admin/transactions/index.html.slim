@@ -1,22 +1,20 @@
-h2.title-divider
-  span Транзакции
+= page_title('Транзакции', 'file-invoice-dollar')
 
-.info
-  table.table.table-bordered
-    thead
+table.table
+  thead
+    tr
+      th= t('transaction.id')
+      th= t('transaction.amount')
+      th= t('transaction.user')
+      th= t('transaction.date')
+      th= t('transaction.description')
+  tbody
+    - @transactions.each do |transaction|
       tr
-        th= t('transaction.id')
-        th= t('transaction.amount')
-        th= t('transaction.user')
-        th= t('transaction.date')
-        th= t('transaction.description')
-    tbody
-      - @transactions.each do |transaction|
-        tr
-          td= transaction.id
-          td= transaction.amount
-          td= transaction.user
-          td= transaction.date
-          td= transaction.description
+        td= transaction.id
+        td= transaction.amount
+        td= transaction.user
+        td= transaction.date
+        td= transaction.description
 
-= paginate @transactions
+= render partial: 'admin/shared/paginate', locals: { collection: @transactions }
