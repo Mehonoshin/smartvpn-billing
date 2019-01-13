@@ -1,14 +1,14 @@
-require 'spec_helper'
+# frozen_string_literal: true
+
+require 'rails_helper'
 
 describe ServerConfigBuilder do
   let(:server) { create(:server) }
-  subject { described_class.new(server) }
-
-  before { subject.generate_config }
+  subject { described_class.new(server: server) }
 
   describe '#generate_config' do
     it 'returns ServerConfig instance' do
-      expect(subject.generate_config.class).to eq ServerConfig
+      expect(subject.generate_config.class).to eq Tempfile
     end
 
     describe 'protocol' do

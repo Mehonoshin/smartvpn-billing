@@ -12,8 +12,12 @@ class ServerConfigBuilder
       new_line = rewrite_line(line)
       tempfile.puts new_line
     end
-    tempfile.close
+    tempfile.rewind
     tempfile
+  end
+
+  def to_text
+    File.read(generate_config.path)
   end
 
   private

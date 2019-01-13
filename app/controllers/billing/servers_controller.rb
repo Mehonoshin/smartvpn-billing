@@ -1,18 +1,22 @@
-class Billing::ServersController < Billing::BaseController
-  def index
-    @servers = servers
-  end
+# frozen_string_literal: true
 
-  def download_config
-    @server = servers.find(params[:id])
-    builder = ServerConfigBuilder.new(@server)
-    config_file = builder.generate_config
-    send_data config_file.to_text, filename: "#{@server.hostname}.ovpn"
-  end
+module Billing
+  class ServersController < Billing::BaseController
+    def index
+      @servers = servers
+    end
 
-  private
+    def download_config
+      @server = servers.find(params[:id])
+      builder = ServerConfigBuilder.new(server: @server)
+      config_file = builder.to_text
+      send_data config_file, filename: "#{@server.hostname}.ovpn"
+    end
 
-  def servers
-    current_user.plan.servers.active
+    private
+
+    def servers
+      current_user.plan.servers.active
+    end
   end
 end

@@ -5,14 +5,17 @@ class InviteUserMailer < ActionMailer::Base
 
   def notify(user)
     @user = user
-    server = user.plan.servers.last
-    attachments["#{server.hostname}.ovpn"] = File.read(generate_config(server).path)
+    attachments["#{server.hostname}.ovpn"] = server_config
     mail(to: @user.email, subject: t('mailers.invite_user_mailer.subject'))
   end
 
   private
 
-  def generate_config(server)
-    ServerConfigBuilder.new(server: server).generate_config
+  def server_config
+    @server_config ||= ServerConfigBuilder.new(server: server).to_text
+  end
+
+  def server
+    @server ||= @user.plan.servers.last
   end
 end
