@@ -1,12 +1,13 @@
+# frozen_string_literal: true
+
 class Admin::ServersController < Admin::BaseController
-  before_action :load_resource, only: [:show, :edit, :update, :destroy, :generate_config]
+  before_action :load_resource, only: %i[show edit update destroy generate_config]
 
   def index
     @servers = Server.all
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @server = Server.new
@@ -15,18 +16,17 @@ class Admin::ServersController < Admin::BaseController
   def create
     @server = Server.new(resource_params)
     if @server.save
-      redirect_to admin_servers_path, notice: "Сервер успешно добавлен"
+      redirect_to admin_servers_path, notice: 'Сервер успешно добавлен'
     else
       render :new
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @server.update(resource_params)
-      redirect_to admin_servers_path, notice: "Сервер успешно обновлен"
+      redirect_to admin_servers_path, notice: 'Сервер успешно обновлен'
     else
       render :edit
     end
@@ -34,7 +34,7 @@ class Admin::ServersController < Admin::BaseController
 
   def destroy
     @server.delete
-    redirect_to admin_servers_path, notice: "Сервер удален"
+    redirect_to admin_servers_path, notice: 'Сервер удален'
   end
 
   def generate_config
@@ -52,8 +52,6 @@ class Admin::ServersController < Admin::BaseController
   def resource_params
     params.require(:server).permit(:hostname, :ip_address, :state,
                                    :config, :protocol, :port, :country_code,
-                                   plan_ids: []
-                                  )
+                                   plan_ids: [])
   end
 end
-

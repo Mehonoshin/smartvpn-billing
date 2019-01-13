@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Smartvpn::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
@@ -23,7 +25,7 @@ Smartvpn::Application.configure do
   config.serve_static_files = true
 
   # Compress JavaScripts and CSS.
-  config.assets.js_compressor  = :uglifier
+  config.assets.js_compressor = :uglifier
   # config.assets.css_compressor = :sass
 
   # Whether to fallback to assets pipeline if a precompiled asset is missed.
@@ -40,7 +42,7 @@ Smartvpn::Application.configure do
   # config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect' # for nginx
 
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
-   #config.force_ssl = true
+  # config.force_ssl = true
 
   # Set to :debug to see everything in the log.
   config.log_level = :debug
@@ -77,16 +79,16 @@ Smartvpn::Application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
-  config.action_mailer.default_url_options = { :host => "smartvpn.biz" }
+  config.action_mailer.default_url_options = { host: 'smartvpn.biz' }
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    address:              'smtp.gmail.com',
-    port:                 587,
-    domain:               'example.com',
-    user_name:            ENV['EMAIL_USER'],
-    password:             ENV['EMAIL_PASS'],
-    authentication:       'plain',
+    address: 'smtp.gmail.com',
+    port: 587,
+    domain: 'example.com',
+    user_name: ENV['EMAIL_USER'],
+    password: ENV['EMAIL_PASS'],
+    authentication: 'plain',
     enable_starttls_auto: true
   }
-  end
+end
