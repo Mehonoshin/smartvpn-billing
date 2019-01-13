@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Payment < ActiveRecord::Base
   include LastDaysFilterable
 
@@ -8,33 +10,31 @@ class Payment < ActiveRecord::Base
 
   before_create :convert_and_save_usd_amount
 
-  scope :accepted, ->{ where(state: 'accepted') }
+  scope :accepted, -> { where(state: 'accepted') }
 
-  state_machine :state, :initial => :pending do
+  state_machine :state, initial: :pending do
     event :accept do
-      transition :pending => :accepted
+      transition pending: :accepted
     end
-    after_transition :pending => :accepted, do: [:increase_balance, :try_to_withdraw_funds]
+    after_transition pending: :accepted, do: %i[increase_balance try_to_withdraw_funds]
   end
 
   private
 
-    def convert_and_save_usd_amount
-      if pay_system.currency == 'usd'
-        self.usd_amount = amount
-      else
-        converter = Currencies::CourseConverter.new(currency_from: pay_system.currency, currency_to: 'usd', amount: amount)
-        self.usd_amount = converter.convert_amount
-      end
-    end
+  def convert_and_save_usd_amount
+    return self.usd_amount = amount if pay_system.currency == 'usd'
 
-    def increase_balance
-      user.increase_balance usd_amount
-    end
+    converter = Currencies::CourseConverter.new(currency_from: pay_system.currency, currency_to: 'usd', amount: amount)
+    self.usd_amount = converter.convert_amount
+  end
 
-    def try_to_withdraw_funds
-      Withdrawer.single_withdraw(user)
-    end
+  def increase_balance
+    user.increase_balance usd_amount
+  end
+
+  def try_to_withdraw_funds
+    Withdrawer.single_withdraw(user)
+  end
 end
 
 # == Schema Information
@@ -50,4 +50,3 @@ end
 #  updated_at    :datetime
 #  usd_amount    :decimal(12, 2)
 #
-
