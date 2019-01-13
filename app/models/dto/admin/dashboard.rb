@@ -30,13 +30,13 @@ class Dto::Admin::Dashboard < Dto::Base
 
   def assign_discrete_total_statistics
     payments = Dto::Admin::DescretePayments.new(DESCRETE_DAYS_NUMBER)
-    @income[:discrete] = payments.amounts.sort.map { |date| date[1].to_i }
+    @income[:discrete] = payments.amounts.sort
 
     traffic = Dto::Admin::DescreteTraffic.new(DESCRETE_DAYS_NUMBER)
-    @traffic[:discrete] = traffic.amounts.sort.map { |date| BytesConverter.prettify_float(BytesConverter.bytes_to_gigabytes(date[1])) }
+    @traffic[:discrete] = traffic.amounts.sort.map { |date| [date[0], BytesConverter.prettify_float(BytesConverter.bytes_to_gigabytes(date[1]))] }
 
     customers = Dto::Admin::DescreteCustomersRegistrations.new(DESCRETE_DAYS_NUMBER)
-    @customers[:discrete] = customers.amounts.sort.map { |date| date[1] }
+    @customers[:discrete] = customers.amounts.sort.map
   end
 
 end

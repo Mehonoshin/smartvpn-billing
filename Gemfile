@@ -11,6 +11,8 @@ gem 'pg'
 gem 'pghero'
 gem 'thin'
 
+gem 'chartkick'
+
 gem 'activemerchant'
 gem 'bootstrap', '~> 4.2.1'
 gem 'cancan'

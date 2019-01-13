@@ -1,24 +1,24 @@
-.row
-  .col-xs-12.col-sm-7.col-md-7.col-lg-4
-    = page_title('Admin', 'home', 'Dashboard')
+= page_title('Admin', 'home', 'Dashboard')
+
+.row.mt-5
   .col-xs-12.col-sm-5.col-md-5.col-lg-8
     ul
-      li
+      li.mb-4
         h5
-          | Общий доход
+          = 'Общий доход'
           span<
             | $
             = @dashboard.income[:total]
         div
-          = descrete_statistic_values @dashboard.income[:discrete]
-      li
+          = column_chart @dashboard.income[:discrete]
+      li.mb-4
         h5
           | Общий траффик
           span<
             i.fa.fa-arrow-circle-up>
             = human_traffic @dashboard.traffic[:total]
           div
-            = descrete_statistic_values @dashboard.traffic[:discrete]
+            = column_chart @dashboard.traffic[:discrete]
       li
         h5
           | Клиентов
@@ -26,4 +26,4 @@
             i.fa.fa-users>
             = @dashboard.customers[:total]
         div
-          = descrete_statistic_values @dashboard.customers[:discrete]
+          = column_chart @dashboard.customers[:discrete]
