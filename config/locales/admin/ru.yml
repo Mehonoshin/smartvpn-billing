@@ -7,6 +7,11 @@ ru:
         sign_in: 'Войти'
         staff_entrance: 'Служебный вход'
   admin:
+    links:
+      edit: 'Редактировать'
+      email_list: 'Список email'
+    buttons:
+      filter: 'Фильтер'
     users:
       current_connection: 'Текущее подключение'
       not_connected: 'Нет подключения'

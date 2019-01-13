@@ -6,4 +6,4 @@
     .form-group.mr-3
       = f.label :server, class: 'mr-3'
       = f.select :server_id_eq, options_for_select(Server.all.map { |s| [s.hostname, s.id] }), { include_blank: true }, { class: 'form-control' }
-    = f.submit :search, class: 'btn btn-primary'
+    = f.submit t('admin.buttons.filter'), class: 'btn btn-primary'

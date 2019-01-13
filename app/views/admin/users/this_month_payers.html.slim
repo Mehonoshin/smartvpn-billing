@@ -1,5 +1,7 @@
 = page_title('Оплатившие в текущем месяце', 'file-invoice-dollar')
 
-= render partial: "submenu"
-= render partial: "filter"
-= render partial: "table"
+.row
+  = render partial: 'filter'
+
+= render partial: 'submenu'
+= render partial: 'table'
