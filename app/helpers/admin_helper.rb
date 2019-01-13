@@ -33,7 +33,7 @@ module AdminHelper
   def page_title(section, icon, subsection = nil)
     content_tag :h3, class: 'page-title txt-color-blueDark' do
       content_tag(:i, '', class: "fa-fw fa fa-#{icon}") +
-        "#{section} " +
+        content_tag(:span, "#{section} ", class: 'pl-3') +
         content_tag(:span) do
           "> #{subsection}" if subsection
         end
