@@ -1,4 +1,4 @@
-= page_title(t('admin.users.title'), 'user', "#{t('admin.users.edit')} #{@user.email}")
+= page_title(t('admin.users.title'), 'user', t('admin.users.new'))
 
 .row.mt-5
   .col
@@ -6,6 +6,5 @@
       = f.input :email
       = f.input :balance
       = f.input :plan_id, as: :select, collection: Plan.all.map { |p| [p.name, p.id] }, include_blank: false
-      = f.input :state, as: :select, collection: User.state_machine.states.map { |s| [s.name, s.name] }
       = f.input :period_length, input_html: { value: f.object.period_length || User::DEFAULT_TEST_PERIOD }
       = f.submit t('admin.buttons.apply'), class: 'btn btn-primary'

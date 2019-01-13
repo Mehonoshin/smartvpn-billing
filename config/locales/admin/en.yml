@@ -7,26 +7,53 @@ en:
         sign_in: 'Sign in'
         staff_entrance: 'Administration'
   admin:
+    tables:
+      plan: 'Plan'
+      registration_date: 'Registration date'
+      balance: 'Balance'
+      number_connections: 'Number of connections'
+      logged_in_billing: 'Logged in billing'
+      turnover: 'Turnover'
+      unsuccessful_charges: 'Unsuccessful charges'
+      status: 'Status'
+      actions: 'Actions'
     links:
       edit: 'Edit'
       email_list: 'Email list'
+      create: 'Create'
+      write_off: 'Write off'
     buttons:
       filter: 'Filter'
+      apply: 'Apply'
     users:
+      title: 'Users'
+      all: 'All'
+      all_users: 'All users'
+      show: 'Show'
+      new: 'Create new'
+      edit: 'Edit'
+      payers: 'Paid subscription'
+      this_month_payers: 'Paid in the current month'
       current_connection: 'Current connection'
       not_connected: 'No connection'
       connected_to_server_at: 'Connected to server %{server} at %{date}'
       not_paid: 'Unpaid'
       prolongation_not_possible: 'Impossible to prolong. User has no active payment'
+      prolongation: 'Subscription renewal'
       new_payment: 'Top up balance'
       test_period: 'Trial account'
       test_period_until: 'Active from %{start} to %{finish}'
       filter:
         never_paid_users: 'Never paying users'
       notices:
+        created: 'User created successfully'
+        updated: 'User updated successfully'
+        write_off: 'Write off'
+        prolongated: 'User subscription successfully renewed'
         payment_created: "User's account balance top-up successfully"
         test_period_enabled: 'Trial period activated'
         test_period_disabled: 'Trial period deactivated'
+        disconnected: 'User successfully disconnected'
     pay_systems:
       states:
         enabled: 'Activated'

@@ -7,26 +7,53 @@ ru:
         sign_in: 'Войти'
         staff_entrance: 'Служебный вход'
   admin:
+    tables:
+      plan: 'Тариф'
+      registration_date: 'Дата регистрации'
+      balance: 'Баланс'
+      number_connections: 'Количество подключений'
+      logged_in_billing: 'Входил в биллинг'
+      turnover: 'Оборот'
+      unsuccessful_charges: 'Неудачных списаний'
+      status: 'Статус'
+      actions: 'Действия'
     links:
       edit: 'Редактировать'
       email_list: 'Список email'
+      create: 'Создать'
+      write_off: 'Списать'
     buttons:
       filter: 'Фильтер'
+      apply: 'Применить'
     users:
+      title: 'Пользователи'
+      all: 'Все'
+      all_users: 'Все пользователи'
+      show: 'Просмотр'
+      new: 'Создать нового'
+      edit: 'Редактировать'
+      payers: 'Оплатившие подписку'
+      this_month_payers: 'Оплатившие в текущем месяце'
       current_connection: 'Текущее подключение'
       not_connected: 'Нет подключения'
-      connected_to_server_at: "Подключен к серверу %{server} в %{date}"
+      connected_to_server_at: 'Подключен к серверу %{server} в %{date}'
       not_paid: 'Не оплачен'
-      prolongation_not_possible: "Пролонгация невозможна, у пользователя нет активного платежа"
+      prolongation_not_possible: 'Пролонгация невозможна, у пользователя нет активного платежа'
+      prolongation: 'Продление подписки'
       new_payment: 'Пополнение баланса'
       test_period: 'Тестовый доступ'
       test_period_until: 'Активен c %{start} до %{finish}'
       filter:
         never_paid_users: 'С нулевым оборотом'
       notices:
+        created: 'Пользователь успешно создан'
+        updated: 'Пользователь успешно обновлен'
+        write_off: 'Списано'
+        prolongated: 'Подписка пользователя успешно продлена'
         payment_created: 'Баланс пользователя успешно пополнен'
         test_period_enabled: 'Тестовый период активирован'
         test_period_disabled: 'Тестовый период деактивирован'
+        disconnected: 'Пользователь успешно отключен'
     pay_systems:
       states:
         enabled: 'Включена'

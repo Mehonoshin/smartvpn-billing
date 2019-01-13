@@ -1,4 +1,7 @@
 ru:
+  mailers:
+    invite_user_mailer:
+      subject: 'Вам был создан аккаунт'
   date:
     formats:
       default: "%d.%m.%Y"
