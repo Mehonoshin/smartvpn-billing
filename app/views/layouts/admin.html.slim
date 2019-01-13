@@ -19,8 +19,8 @@ html lang='en-us'
         .nav.navbar-nav.ml-auto.mr-3
           = link_to 'Sign out', destroy_admin_session_path, method: :delete
 
-    .container-fluid
-      .row.d-flex
+    .container-fluid.h-100
+      .row.d-flex.h-100
         aside.col-md-2.p-0.bg-dark
           nav.navbar.navbar-expand.navbar-dark.bg-dark.flex-md-column.flex-row.align-items-start.py-2
             = render partial: 'admin/shared/menu'
