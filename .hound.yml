@@ -1,2 +1,8 @@
+scss:
+  enabled: false
+
+haml:
+  enabled: false
+
 rubocop:
   config_file: .rubocop.yml
