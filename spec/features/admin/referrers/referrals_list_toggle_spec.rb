@@ -22,9 +22,9 @@ describe 'referrers page', js: true do
     click_link referrer1.email
     expect(page).to have_content referral1_email
 
+    sleep 1
     click_link referrer1.email
     expect(page).not_to have_content referral1_email
-
 
     # Second referrer
     expect(page).not_to have_content referral2_email
@@ -32,6 +32,7 @@ describe 'referrers page', js: true do
     click_link referrer2.email
     expect(page).to have_content referral2_email
 
+    sleep 1
     click_link referrer2.email
     expect(page).not_to have_content referral2_email
   end
