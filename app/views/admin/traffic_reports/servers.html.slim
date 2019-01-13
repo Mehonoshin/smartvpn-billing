@@ -1,20 +1,19 @@
 = page_title('Траффик по серверам', 'cloud-download-alt')
 
-= render partial: "submenu"
-= render partial: "filter"
+.row
+  = render partial: 'filter'
+= render partial: 'submenu'
 
-.info
-  table.table.table-bordered
+table.table
+  tr
+    th Сервер
+    th Входящий траффик
+    th Исходящий траффик
+    th Итого
+
+  - traffic_reports.each do |report|
     tr
-      th Сервер
-      th Входящий траффик
-      th Исходящий траффик
-      th Итого
-
-    - traffic_reports.each do |report|
-      tr
-        td= report.server.hostname
-        td= human_traffic report.traffic_in
-        td= human_traffic report.traffic_out
-        td= human_traffic report.traffic_in + report.traffic_out
-
+      td= report.server.hostname
+      td= human_traffic report.traffic_in
+      td= human_traffic report.traffic_out
+      td= human_traffic report.traffic_in + report.traffic_out
