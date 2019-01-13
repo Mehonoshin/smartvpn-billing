@@ -30,7 +30,7 @@ describe 'Plans option prices' do
       visit edit_admin_plan_path(plan)
       expect(page).to have_content "#{option.name} price"
 
-      within('form.edit_plan') do
+      within("form#edit_plan_#{plan.id}") do
         fill_in "plan_option_prices_#{option.code}", with: option_price
         click_button I18n.t('global.apply')
       end
