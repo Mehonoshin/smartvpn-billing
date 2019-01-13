@@ -17,11 +17,11 @@ gem 'cancan'
 gem 'devise', '4.5.0'
 gem 'devise-i18n', '~> 0.10.3'
 gem 'font-awesome-sass', '~> 5.6.1'
+gem 'kaminari'
 gem 'rails-i18n'
 gem 'simple_form'
 gem 'slim'
 # TODO: switch to stable version
-gem 'kaminari'
 gem 'state_machine', github: 'pluginaweek/state_machine'
 # Temporary broken with rails 4.2
 gem 'active_model_serializers' # , github: 'rails-api/active_model_serializers', branch: '0-9-stable'
