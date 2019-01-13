@@ -1,6 +1,7 @@
 dist: xenial
 language: ruby
 sudo: true
+cache: bundler
 
 rvm:
   - 2.1.1
