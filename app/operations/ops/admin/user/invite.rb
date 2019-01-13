@@ -23,6 +23,7 @@ module Ops
         def build_invited_user!
           user.confirm
           user.send_reset_password_instructions
+          InviteUserMailWorker.perform_async(user.id)
         end
 
         def user

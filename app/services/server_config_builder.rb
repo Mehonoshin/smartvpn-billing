@@ -1,5 +1,5 @@
 class ServerConfigBuilder
-  attr_accessor :config
+  attr_accessor :server
 
   def initialize(server)
     @server = server
@@ -10,7 +10,8 @@ class ServerConfigBuilder
       new_line = rewrite_line(line)
       config.append_line(new_line)
     end
-    config
+    File.write(tempfile.path, config)
+    tempfile
   end
 
   def to_text
@@ -44,20 +45,24 @@ class ServerConfigBuilder
 
   def rewrite_mappings
     {
-      "proto" => protocol,
-      "remote" => "#{host} #{port}"
+      'proto' => protocol,
+      'remote' => "#{host} #{port}"
     }
   end
 
   def protocol
-    @server.protocol
+    @protocol ||= server.protocol
   end
 
   def host
-    @server.hostname
+    @host ||= server.hostname
   end
 
   def port
-    @server.port
+    @port ||= server.port
+  end
+
+  def tempfile
+    @tempfile ||= Tempfile.new(%w[server-config- .ovpn])
   end
 end
