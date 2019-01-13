@@ -40,6 +40,10 @@ gem 'russian_central_bank'
 gem 'show_for', github: 'plataformatec/show_for'
 gem 'whenever', '0.9.0', require: false
 
+gem 'dotenv-rails'
+gem 'factory_girl_rails', '~> 4.0'
+gem 'faker'
+
 gem 'sidekiq'
 gem 'sinatra', require: false
 
@@ -83,9 +87,6 @@ group :test, :development do
   gem 'rb-fchange', require: false
   gem 'vcr'
   # TODO: switch to stable version
-  gem 'dotenv-rails'
-  gem 'factory_girl_rails', '~> 4.0'
-  gem 'faker'
   gem 'pry-rails'
   gem 'rspec-rails'
   gem 'selenium-webdriver'

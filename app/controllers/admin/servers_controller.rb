@@ -38,9 +38,9 @@ class Admin::ServersController < Admin::BaseController
   end
 
   def generate_config
-    builder = ServerConfigBuilder.new(@server)
+    builder = ServerConfigBuilder.new(server: @server)
     config_file = builder.generate_config
-    send_data config_file.to_text, filename: "#{@server.hostname}.ovpn"
+    send_data File.read(config_file.path), filename: "#{@server.hostname}.ovpn"
   end
 
   private

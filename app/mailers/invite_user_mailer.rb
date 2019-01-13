@@ -13,7 +13,6 @@ class InviteUserMailer < ActionMailer::Base
   private
 
   def generate_config(server)
-    binding.pry
-    ServerConfigBuilder.new(server).generate_config
+    ServerConfigBuilder.new(server: server).generate_config
   end
 end
