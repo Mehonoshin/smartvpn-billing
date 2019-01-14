@@ -95,7 +95,7 @@ GEM
       popper_js (>= 1.14.3, < 2)
       sassc-rails (>= 2.0.0)
     builder (3.2.3)
-    cancan (1.6.9)
+    cancan (1.6.10)
     capybara (3.12.0)
       addressable
       mini_mime (>= 0.1.3)
