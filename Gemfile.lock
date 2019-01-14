@@ -77,9 +77,10 @@ GEM
     autoprefixer-rails (9.4.4)
       execjs
     bcrypt (3.1.12)
-    better_errors (0.8.0)
+    better_errors (2.5.0)
       coderay (>= 1.0.0)
-      erubis (>= 2.6.6)
+      erubi (>= 1.0.0)
+      rack (>= 0.9.0)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
     bootstrap (4.2.1)
