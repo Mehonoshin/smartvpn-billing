@@ -170,7 +170,7 @@ GEM
       activesupport (>= 4.2.0)
     gyoku (1.1.1)
       builder (>= 2.1.2)
-    hirb (0.7.1)
+    hirb (0.7.3)
     http-cookie (1.0.2)
       domain_name (~> 0.5)
     httparty (0.13.3)
