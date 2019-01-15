@@ -3,7 +3,7 @@
 module Ops
   module Admin
     module User
-      class Invite
+      class Create
         attr_reader :params
 
         def initialize(params:)
@@ -14,24 +14,19 @@ module Ops
           user.skip_confirmation_notification!
           return error_create_user unless user.save
 
-          build_invited_user!
+          build_created_user!
           success_result
         end
 
         private
 
-        def build_invited_user!
+        def build_created_user!
           user.confirm
-          user.send_reset_password_instructions
-          InviteUserMailWorker.perform_async(user.id)
+          CreateUserMailWorker.perform_async(user_id: user.id, crypted_password: Base64.encode64(params[:password]))
         end
 
         def user
-          @user ||= ::User.new(params.merge(password: generate_password))
-        end
-
-        def generate_password
-          SecureRandom.alphanumeric
+          @user ||= ::User.new(params)
         end
 
         def error_create_user

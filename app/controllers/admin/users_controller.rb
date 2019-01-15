@@ -26,7 +26,7 @@ class Admin
     end
 
     def create
-      result = ::Ops::Admin::User::Invite.new(params: resource_params).call
+      result = ::Ops::Admin::User::Create.new(params: resource_params).call
       if result[:success]
         redirect_to admin_users_path, notice: t('admin.users.notices.created')
       else
@@ -111,7 +111,9 @@ class Admin
     end
 
     def resource_params
-      params.require(:user).permit(:email, :plan_id, :state, :balance, :period_length)
+      params
+        .require(:user)
+        .permit(:email, :plan_id, :state, :balance, :period_length, :password, :password_confirmation)
     end
 
     def days_number_prolongate
