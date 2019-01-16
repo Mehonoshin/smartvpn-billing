@@ -83,6 +83,7 @@ GEM
     ast (2.4.0)
     autoprefixer-rails (9.4.4)
       execjs
+    awesome_print (1.8.0)
     bcrypt (3.1.12)
     better_errors (0.8.0)
       coderay (>= 1.0.0)
@@ -219,13 +220,13 @@ GEM
       ntlm-http (~> 0.1, >= 0.1.1)
       webrobots (>= 0.0.9, < 0.2)
     metaclass (0.0.1)
-    method_source (0.9.2)
     migration_opener (0.0.2)
       rails
     mime-types (1.25.1)
     mini_mime (1.0.1)
     mini_portile2 (2.4.0)
     minitest (5.11.3)
+    mixlib-cli (1.4.0)
     mocha (0.13.3)
       metaclass (~> 0.0.1)
     money (6.5.0)
@@ -251,11 +252,6 @@ GEM
       activerecord (>= 3.0)
     popper_js (1.14.5)
     powerpack (0.1.2)
-    pry (0.12.2)
-      coderay (~> 1.1.0)
-      method_source (~> 0.9.0)
-    pry-rails (0.3.9)
-      pry (>= 0.10.4)
     puma (3.12.0)
     rack (1.6.11)
     rack-protection (1.5.5)
@@ -340,6 +336,9 @@ GEM
     russian_central_bank (0.2.1)
       money (>= 5.0)
       savon (~> 2.0)
+    sandi_meter (1.1.6)
+      json
+      mixlib-cli
     sass (3.7.3)
       sass-listen (~> 4.0.0)
     sass-listen (4.0.0)
@@ -440,6 +439,7 @@ PLATFORMS
 DEPENDENCIES
   active_model_serializers
   activemerchant
+  awesome_print
   better_errors
   bootstrap (~> 4.2.1)
   cancan
@@ -472,7 +472,6 @@ DEPENDENCIES
   newrelic_rpm
   pg
   pghero
-  pry-rails
   puma
   rails (= 4.2.11)
   rails-i18n
@@ -482,6 +481,7 @@ DEPENDENCIES
   rspec-rails
   rubocop
   russian_central_bank
+  sandi_meter
   sass-rails
   selenium-webdriver
   shoulda-matchers!

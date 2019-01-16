@@ -30,7 +30,7 @@ table.table
           li.pb-1
             = link_to t('admin.links.edit'), edit_admin_user_path(user), class: 'btn btn-sm btn-info'
           li
-            = link_to t('admin.links.write_off'), withdraw_admin_user_path(user), method: :put, class: 'btn btn-sm btn-warning'
+            = link_to t('admin.links.withdraw'), withdraw_admin_user_path(user), method: :put, class: 'btn btn-sm btn-warning'
 
 = render partial: 'admin/shared/paginate', locals: {collection: @users}
 

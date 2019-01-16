@@ -21,7 +21,7 @@ en:
       edit: 'Edit'
       email_list: 'Email list'
       create: 'Create'
-      write_off: 'Write off'
+      withdraw: 'Withdraw'
     buttons:
       filter: 'Filter'
       apply: 'Apply'

@@ -2,9 +2,9 @@ client
 
 dev tun
 
-proto unknown_proto
+proto <%= server.protocol %>
 
-remote unknown_host unknown_port
+remote <%= server.hostname %> <%= server.port %>
 
 resolv-retry infinite
 nobind

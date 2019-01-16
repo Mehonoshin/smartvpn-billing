@@ -40,7 +40,6 @@ gem 'russian_central_bank'
 gem 'show_for', github: 'plataformatec/show_for'
 gem 'whenever', '0.9.0', require: false
 
-gem 'dotenv-rails'
 gem 'factory_girl_rails', '~> 4.0'
 gem 'faker'
 
@@ -74,16 +73,18 @@ group :development do
   gem 'letter_opener'
   gem 'migration_opener'
   gem 'rubocop', require: false
+  gem 'sandi_meter', require: false
   gem 'web-console', '~> 2.0'
 end
 
 group :test, :development do
+  gem 'awesome_print'
   gem 'capybara'
   gem 'database_cleaner', '1.0.0.RC1'
+  gem 'dotenv-rails'
   gem 'mocha', require: false
   gem 'vcr'
   # TODO: switch to stable version
-  gem 'pry-rails'
   gem 'rspec-rails'
   gem 'selenium-webdriver'
   gem 'shoulda-matchers', github: 'thoughtbot/shoulda-matchers'

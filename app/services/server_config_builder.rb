@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# This class created connection vpn config file by server from template
 class ServerConfigBuilder
   attr_accessor :server
 
@@ -8,50 +9,23 @@ class ServerConfigBuilder
   end
 
   def generate_config
-    sample_config.each_line do |line|
-      new_line = rewrite_line(line)
-      tempfile.puts new_line
-    end
+    tempfile.puts erb_render_sample_config
     tempfile.rewind
     tempfile
   end
 
   def to_text
-    File.read(generate_config.path)
+    erb_render_sample_config
   end
 
   private
 
-  def rewrite_line(line)
-    tokens = line.strip.split(' ')
-    key = tokens.first&.to_sym
-
-    return line unless rewrite_mappings.key? key
-
-    "#{key} #{rewrite_mappings[key]}"
+  def erb_render_sample_config
+    ERB.new(sample_config).result(binding)
   end
 
   def sample_config_path
     Settings.servers.sample_config_path
-  end
-
-  def rewrite_mappings
-    {
-      proto: protocol,
-      remote: "#{host} #{port}"
-    }
-  end
-
-  def protocol
-    @protocol ||= server.protocol
-  end
-
-  def host
-    @host ||= server.hostname
-  end
-
-  def port
-    @port ||= server.port
   end
 
   def tempfile
@@ -59,6 +33,6 @@ class ServerConfigBuilder
   end
 
   def sample_config
-    @sample_config ||= File.open(sample_config_path).read
+    @sample_config ||= File.read(sample_config_path)
   end
 end

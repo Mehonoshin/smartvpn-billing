@@ -12,15 +12,19 @@ matrix:
   allow_failures:
     - rvm: 2.1.1
     - rvm: 2.6.0
+
 addons:
   chrome: stable
+
 services:
   - postgresql
   - redis-server
+
 before_install:
   - gem install bundler -v '1.17.3'
   - cp config/database.yml.sample config/database.yml
   - cp .env.test .env
+
 before_script:
   - bundle exec rake db:create
   - bundle exec rake db:schema:load
@@ -30,7 +34,5 @@ before_script:
   - sudo apt-get --only-upgrade install google-chrome-stable
   - sudo cp chromedriver /usr/local/bin/.
   - sudo chmod +x /usr/local/bin/chromedriver
-  - export DISPLAY=:99.0
-  - sh -e /etc/init.d/xvfb start
-  - sleep 3
+
 script: bundle exec rspec

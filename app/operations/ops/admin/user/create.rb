@@ -3,13 +3,8 @@
 module Ops
   module Admin
     module User
-      class Create
-        attr_reader :params
-
-        def initialize(params:)
-          @params = params
-        end
-
+      # This class create new user and send email with connection config, user password
+      class Create < Base
         def call
           user.skip_confirmation_notification!
           return error_create_user unless user.save

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-class CreateUserMailer < ActionMailer::Base
-  default from: 'admin@smartvpn.biz'
+class UserConnectionConfigMailer < ActionMailer::Base
+  default from: ENV['EMAIL_FROM']
 
   def notify(user:, crypted_password:)
     @user = user
