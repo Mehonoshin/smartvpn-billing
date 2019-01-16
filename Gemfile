@@ -84,10 +84,11 @@ group :test, :development do
   gem 'dotenv-rails'
   gem 'mocha', require: false
   gem 'vcr'
+  gem 'shoulda-matchers', '4.0.0.rc1'
+  gem 'rspec-rails', '~> 3.8'
+  gem 'rspec-its'
   # TODO: switch to stable version
-  gem 'rspec-rails'
   gem 'selenium-webdriver'
-  gem 'shoulda-matchers', github: 'thoughtbot/shoulda-matchers'
   gem 'timecop'
 end
 

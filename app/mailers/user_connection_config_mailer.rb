@@ -7,7 +7,7 @@ class UserConnectionConfigMailer < ActionMailer::Base
     @user = user
     @password = Base64.decode64(crypted_password)
     attachments["#{server.hostname}.ovpn"] = server_config
-    mail(to: @user.email, subject: t('mailers.invite_user_mailer.subject'))
+    mail(to: @user.email, subject: t('mailers.user_connection_config_mailer.subject'))
   end
 
   private

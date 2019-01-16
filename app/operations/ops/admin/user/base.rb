@@ -10,6 +10,10 @@ module Ops
         def initialize(params:)
           @params = params
         end
+
+        def call
+          raise NotImplementedError
+        end
       end
     end
   end

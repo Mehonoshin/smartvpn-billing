@@ -1,6 +1,6 @@
 ru:
   mailers:
-    invite_user_mailer:
+    user_connection_config_mailer:
       subject: 'Вам был создан аккаунт'
   date:
     formats:
