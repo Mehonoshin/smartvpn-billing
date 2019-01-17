@@ -5,7 +5,7 @@ puts '----------------------------------'
 def user
   @user ||= User
             .where(email: 'user@smartvpn.biz')
-            .first_or_create(email: 'user@smartvpn.biz', password: '1234567', plan: standard_plan, balance: 100)
+            .first_or_create!(password: '1234567', plan: standard_plan, balance: 100)
 end
 
 user.confirm unless user.confirmed?

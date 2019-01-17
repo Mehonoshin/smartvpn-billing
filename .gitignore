@@ -27,8 +27,11 @@ config/environments/*.local.yml
 public/uploads/*
 config/database.yml
 .ruby-version
+.ruby-gemset
 
 .vagrant/
 sandi_meter/**/*
 .env
 .idea/
+
+dump.rdb
