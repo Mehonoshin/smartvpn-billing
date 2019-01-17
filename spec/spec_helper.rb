@@ -10,6 +10,10 @@ require 'sidekiq/testing'
 require 'capybara/rails'
 require 'capybara/rspec'
 require 'capybara/email/rspec'
+
+require 'sidekiq/testing'
+Sidekiq::Testing.fake!
+
 Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
 Dir[Rails.root.join('app/helpers/**/*.rb')].each { |f| require f }
 Dir[Rails.root.join('spec/shared_examples/*.rb')].each { |f| require f }

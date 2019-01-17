@@ -44,6 +44,64 @@ describe Admin::UsersController do
     it { is_expected.to render_template :edit }
   end
 
+  describe 'GET #new' do
+    before { get :new }
+
+    it { is_expected.to be_success }
+    it { is_expected.to render_template :new }
+  end
+
+  describe 'POST #create' do
+    let!(:user) { create(:user) }
+    let!(:plan) { create(:plan) }
+    let!(:operation) { double('Ops::Admin::User::Create') }
+    before { allow(Ops::Admin::User::Create).to receive(:new).with(params: params).and_return(operation) }
+
+    context 'params correct' do
+      let(:params) do
+        {
+          email: 'user@gmail.com',
+          password: '123456',
+          password_confirmation: '123456',
+          plan_id: plan.id.to_s
+        }.as_json
+      end
+
+      it 'run operation' do
+        expect(operation).to receive(:call).and_return(success: true, user: user)
+        post :create, user: params
+      end
+
+      it 'redirects to users path' do
+        allow(operation).to receive(:call).and_return(success: true, user: user)
+        post :create, user: params
+        expect(subject).to redirect_to admin_users_path
+      end
+    end
+
+    context 'params invalid' do
+      let(:params) do
+        {
+          email: 'user@gmail.com',
+          password: '123456',
+          password_confirmation: '12345678',
+          plan_id: plan.id.to_s
+        }.as_json
+      end
+
+      it 'run operation' do
+        expect(operation).to receive(:call).and_return(success: false, user: user)
+        post :create, user: params
+      end
+
+      it 'redirects to users path' do
+        allow(operation).to receive(:call).and_return(success: false, user: user)
+        post :create, user: params
+        expect(subject).to render_template :new
+      end
+    end
+  end
+
   describe 'PUT #update' do
     let(:user) { create(:user) }
 
