@@ -36,7 +36,7 @@ class User < ActiveRecord::Base
   after_create :add_to_newsletter
 
   scope :active_referrers, -> { joins('INNER JOIN users AS referrals ON referrals.referrer_id=users.id').distinct }
-  scope :payers, ->{ where("id IN (SELECT user_id FROM payments)") }
+  scope :payers, -> { where(id: Payment.select(:user_id)) }
   scope :this_month_payers, ->{ where("id IN (SELECT user_id FROM payments WHERE created_at >= ? AND created_at <= ?)", Date.current.beginning_of_month, Date.current.end_of_month) }
   scope :non_paid_users, ->{ where("
       id NOT IN (

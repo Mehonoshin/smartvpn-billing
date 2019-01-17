@@ -6,7 +6,7 @@ class Promotion < ActiveRecord::Base
 
   validates :user_id, uniqueness: { scope: :promo_id }
 
-  scope :with_active_promos, ->{ where(promo_id: Promo.active.map(&:id)) }
+  scope :with_active_promos, -> { where(promo_id: Promo.active.select(:id)) }
 
   def apply(amount)
     promo.promoter.apply(promo, amount)
