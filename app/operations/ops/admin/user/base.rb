@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
+# This base class for user operations
 module Ops
   module Admin
     module User
-      # This base class for user operations
       class Base
         attr_reader :params
 

@@ -25,6 +25,11 @@ ru:
     buttons:
       filter: 'Фильтер'
       apply: 'Применить'
+    servers:
+      notices:
+        created: 'Сервер успешно добавлен'
+        updated: 'Сервер успешно обновлен'
+        destroyed: 'Сервер удален'
     users:
       title: 'Пользователи'
       all: 'Все'

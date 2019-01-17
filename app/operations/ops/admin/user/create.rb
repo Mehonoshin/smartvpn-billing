@@ -7,7 +7,7 @@ module Ops
       class Create < Base
         def call
           user.skip_confirmation_notification!
-          return error_create_user unless user.save
+          return error_result unless user.save
 
           build_created_user!
           success_result
@@ -24,7 +24,7 @@ module Ops
           @user ||= ::User.new(params)
         end
 
-        def error_create_user
+        def error_result
           { success: false, user: user }
         end
 

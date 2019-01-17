@@ -17,7 +17,7 @@ class Admin
     def create
       @server = Server.new(resource_params)
       if @server.save
-        redirect_to admin_servers_path, notice: 'Сервер успешно добавлен'
+        redirect_to admin_servers_path, notice: t('admin.servers.notices.created')
       else
         render :new
       end
@@ -27,7 +27,7 @@ class Admin
 
     def update
       if @server.update(resource_params)
-        redirect_to admin_servers_path, notice: 'Сервер успешно обновлен'
+        redirect_to admin_servers_path, notice: t('admin.servers.notices.updated')
       else
         render :edit
       end
@@ -35,7 +35,7 @@ class Admin
 
     def destroy
       @server.delete
-      redirect_to admin_servers_path, notice: 'Сервер удален'
+      redirect_to admin_servers_path, notice: t('admin.servers.notices.destroyed')
     end
 
     def generate_config

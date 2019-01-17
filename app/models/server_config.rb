@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 # TODO: delete
+# This model for parse server config, storage array strings
 class ServerConfig
   attr_accessor :config_lines
 

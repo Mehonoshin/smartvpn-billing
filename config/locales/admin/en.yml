@@ -25,6 +25,11 @@ en:
     buttons:
       filter: 'Filter'
       apply: 'Apply'
+    servers:
+      notices:
+        created: 'Server successfully added'
+        updated: 'Server successfully updated'
+        destroyed: 'Server deleted'
     users:
       title: 'Users'
       all: 'All'

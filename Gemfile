@@ -40,9 +40,6 @@ gem 'russian_central_bank'
 gem 'show_for', github: 'plataformatec/show_for'
 gem 'whenever', '0.9.0', require: false
 
-gem 'factory_girl_rails', '~> 4.0'
-gem 'faker'
-
 gem 'sidekiq'
 gem 'sinatra', require: false
 
@@ -82,7 +79,8 @@ group :test, :development do
   gem 'capybara'
   gem 'database_cleaner', '1.0.0.RC1'
   gem 'dotenv-rails'
-  # gem 'mocha', require: false
+  gem 'factory_girl_rails', '~> 4.0'
+  gem 'faker'
   gem 'rspec-its'
   gem 'rspec-rails', '~> 3.8'
   gem 'shoulda-matchers', '4.0.0.rc1'
