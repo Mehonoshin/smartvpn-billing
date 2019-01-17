@@ -1,17 +1,19 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 describe Option do
-  it { should validate_presence_of :name }
-  it { should validate_presence_of :code }
-  it { should have_and_belong_to_many(:plans) }
-  it { should have_many(:users) }
-  it { should have_many(:user_options) }
+  it { is_expected.to validate_presence_of :name }
+  it { is_expected.to validate_presence_of :code }
+  it { is_expected.to have_and_belong_to_many(:plans) }
+  it { is_expected.to have_many(:users) }
+  it { is_expected.to have_many(:user_options) }
 
-  describe ".state" do
+  describe '.state' do
     subject { described_class.new }
 
-    context "when new" do
-      it "has disabled state" do
+    context 'when new' do
+      it 'has disabled state' do
         expect(subject.disabled?).to be true
       end
     end
@@ -48,7 +50,7 @@ describe Option do
       let(:code) { 'proxy' }
 
       it 'builds hook instance' do
-        Options::Hooks::Proxy.expects(:new).with(user, subject)
+        allow(Options::Hooks::Proxy).to receive(:new).with(user, subject)
         hook
       end
 

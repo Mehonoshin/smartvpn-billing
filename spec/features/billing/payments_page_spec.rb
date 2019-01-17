@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 describe 'Payments page' do
@@ -5,7 +7,7 @@ describe 'Payments page' do
   it_behaves_like 'creates payment for pay system', 'wmr'
   it_behaves_like 'creates payment for pay system', 'yandex'
 
-  describe "pay systems list" do
+  describe 'pay systems list' do
     let!(:disabled_pay_system) { create(:pay_system) }
     let!(:enabled_pay_system) { create(:enabled_pay_system) }
 
@@ -18,7 +20,7 @@ describe 'Payments page' do
       expect(page).to have_link enabled_pay_system.name
     end
 
-    it "does not display link to disabled pay system" do
+    it 'does not display link to disabled pay system' do
       expect(page).not_to have_link disabled_pay_system.name
     end
   end
@@ -43,7 +45,7 @@ describe 'Payments page' do
       let(:amount)     { 650 }
 
       it 'contains price in rubles' do
-        Currencies::CourseConverter.any_instance.expects(:convert_amount).returns(amount)
+        allow_any_instance_of(Currencies::CourseConverter).to receive(:convert_amount).and_return(amount)
         visit(new_payment_page_path)
         expect(page).to have_selector("input[value='#{amount}']")
       end

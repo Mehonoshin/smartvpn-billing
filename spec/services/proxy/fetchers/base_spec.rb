@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 describe Proxy::Fetchers::Base do
@@ -6,16 +8,14 @@ describe Proxy::Fetchers::Base do
   describe '.fetch' do
     context 'child class' do
       it 'calls #fetch_proxy_list' do
-        subject.any_instance.expects(:fetch_proxy_list)
+        allow_any_instance_of(subject).to receive(:fetch_proxy_list)
         subject.fetch
       end
     end
 
     context 'parent class' do
       it 'raises error' do
-        expect {
-          subject.fetch
-        }.to raise_error NotImplementedException
+        expect { subject.fetch }.to raise_error NotImplementedException
       end
     end
   end

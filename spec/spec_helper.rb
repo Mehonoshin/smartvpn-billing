@@ -10,7 +10,6 @@ require 'sidekiq/testing'
 require 'capybara/rails'
 require 'capybara/rspec'
 require 'capybara/email/rspec'
-require 'shoulda-matchers'
 Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
 Dir[Rails.root.join('app/helpers/**/*.rb')].each { |f| require f }
 Dir[Rails.root.join('spec/shared_examples/*.rb')].each { |f| require f }
@@ -22,10 +21,15 @@ FakeWeb.allow_net_connect = false
 ActiveRecord::Migration.check_pending! if defined?(ActiveRecord::Migration)
 
 RSpec.configure do |config|
-  config.expect_with :rspec do |c|
-    c.syntax = %i[should expect]
+  Shoulda::Matchers.configure do |shoulda_config|
+    shoulda_config.integrate do |with|
+      with.test_framework :rspec
+
+      with.library :active_record
+      with.library :active_model
+      with.library :action_controller
+    end
   end
-  config.mock_with :mocha
 
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
   config.use_transactional_fixtures = false

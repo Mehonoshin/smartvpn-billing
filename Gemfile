@@ -82,11 +82,11 @@ group :test, :development do
   gem 'capybara'
   gem 'database_cleaner', '1.0.0.RC1'
   gem 'dotenv-rails'
-  gem 'mocha', require: false
-  gem 'vcr'
-  gem 'shoulda-matchers', '4.0.0.rc1'
-  gem 'rspec-rails', '~> 3.8'
+  # gem 'mocha', require: false
   gem 'rspec-its'
+  gem 'rspec-rails', '~> 3.8'
+  gem 'shoulda-matchers', '4.0.0.rc1'
+  gem 'vcr'
   # TODO: switch to stable version
   gem 'selenium-webdriver'
   gem 'timecop'

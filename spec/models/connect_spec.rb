@@ -1,16 +1,18 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 describe Connect do
   subject { build(:connect) }
 
-  it { should be_valid }
-  it { should belong_to(:user) }
-  it { should belong_to(:server) }
+  it { is_expected.to be_valid }
+  it { is_expected.to belong_to(:user) }
+  it { is_expected.to belong_to(:server) }
 
-  describe "instance" do
+  describe 'instance' do
     subject { create(:connect) }
 
-    it "returns server hostname" do
+    it 'returns server hostname' do
       expect(subject.hostname).to eq subject.server.hostname
     end
   end
@@ -29,4 +31,3 @@ end
 #  created_at  :datetime
 #  updated_at  :datetime
 #
-

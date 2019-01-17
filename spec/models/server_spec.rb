@@ -1,13 +1,15 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 describe Server do
   subject { build(:server) }
 
-  it { should be_valid }
-  it { should have_many(:connects) }
-  it { should have_many(:disconnects) }
-  it { should have_many(:included_plans) }
-  it { should have_many(:plans) }
+  it { is_expected.to be_valid }
+  it { is_expected.to have_many(:connects) }
+  it { is_expected.to have_many(:disconnects) }
+  it { is_expected.to have_many(:included_plans) }
+  it { is_expected.to have_many(:plans) }
 
   it { validate_presence_of(:hostname) }
   it { validate_presence_of(:ip_address) }
@@ -20,26 +22,25 @@ describe Server do
     expect(subject).not_to be_valid
   end
 
-  context "after creation" do
-    it "generates auth key" do
+  context 'after creation' do
+    it 'generates auth key' do
       expect(subject.save).not_to be_nil
     end
 
-    it "auth key is random" do
+    it 'auth key is random' do
       expect(subject.save).not_to eq create(:server).auth_key
     end
 
-    it "is in pending state" do
+    it 'is in pending state' do
       expect(subject.pending?).to be true
     end
   end
 
-  describe ".to_s" do
-    it "returns hostname" do
+  describe '.to_s' do
+    it 'returns hostname' do
       expect(subject.to_s).to eq subject.hostname
     end
   end
-
 end
 
 # == Schema Information
@@ -55,4 +56,3 @@ end
 #  updated_at :datetime
 #  config     :string(255)
 #
-

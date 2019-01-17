@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 describe Referrer::RewardCalculator do
@@ -6,7 +8,7 @@ describe Referrer::RewardCalculator do
 
   describe '#amount' do
     before do
-      described_class.any_instance.expects(:percent).returns(10)
+      allow_any_instance_of(described_class).to receive(:percent).and_return(10)
     end
 
     it 'returns 10% of payment' do

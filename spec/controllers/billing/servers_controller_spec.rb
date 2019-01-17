@@ -21,7 +21,7 @@ describe Billing::ServersController do
     before { server.plans << @user.plan }
 
     it 'calls config builder' do
-      ServerConfigBuilder.any_instance.expects(:to_text).returns(config)
+      allow_any_instance_of(ServerConfigBuilder).to receive(:to_text).and_return(config)
       get :download_config, id: server.id
     end
 

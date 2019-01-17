@@ -137,7 +137,7 @@ describe Admin::ServersController do
       let!(:config) { ServerConfigBuilder.new(server: server).to_text }
 
       it 'calls config builder' do
-        ServerConfigBuilder.any_instance.expects(:to_text).returns(config)
+        allow_any_instance_of(ServerConfigBuilder).to receive(:to_text).and_return(config)
         get :generate_config, id: server.id
       end
 

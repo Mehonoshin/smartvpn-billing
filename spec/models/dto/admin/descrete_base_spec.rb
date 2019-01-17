@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 describe Dto::Admin::DescreteBase do
@@ -6,7 +8,7 @@ describe Dto::Admin::DescreteBase do
 
   describe '#amounts' do
     before do
-      described_class.any_instance.expects(:values_by_days).at_least_once.returns({})
+      allow_any_instance_of(described_class).to receive(:values_by_days).and_return({})
     end
 
     it 'calls values_by_days method' do
