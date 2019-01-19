@@ -17,7 +17,7 @@ puts '----------------------------------'
 def main_server
   @main_server ||= Server
                    .where(hostname: 'test.smartvpn.biz')
-                   .first_or_create(hostname: 'test.smartvpn.biz', ip_address: '192.168.33.10', state: 'active')
+                   .first_or_create!(ip_address: '192.168.33.10', state: 'active')
 end
 
 puts "Was found or created main server hostname: #{main_server.hostname}"

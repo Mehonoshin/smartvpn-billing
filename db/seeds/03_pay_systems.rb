@@ -11,7 +11,7 @@ DEFAULT_PAY_SYSTEMS = [
 ].freeze
 
 DEFAULT_PAY_SYSTEMS.each do |pay_system_params|
-  PaySystem.where(name: pay_system_params[:name]).first_or_create(pay_system_params)
+  PaySystem.where(name: pay_system_params[:name]).first_or_create!(pay_system_params)
   puts "Was find or created pay system #{pay_system_params[:name]}"
   puts '----------------------------------' unless pay_system_params[:name] == 'Visa/Mastercard'
 end

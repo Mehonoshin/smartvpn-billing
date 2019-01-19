@@ -7,7 +7,7 @@ def plan_params(merge_params)
 end
 
 def standard_plan
-  @standard_plan ||= Plan.where(name: 'Стандарт').first_or_create(plan_params(name: 'Стандарт', code: 'basic'))
+  @standard_plan ||= Plan.where(name: 'Стандарт').first_or_create!(plan_params(code: 'basic'))
 end
 
 standard_plan
@@ -15,7 +15,7 @@ standard_plan
 puts 'Was find or created standard plan'
 puts '----------------------------------'
 
-Plan.where(name: 'Стандарт Акция').first_or_create(plan_params(name: 'Стандарт Акция', code: 'basic_promo'))
+Plan.where(name: 'Стандарт Акция').first_or_create!(plan_params(code: 'basic_promo'))
 
 puts 'Was find or created standard stock plan'
 
