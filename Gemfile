@@ -43,7 +43,6 @@ gem 'whenever', '0.9.0', require: false
 gem 'sidekiq'
 gem 'sinatra', require: false
 
-# TODO: make it optional via ENV flag
 gem 'rollbar'
 # TODO: make it optional via ENV flag
 gem 'newrelic_rpm'
