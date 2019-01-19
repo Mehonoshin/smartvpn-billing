@@ -5,4 +5,15 @@ servers:
   sample_config_path: 'config/sample.server.ovpn.erb'
 
 mailchimp:
-  all_clients_list_id: ''
+  api_key: <%= ENV['MAILCHIMP_API_KEY'] %>
+  all_clients_list_id: <%= ENV['MAILCHIMP_ALL_CLIENTS_LIST_ID'] %>
+
+robokassa:
+  login: <%= ENV['ROBOKASSA_LOGIN'] %>
+  secret1: <%= ENV['ROBOKASSA_SECRET1'] %>
+  secret2: <%= ENV['ROBOKASSA_SECRET2'] %>
+webmoney:
+  secret: <%= ENV['WEBMONEY_SECRET'] %>
+  wallet:
+    wmz: <%= ENV['WEBMONEY_WALLET_WMZ'] %>
+    wmr: <%= ENV['WEBMONEY_WALLET_WMR'] %>
