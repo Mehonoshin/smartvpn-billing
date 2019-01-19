@@ -2,7 +2,7 @@
  *
  * Custom theme code styles
  * Written by Themelize.me (http://themelize.me)
- * 
+ *
  *******************************************************/
 .clearfix {
   *zoom: 1;
@@ -2482,4 +2482,10 @@ a:hover .icon-inverse-80 {
     font-size: 20px;
     line-height: 24px;
     margin: 0 0 30px;
+}
+div.in-middle {
+  margin: auto;
+  width: 50%;
+  border: 3px solid green;
+  padding: 10px;
 }
