@@ -1,14 +1,14 @@
-require 'spec_helper'
+# frozen_string_literal: true
+
+require 'rails_helper'
 
 describe ServerConfigBuilder do
   let(:server) { create(:server) }
-  subject { described_class.new(server) }
+  subject { described_class.new(server: server) }
 
-  before { subject.generate_config }
-
-  describe '#generate_config' do
-    it 'returns ServerConfig instance' do
-      expect(subject.generate_config.class).to eq ServerConfig
+  describe '#to_text' do
+    it 'returns ServerConfig text' do
+      expect(subject.to_text.class).to eq String
     end
 
     describe 'protocol' do
@@ -39,12 +39,6 @@ describe ServerConfigBuilder do
       it 'replaces old port' do
         expect(subject.to_text).not_to include 'unknown_port'
       end
-    end
-  end
-
-  describe '#to_text' do
-    it 'returns string' do
-      expect(subject.to_text.class).to eq String
     end
   end
 end

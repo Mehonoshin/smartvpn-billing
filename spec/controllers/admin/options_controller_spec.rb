@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 describe Admin::OptionsController do
@@ -7,15 +9,15 @@ describe Admin::OptionsController do
   describe 'GET #index' do
     before { get :index }
 
-    it { should be_success }
-    it { should render_template :index }
+    it { is_expected.to be_success }
+    it { is_expected.to render_template :index }
   end
 
   describe 'GET #new' do
     before { get :new }
 
-    it { should be_success }
-    it { should render_template :new }
+    it { is_expected.to be_success }
+    it { is_expected.to render_template :new }
   end
 
   describe 'POST #create' do
@@ -23,9 +25,9 @@ describe Admin::OptionsController do
       let(:attrs) { attributes_for(:option) }
 
       it 'creates new option' do
-        expect {
+        expect do
           post :create, option: attrs
-        }.to change(Option.all, :count).by(1)
+        end.to change(Option.all, :count).by(1)
       end
 
       it 'redirects to options path' do
@@ -48,8 +50,8 @@ describe Admin::OptionsController do
     let(:option) { create(:option) }
     before { get :edit, id: option.id }
 
-    it { should be_success }
-    it { should render_template :edit }
+    it { is_expected.to be_success }
+    it { is_expected.to render_template :edit }
   end
 
   describe 'PUT #update' do

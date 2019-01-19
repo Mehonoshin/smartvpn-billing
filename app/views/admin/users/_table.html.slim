@@ -1,17 +1,17 @@
 table.table
   thead
     tr
-      th ID
-      th Email
-      th Тариф
-      th Дата регистрации
-      th Баланс
-      th Количество подключений
-      th Входил в биллинг
-      th Оборот
-      th Неудачных списаний
-      th Статус
-      th Действия
+      th= 'ID'
+      th= 'Email'
+      th= t('admin.tables.plan')
+      th= t('admin.tables.registration_date')
+      th= t('admin.tables.balance')
+      th= t('admin.tables.number_connections')
+      th= t('admin.tables.logged_in_billing')
+      th= t('admin.tables.turnover')
+      th= t('admin.tables.unsuccessful_charges')
+      th= t('admin.tables.status')
+      th= t('admin.tables.actions')
 
   - @users.each do |user|
     tr class="#{background_highlight(user)}"
@@ -30,7 +30,7 @@ table.table
           li.pb-1
             = link_to t('admin.links.edit'), edit_admin_user_path(user), class: 'btn btn-sm btn-info'
           li
-            = link_to 'Списать', withdraw_admin_user_path(user), method: :put, class: 'btn btn-sm btn-warning'
+            = link_to t('admin.links.withdraw'), withdraw_admin_user_path(user), method: :put, class: 'btn btn-sm btn-warning'
 
 = render partial: 'admin/shared/paginate', locals: {collection: @users}
 

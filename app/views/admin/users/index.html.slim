@@ -1,9 +1,13 @@
-= page_title('Все пользователи', 'user')
+= page_title(t('admin.users.title'), 'user', t('admin.users.all'))
 
-.row
-  .col
+.row.mt-3
+  .col.col-md-6
     = link_to t('admin.links.email_list'), emails_export_admin_users_path(q: params[:q]), target: '_blank', class: 'btn btn-primary'
   = render partial: 'filter'
 
-= render partial: 'submenu'
+.row.mb-3
+  .col-md-6
+    = render partial: 'submenu'
+  .col-md-6.text-right
+    = link_to t('admin.links.create'), new_admin_user_path, class: 'btn btn-info'
 = render partial: 'table'

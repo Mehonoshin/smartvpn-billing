@@ -1,7 +1,11 @@
-= page_title('Оплатившие подписку пользователи', 'file-invoice-dollar')
+= page_title(t('admin.users.title'), 'user', t('admin.users.payers'))
 
-.row
+.row.mt-3
   = render partial: 'filter'
 
-= render partial: 'submenu'
+.row.mb-3
+  .col-md-6
+    = render partial: 'submenu'
+  .col-md-6.text-right
+    = link_to t('admin.links.create'), new_admin_user_path, class: 'btn btn-info'
 = render partial: 'table'

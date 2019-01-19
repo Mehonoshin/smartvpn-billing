@@ -1,28 +1,30 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 describe Api::ConnectionController do
   let(:user) { create(:user) }
   let(:server) { create(:server) }
-  let(:attrs) { Hash[login: user.vpn_login, hostname: server.hostname, traffic_in: 10, traffic_out: 15] }
+  let(:attrs) { { login: user.vpn_login, hostname: server.hostname, traffic_in: '10', traffic_out: '15' } }
   subject { response }
 
-  it_behaves_like "validating signature", :connect
-  it_behaves_like "validating signature", :disconnect
+  it_behaves_like 'validating signature', :connect
+  it_behaves_like 'validating signature', :disconnect
 
-  describe "api calls" do
+  describe 'api calls' do
     before do
-      Api::ConnectionController.any_instance.stubs(:valid_api_call?).returns(true)
+      allow_any_instance_of(Api::ConnectionController).to receive(:valid_api_call?).and_return(true)
     end
 
-    describe "POST #connect" do
-      it "calls connector" do
-        Connector.any_instance.expects(:invoke).once
+    describe 'POST #connect' do
+      it 'calls connector' do
+        allow_any_instance_of(Connector).to receive(:invoke).once
         post :connect, attrs
       end
 
-      it "passed connect action to connector" do
-        connector = Connector.new(attrs.merge!(action: "connect"))
-        Connector.expects(:new).with() { |params| params.include?(:action) }.returns(connector)
+      it 'passed connect action to connector' do
+        connector = Connector.new(attrs.merge!(action: 'connect'))
+        expect(Connector).to receive(:new).with(attrs).and_return(connector)
         post :connect, attrs
       end
 
@@ -36,7 +38,7 @@ describe Api::ConnectionController do
           post :connect, params
         end
 
-        it { should be_json }
+        it { is_expected.to be_json }
 
         it 'response includes options list' do
           expect(json).to have_key('options')
@@ -44,15 +46,15 @@ describe Api::ConnectionController do
       end
     end
 
-    describe "POST #disconnect" do
-      it "calls connector" do
-        Connector.any_instance.expects(:invoke).once
+    describe 'POST #disconnect' do
+      it 'calls connector' do
+        allow_any_instance_of(Connector).to receive(:invoke).once
         post :disconnect, attrs
       end
 
-      it "passed disconnect action to connector" do
-        connector = Connector.new(attrs.merge!(action: "connect"))
-        Connector.expects(:new).with() { |params| params.include?(:action) }.returns(connector)
+      it 'passed disconnect action to connector' do
+        connector = Connector.new(attrs.merge!(action: 'disconnect'))
+        expect(Connector).to receive(:new).with(attrs).and_return(connector)
         post :disconnect, attrs
       end
     end

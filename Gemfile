@@ -43,7 +43,6 @@ gem 'whenever', '0.9.0', require: false
 gem 'sidekiq'
 gem 'sinatra', require: false
 
-# TODO: make it optional via ENV flag
 gem 'rollbar'
 # TODO: make it optional via ENV flag
 gem 'newrelic_rpm'
@@ -65,7 +64,6 @@ gem 'jbuilder', '~> 1.0.1'
 gem 'puma'
 
 group :development do
-  gem 'awesome_print'
   gem 'better_errors'
   gem 'foreman'
   gem 'letter_opener'
@@ -76,20 +74,18 @@ group :development do
 end
 
 group :test, :development do
+  gem 'awesome_print'
   gem 'capybara'
   gem 'database_cleaner', '1.0.0.RC1'
-  gem 'hirb'
-  gem 'mocha', require: false
-  gem 'rb-fchange', require: false
-  gem 'vcr'
-  # TODO: switch to stable version
   gem 'dotenv-rails'
   gem 'factory_girl_rails', '~> 4.0'
   gem 'faker'
-  gem 'pry-rails'
-  gem 'rspec-rails'
+  gem 'rspec-its'
+  gem 'rspec-rails', '~> 3.8'
+  gem 'shoulda-matchers', '4.0.0.rc1'
+  gem 'vcr'
+  # TODO: switch to stable version
   gem 'selenium-webdriver'
-  gem 'shoulda-matchers', github: 'thoughtbot/shoulda-matchers'
   gem 'timecop'
 end
 

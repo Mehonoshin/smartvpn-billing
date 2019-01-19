@@ -1,34 +1,36 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 describe Admin::TrafficReportsController do
   login_admin
   subject { response }
 
-  describe "GET #index" do
+  describe 'GET #index' do
     before { get :index }
 
-    it { should be_success }
-    it { should render_template :index }
+    it { is_expected.to be_success }
+    it { is_expected.to render_template :index }
   end
 
-  describe "GET #users" do
-    before { get :users}
+  describe 'GET #users' do
+    before { get :users }
 
-    it { should be_success }
-    it { should render_template :users }
+    it { is_expected.to be_success }
+    it { is_expected.to render_template :users }
   end
 
-  describe "GET #date" do
+  describe 'GET #date' do
     before { get :date }
 
-    it { should be_success }
-    it { should render_template :date }
+    it { is_expected.to be_success }
+    it { is_expected.to render_template :date }
   end
 
-  describe "GET #servers" do
-    before { get :servers}
+  describe 'GET #servers' do
+    before { get :servers }
 
-    it { should be_success }
-    it { should render_template :servers }
+    it { is_expected.to be_success }
+    it { is_expected.to render_template :servers }
   end
 end

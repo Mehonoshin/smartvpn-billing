@@ -1,14 +1,16 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 describe PaySystem do
   subject { build(:pay_system) }
 
-  it { should be_valid }
-  it { should validate_presence_of(:name) }
-  it { should validate_presence_of(:code) }
-  it { should have_many(:payments) }
+  it { is_expected.to be_valid }
+  it { is_expected.to validate_presence_of(:name) }
+  it { is_expected.to validate_presence_of(:code) }
+  it { is_expected.to have_many(:payments) }
 
-  describe ".enabled scope" do
+  describe '.enabled scope' do
     subject { described_class }
 
     before do
@@ -16,33 +18,33 @@ describe PaySystem do
       create_list(:pay_system, 3)
     end
 
-    it "returns only enabled pay systems" do
+    it 'returns only enabled pay systems' do
       expect(subject.enabled.size).to eq 2
     end
   end
 
-  describe "states" do
+  describe 'states' do
     subject { build(:pay_system) }
 
-    it "initially in disabled state" do
+    it 'initially in disabled state' do
       expect(subject.disabled?).to be true
     end
 
-    context "enable! action" do
-      it "changes state to enabled" do
-        expect {
+    context 'enable! action' do
+      it 'changes state to enabled' do
+        expect do
           subject.enable!
-        }.to change(subject, :state).to("enabled")
+        end.to change(subject, :state).to('enabled')
       end
     end
 
-    context "disable! action" do
+    context 'disable! action' do
       before { subject.enable! }
 
-      it "changes state to disabled" do
-        expect {
+      it 'changes state to disabled' do
+        expect do
           subject.disable!
-        }.to change(subject, :state).to("disabled")
+        end.to change(subject, :state).to('disabled')
       end
     end
   end
@@ -59,4 +61,3 @@ end
 #  updated_at  :datetime
 #  description :text
 #
-

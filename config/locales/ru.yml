@@ -1,4 +1,7 @@
 ru:
+  mailers:
+    user_connection_config_mailer:
+      subject: 'Вам был создан аккаунт'
   date:
     formats:
       default: "%d.%m.%Y"

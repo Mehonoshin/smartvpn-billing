@@ -1,12 +1,14 @@
-require 'spec_helper'
+# frozen_string_literal: true
+
+require 'rails_helper'
 
 describe UserOption do
   subject { build(:user_option) }
 
-  it { should validate_presence_of(:user_id) }
-  it { should validate_presence_of(:option_id) }
-  it { should belong_to :user }
-  it { should belong_to :option }
+  it { is_expected.to validate_presence_of(:user_id) }
+  it { is_expected.to validate_presence_of(:option_id) }
+  it { is_expected.to belong_to :user }
+  it { is_expected.to belong_to :option }
 
   it 'is enabled' do
     expect(subject.enabled?).to be true
