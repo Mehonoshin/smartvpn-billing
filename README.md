@@ -1,7 +1,7 @@
 ## SmartVPN Billing
 
 [![Build Status](https://travis-ci.org/Mehonoshin/smartvpn-billing.svg?branch=master)](https://travis-ci.org/Mehonoshin/smartvpn-billing)
-[![](https://images.microbadger.com/badges/image/mexx/smartvpn-billing.svg)](https://microbadger.com/images/mexx/smartvpn-billing "Get your own image badge on microbadger.com")
+[![](https://images.microbadger.com/badges/version/mexx/smartvpn-billing.svg)](https://hub.docker.com/r/mexx/smartvpn-billing)
 
 <a href="https://imgbb.com/"><img src="https://image.ibb.co/gEVXM9/Screen-Shot-2018-10-14-at-18-34-17.png" alt="smartvpn-billing" border="0"></a>
 
