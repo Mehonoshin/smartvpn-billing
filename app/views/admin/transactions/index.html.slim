@@ -1,20 +1,21 @@
-= page_title('Транзакции', 'file-invoice-dollar')
+= page_title(t('admin.transactions.title'), 'file-invoice-dollar')
 
-table.table
-  thead
-    tr
-      th= t('transaction.id')
-      th= t('transaction.amount')
-      th= t('transaction.user')
-      th= t('transaction.date')
-      th= t('transaction.description')
-  tbody
-    - @transactions.each do |transaction|
+.my-5
+  table.table
+    thead
       tr
-        td= transaction.id
-        td= transaction.amount
-        td= transaction.user
-        td= transaction.date
-        td= transaction.description
+        th= t('admin.tables.id')
+        th= t('admin.tables.amount')
+        th= t('admin.tables.user')
+        th= t('admin.tables.date')
+        th= t('admin.tables.description')
+    tbody
+      - @transactions.each do |transaction|
+        tr
+          td= transaction.id
+          td= transaction.amount
+          td= transaction.user
+          td= transaction.date
+          td= transaction.description
 
 = render partial: 'admin/shared/paginate', locals: { collection: @transactions }

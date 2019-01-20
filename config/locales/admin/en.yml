@@ -53,6 +53,7 @@ en:
       incoming_traffic: 'Incoming traffic'
       outbound_traffic: 'Outbound traffic'
       total: 'Total'
+      amount: 'Amount'
     links:
       edit: 'Edit'
       email_list: 'Email list'
@@ -95,6 +96,8 @@ en:
       title: 'Connections'
       show: 'Show'
       active: 'Active'
+    transactions:
+      title: 'Transactions'
     plans:
       title: 'Plans'
       show: 'Show'

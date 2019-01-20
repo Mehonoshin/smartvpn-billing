@@ -53,6 +53,7 @@ ru:
       incoming_traffic: 'Входящий трафик'
       outbound_traffic: 'Исходящий трафик'
       total: 'Всего'
+      amount: 'Сумма'
     links:
       edit: 'Редактировать'
       email_list: 'Список email'
@@ -95,6 +96,8 @@ ru:
       title: 'Соединения'
       show: 'Просмотр'
       active: 'Активные'
+    transactions:
+      title: 'Транзакции'
     plans:
       title: 'Тарифы'
       show: 'Просмотр'
