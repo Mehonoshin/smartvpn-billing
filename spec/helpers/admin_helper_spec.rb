@@ -30,7 +30,7 @@ describe AdminHelper do
   end
 
   describe '#sub_menu_item' do
-    let(:result) { '<li class="nav-item"><a class="nav-link" href="path">title</a></li>' }
+    let(:result) { '<li class="nav-item pl-4"><a class="nav-link" href="path">title</a></li>' }
 
     it 'returns one link' do
       expect(sub_menu_item('title', 'path')).to eq result
