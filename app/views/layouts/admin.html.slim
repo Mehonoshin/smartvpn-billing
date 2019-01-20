@@ -16,9 +16,11 @@ html lang='en-us'
   body
     header
       nav.navbar.navbar-expand-md.navbar-dark.bg-dark
-        = link_to 'SmartVPN Admin', '#', class: 'navbar-brand'
-        .nav.navbar-nav.ml-auto.mr-3
-          = link_to 'Sign out', destroy_admin_session_path, method: :delete
+        = link_to 'SmartVPN Admin', admin_root_path, class: 'navbar-brand'
+        ul.navbar-nav.ml-auto.mr-3
+          = change_locale_link
+          li.nav-item
+            = link_to 'Sign out', destroy_admin_session_path, method: :delete, class: 'nav-link'
 
     .container-fluid.h-100
       .row.d-flex.h-100

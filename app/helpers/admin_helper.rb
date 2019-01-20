@@ -89,4 +89,8 @@ module AdminHelper
       check_box_tag 'q[never_paid_eq]'
     end
   end
+
+  def change_locale_link
+    Web::Admin::ChangeLocaleLinkCell.new.render
+  end
 end
