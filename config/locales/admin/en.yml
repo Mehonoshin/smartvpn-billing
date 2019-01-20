@@ -10,7 +10,15 @@ en:
     layout:
       title: '%{brand} Admin panel'
       sign_out: 'Sign out'
+    legends:
+      common: 'Common'
+      referrer_program: 'Referrer program'
+      options: 'Options'
+      connection_data: 'Connection data'
+      connections: 'Connections'
     tables:
+      id: 'ID'
+      email: 'Email'
       plan: 'Plan'
       registration_date: 'Registration date'
       balance: 'Balance'
@@ -45,6 +53,8 @@ en:
     buttons:
       filter: 'Filter'
       apply: 'Apply'
+      disable: 'Disable'
+      enable: 'Enable'
     servers:
       notices:
         created: 'Server successfully added'

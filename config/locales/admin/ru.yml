@@ -10,7 +10,15 @@ ru:
     layout:
       title: '%{brand} Панель администрирования'
       sign_out: 'Выход'
+    legends:
+      common: 'Общее'
+      referrer_program: 'Партнерская программа'
+      options: 'Опции'
+      connection_data: 'Данные подключения'
+      connections: 'Подключения'
     tables:
+      id: 'ID'
+      email: 'Email'
       plan: 'Тариф'
       registration_date: 'Дата регистрации'
       balance: 'Баланс'
@@ -40,11 +48,13 @@ ru:
       by_servers: 'По серверам'
       transactions: 'Транзакции'
       promos: 'Акции'
-      options: 'Услуги'
+      options: 'Опции'
       referrers: 'Рефереры'
     buttons:
       filter: 'Фильтр'
       apply: 'Применить'
+      disable: 'Отключить'
+      enable: 'Включить'
     servers:
       notices:
         created: 'Сервер успешно добавлен'

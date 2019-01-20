@@ -12,10 +12,28 @@ ru:
     attributes:
       user:
         accept_agreement: "Принятие соглашения"
+        balance: 'Баланс'
+        plan_id: 'Тариф'
+        state: 'Состояние'
         password: "Пароль"
         password_confirmation: "Подтверждение пароля"
         current_password: "Текущий пароль"
         period_length: 'Длительность тестового периода'
+        options: 'Опции'
+        promos: 'Акции'
+        referrer: 'Реферер'
+        referrals: 'Рефералы'
+        sign_in_count: 'Количество входов'
+        last_sign_in_at: 'Последний вход'
+        last_sign_in_ip: 'IP последнего входа'
+        created_at: 'Создан'
+        plan: 'Тариф'
+        current_interval_payment_status: 'Оплачен в текущем интервале'
+        last_connect_date: 'Дата последнего подключения'
+        last_withdrawal_date: 'Дата последнего списания'
+        next_withdrawal_date: 'Дата следующего списания'
+      withdrawal_prolongation:
+        days_number: 'Количество дней'
       payment:
         amount: "Сумма"
         pay_system: "Платежная система"

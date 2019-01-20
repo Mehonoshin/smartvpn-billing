@@ -12,10 +12,28 @@ en:
     attributes:
       user:
         accept_agreement: 'Agreement acceptance'
+        balance: 'Balance'
+        plan_id: 'Plan'
+        state: 'State'
         password: 'Password'
         password_confirmation: 'Password confirmation'
         current_password: 'Current password'
         period_length: 'Trail access period'
+        options: 'Options'
+        promos: 'Promos'
+        referrer: 'Referrer'
+        referrals: 'Referrals'
+        sign_in_count: 'Sign in count'
+        last_sign_in_at: 'Last sign in at'
+        last_sign_in_ip: 'Last sign in IP'
+        created_at: 'Created at'
+        plan: 'Plan'
+        current_interval_payment_status: 'Paid in current interval'
+        last_connect_date: 'Last connect date'
+        last_withdrawal_date: 'Last withdrawal date'
+        next_withdrawal_date: 'Next withdrawal date'
+      withdrawal_prolongation:
+        days_number: 'Number of days'
       payment:
         amount: 'Amount'
         pay_system: 'Payment system'
