@@ -10,6 +10,11 @@ en:
     layout:
       title: '%{brand} Admin panel'
       sign_out: 'Sign out'
+    labels:
+      user: 'User'
+      server: 'Server'
+      email_cont: 'Email contains'
+      plan: 'Plan'
     legends:
       common: 'Common'
       referrer_program: 'Referrer program'
@@ -38,6 +43,11 @@ en:
       code: 'Code'
       description: 'Description'
       price: 'Price'
+      user: 'User'
+      server: 'Server'
+      event: 'Event'
+      traffic: 'Traffic'
+      date: 'Date'
     links:
       edit: 'Edit'
       email_list: 'Email list'
@@ -60,6 +70,7 @@ en:
       promos: 'Promos'
       options: 'Options'
       referrers: 'Referrers'
+      active: 'Active'
     buttons:
       filter: 'Filter'
       apply: 'Apply'
@@ -74,6 +85,10 @@ en:
         created: 'Server successfully added'
         updated: 'Server successfully updated'
         destroyed: 'Server deleted'
+    connections:
+      title: 'Connections'
+      show: 'Show'
+      active: 'Active'
     plans:
       title: 'Plans'
       show: 'Show'

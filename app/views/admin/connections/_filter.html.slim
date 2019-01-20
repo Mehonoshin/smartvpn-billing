@@ -1,9 +1,9 @@
 .col-md-12.d-flex.justify-content-end
   = search_form_for [:admin, search], class: 'form-inline my-3' do |f|
     .form-group.mr-3
-      = f.label :user, class: 'mr-3'
+      = f.label t('admin.labels.user'), class: 'mr-3'
       = f.select :user_id_eq, options_for_select(User.all.map { |u| [u.email, u.id] }), { include_blank: true }, { class: 'form-control' }
     .form-group.mr-3
-      = f.label :server, class: 'mr-3'
+      = f.label t('admin.labels.server'), class: 'mr-3'
       = f.select :server_id_eq, options_for_select(Server.all.map { |s| [s.hostname, s.id] }), { include_blank: true }, { class: 'form-control' }
     = f.submit t('admin.buttons.filter'), class: 'btn btn-primary'

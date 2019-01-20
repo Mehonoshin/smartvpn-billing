@@ -10,6 +10,11 @@ ru:
     layout:
       title: '%{brand} Панель администрирования'
       sign_out: 'Выход'
+    labels:
+      user: 'Пользователь'
+      server: 'Сервер'
+      email_cont: 'Email содержит'
+      plan: 'План'
     legends:
       common: 'Общее'
       referrer_program: 'Партнерская программа'
@@ -38,6 +43,11 @@ ru:
       code: 'Код'
       description: 'Описание'
       price: 'Цена'
+      user: 'Пользователь'
+      server: 'Сервер'
+      event: 'Событие'
+      traffic: 'Траффик'
+      date: 'Дата'
     links:
       edit: 'Редактировать'
       email_list: 'Список email'
@@ -60,6 +70,7 @@ ru:
       promos: 'Акции'
       options: 'Опции'
       referrers: 'Рефереры'
+      active: 'Активные'
     buttons:
       filter: 'Фильтр'
       apply: 'Применить'
@@ -74,6 +85,10 @@ ru:
         created: 'Сервер успешно добавлен'
         updated: 'Сервер успешно обновлен'
         destroyed: 'Сервер удален'
+    connections:
+      title: 'Соединения'
+      show: 'Просмотр'
+      active: 'Активные'
     plans:
       title: 'Тарифы'
       show: 'Просмотр'
