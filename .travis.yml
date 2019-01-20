@@ -1,35 +1,40 @@
 dist: xenial
 language: ruby
 sudo: true
+cache: bundler
 
 rvm:
-  - 2.1.1
   - 2.5.3
-  - 2.6.0
 
-matrix:
-  allow_failures:
-    - rvm: 2.1.1
-    - rvm: 2.6.0
-addons:
-  chrome: stable
 services:
   - postgresql
   - redis-server
-before_install:
-  - gem install bundler -v '1.17.3'
-  - cp config/database.yml.sample config/database.yml
-  - cp .env.test .env
-before_script:
-  - bundle exec rake db:create
-  - bundle exec rake db:schema:load
-  - wget http://chromedriver.storage.googleapis.com/2.45/chromedriver_linux64.zip
-  - unzip chromedriver_linux64.zip
-  - sudo apt-get install libnss3
-  - sudo apt-get --only-upgrade install google-chrome-stable
-  - sudo cp chromedriver /usr/local/bin/.
-  - sudo chmod +x /usr/local/bin/chromedriver
-  - export DISPLAY=:99.0
-  - sh -e /etc/init.d/xvfb start
-  - sleep 3
-script: bundle exec rspec
+
+matrix:
+  include:
+    - rvm: 2.5.3
+      name: 'Perform DB setup (with seeds)'
+      before_script:
+        - cp config/database.yml.sample config/database.yml
+      script:
+        - bundle exec rake db:setup
+
+    - rvm: 2.5.3
+      name: 'Tests'
+      addons:
+        apt:
+          sources:
+            - google-chrome
+          packages:
+            - google-chrome-stable
+      before_install:
+        - sudo apt-get update
+        - sudo apt-get install chromium-chromedriver
+      before_script:
+        - export PATH=$PATH:/usr/lib/chromium-browser/
+        - cp config/database.yml.sample config/database.yml
+        - cp .env.test .env
+        - bundle exec rake db:create
+        - bundle exec rake db:schema:load
+      script:
+        - bundle exec rspec

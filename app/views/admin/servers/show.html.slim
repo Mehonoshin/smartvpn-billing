@@ -1,4 +1,4 @@
-= page_title('Серверы', 'linux', @server.hostname)
+= page_title('Серверы', 'server', @server.hostname)
 
 = show_for @server do |s|
   = s.attribute :id
@@ -13,5 +13,5 @@
 
   = s.attribute :plans do
     - @server.plans.each do |plan|
-      ul
+      ul.list-unstyled
         li= link_to plan.name, edit_admin_plan_path(plan)

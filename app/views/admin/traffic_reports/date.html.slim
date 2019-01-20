@@ -1,19 +1,19 @@
-h2 Траффик по дате
-= render partial: "submenu"
-= render partial: "filter"
+= page_title('Траффик по дате', 'cloud-download-alt')
 
-.info
-  table.table.table-bordered
+.row
+  = render partial: 'filter'
+= render partial: 'submenu'
+
+table.table
+  tr
+    th Дата
+    th Входящий траффик
+    th Исходящий траффик
+    th Итого
+
+  - traffic_reports.each do |report|
     tr
-      th Дата
-      th Входящий траффик
-      th Исходящий траффик
-      th Итого
-
-    - traffic_reports.each do |report|
-      tr
-        td= human_date(report.date)
-        td= human_traffic report.traffic_in
-        td= human_traffic report.traffic_out
-        td= human_traffic report.traffic_in + report.traffic_out
-
+      td= human_date(report.date)
+      td= human_traffic report.traffic_in
+      td= human_traffic report.traffic_out
+      td= human_traffic report.traffic_in + report.traffic_out

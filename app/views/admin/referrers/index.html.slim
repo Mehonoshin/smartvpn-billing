@@ -1,25 +1,24 @@
 = page_title('Рефереры', 'share')
 
-.jarviswidget.jarviswidget-color-blue.jarviswidget-sortable
-  table.table.table-bordered.referrers-table
-    thead
-      tr
-        th= "ID"
-        th= "Email"
-        th= "Оборот"
-        th= "Прибыль"
-        th= "Баланс"
-        th= "Рефералов"
+table.table.mt-5
+  thead
+    tr
+      th= 'ID'
+      th= 'Email'
+      th= 'Оборот'
+      th= 'Прибыль'
+      th= 'Баланс'
+      th= 'Рефералов'
 
-    tbody
-      - @referrers.each do |referrer|
-        tr.referrer data-referrer-id="#{referrer.id}"
+    - @referrers.each do |referrer|
+      tbody
+        tr
           td= referrer.id
-          td.email= link_to referrer.email, '#'
+          td.email= link_to referrer.email, "#reffer-#{referrer.id}", 'data-toggle': 'collapse', 'aria-expanded': 'false'
           td= referrer.referrer_account.referrals_total_amount
           td= referrer.referrer_account.operations.sum(:amount)
           td= referrer.referrer_account.balance
           td= referrer.referrals.count
-
+      tbody.collapse id="reffer-#{referrer.id}"
         = render partial: 'referrals', locals: { referrer: referrer }
 

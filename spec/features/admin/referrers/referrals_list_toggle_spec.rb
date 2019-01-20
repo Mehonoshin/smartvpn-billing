@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 describe 'referrers page', js: true do
@@ -20,19 +22,22 @@ describe 'referrers page', js: true do
     expect(page).not_to have_content referral1_email
 
     click_link referrer1.email
+    find('.collapse.show')
     expect(page).to have_content referral1_email
 
     click_link referrer1.email
-    expect(page).not_to have_content referral1_email
-
+    find(:xpath, "//a[@href='#reffer-#{referrer1.id}']")
+    expect(page).to have_no_text referral1_email
 
     # Second referrer
     expect(page).not_to have_content referral2_email
 
     click_link referrer2.email
+    find('.collapse.show')
     expect(page).to have_content referral2_email
 
     click_link referrer2.email
+    find(:xpath, "//a[@href='#reffer-#{referrer2.id}']")
     expect(page).not_to have_content referral2_email
   end
 end

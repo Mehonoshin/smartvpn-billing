@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 class UserMailer < ActionMailer::Base
   add_template_helper(ApplicationHelper)
-  default from: "admin@smartvpn.biz"
+  default from: ENV['EMAIL_FROM']
 
   def funds_recieved(user, amount)
     @user = user

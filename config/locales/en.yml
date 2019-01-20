@@ -1,4 +1,7 @@
 en:
+  mailers:
+    user_connection_config_mailer:
+      subject: 'An account has been created for you'
   date:
     formats:
       default: '%d.%m.%Y'

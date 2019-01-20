@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 describe Billing::ReferrersController do
@@ -6,7 +8,7 @@ describe Billing::ReferrersController do
 
   describe 'GET #index' do
     before { get :index }
-    it { should be_success }
-    it { should render_template :index }
+    it { is_expected.to be_success }
+    it { is_expected.to render_template :index }
   end
 end

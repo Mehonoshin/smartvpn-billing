@@ -1,5 +1,11 @@
-h2 Оплатившие в текущем месяце
+= page_title(t('admin.users.title'), 'user', t('admin.users.this_month_payers'))
 
-= render partial: "submenu"
-= render partial: "filter"
-= render partial: "table"
+.row.mt-3
+  = render partial: 'filter'
+
+.row.mb-3
+  .col-md-6
+    = render partial: 'submenu'
+  .col-md-6.text-right
+    = link_to t('admin.links.create'), new_admin_user_path, class: 'btn btn-info'
+= render partial: 'table'

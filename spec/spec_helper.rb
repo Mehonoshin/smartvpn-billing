@@ -33,10 +33,15 @@ FakeWeb.allow_net_connect = false
 ActiveRecord::Migration.check_pending! if defined?(ActiveRecord::Migration)
 
 RSpec.configure do |config|
-  config.expect_with :rspec do |c|
-    c.syntax = %i[should expect]
+  Shoulda::Matchers.configure do |shoulda_config|
+    shoulda_config.integrate do |with|
+      with.test_framework :rspec
+
+      with.library :active_record
+      with.library :active_model
+      with.library :action_controller
+    end
   end
-  config.mock_with :mocha
 
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
   config.use_transactional_fixtures = false
@@ -64,7 +69,7 @@ RSpec.configure do |config|
   end
 
   config.before(:each, type: :feature) do
-    # Для капибарных тестов заполним редис курсами, чтобы не пытался стянуть их из инета
+    # For capybara tests fill redis courses, so as not to try to pull them from an internet
     redis = Redis.new
     redis.set('smartvpn:eur_usd', 10)
     redis.set('smartvpn:rub_usd', 10)

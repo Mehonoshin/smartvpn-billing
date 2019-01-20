@@ -1,4 +1,4 @@
-h2 Просмотр пользователя
+= page_title(t('admin.users.title'), 'user', t('admin.users.show'))
 
 = show_for user do |u|
 
@@ -32,18 +32,18 @@ h2 Просмотр пользователя
   legend Подключения
   = u.attribute :current_connection, label: t('admin.users.current_connection') do
     = user.connection_status
-  = u.attribute "Оплачен в текущем интервале" do
+  = u.attribute 'Оплачен в текущем интервале' do
     = user.current_interval_payment_status
-  = u.attribute "Последнее подключение" do
+  = u.attribute 'Последнее подключение' do
     = human_date user.last_connect_date
-  = u.attribute "Последнее списание" do
+  = u.attribute 'Последнее списание' do
     = human_date user.last_withdrawal_date
-  = u.attribute "Следующее списание" do
+  = u.attribute 'Следующее списание' do
     = human_date user.next_withdrawal_date
 
-= render partial: "prolongation"
-= render partial: "payment"
-= render partial: "test_period"
+= render partial: 'prolongation'
+= render partial: 'payment'
+= render partial: 'test_period'
 
 - if @user.connected?
   = button_to 'Force disconnect', force_disconnect_admin_user_path(@user), method: :put, class: 'btn btn-danger'

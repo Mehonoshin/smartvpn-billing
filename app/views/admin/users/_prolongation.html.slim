@@ -1,5 +1,5 @@
 - if can_be_prolongated? @user
-  legend Продление подписки
+  legend= t('admin.users.prolongation')
   = simple_form_for [:admin, WithdrawalProlongation.new], url: prolongate_admin_user_path(@user), method: :put do |f|
     = f.input :days_number
     = f.submit t('global.apply'), class: 'btn btn-primary'

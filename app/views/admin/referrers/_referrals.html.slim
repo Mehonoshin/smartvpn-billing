@@ -1,5 +1,5 @@
 - referrer.referrals.each do |referral|
-  tr.referrals.hidden data-referrer-id="#{referrer.id}"
+  tr
     td
     td= link_to referral.email, admin_user_path(referral)
     td= referral.withdrawals.sum(:amount)

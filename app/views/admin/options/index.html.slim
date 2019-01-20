@@ -1,25 +1,24 @@
 = page_title('Услуги', 'cogs')
 
-.jarviswidget.jarviswidget-color-blue.jarviswidget-sortable
-  = button_to "Добавить", new_admin_option_path, method: :get, class: "btn btn-primary"
+.row.my-4
+  .col
+    = link_to 'Добавить', new_admin_option_path, class: 'btn btn-primary'
 
-  br
+table.table
+  thead
+    tr
+      th= 'ID'
+      th= 'Название'
+      th= 'Код'
+      th= 'Статус'
+      th
 
-  table.table.table-bordered
-    thead
+  tbody
+    - @options.each do |option|
       tr
-        th= "ID"
-        th= "Название"
-        th= "Код"
-        th= "Статус"
+        td= option.id
+        td= option.name
+        td= option.code
+        td= option.state
         th
-
-    tbody
-      - @options.each do |option|
-        tr
-          td= option.id
-          td= option.name
-          td= option.code
-          td= option.state
-          th
-            = link_to "Изменить", edit_admin_option_path(option)
+          = link_to 'Изменить', edit_admin_option_path(option), class: 'btn btn-sm btn-info'

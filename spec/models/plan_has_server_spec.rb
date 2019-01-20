@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 describe PlanHasServer do
-  it { should belong_to(:server) }
-  it { should belong_to(:plan) }
+  it { is_expected.to belong_to(:server) }
+  it { is_expected.to belong_to(:plan) }
 end
 
 # == Schema Information
@@ -15,4 +17,3 @@ end
 #  created_at :datetime
 #  updated_at :datetime
 #
-

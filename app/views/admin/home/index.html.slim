@@ -1,0 +1,29 @@
+= page_title('Admin', 'home', 'Dashboard')
+
+.row.mt-5
+  .col-xs-12.col-sm-5.col-md-5.col-lg-8
+    ul
+      li.mb-4
+        h5
+          = 'Общий доход'
+          span<
+            | $
+            = @dashboard.income[:total]
+        div
+          = column_chart @dashboard.income[:discrete]
+      li.mb-4
+        h5
+          | Общий траффик
+          span<
+            i.fa.fa-arrow-circle-up>
+            = human_traffic @dashboard.traffic[:total]
+          div
+            = column_chart @dashboard.traffic[:discrete]
+      li
+        h5
+          | Клиентов
+          span<
+            i.fa.fa-users>
+            = @dashboard.customers[:total]
+        div
+          = column_chart @dashboard.customers[:discrete]

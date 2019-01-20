@@ -1,11 +1,13 @@
-= simple_form_for [:admin, @pay_system] do |f|
-  = f.input :name
-  = f.input :code
-  = f.input :description
-  = f.input :state,
-    as: :select,
-    collection: PaySystem.state_machine.states.map { |s| [t("admin.pay_systems.states.#{s.name}"), s.name] },
-    include_blank: false
-  = f.input :currency, as: :select, collection: PaySystem::CURRENCIES.map { |c| [c, c] }
-  br
-  = f.submit "Применить", class: 'btn btn-primary btn-large'
+.row
+  .col.mt-5
+    = simple_form_for [:admin, @pay_system], html: { class: 'form-horizontal' },wrapper: :horizontal_form do |f|
+      = f.input :name
+      = f.input :code
+      = f.input :description
+      = f.input :state,
+        as: :select,
+        collection: PaySystem.state_machine.states.map { |s| [t("admin.pay_systems.states.#{s.name}"), s.name] },
+        include_blank: false
+      = f.input :currency, as: :select, collection: PaySystem::CURRENCIES.map { |c| [c, c] }
+      br
+      = f.submit 'Применить', class: 'btn btn-primary'

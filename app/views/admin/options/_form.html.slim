@@ -1,9 +1,11 @@
-= simple_form_for [:admin, @option] do |f|
-  = f.input :name
-  = f.input :code, input_html: { enabled: @option.new_record? }
-  = f.input :state, as: :select, collection: object_states_select_collection(Option)
+.row.my-5
+  .col
+    = simple_form_for [:admin, @option], html: { class: 'form-horizontal' },wrapper: :horizontal_form do |f|
+      = f.input :name
+      = f.input :code, input_html: { enabled: @option.new_record? }
+      = f.input :state, as: :select, collection: object_states_select_collection(Option)
 
-  legend Тарифы
-  = f.association :plans, as: :select
+      legend Тарифы
+      = f.association :plans, as: :select
 
-  = f.submit "Применить"
+      = f.submit 'Применить', class: 'btn btn-primary'
