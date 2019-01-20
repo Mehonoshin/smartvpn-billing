@@ -50,6 +50,11 @@ ru:
         created: 'Сервер успешно добавлен'
         updated: 'Сервер успешно обновлен'
         destroyed: 'Сервер удален'
+    dashboard:
+      title: 'Панель управления'
+      total_income: 'Общий доход'
+      total_traffic: 'Общий трафик'
+      customers: 'Клиентов'
     users:
       title: 'Пользователи'
       all: 'Все'

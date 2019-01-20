@@ -50,6 +50,11 @@ en:
         created: 'Server successfully added'
         updated: 'Server successfully updated'
         destroyed: 'Server deleted'
+    dashboard:
+      title: 'Dashboard'
+      total_income: 'Total income'
+      total_traffic: 'Total traffic'
+      customers: 'Customers'
     users:
       title: 'Users'
       all: 'All'
