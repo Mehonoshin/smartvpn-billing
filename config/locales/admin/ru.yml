@@ -7,6 +7,9 @@ ru:
         sign_in: 'Войти'
         staff_entrance: 'Служебный вход'
   admin:
+    layout:
+      title: '%{brand} Панель администрирования'
+      sign_out: 'Выход'
     tables:
       plan: 'Тариф'
       registration_date: 'Дата регистрации'
@@ -22,8 +25,25 @@ ru:
       email_list: 'Список email'
       create: 'Создать'
       withdraw: 'Списать'
+      dashboard: 'Панель управления'
+      users: 'Пользователи'
+      all: 'Все'
+      paid: 'Оплатившие'
+      this_month_paid: 'Оплатившие в текущем месяце'
+      servers: 'Серверы'
+      payment_systems: 'Платежные системы'
+      plans: 'Тарифы'
+      connections: 'Соединения'
+      traffic: 'Трафик'
+      by_users: 'По пользователям'
+      by_date: 'По дате'
+      by_servers: 'По серверам'
+      transactions: 'Транзакции'
+      promos: 'Акции'
+      options: 'Услуги'
+      referrers: 'Рефереры'
     buttons:
-      filter: 'Фильтер'
+      filter: 'Фильтр'
       apply: 'Применить'
     servers:
       notices:

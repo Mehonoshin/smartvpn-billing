@@ -7,6 +7,9 @@ en:
         sign_in: 'Sign in'
         staff_entrance: 'Administration'
   admin:
+    layout:
+      title: '%{brand} Admin panel'
+      sign_out: 'Sign out'
     tables:
       plan: 'Plan'
       registration_date: 'Registration date'
@@ -22,6 +25,23 @@ en:
       email_list: 'Email list'
       create: 'Create'
       withdraw: 'Withdraw'
+      dashboard: 'Dashboard'
+      users: 'Users'
+      all: 'All'
+      paid: 'Paid'
+      this_month_paid: 'Paid in the current month'
+      servers: 'Servers'
+      payment_systems: 'Payment systems'
+      plans: 'Plans'
+      connections: 'Connections'
+      traffic: 'Traffic'
+      by_users: 'By users'
+      by_date: 'By date'
+      by_servers: 'By servers'
+      transactions: 'Transactions'
+      promos: 'Promos'
+      options: 'Options'
+      referrers: 'Referrers'
     buttons:
       filter: 'Filter'
       apply: 'Apply'
