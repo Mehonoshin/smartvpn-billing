@@ -46,6 +46,10 @@ ru:
         config_file: 'Файл конфигурации'
       option:
         price: 'Цена'
+        name: 'Имя'
+        code: 'Код'
+        state: 'Состояние'
+        plans: 'Тарифы'
       plan:
         name: 'Имя'
         description: 'Описание'

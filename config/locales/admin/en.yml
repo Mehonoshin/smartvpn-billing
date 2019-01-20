@@ -110,6 +110,15 @@ en:
         created: 'Plan successfully added'
         updated: 'Plan successfully updated'
         destroyed: 'Plan deleted'
+    options:
+      title: 'Options'
+      show: 'Show:'
+      new: 'Create new'
+      edit: 'Edit:'
+      notices:
+        created: 'Option successfully added'
+        updated: 'Option successfully updated'
+        destroyed: 'Option deleted'
     promos:
       title: 'Promos'
       show: 'Show:'

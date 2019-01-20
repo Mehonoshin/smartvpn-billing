@@ -46,6 +46,10 @@ en:
         config_file: 'Configuration file'
       option:
         price: 'Price'
+        name: 'Name'
+        code: 'Code'
+        state: 'State'
+        plans: 'Plans'
       plan:
         name: 'Name'
         description: 'Description'
