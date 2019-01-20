@@ -33,7 +33,7 @@ VPN node configuration is located in the following [repo](https://github.com/Meh
 2. `cd smartvpn-billing`
 3. `docker-compose -f docker-compose.development.yml build`
 4. `docker-compose -f docker-compose.development.yml up`
-5. Copy your `SECRET_TOKEN` to environment in `docker-compose.development`
+5. Copy your `SECRET_TOKEN` to `.env`
 6. Go to http://lvh.me:3000
 
 *How to run usual RoR command into docker*
