@@ -1,5 +1,5 @@
 FROM ruby:2.5
-MAINTAINER Stanislav Mekhonoshin <ejabberd@gmail.com>
+LABEL Stanislav Mekhonoshin <ejabberd@gmail.com>
 
 ARG secret_token
 

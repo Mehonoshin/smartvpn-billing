@@ -27,6 +27,25 @@ VPN node configuration is located in the following [repo](https://github.com/Meh
 7. `rake db:setup`
 8. `rails server`
 
+### Start Up and Developing with Docker
+
+1. Clone repo `git clone git@github.com:Mehonoshin/smartvpn-billing.git`
+2. `cd smartvpn-billing`
+3. `docker-compose -f docker-compose.development.yml build`
+4. `docker-compose -f docker-compose.development.yml up`
+5. Copy your `SECRET_TOKEN` to `.env`
+6. Go to http://lvh.me:3000
+
+*How to run usual RoR command into docker*
+1. `docker-compose -f docker-compose.development.yml up`
+2. `docker-compose exec app bash` - connect to running container as named app
+3. `RAILS_ENV=test ./bin/rake db:setup` - setup test database
+4. `./bin/rails console` - run rails console
+5. `RAILS_ENV=test bundle exec rspec spec` - start rspec tests
+
+How it works :)
+https://www.youtube.com/watch?v=VFRKPO5LHDg
+
 ### Set Up and Running with Docker
 
 For this type of installation we assume that you already have a VPS for billing with root access.

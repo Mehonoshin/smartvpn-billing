@@ -6,11 +6,10 @@ SimpleCov.start
 ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../config/environment', __dir__)
 require 'rspec/rails'
-require 'sidekiq/testing'
 require 'capybara/rails'
 require 'capybara/rspec'
 require 'capybara/email/rspec'
-
+require 'shoulda-matchers'
 require 'sidekiq/testing'
 Sidekiq::Testing.fake!
 
@@ -18,7 +17,18 @@ Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
 Dir[Rails.root.join('app/helpers/**/*.rb')].each { |f| require f }
 Dir[Rails.root.join('spec/shared_examples/*.rb')].each { |f| require f }
 
-Capybara.javascript_driver = :selenium_chrome_headless
+Capybara.server = :puma, { Silent: true }
+Capybara.register_driver :chrome_headless do |app|
+  options = ::Selenium::WebDriver::Chrome::Options.new
+
+  options.add_argument('--headless')
+  options.add_argument('--no-sandbox')
+  options.add_argument('--disable-gpu')
+
+  Capybara::Selenium::Driver.new(app, browser: :chrome, options: options)
+end
+
+Capybara.javascript_driver = :chrome_headless
 
 Zonebie.set_random_timezone
 FakeWeb.allow_net_connect = false
