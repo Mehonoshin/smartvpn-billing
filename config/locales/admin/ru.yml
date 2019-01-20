@@ -54,6 +54,9 @@ ru:
       outbound_traffic: 'Исходящий трафик'
       total: 'Всего'
       amount: 'Сумма'
+      type: 'Тип'
+      promoter_type: 'Тип промоутера'
+      period: 'Период'
     links:
       edit: 'Редактировать'
       email_list: 'Список email'
@@ -107,6 +110,15 @@ ru:
         created: 'Тариф успешно добавлен'
         updated: 'Тариф успешно обновлен'
         destroyed: 'Тариф удален'
+    promos:
+      title: 'Акции'
+      show: 'Просмотр:'
+      new: 'Создать новый'
+      edit: 'Редактировать:'
+      notices:
+        created: 'Акция успешно добавлена'
+        updated: 'Акция успешно обновлена'
+        destroyed: 'Акция удалена'
     traffic_reports:
       title: 'Отчеты по трафику'
       date_reports: 'По дате'

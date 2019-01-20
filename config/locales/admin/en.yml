@@ -54,6 +54,9 @@ en:
       outbound_traffic: 'Outbound traffic'
       total: 'Total'
       amount: 'Amount'
+      type: 'Type'
+      promoter_type: 'Promoter type'
+      period: 'Period'
     links:
       edit: 'Edit'
       email_list: 'Email list'
@@ -100,13 +103,22 @@ en:
       title: 'Transactions'
     plans:
       title: 'Plans'
-      show: 'Show'
+      show: 'Show:'
       new: 'Create new'
-      edit: 'Edit plan:'
+      edit: 'Edit:'
       notices:
         created: 'Plan successfully added'
         updated: 'Plan successfully updated'
         destroyed: 'Plan deleted'
+    promos:
+      title: 'Promos'
+      show: 'Show:'
+      new: 'Create new'
+      edit: 'Edit:'
+      notices:
+        created: 'Promo successfully added'
+        updated: 'Promo successfully updated'
+        destroyed: 'Promo deleted'
     traffic_reports:
       title: 'Reports by traffic'
       date_reports: 'By date'

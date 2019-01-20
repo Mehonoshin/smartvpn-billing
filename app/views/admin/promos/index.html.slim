@@ -1,18 +1,18 @@
-= page_title('Акции', 'tags')
+= page_title(t('admin.promos.title'), 'tags')
 
 .row.my-4
   .col
-    = link_to 'Добавить', new_admin_promo_path, class: 'btn btn-primary'
+    = link_to t('admin.links.create'), new_admin_promo_path, class: 'btn btn-primary'
 
 table.table
   thead
     tr
-      th= 'ID'
-      th= 'Название'
-      th= 'Тип'
-      th= 'Действие'
-      th= 'Статус'
-      th= 'Период действия'
+      th= t('admin.tables.id')
+      th= t('admin.tables.name')
+      th= t('admin.tables.type')
+      th= t('admin.tables.promoter_type')
+      th= t('admin.tables.state')
+      th= t('admin.tables.period')
       th
 
   tbody
@@ -24,4 +24,4 @@ table.table
         td= promo.promoter_type
         td= promo.state
         td= promo.period
-        td= link_to 'Изменить', edit_admin_promo_path(promo), class: 'btn btn-sm btn-info'
+        td= link_to t('admin.links.edit'), edit_admin_promo_path(promo), class: 'btn btn-sm btn-info'
