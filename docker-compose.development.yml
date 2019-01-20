@@ -21,7 +21,7 @@ services:
     stdin_open: true
     build:
       context: .
-      dockerfile: app.dockerfile
+      dockerfile: Dockerfile.dev
     ports:
       - "3000:3000"
     environment:
@@ -32,18 +32,19 @@ services:
       - SECRET_TOKEN
     volumes:
       - bundle_cache:/usr/local/bundle
-      - ./:/app
+      - .:/app
     depends_on:
       - postgres
       - redis
     command: >
       /bin/bash -c "
+        cp config/database.yml.sample config/database.yml;
         while ! nc -z postgres 5432;
         do
           echo Waiting for PG;
           sleep 1;
         done;
-        rake db:migrate;
+        rake db:setup;
         rm -f /app/tmp/pids/server.pid;
         foreman start;"
 

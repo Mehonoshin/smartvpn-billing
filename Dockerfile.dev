@@ -4,6 +4,7 @@ LABEL Stanislav Mekhonoshin <ejabberd@gmail.com>
 ARG secret_token
 ENV SECRET_TOKEN=$secret_token
 
+RUN curl -sL https://deb.nodesource.com/setup_10.x | bash -
 RUN apt-get update && apt-get install -y --no-install-recommends \
   nodejs \
   openjdk-8-jre-headless \
@@ -37,6 +38,6 @@ COPY . .
 RUN cp config/database.yml.sample config/database.yml
 
 RUN gem install foreman
-RUN bundle install
+RUN bundle install -j 4
 
 RUN rake assets:precompile
