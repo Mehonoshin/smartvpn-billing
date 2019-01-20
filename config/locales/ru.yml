@@ -11,6 +11,7 @@ ru:
       user: "Пользователь"
     attributes:
       user:
+        id: 'ID'
         accept_agreement: "Принятие соглашения"
         balance: 'Баланс'
         plan_id: 'Тариф'
@@ -32,6 +33,17 @@ ru:
         last_connect_date: 'Дата последнего подключения'
         last_withdrawal_date: 'Дата последнего списания'
         next_withdrawal_date: 'Дата следующего списания'
+      server:
+        id: 'ID'
+        hostname: 'Имя хоста'
+        ip_address: 'IP адрес'
+        protocol: 'Протокол'
+        port: 'Порт'
+        country_code: 'Код страны'
+        state: 'Состояние'
+        plans: 'Тарифы'
+        auth_key: 'Ключ авторизации'
+        config_file: 'Файл конфигурации'
       withdrawal_prolongation:
         days_number: 'Количество дней'
       payment:

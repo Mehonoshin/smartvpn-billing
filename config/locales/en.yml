@@ -11,6 +11,7 @@ en:
       user: 'User'
     attributes:
       user:
+        id: 'ID'
         accept_agreement: 'Agreement acceptance'
         balance: 'Balance'
         plan_id: 'Plan'
@@ -32,6 +33,17 @@ en:
         last_connect_date: 'Last connect date'
         last_withdrawal_date: 'Last withdrawal date'
         next_withdrawal_date: 'Next withdrawal date'
+      server:
+        id: 'ID'
+        hostname: 'Hostname'
+        ip_address: 'IP address'
+        protocol: 'Protocol'
+        port: 'Port'
+        country_code: 'Country code'
+        state: 'State'
+        plans: 'Plans'
+        auth_key: 'Authorisation key'
+        config_file: 'Configuration file'
       withdrawal_prolongation:
         days_number: 'Number of days'
       payment:
