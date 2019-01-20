@@ -57,6 +57,8 @@ ru:
       type: 'Тип'
       promoter_type: 'Тип промоутера'
       period: 'Период'
+      profit: 'Прибыль'
+      referrals: 'Рефералов'
     links:
       edit: 'Редактировать'
       email_list: 'Список email'
@@ -119,6 +121,8 @@ ru:
         created: 'Опция успешно добавлена'
         updated: 'Опция успешно обновлена'
         destroyed: 'Опция удалена'
+    referrers:
+      title: 'Рефереры'
     promos:
       title: 'Акции'
       show: 'Просмотр:'

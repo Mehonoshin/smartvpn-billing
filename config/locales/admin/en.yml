@@ -57,6 +57,8 @@ en:
       type: 'Type'
       promoter_type: 'Promoter type'
       period: 'Period'
+      profit: 'Profit'
+      referrals: 'Referrals'
     links:
       edit: 'Edit'
       email_list: 'Email list'
@@ -119,6 +121,8 @@ en:
         created: 'Option successfully added'
         updated: 'Option successfully updated'
         destroyed: 'Option deleted'
+    referrers:
+      title: 'Referrers'
     promos:
       title: 'Promos'
       show: 'Show:'
