@@ -75,10 +75,12 @@ en:
       promotion:
         promo_code: 'By entering promo code you can get a discount or additional services for free'
       pay_system:
+        id: 'ID'
         name: 'Name'
         code: 'Code'
         description: 'Description'
-        state: 'Status'
+        state: 'State'
+        currency: 'Currency'
     validations:
       user:
         accept_agreement: ''

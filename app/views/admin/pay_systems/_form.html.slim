@@ -10,4 +10,4 @@
         include_blank: false
       = f.input :currency, as: :select, collection: PaySystem::CURRENCIES.map { |c| [c, c] }
       br
-      = f.submit 'Применить', class: 'btn btn-primary'
+      = f.submit t('admin.buttons.apply'), class: 'btn btn-primary'

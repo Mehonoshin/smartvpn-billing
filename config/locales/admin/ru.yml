@@ -19,6 +19,7 @@ ru:
       plans: 'Тарифы'
     tables:
       id: 'ID'
+      name: 'Имя'
       email: 'Email'
       plan: 'Тариф'
       plans: 'Тарифы'
@@ -32,6 +33,7 @@ ru:
       actions: 'Действия'
       hostname: 'Имя хоста'
       ip_address: 'IP адрес'
+      code: 'Код'
     links:
       edit: 'Редактировать'
       email_list: 'Список email'
@@ -103,6 +105,10 @@ ru:
         test_period_disabled: 'Тестовый период деактивирован'
         disconnected: 'Пользователь успешно отключен'
     pay_systems:
+      title: 'Платежные системы'
+      show: 'Просмотр'
+      new: 'Создать новую'
+      edit: 'Редактировать'
       states:
         enabled: 'Включена'
         disabled: 'Выключена'

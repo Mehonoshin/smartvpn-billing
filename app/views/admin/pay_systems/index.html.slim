@@ -1,17 +1,16 @@
-= page_title('Платежные системы', 'money-bill')
-
+= page_title(t('admin.pay_systems.title'), 'server')
 .row.my-4
   .col
-    = link_to 'Добавить', new_admin_pay_system_path, class: 'btn btn-primary'
+    = link_to t('admin.links.create'), new_admin_pay_system_path, class: 'btn btn-primary'
 
 table.table
   thead
     tr
-      th= '#'
-      th= 'Название'
-      th= 'Код'
-      th= 'Статус'
-      th
+      th= t('admin.tables.id')
+      th= t('admin.tables.name')
+      th= t('admin.tables.code')
+      th= t('admin.tables.state')
+      th= t('admin.tables.actions')
 
   tbody
     - @pay_systems.each do |pay_system|
@@ -21,4 +20,4 @@ table.table
         td= pay_system.code
         td= pay_system.human_state
         th
-          = link_to 'Изменить', edit_admin_pay_system_path(pay_system), class: 'btn btn-sm btn-info'
+          = link_to t('admin.links.edit'), edit_admin_pay_system_path(pay_system), class: 'btn btn-sm btn-info'

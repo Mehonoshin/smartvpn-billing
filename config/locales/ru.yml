@@ -75,10 +75,12 @@ ru:
       promotion:
         promo_code: 'Введя промо код вы можете получить скидку или дополнительные опции бесплатно'
       pay_system:
+        id: 'ID'
         name: 'Название'
         code: 'Код'
         description: 'Описание'
-        state: 'Статус'
+        state: 'Состояние'
+        currency: 'Валюта'
     validations:
       user:
         accept_agreement: ""
