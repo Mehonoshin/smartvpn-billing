@@ -15,6 +15,8 @@ en:
       server: 'Server'
       email_cont: 'Email contains'
       plan: 'Plan'
+      date_from: 'Date from'
+      date_to: 'Date to'
     legends:
       common: 'Common'
       referrer_program: 'Referrer program'
@@ -48,6 +50,9 @@ en:
       event: 'Event'
       traffic: 'Traffic'
       date: 'Date'
+      incoming_traffic: 'Incoming traffic'
+      outbound_traffic: 'Outbound traffic'
+      total: 'Total'
     links:
       edit: 'Edit'
       email_list: 'Email list'
@@ -71,6 +76,7 @@ en:
       options: 'Options'
       referrers: 'Referrers'
       active: 'Active'
+      traffic_reports: 'Reports by traffic'
     buttons:
       filter: 'Filter'
       apply: 'Apply'
@@ -98,6 +104,11 @@ en:
         created: 'Plan successfully added'
         updated: 'Plan successfully updated'
         destroyed: 'Plan deleted'
+    traffic_reports:
+      title: 'Reports by traffic'
+      date_reports: 'By date'
+      users_reports: 'By users'
+      servers_reports: 'By servers'
     dashboard:
       title: 'Dashboard'
       total_income: 'Total income'

@@ -1,15 +1,14 @@
-= page_title('Траффик по пользователям', 'cloud-download-alt')
-
+= page_title(t('admin.traffic_reports.title'), 'cloud-download-alt', t('admin.traffic_reports.users_reports'))
 .row
   = render partial: 'filter'
 = render partial: 'submenu'
 
 table.table
   tr
-    th Пользователь
-    th Входящий траффик
-    th Исходящий траффик
-    th Итого
+    th= t('admin.tables.user')
+    th= t('admin.tables.incoming_traffic')
+    th= t('admin.tables.outbound_traffic')
+    th= t('admin.tables.total')
 
   - traffic_reports.each do |report|
     tr

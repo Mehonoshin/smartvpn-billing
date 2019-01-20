@@ -1,4 +1,4 @@
-= page_title('Траффик по дате', 'cloud-download-alt')
+= page_title(t('admin.traffic_reports.title'), 'cloud-download-alt', t('admin.traffic_reports.date_reports'))
 
 .row
   = render partial: 'filter'
@@ -6,10 +6,10 @@
 
 table.table
   tr
-    th Дата
-    th Входящий траффик
-    th Исходящий траффик
-    th Итого
+    th= t('admin.tables.date')
+    th= t('admin.tables.incoming_traffic')
+    th= t('admin.tables.outbound_traffic')
+    th= t('admin.tables.total')
 
   - traffic_reports.each do |report|
     tr

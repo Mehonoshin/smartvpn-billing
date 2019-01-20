@@ -15,6 +15,8 @@ ru:
       server: 'Сервер'
       email_cont: 'Email содержит'
       plan: 'План'
+      date_from: 'Дата от'
+      date_to: 'Дата до'
     legends:
       common: 'Общее'
       referrer_program: 'Партнерская программа'
@@ -48,6 +50,9 @@ ru:
       event: 'Событие'
       traffic: 'Траффик'
       date: 'Дата'
+      incoming_traffic: 'Входящий трафик'
+      outbound_traffic: 'Исходящий трафик'
+      total: 'Всего'
     links:
       edit: 'Редактировать'
       email_list: 'Список email'
@@ -71,6 +76,7 @@ ru:
       options: 'Опции'
       referrers: 'Рефереры'
       active: 'Активные'
+      traffic_reports: 'Отчеты по трафику'
     buttons:
       filter: 'Фильтр'
       apply: 'Применить'
@@ -98,6 +104,11 @@ ru:
         created: 'Тариф успешно добавлен'
         updated: 'Тариф успешно обновлен'
         destroyed: 'Тариф удален'
+    traffic_reports:
+      title: 'Отчеты по трафику'
+      date_reports: 'По дате'
+      users_reports: 'По пользователям'
+      servers_reports: 'По серверам'
     dashboard:
       title: 'Панель управления'
       total_income: 'Общий доход'
