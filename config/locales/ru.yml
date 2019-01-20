@@ -44,6 +44,17 @@ ru:
         plans: 'Тарифы'
         auth_key: 'Ключ авторизации'
         config_file: 'Файл конфигурации'
+      option:
+        price: 'Цена'
+      plan:
+        name: 'Имя'
+        description: 'Описание'
+        code: 'Код'
+        enabled: 'Включен'
+        special: 'Специальный'
+        servers: 'Сервера'
+        options: 'Опции'
+        price: 'Цена'
       withdrawal_prolongation:
         days_number: 'Количество дней'
       payment:

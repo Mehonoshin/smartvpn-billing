@@ -17,6 +17,8 @@ ru:
       connection_data: 'Данные подключения'
       connections: 'Подключения'
       plans: 'Тарифы'
+      servers: 'Сервера'
+      prices: 'Цены'
     tables:
       id: 'ID'
       name: 'Имя'
@@ -34,6 +36,8 @@ ru:
       hostname: 'Имя хоста'
       ip_address: 'IP адрес'
       code: 'Код'
+      description: 'Описание'
+      price: 'Цена'
     links:
       edit: 'Редактировать'
       email_list: 'Список email'
@@ -70,6 +74,15 @@ ru:
         created: 'Сервер успешно добавлен'
         updated: 'Сервер успешно обновлен'
         destroyed: 'Сервер удален'
+    plans:
+      title: 'Тарифы'
+      show: 'Просмотр'
+      new: 'Создать новый'
+      edit: 'Редактировать тариф:'
+      notices:
+        created: 'Тариф успешно добавлен'
+        updated: 'Тариф успешно обновлен'
+        destroyed: 'Тариф удален'
     dashboard:
       title: 'Панель управления'
       total_income: 'Общий доход'

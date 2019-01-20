@@ -17,6 +17,8 @@ en:
       connection_data: 'Connection data'
       connections: 'Connections'
       plans: 'Plans'
+      servers: 'Servers'
+      prices: 'Prices'
     tables:
       id: 'ID'
       name: 'Name'
@@ -34,6 +36,8 @@ en:
       hostname: 'Hostname'
       ip_address: 'IP address'
       code: 'Code'
+      description: 'Description'
+      price: 'Price'
     links:
       edit: 'Edit'
       email_list: 'Email list'
@@ -70,6 +74,15 @@ en:
         created: 'Server successfully added'
         updated: 'Server successfully updated'
         destroyed: 'Server deleted'
+    plans:
+      title: 'Plans'
+      show: 'Show'
+      new: 'Create new'
+      edit: 'Edit plan:'
+      notices:
+        created: 'Plan successfully added'
+        updated: 'Plan successfully updated'
+        destroyed: 'Plan deleted'
     dashboard:
       title: 'Dashboard'
       total_income: 'Total income'

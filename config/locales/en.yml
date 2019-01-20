@@ -44,6 +44,17 @@ en:
         plans: 'Plans'
         auth_key: 'Authorisation key'
         config_file: 'Configuration file'
+      option:
+        price: 'Price'
+      plan:
+        name: 'Name'
+        description: 'Description'
+        code: 'Code'
+        enabled: 'Enabled'
+        special: 'Special'
+        servers: 'Servers'
+        options: 'Options'
+        price: 'Price'
       withdrawal_prolongation:
         days_number: 'Number of days'
       payment:
