@@ -3,8 +3,10 @@ LABEL Stanislav Mekhonoshin <ejabberd@gmail.com>
 
 ARG secret_token
 
-RUN apt-get -y update
-RUN apt-get -y install nodejs netcat
+RUN curl -sL https://deb.nodesource.com/setup_10.x | bash -
+RUN apt-get update && apt-get install -y --no-install-recommends \
+  nodejs \
+  netcat
 
 WORKDIR /app
 COPY ./ .
