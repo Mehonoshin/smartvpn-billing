@@ -55,7 +55,7 @@ html lang="ru"
                 li= link_to t('.menu.referrers'), billing_referrers_path
                 li= link_to t('.menu.profile'), edit_user_registration_path
 
-          = render partial: "notifications"
+          = render partial: 'application/notifications'
           = yield
           = render partial: "shared/zendesk"
 
