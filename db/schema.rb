@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181014150549) do
+ActiveRecord::Schema.define(version: 20190122184018) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -159,6 +159,9 @@ ActiveRecord::Schema.define(version: 20181014150549) do
     t.string   "protocol",     default: "udp"
     t.integer  "port",         default: 443
     t.string   "country_code", default: "de"
+    t.text     "server_crt"
+    t.text     "client_crt"
+    t.text     "client_key"
   end
 
   add_index "servers", ["hostname"], name: "index_servers_on_hostname", unique: true, using: :btree
