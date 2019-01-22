@@ -1,164 +1,151 @@
+---
 en:
-  global:
-    free: 'Free'
-    apply: 'Apply'
-    authorize_please: 'Please sign in before proceed'
-
-  layouts:
-    billing:
-      billing: 'Profile'
-      menu:
-        dashboard: 'Dashboard'
-        profile: 'Settings'
-        payment: 'Payment'
-        feedback: 'Help'
-        options: 'Options'
-        referrers: 'Partnership'
-        servers: 'Servers'
-
-  user_mailer:
-    signature:
-      with_great_honor: 'Yours sincerely'
-      support: 'techinical support'
-    funds_recieved:
-      hello: 'Hello'
-      subject: 'Account top-up successfully'
-      your_balance_was_fulfilled_on: 'Credited amount:'
-    balance_withdrawal:
-      subject: 'Funds withdrawal'
-      hello: 'Hello'
-      we_have_withdrawed: 'Montly payment of %{amount} USD has been debited from your account.'
-    could_not_withdraw_funds:
-      subject: 'Unsufficient funds'
-      hello: 'Hello'
-      could_not_withdraw: 'Not enough funds to charge monthly payment of %{amount} USD. Please note, that VPN service will stay unavailable until the debt is paid.'
-    test_period_enabled:
-      subject: 'Trial access activated'
-      hello: 'Hello'
-      test_period_is_activated: 'Trial access has been activated'
-      test_period_range: 'From %{from} to %{to}'
-      instructions: 'To start using service, you need to setup VPN client and connect to the servers using instructions from your profile "Help" section.'
-    unpaid_user_notification:
-      subject: 'Do you have questions?'
-      message: "Good afternoon!<br />
-        My name is Victor. I am your personal manager from SmartVPN.biz.<br />
-        <br />
-        You have been registered today, but not credited your account balance.<br />
-        Do you have a questions regarding services or price plans? Or you either have a problems with payment systems?<br />
-        <br />
-        Should you have any questions, please don't hesitate to contact us any time."
-
-  transaction:
-    descriptions:
-      payment: 'Payment via %{pay_system_name}'
-      withdrawal: 'Withdrawal by price plan %{plan_name}'
-    id: 'Number'
-    amount: 'Amount'
-    date: 'Date'
-    description: 'Transaction'
-    user: 'User'
-
-
   billing:
     home:
-      index:
       account_info:
-        account_info: 'Account info'
-        balance: 'Balance'
-        vpn_state: 'VPN Status'
-        plan: 'Price plan'
-        vpn_credentials: 'VPN credentials'
-        login: 'Login'
-        password: 'Password'
-        test_period: 'Trial access: '
-        test_period_range: 'from %{from} to %{to}'
+        account_info: Account info
+        balance: Balance
+        login: Login
+        password: Password
+        plan: Price plan
+        promotions: Promos
         states:
-          "true": 'Active'
-          "false": 'Inactive'
-        promotions: 'Promos'
+          'false': Inactive
+          'true': Active
+        test_period: 'Trial access: '
+        test_period_range: from %{from} to %{to}
+        vpn_credentials: VPN credentials
+        vpn_state: VPN Status
       current_connection:
-        connection_info: 'Connection info'
-        connection_exists: 'Active connection'
-        connection_server: 'Connected to server'
-        not_exists: 'No'
-        input: 'Input'
+        connection_exists: Active connection
+        connection_info: Connection info
+        connection_server: Connected to server
         connection_status:
-          "true": 'yes'
-          "false": 'no'
-        last_connect: 'Last connection'
-        server: ' to server'
+          'false': 'no'
+          'true': 'yes'
+        input: Input
+        last_connect: Last connection
+        not_exists: 'No'
+        server: " to server"
+      index: Index
       last_transactions:
-        payments_stat: 'Transactions history'
-    servers:
-      title: 'Avaiable servers'
-      country: 'Country'
-      hostname: 'Host'
-      port: 'Port'
-      protocol: 'Protocol'
-      config: 'Config'
-      download_config: 'Download config'
+        payments_stat: Transactions history
+    options:
+      activate: Activate
+      available: Available options
+      confirms:
+        activate: Are you sure want to activate paid service?
+        deactivate: Are you sure want to deactivate service?
+      deactivate: Deactivate
+      disconnect_to_tune_options: Please turn off VPN to adjust settings.
+      enabled: Activated options
+      name: Name
+      notices:
+        activate_subscription_first: Available only for users with activated VPN service
+        activated: Service successfully activated
+        deactivated: Service successfully deactivated
+        not_activated: Impossible to activate service
+        updated: Service settings saved
+      price: Price/month
+      settings: Settings
+      states:
+        disable: Activate
+        enable: Deactivate
+      subscription_status: Status
     payments:
       index:
-        accepted: 'Accepted'
-        pay_systems: 'currencies'
-        all: 'Please contact customer support if you want to use a currency which is not in the list'
-      new:
-        balance_fullfillment: 'Top-up account'
-        submit: 'Top-up'
+        accepted: Accepted
+        all: Please contact customer support if you want to use a currency which is not in the list
+        pay_systems: currencies
       merchant:
-        payment_finalization: 'Payment complete'
-        attention: 'Attention!'
-        payment_finalization_text: 'To make a payment you need to push "Pay" button.<br /> You will be forwarded to the payment system webpage, where you can make a payment.'
-        submit: 'Pay'
+        attention: Attention!
+        payment_finalization: Payment complete
+        payment_finalization_text: To make a payment you need to push "Pay" button.<br /> You will be forwarded to the payment system webpage, where you can make a payment.
+        submit: Pay
+      new:
+        balance_fullfillment: Top-up account
+        submit: Top-up
       notices:
-        success: 'Your account has been successfully credited.'
-        fail: 'Something went wrong. Please contact customer support.'
+        fail: Something went wrong. Please contact customer support.
+        success: Your account has been successfully credited.
     promotions:
       notices:
-        promotion_activated: 'Promo activates'
-        no_promos_found: 'No promotions found'
-        promotion_already_activated: 'Promo is already activated'
-    options:
-      available: 'Available options'
-      enabled: 'Activated options'
-      name: 'Name'
-      activate: 'Activate'
-      deactivate: 'Deactivate'
-      price: 'Price/month'
-      settings: 'Settings'
-      subscription_status: 'Status'
-      disconnect_to_tune_options: 'Please turn off VPN to adjust settings.'
-      states:
-        enable: 'Deactivate'
-        disable: 'Activate'
-      confirms:
-        activate: 'Are you sure want to activate paid service?'
-        deactivate: 'Are you sure want to deactivate service?'
-      notices:
-        updated: 'Service settings saved'
-        activated: 'Service successfully activated'
-        deactivated: 'Service successfully deactivated'
-        not_activated: 'Impossible to activate service'
-        activate_subscription_first: 'Available only for users with activated VPN service'
+        no_promos_found: No promotions found
+        promotion_activated: Promo activates
+        promotion_already_activated: Promo is already activated
     referrals:
-      title: 'Affiliate program'
-      disclaimer: 'It does not matter whether you own resources with high traffic (popular sites, forums, blogs, etc.) or simply are our client, we invite you to make money with us.
-      You have several options how to become a part of our affiliate program.
-      <p /> The easiest is the referral link. Each our registered user has a unique referral link. Place this link on third-party resources, share your experience of working with us and talk about our service. Users used your provided link will automatically become your referrals and you receive a lifetime 10% income from the profit from all payments made by your referals.
-      <p />You will have an access to statistics on all payments that your referrals did, as well as the full history of your affiliate earnings.'
-      total_amount: 'Total amount'
-      referrals: 'Your referrals'
-      registration_date: 'Registration date'
-      operations: 'Account transactions'
-      amount: 'Amount'
-      date: 'Date'
-      no_referrals: 'You have no referrals yet'
-      no_operations: 'You have no affiliate rewards yet.'
       account_balance: 'Balance: %{balance} $'
+      amount: Amount
+      date: Date
+      disclaimer: It does not matter whether you own resources with high traffic (popular sites, forums, blogs, etc.) or simply are our client, we invite you to make money with us. You have several options how to become a part of our affiliate program. <p /> The easiest is the referral link. Each our registered user has a unique referral link. Place this link on third-party resources, share your experience of working with us and talk about our service. Users used your provided link will automatically become your referrals and you receive a lifetime 10% income from the profit from all payments made by your referals. <p />You will have an access to statistics on all payments that your referrals did, as well as the full history of your affiliate earnings.
+      no_operations: You have no affiliate rewards yet.
+      no_referrals: You have no referrals yet
+      operations: Account transactions
+      referrals: Your referrals
+      registration_date: Registration date
+      title: Affiliate program
+      total_amount: Total amount
+    servers:
+      config: Config
+      country: Country
+      download_config: Download config
+      hostname: Host
+      port: Port
+      protocol: Protocol
+      title: Avaiable servers
+  global:
+    apply: Apply
+    authorize_please: Please sign in before proceed
+    free: Free
+  layouts:
+    billing:
+      billing: Profile
+      menu:
+        dashboard: Dashboard
+        feedback: Help
+        options: Options
+        payment: Payment
+        profile: Settings
+        referrers: Partnership
+        servers: Servers
+  transaction:
+    amount: Amount
+    date: Date
+    description: Transaction
+    descriptions:
+      payment: Payment via %{pay_system_name}
+      withdrawal: Withdrawal by price plan %{plan_name}
+    id: Number
+    user: User
+  user_mailer:
+    balance_withdrawal:
+      hello: Hello
+      subject: Funds withdrawal
+      we_have_withdrawed: Montly payment of %{amount} USD has been debited from your account.
+    could_not_withdraw_funds:
+      could_not_withdraw: Not enough funds to charge monthly payment of %{amount} USD. Please note, that VPN service will stay unavailable until the debt is paid.
+      hello: Hello
+      subject: Unsufficient funds
+    funds_recieved:
+      hello: Hello
+      subject: Account top-up successfully
+      your_balance_was_fulfilled_on: 'Credited amount:'
+    signature:
+      support: techinical support
+      with_great_honor: Yours sincerely
+    test_period_enabled:
+      hello: Hello
+      instructions: To start using service, you need to setup VPN client and connect to the servers using instructions from your profile "Help" section.
+      subject: Trial access activated
+      test_period_is_activated: Trial access has been activated
+      test_period_range: From %{from} to %{to}
+    unpaid_user_notification:
+      message: Good afternoon!<br /> My name is Victor. I am your personal manager from SmartVPN.biz.<br /> <br /> You have been registered today, but not credited your account balance.<br /> Do you have a questions regarding services or price plans? Or you either have a problems with payment systems?<br /> <br /> Should you have any questions, please don't hesitate to contact us any time.
+      subject: Do you have questions?
   users:
     registrations:
       client_configs:
-        client_bundles: 'Config files'
-        ca_download: 'Download certificate'
+        ca_download: Download certificate
+        client_bundles: Config files
       promo:
-        promo_code: 'Enter promo code'
+        promo_code: Enter promo code

@@ -1,182 +1,183 @@
+---
 en:
+  admin:
+    buttons:
+      apply: Apply
+      disable: Disable
+      enable: Enable
+      filter: Filter
+    connections:
+      active: Active
+      show: Show
+      title: Connections
+    dashboard:
+      customers: Customers
+      title: Dashboard
+      total_income: Total income
+      total_traffic: Total traffic
+    labels:
+      date_from: Date from
+      date_to: Date to
+      email_cont: Email contains
+      plan: Plan
+      server: Server
+      user: User
+    layout:
+      sign_out: Sign out
+      title: "%{brand} Admin panel"
+    legends:
+      attributes: Attributes
+      common: Common
+      connection_data: Connection data
+      connections: Connections
+      options: Options
+      plans: Plans
+      prices: Prices
+      referrer_program: Referrer program
+      servers: Servers
+    links:
+      active: Active
+      all: All
+      by_date: By date
+      by_servers: By servers
+      by_users: By users
+      connections: Connections
+      create: Create
+      dashboard: Dashboard
+      edit: Edit
+      email_list: Email list
+      options: Options
+      paid: Paid
+      payment_systems: Payment systems
+      plans: Plans
+      promos: Promos
+      referrers: Referrers
+      servers: Servers
+      this_month_paid: Paid in the current month
+      traffic: Traffic
+      traffic_reports: Reports by traffic
+      transactions: Transactions
+      users: Users
+      withdraw: Withdraw
+    options:
+      edit: 'Edit:'
+      new: Create new
+      notices:
+        created: Option successfully added
+        destroyed: Option deleted
+        updated: Option successfully updated
+      show: 'Show:'
+      title: Options
+    pay_systems:
+      edit: Edit
+      new: Create new
+      show: Show
+      states:
+        disabled: Deactivated
+        enabled: Activated
+      title: Payment systems
+    plans:
+      edit: 'Edit:'
+      new: Create new
+      notices:
+        created: Plan successfully added
+        destroyed: Plan deleted
+        updated: Plan successfully updated
+      show: 'Show:'
+      title: Plans
+    promos:
+      edit: 'Edit:'
+      new: Create new
+      notices:
+        created: Promo successfully added
+        destroyed: Promo deleted
+        updated: Promo successfully updated
+      show: 'Show:'
+      title: Promos
+    referrers:
+      title: Referrers
+    servers:
+      edit: Edit
+      new: Create new
+      notices:
+        created: Server successfully added
+        destroyed: Server deleted
+        updated: Server successfully updated
+      show: Show
+      title: Servers
+    tables:
+      actions: Actions
+      amount: Amount
+      balance: Balance
+      code: Code
+      date: Date
+      description: Description
+      email: Email
+      event: Event
+      hostname: Hostname
+      id: ID
+      incoming_traffic: Incoming traffic
+      ip_address: IP address
+      logged_in_billing: Logged in billing
+      name: Name
+      number_connections: Number of connections
+      outbound_traffic: Outbound traffic
+      period: Period
+      plan: Plan
+      plans: Plans
+      price: Price
+      profit: Profit
+      promoter_type: Promoter type
+      referrals: Referrals
+      registration_date: Registration date
+      server: Server
+      state: State
+      total: Total
+      traffic: Traffic
+      turnover: Turnover
+      type: Type
+      unsuccessful_charges: Unsuccessful charges
+      user: User
+    traffic_reports:
+      date_reports: By date
+      servers_reports: By servers
+      title: Reports by traffic
+      users_reports: By users
+    transactions:
+      title: Transactions
+    users:
+      all: All
+      all_users: All users
+      connected_to_server_at: Connected to server %{server} at %{date}
+      current_connection: Current connection
+      edit: Edit
+      filter:
+        never_paid_users: Never paying users
+      new: Create new
+      new_payment: Top up balance
+      not_connected: No connection
+      not_paid: Unpaid
+      notices:
+        created: User created successfully
+        disconnected: User successfully disconnected
+        payment_created: User's account balance top-up successfully
+        prolongated: User subscription successfully renewed
+        test_period_disabled: Trial period deactivated
+        test_period_enabled: Trial period activated
+        updated: User updated successfully
+        write_off: Write off
+      payers: Paid subscription
+      prolongation: Subscription renewal
+      prolongation_not_possible: Impossible to prolong. User has no active payment
+      show: Show
+      test_period: Trial account
+      test_period_until: Active from %{start} to %{finish}
+      this_month_payers: Paid in the current month
+      title: Users
   admins:
     sessions:
       new:
-        email: 'Email'
-        password: 'Password'
-        sign_in: 'Sign in'
-        staff_entrance: 'Administration'
-  admin:
-    layout:
-      title: '%{brand} Admin panel'
-      sign_out: 'Sign out'
-    labels:
-      user: 'User'
-      server: 'Server'
-      email_cont: 'Email contains'
-      plan: 'Plan'
-      date_from: 'Date from'
-      date_to: 'Date to'
-    legends:
-      common: 'Common'
-      referrer_program: 'Referrer program'
-      options: 'Options'
-      connection_data: 'Connection data'
-      connections: 'Connections'
-      plans: 'Plans'
-      servers: 'Servers'
-      prices: 'Prices'
-      attributes: 'Attributes'
-    tables:
-      id: 'ID'
-      name: 'Name'
-      email: 'Email'
-      plan: 'Plan'
-      plans: 'Plans'
-      registration_date: 'Registration date'
-      balance: 'Balance'
-      number_connections: 'Number of connections'
-      logged_in_billing: 'Logged in billing'
-      turnover: 'Turnover'
-      unsuccessful_charges: 'Unsuccessful charges'
-      state: 'State'
-      actions: 'Actions'
-      hostname: 'Hostname'
-      ip_address: 'IP address'
-      code: 'Code'
-      description: 'Description'
-      price: 'Price'
-      user: 'User'
-      server: 'Server'
-      event: 'Event'
-      traffic: 'Traffic'
-      date: 'Date'
-      incoming_traffic: 'Incoming traffic'
-      outbound_traffic: 'Outbound traffic'
-      total: 'Total'
-      amount: 'Amount'
-      type: 'Type'
-      promoter_type: 'Promoter type'
-      period: 'Period'
-      profit: 'Profit'
-      referrals: 'Referrals'
-    links:
-      edit: 'Edit'
-      email_list: 'Email list'
-      create: 'Create'
-      withdraw: 'Withdraw'
-      dashboard: 'Dashboard'
-      users: 'Users'
-      all: 'All'
-      paid: 'Paid'
-      this_month_paid: 'Paid in the current month'
-      servers: 'Servers'
-      payment_systems: 'Payment systems'
-      plans: 'Plans'
-      connections: 'Connections'
-      traffic: 'Traffic'
-      by_users: 'By users'
-      by_date: 'By date'
-      by_servers: 'By servers'
-      transactions: 'Transactions'
-      promos: 'Promos'
-      options: 'Options'
-      referrers: 'Referrers'
-      active: 'Active'
-      traffic_reports: 'Reports by traffic'
-    buttons:
-      filter: 'Filter'
-      apply: 'Apply'
-      disable: 'Disable'
-      enable: 'Enable'
-    servers:
-      title: 'Servers'
-      show: 'Show'
-      new: 'Create new'
-      edit: 'Edit'
-      notices:
-        created: 'Server successfully added'
-        updated: 'Server successfully updated'
-        destroyed: 'Server deleted'
-    connections:
-      title: 'Connections'
-      show: 'Show'
-      active: 'Active'
-    transactions:
-      title: 'Transactions'
-    plans:
-      title: 'Plans'
-      show: 'Show:'
-      new: 'Create new'
-      edit: 'Edit:'
-      notices:
-        created: 'Plan successfully added'
-        updated: 'Plan successfully updated'
-        destroyed: 'Plan deleted'
-    options:
-      title: 'Options'
-      show: 'Show:'
-      new: 'Create new'
-      edit: 'Edit:'
-      notices:
-        created: 'Option successfully added'
-        updated: 'Option successfully updated'
-        destroyed: 'Option deleted'
-    referrers:
-      title: 'Referrers'
-    promos:
-      title: 'Promos'
-      show: 'Show:'
-      new: 'Create new'
-      edit: 'Edit:'
-      notices:
-        created: 'Promo successfully added'
-        updated: 'Promo successfully updated'
-        destroyed: 'Promo deleted'
-    traffic_reports:
-      title: 'Reports by traffic'
-      date_reports: 'By date'
-      users_reports: 'By users'
-      servers_reports: 'By servers'
-    dashboard:
-      title: 'Dashboard'
-      total_income: 'Total income'
-      total_traffic: 'Total traffic'
-      customers: 'Customers'
-    users:
-      title: 'Users'
-      all: 'All'
-      all_users: 'All users'
-      show: 'Show'
-      new: 'Create new'
-      edit: 'Edit'
-      payers: 'Paid subscription'
-      this_month_payers: 'Paid in the current month'
-      current_connection: 'Current connection'
-      not_connected: 'No connection'
-      connected_to_server_at: 'Connected to server %{server} at %{date}'
-      not_paid: 'Unpaid'
-      prolongation_not_possible: 'Impossible to prolong. User has no active payment'
-      prolongation: 'Subscription renewal'
-      new_payment: 'Top up balance'
-      test_period: 'Trial account'
-      test_period_until: 'Active from %{start} to %{finish}'
-      filter:
-        never_paid_users: 'Never paying users'
-      notices:
-        created: 'User created successfully'
-        updated: 'User updated successfully'
-        write_off: 'Write off'
-        prolongated: 'User subscription successfully renewed'
-        payment_created: "User's account balance top-up successfully"
-        test_period_enabled: 'Trial period activated'
-        test_period_disabled: 'Trial period deactivated'
-        disconnected: 'User successfully disconnected'
-    pay_systems:
-      title: 'Payment systems'
-      show: 'Show'
-      new: 'Create new'
-      edit: 'Edit'
-      states:
-        enabled: 'Activated'
-        disabled: 'Deactivated'
+        email: Email
+        password: Password
+        sign_in: Sign in
+        staff_entrance: Administration

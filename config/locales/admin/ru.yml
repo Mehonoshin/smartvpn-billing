@@ -1,182 +1,183 @@
+---
 ru:
+  admin:
+    buttons:
+      apply: Применить
+      disable: Отключить
+      enable: Включить
+      filter: Фильтр
+    connections:
+      active: Активные
+      show: Просмотр
+      title: Соединения
+    dashboard:
+      customers: Клиентов
+      title: Панель управления
+      total_income: Общий доход
+      total_traffic: Общий трафик
+    labels:
+      date_from: Дата от
+      date_to: Дата до
+      email_cont: Email содержит
+      plan: План
+      server: Сервер
+      user: Пользователь
+    layout:
+      sign_out: Выход
+      title: "%{brand} Панель администрирования"
+    legends:
+      attributes: Атрибуты
+      common: Общее
+      connection_data: Данные подключения
+      connections: Подключения
+      options: Опции
+      plans: Тарифы
+      prices: Цены
+      referrer_program: Партнерская программа
+      servers: Сервера
+    links:
+      active: Активные
+      all: Все
+      by_date: По дате
+      by_servers: По серверам
+      by_users: По пользователям
+      connections: Соединения
+      create: Создать
+      dashboard: Панель управления
+      edit: Редактировать
+      email_list: Список email
+      options: Опции
+      paid: Оплатившие
+      payment_systems: Платежные системы
+      plans: Тарифы
+      promos: Акции
+      referrers: Рефереры
+      servers: Серверы
+      this_month_paid: Оплатившие в текущем месяце
+      traffic: Трафик
+      traffic_reports: Отчеты по трафику
+      transactions: Транзакции
+      users: Пользователи
+      withdraw: Списать
+    options:
+      edit: 'Редактировать:'
+      new: Создать новую
+      notices:
+        created: Опция успешно добавлена
+        destroyed: Опция удалена
+        updated: Опция успешно обновлена
+      show: Просмотр
+      title: Опции
+    pay_systems:
+      edit: Редактировать
+      new: Создать новую
+      show: Просмотр
+      states:
+        disabled: Выключена
+        enabled: Включена
+      title: Платежные системы
+    plans:
+      edit: 'Редактировать:'
+      new: Создать новый
+      notices:
+        created: Тариф успешно добавлен
+        destroyed: Тариф удален
+        updated: Тариф успешно обновлен
+      show: Просмотр
+      title: Тарифы
+    promos:
+      edit: 'Редактировать:'
+      new: Создать новый
+      notices:
+        created: Акция успешно добавлена
+        destroyed: Акция удалена
+        updated: Акция успешно обновлена
+      show: 'Просмотр:'
+      title: Акции
+    referrers:
+      title: Рефереры
+    servers:
+      edit: Редактировать
+      new: Создать новый
+      notices:
+        created: Сервер успешно добавлен
+        destroyed: Сервер удален
+        updated: Сервер успешно обновлен
+      show: Просмотр
+      title: Сервера
+    tables:
+      actions: Действия
+      amount: Сумма
+      balance: Баланс
+      code: Код
+      date: Дата
+      description: Описание
+      email: Email
+      event: Событие
+      hostname: Имя хоста
+      id: ID
+      incoming_traffic: Входящий трафик
+      ip_address: IP адрес
+      logged_in_billing: Входил в биллинг
+      name: Имя
+      number_connections: Количество подключений
+      outbound_traffic: Исходящий трафик
+      period: Период
+      plan: Тариф
+      plans: Тарифы
+      price: Цена
+      profit: Прибыль
+      promoter_type: Тип промоутера
+      referrals: Рефералов
+      registration_date: Дата регистрации
+      server: Сервер
+      state: Состояние
+      total: Всего
+      traffic: Траффик
+      turnover: Оборот
+      type: Тип
+      unsuccessful_charges: Неудачных списаний
+      user: Пользователь
+    traffic_reports:
+      date_reports: По дате
+      servers_reports: По серверам
+      title: Отчеты по трафику
+      users_reports: По пользователям
+    transactions:
+      title: Транзакции
+    users:
+      all: Все
+      all_users: Все пользователи
+      connected_to_server_at: Подключен к серверу %{server} в %{date}
+      current_connection: Текущее подключение
+      edit: Редактировать
+      filter:
+        never_paid_users: С нулевым оборотом
+      new: Создать нового
+      new_payment: Пополнение баланса
+      not_connected: Нет подключения
+      not_paid: Не оплачен
+      notices:
+        created: Пользователь успешно создан
+        disconnected: Пользователь успешно отключен
+        payment_created: Баланс пользователя успешно пополнен
+        prolongated: Подписка пользователя успешно продлена
+        test_period_disabled: Тестовый период деактивирован
+        test_period_enabled: Тестовый период активирован
+        updated: Пользователь успешно обновлен
+        write_off: Списано
+      payers: Оплатившие подписку
+      prolongation: Продление подписки
+      prolongation_not_possible: Пролонгация невозможна, у пользователя нет активного платежа
+      show: Просмотр
+      test_period: Тестовый доступ
+      test_period_until: Активен c %{start} до %{finish}
+      this_month_payers: Оплатившие в текущем месяце
+      title: Пользователи
   admins:
     sessions:
       new:
-        email: 'Email'
-        password: 'Пароль'
-        sign_in: 'Войти'
-        staff_entrance: 'Служебный вход'
-  admin:
-    layout:
-      title: '%{brand} Панель администрирования'
-      sign_out: 'Выход'
-    labels:
-      user: 'Пользователь'
-      server: 'Сервер'
-      email_cont: 'Email содержит'
-      plan: 'План'
-      date_from: 'Дата от'
-      date_to: 'Дата до'
-    legends:
-      common: 'Общее'
-      referrer_program: 'Партнерская программа'
-      options: 'Опции'
-      connection_data: 'Данные подключения'
-      connections: 'Подключения'
-      plans: 'Тарифы'
-      servers: 'Сервера'
-      prices: 'Цены'
-      attributes: 'Атрибуты'
-    tables:
-      id: 'ID'
-      name: 'Имя'
-      email: 'Email'
-      plan: 'Тариф'
-      plans: 'Тарифы'
-      registration_date: 'Дата регистрации'
-      balance: 'Баланс'
-      number_connections: 'Количество подключений'
-      logged_in_billing: 'Входил в биллинг'
-      turnover: 'Оборот'
-      unsuccessful_charges: 'Неудачных списаний'
-      state: 'Состояние'
-      actions: 'Действия'
-      hostname: 'Имя хоста'
-      ip_address: 'IP адрес'
-      code: 'Код'
-      description: 'Описание'
-      price: 'Цена'
-      user: 'Пользователь'
-      server: 'Сервер'
-      event: 'Событие'
-      traffic: 'Траффик'
-      date: 'Дата'
-      incoming_traffic: 'Входящий трафик'
-      outbound_traffic: 'Исходящий трафик'
-      total: 'Всего'
-      amount: 'Сумма'
-      type: 'Тип'
-      promoter_type: 'Тип промоутера'
-      period: 'Период'
-      profit: 'Прибыль'
-      referrals: 'Рефералов'
-    links:
-      edit: 'Редактировать'
-      email_list: 'Список email'
-      create: 'Создать'
-      withdraw: 'Списать'
-      dashboard: 'Панель управления'
-      users: 'Пользователи'
-      all: 'Все'
-      paid: 'Оплатившие'
-      this_month_paid: 'Оплатившие в текущем месяце'
-      servers: 'Серверы'
-      payment_systems: 'Платежные системы'
-      plans: 'Тарифы'
-      connections: 'Соединения'
-      traffic: 'Трафик'
-      by_users: 'По пользователям'
-      by_date: 'По дате'
-      by_servers: 'По серверам'
-      transactions: 'Транзакции'
-      promos: 'Акции'
-      options: 'Опции'
-      referrers: 'Рефереры'
-      active: 'Активные'
-      traffic_reports: 'Отчеты по трафику'
-    buttons:
-      filter: 'Фильтр'
-      apply: 'Применить'
-      disable: 'Отключить'
-      enable: 'Включить'
-    servers:
-      title: 'Сервера'
-      show: 'Просмотр'
-      new: 'Создать новый'
-      edit: 'Редактировать'
-      notices:
-        created: 'Сервер успешно добавлен'
-        updated: 'Сервер успешно обновлен'
-        destroyed: 'Сервер удален'
-    connections:
-      title: 'Соединения'
-      show: 'Просмотр'
-      active: 'Активные'
-    transactions:
-      title: 'Транзакции'
-    plans:
-      title: 'Тарифы'
-      show: 'Просмотр'
-      new: 'Создать новый'
-      edit: 'Редактировать:'
-      notices:
-        created: 'Тариф успешно добавлен'
-        updated: 'Тариф успешно обновлен'
-        destroyed: 'Тариф удален'
-    options:
-      title: 'Опции'
-      show: 'Просмотр'
-      new: 'Создать новую'
-      edit: 'Редактировать:'
-      notices:
-        created: 'Опция успешно добавлена'
-        updated: 'Опция успешно обновлена'
-        destroyed: 'Опция удалена'
-    referrers:
-      title: 'Рефереры'
-    promos:
-      title: 'Акции'
-      show: 'Просмотр:'
-      new: 'Создать новый'
-      edit: 'Редактировать:'
-      notices:
-        created: 'Акция успешно добавлена'
-        updated: 'Акция успешно обновлена'
-        destroyed: 'Акция удалена'
-    traffic_reports:
-      title: 'Отчеты по трафику'
-      date_reports: 'По дате'
-      users_reports: 'По пользователям'
-      servers_reports: 'По серверам'
-    dashboard:
-      title: 'Панель управления'
-      total_income: 'Общий доход'
-      total_traffic: 'Общий трафик'
-      customers: 'Клиентов'
-    users:
-      title: 'Пользователи'
-      all: 'Все'
-      all_users: 'Все пользователи'
-      show: 'Просмотр'
-      new: 'Создать нового'
-      edit: 'Редактировать'
-      payers: 'Оплатившие подписку'
-      this_month_payers: 'Оплатившие в текущем месяце'
-      current_connection: 'Текущее подключение'
-      not_connected: 'Нет подключения'
-      connected_to_server_at: 'Подключен к серверу %{server} в %{date}'
-      not_paid: 'Не оплачен'
-      prolongation_not_possible: 'Пролонгация невозможна, у пользователя нет активного платежа'
-      prolongation: 'Продление подписки'
-      new_payment: 'Пополнение баланса'
-      test_period: 'Тестовый доступ'
-      test_period_until: 'Активен c %{start} до %{finish}'
-      filter:
-        never_paid_users: 'С нулевым оборотом'
-      notices:
-        created: 'Пользователь успешно создан'
-        updated: 'Пользователь успешно обновлен'
-        write_off: 'Списано'
-        prolongated: 'Подписка пользователя успешно продлена'
-        payment_created: 'Баланс пользователя успешно пополнен'
-        test_period_enabled: 'Тестовый период активирован'
-        test_period_disabled: 'Тестовый период деактивирован'
-        disconnected: 'Пользователь успешно отключен'
-    pay_systems:
-      title: 'Платежные системы'
-      show: 'Просмотр'
-      new: 'Создать новую'
-      edit: 'Редактировать'
-      states:
-        enabled: 'Включена'
-        disabled: 'Выключена'
+        email: Email
+        password: Пароль
+        sign_in: Войти
+        staff_entrance: Служебный вход

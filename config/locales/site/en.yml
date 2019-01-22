@@ -1,45 +1,46 @@
+---
 en:
   main:
-    billing: 'Profile'
     auth:
-      sign_in: 'Sign in'
-      sign_up: 'Sign up'
-      sign_out: 'Sign out'
-  users:
-    sessions:
-      new:
-        sign_in: 'Sign in'
-        not_signed_up: 'New user?'
-        sign_up_here: ' Sign up here'
-        email: 'Email'
-        password: 'Password'
-        remember_me: 'Remember me'
-        client_entrance: 'Registered users'
-        forgotten_password: 'Forgot password?'
-    registrations:
-      new:
-        registration: 'Sign up'
-        already_signed_up: 'Already registered?'
-        sign_in_here: 'Sign in here'
-        price_plan: 'Price plan'
-        account_information: 'Account info'
-        email: 'Email'
-        password: 'Password'
-        password_confirmation: 'Password confirmation'
-        accept: 'I accept'
-        agreement: 'end-user agreement'
-        sign_up: 'Create account'
-    passwords:
-      new:
-        reset_password: 'Password restore'
-        sign_in_here: 'Sign in'
-        email: 'Your email'
-        send: 'Restore'
-      edit:
-        enter_new_password: 'Enter new password'
-        new_password: 'New password'
-        password_confirmation: 'Confirm password'
-        save: 'Save'
+      sign_in: Sign in
+      sign_out: Sign out
+      sign_up: Sign up
+    billing: Profile
   posts:
     index:
-      posts_list: 'Blog'
+      posts_list: Blog
+  users:
+    passwords:
+      edit:
+        enter_new_password: Enter new password
+        new_password: New password
+        password_confirmation: Confirm password
+        save: Save
+      new:
+        email: Your email
+        reset_password: Password restore
+        send: Restore
+        sign_in_here: Sign in
+    registrations:
+      new:
+        accept: I accept
+        account_information: Account info
+        agreement: end-user agreement
+        already_signed_up: Already registered?
+        email: Email
+        password: Password
+        password_confirmation: Password confirmation
+        price_plan: Price plan
+        registration: Sign up
+        sign_in_here: Sign in here
+        sign_up: Create account
+    sessions:
+      new:
+        client_entrance: Registered users
+        email: Email
+        forgotten_password: Forgot password?
+        not_signed_up: New user?
+        password: Password
+        remember_me: Remember me
+        sign_in: Sign in
+        sign_up_here: " Sign up here"

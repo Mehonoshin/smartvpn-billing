@@ -140,6 +140,7 @@ GEM
       activemodel (>= 3.0)
       activesupport (>= 3.0)
       request_store (~> 1.0)
+    erubi (1.8.0)
     erubis (2.7.0)
     eventmachine (1.2.7)
     execjs (2.7.0)
@@ -163,6 +164,7 @@ GEM
       activesupport (>= 4.2.0)
     gyoku (1.1.1)
       builder (>= 2.1.2)
+    highline (2.0.0)
     http-cookie (1.0.2)
       domain_name (~> 0.5)
     httparty (0.13.3)
@@ -172,6 +174,16 @@ GEM
       rack
       rubyntlm (~> 0.3.2)
     i18n (0.7.0)
+    i18n-tasks (0.9.28)
+      activesupport (>= 4.0.2)
+      ast (>= 2.1.0)
+      erubi
+      highline (>= 2.0.0)
+      i18n
+      parser (>= 2.2.3.0)
+      rails-i18n
+      rainbow (>= 2.2.2, < 4.0)
+      terminal-table (>= 1.5.1)
     jaro_winkler (1.5.2)
     jbuilder (1.0.2)
       activesupport (>= 3.0.0)
@@ -392,6 +404,8 @@ GEM
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
     temple (0.8.0)
+    terminal-table (1.8.0)
+      unicode-display_width (~> 1.1, >= 1.1.1)
     thin (1.7.2)
       daemons (~> 1.0, >= 1.0.9)
       eventmachine (~> 1.0, >= 1.0.4)
@@ -455,6 +469,7 @@ DEPENDENCIES
   font-awesome-sass (~> 5.6.1)
   foreman
   gibbon
+  i18n-tasks (~> 0.9.28)
   jbuilder (~> 1.0.1)
   jquery-rails
   jquery-ui-rails

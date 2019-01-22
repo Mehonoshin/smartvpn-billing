@@ -1,104 +1,129 @@
+---
 en:
-  mailers:
-    user_connection_config_mailer:
-      subject: 'An account has been created for you'
-  date:
-    formats:
-      default: '%d.%m.%Y'
-
   activerecord:
-    models:
-      user: 'User'
     attributes:
-      user:
-        id: 'ID'
-        accept_agreement: 'Agreement acceptance'
-        balance: 'Balance'
-        plan_id: 'Plan'
-        state: 'State'
-        password: 'Password'
-        password_confirmation: 'Password confirmation'
-        current_password: 'Current password'
-        period_length: 'Trail access period'
-        options: 'Options'
-        promos: 'Promos'
-        referrer: 'Referrer'
-        referrals: 'Referrals'
-        sign_in_count: 'Sign in count'
-        last_sign_in_at: 'Last sign in at'
-        last_sign_in_ip: 'Last sign in IP'
-        created_at: 'Created at'
-        plan: 'Plan'
-        current_interval_payment_status: 'Paid in current interval'
-        last_connect_date: 'Last connect date'
-        last_withdrawal_date: 'Last withdrawal date'
-        next_withdrawal_date: 'Next withdrawal date'
-      server:
-        id: 'ID'
-        hostname: 'Hostname'
-        ip_address: 'IP address'
-        protocol: 'Protocol'
-        port: 'Port'
-        country_code: 'Country code'
-        state: 'State'
-        plans: 'Plans'
-        auth_key: 'Authorisation key'
-        config_file: 'Configuration file'
       option:
-        price: 'Price'
-        name: 'Name'
-        code: 'Code'
-        state: 'State'
-        plans: 'Plans'
-      plan:
-        name: 'Name'
-        description: 'Description'
-        code: 'Code'
-        enabled: 'Enabled'
-        special: 'Special'
-        servers: 'Servers'
-        options: 'Options'
-        price: 'Price'
-      withdrawal_prolongation:
-        days_number: 'Number of days'
-      payment:
-        amount: 'Amount'
-        pay_system: 'Payment system'
-        pay_system_id: 'Payment system'
-        submit: 'Pay'
-        created_at: 'Transaction date'
-        description: 'Description'
-        comment: 'Comments'
-      promo:
-        type: 'Type'
-        promoter_type: 'Action'
-        date_from: 'Start date'
-        date_to: 'End date'
-        name: 'Name'
-        types:
-          withdrawal: 'Withdrawal'
-        state: 'Status'
-        states:
-          pending: 'Pending'
-          active: 'Active'
-        promo_code: 'Promo code'
-      promoter:
-        types:
-          discount: 'Discount'
-        attributes:
-          discount_percent: 'Discount %'
-      promotion:
-        promo_code: 'By entering promo code you can get a discount or additional services for free'
+        code: Code
+        name: Name
+        plans: Plans
+        price: Price
+        state: State
       pay_system:
-        id: 'ID'
-        name: 'Name'
-        code: 'Code'
-        description: 'Description'
-        state: 'State'
-        currency: 'Currency'
+        code: Code
+        currency: Currency
+        description: Description
+        id: ID
+        name: Name
+        state: State
+      payment:
+        amount: Amount
+        comment: Comments
+        created_at: Transaction date
+        description: Description
+        pay_system: Payment system
+        pay_system_id: Payment system
+        submit: Pay
+      plan:
+        code: Code
+        description: Description
+        enabled: Enabled
+        name: Name
+        options: Options
+        price: Price
+        servers: Servers
+        special: Special
+      promo:
+        date_from: Start date
+        date_to: End date
+        name: Name
+        promo_code: Promo code
+        promoter_type: Action
+        state: Status
+        states:
+          active: Active
+          pending: Pending
+        type: Type
+        types:
+          withdrawal: Withdrawal
+      promoter:
+        attributes:
+          discount_percent: Discount %
+        types:
+          discount: Discount
+      promotion:
+        promo_code: By entering promo code you can get a discount or additional services for free
+      server:
+        auth_key: Authorisation key
+        config_file: Configuration file
+        country_code: Country code
+        hostname: Hostname
+        id: ID
+        ip_address: IP address
+        plans: Plans
+        port: Port
+        protocol: Protocol
+        state: State
+      user:
+        accept_agreement: Agreement acceptance
+        balance: Balance
+        current_interval_payment_status: Paid in current interval
+        id: ID
+        last_connect_date: Last connect date
+        last_withdrawal_date: Last withdrawal date
+        next_withdrawal_date: Next withdrawal date
+        options: Options
+        period_length: Trail access period
+        plan: Plan
+        plan_id: Plan
+        promos: Promos
+        referrals: Referrals
+        referrer: Referrer
+        state: State
+      withdrawal_prolongation:
+        days_number: Number of days
     validations:
       user:
         accept_agreement: ''
-        regular_plan: 'Invalid price plan'
+        regular_plan: Invalid price plan
       withdrawal:
-        not_enough_funds: 'Not enough funds'
+        not_enough_funds: Not enough funds
+  billing:
+    referrals:
+      email: Email
+  date:
+    formats:
+      default: "%d.%m.%Y"
+  mailers:
+    user_connection_config_mailer:
+      subject: An account has been created for you
+    user_mailer:
+      balance_withdrawal:
+        hello: Hello
+        we_have_withdrawed: We have withdrawed
+      could_not_withdraw_funds:
+        could_not_withdraw: Could not withdraw
+        hello: Hello
+      funds_recieved:
+        hello: Hello
+        your_balance_was_fulfilled_on: Your balance was fulfilled on
+      signature:
+        support: Support
+      test_period_enabled:
+        hello: Hello
+        instructions: Instructions
+        test_period_is_activated: Test period is activated
+        test_period_range: Test period range
+      unpaid_user_notification:
+        message: Message
+  users:
+    registrations:
+      edit:
+        cancel_registration: Cancel
+        canceling_attention: Please note, this operation is irreversible! Funds remaining on your account balance will not be returned!
+        confirm:
+          cancel_registration: Are you sure want to delete your profile? It's irreversible and funds remaining on your account balance will be completely lost.
+        edit_profile: Edit profile
+        update: Apply
+  views:
+    pagination:
+      truncate: Truncate

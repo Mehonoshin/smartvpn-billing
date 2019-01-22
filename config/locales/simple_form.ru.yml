@@ -1,5 +1,5 @@
 ---
-en:
+ru:
   simple_form:
     error_notification:
       default_message: 'Please review the problems below:'

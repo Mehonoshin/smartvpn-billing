@@ -80,6 +80,7 @@ group :test, :development do
   gem 'dotenv-rails'
   gem 'factory_girl_rails', '~> 4.0'
   gem 'faker'
+  gem 'i18n-tasks', '~> 0.9.28'
   gem 'rspec-its'
   gem 'rspec-rails', '~> 3.8'
   gem 'shoulda-matchers', '4.0.0.rc1'

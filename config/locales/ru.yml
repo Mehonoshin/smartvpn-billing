@@ -1,104 +1,129 @@
+---
 ru:
-  mailers:
-    user_connection_config_mailer:
-      subject: 'Вам был создан аккаунт'
+  activerecord:
+    attributes:
+      option:
+        code: Код
+        name: Имя
+        plans: Тарифы
+        price: Цена
+        state: Состояние
+      pay_system:
+        code: Код
+        currency: Валюта
+        description: Описание
+        id: ID
+        name: Название
+        state: Состояние
+      payment:
+        amount: Сумма
+        comment: Комментарий оператора
+        created_at: Дата операции
+        description: Описание
+        pay_system: Платежная система
+        pay_system_id: Платежная система
+        submit: Пополнить
+      plan:
+        code: Код
+        description: Описание
+        enabled: Включен
+        name: Имя
+        options: Опции
+        price: Цена
+        servers: Сервера
+        special: Специальный
+      promo:
+        date_from: Дата начала
+        date_to: Дата конца
+        name: Название
+        promo_code: Промо-код
+        promoter_type: Действие
+        state: Статус
+        states:
+          active: Активна
+          pending: Неактивна
+        type: Тип
+        types:
+          withdrawal: Списание
+      promoter:
+        attributes:
+          discount_percent: Скидка в процентах
+        types:
+          discount: Скидка
+      promotion:
+        promo_code: Введя промо код вы можете получить скидку или дополнительные опции бесплатно
+      server:
+        auth_key: Ключ авторизации
+        config_file: Файл конфигурации
+        country_code: Код страны
+        hostname: Имя хоста
+        id: ID
+        ip_address: IP адрес
+        plans: Тарифы
+        port: Порт
+        protocol: Протокол
+        state: Состояние
+      user:
+        accept_agreement: Принятие соглашения
+        balance: Баланс
+        current_interval_payment_status: Оплачен в текущем интервале
+        id: ID
+        last_connect_date: Дата последнего подключения
+        last_withdrawal_date: Дата последнего списания
+        next_withdrawal_date: Дата следующего списания
+        options: Опции
+        period_length: Длительность тестового периода
+        plan: Тариф
+        plan_id: Тариф
+        promos: Акции
+        referrals: Рефералы
+        referrer: Реферер
+        state: Состояние
+      withdrawal_prolongation:
+        days_number: Количество дней
+    validations:
+      user:
+        accept_agreement: ''
+        regular_plan: Вы выбрали некорретный тарифный план
+      withdrawal:
+        not_enough_funds: Недостаточно средств для списания
+  billing:
+    referrals:
+      email: Email
   date:
     formats:
       default: "%d.%m.%Y"
-
-  activerecord:
-    models:
-      user: "Пользователь"
-    attributes:
-      user:
-        id: 'ID'
-        accept_agreement: "Принятие соглашения"
-        balance: 'Баланс'
-        plan_id: 'Тариф'
-        state: 'Состояние'
-        password: "Пароль"
-        password_confirmation: "Подтверждение пароля"
-        current_password: "Текущий пароль"
-        period_length: 'Длительность тестового периода'
-        options: 'Опции'
-        promos: 'Акции'
-        referrer: 'Реферер'
-        referrals: 'Рефералы'
-        sign_in_count: 'Количество входов'
-        last_sign_in_at: 'Последний вход'
-        last_sign_in_ip: 'IP последнего входа'
-        created_at: 'Создан'
-        plan: 'Тариф'
-        current_interval_payment_status: 'Оплачен в текущем интервале'
-        last_connect_date: 'Дата последнего подключения'
-        last_withdrawal_date: 'Дата последнего списания'
-        next_withdrawal_date: 'Дата следующего списания'
-      server:
-        id: 'ID'
-        hostname: 'Имя хоста'
-        ip_address: 'IP адрес'
-        protocol: 'Протокол'
-        port: 'Порт'
-        country_code: 'Код страны'
-        state: 'Состояние'
-        plans: 'Тарифы'
-        auth_key: 'Ключ авторизации'
-        config_file: 'Файл конфигурации'
-      option:
-        price: 'Цена'
-        name: 'Имя'
-        code: 'Код'
-        state: 'Состояние'
-        plans: 'Тарифы'
-      plan:
-        name: 'Имя'
-        description: 'Описание'
-        code: 'Код'
-        enabled: 'Включен'
-        special: 'Специальный'
-        servers: 'Сервера'
-        options: 'Опции'
-        price: 'Цена'
-      withdrawal_prolongation:
-        days_number: 'Количество дней'
-      payment:
-        amount: "Сумма"
-        pay_system: "Платежная система"
-        pay_system_id: "Платежная система"
-        submit: "Пополнить"
-        created_at: "Дата операции"
-        description: "Описание"
-        comment: "Комментарий оператора"
-      promo:
-        type: "Тип"
-        promoter_type: "Действие"
-        date_from: "Дата начала"
-        date_to: "Дата конца"
-        name: "Название"
-        types:
-          withdrawal: 'Списание'
-        state: 'Статус'
-        states:
-          pending: 'Неактивна'
-          active: 'Активна'
-        promo_code: 'Промо-код'
-      promoter:
-        types:
-          discount: 'Скидка'
-        attributes:
-          discount_percent: 'Скидка в процентах'
-      promotion:
-        promo_code: 'Введя промо код вы можете получить скидку или дополнительные опции бесплатно'
-      pay_system:
-        id: 'ID'
-        name: 'Название'
-        code: 'Код'
-        description: 'Описание'
-        state: 'Состояние'
-        currency: 'Валюта'
-    validations:
-      user:
-        accept_agreement: ""
-        regular_plan: "Вы выбрали некорретный тарифный план"
-      withdrawal:
-        not_enough_funds: "Недостаточно средств для списания"
+  mailers:
+    user_connection_config_mailer:
+      subject: Вам был создан аккаунт
+    user_mailer:
+      balance_withdrawal:
+        hello: Hello
+        we_have_withdrawed: We have withdrawed
+      could_not_withdraw_funds:
+        could_not_withdraw: Could not withdraw
+        hello: Hello
+      funds_recieved:
+        hello: Hello
+        your_balance_was_fulfilled_on: Your balance was fulfilled on
+      signature:
+        support: Support
+      test_period_enabled:
+        hello: Hello
+        instructions: Instructions
+        test_period_is_activated: Test period is activated
+        test_period_range: Test period range
+      unpaid_user_notification:
+        message: Message
+  users:
+    registrations:
+      edit:
+        cancel_registration: Отменить регистрацию
+        canceling_attention: Внимание, данная операция необратима! Средства оставшиеся на счету не возращаются!
+        confirm:
+          cancel_registration: Вы точно хотите удалить свой профиль? Это действие необратимо, все средства оставшиеся на счету будут безвозвратно потеряны.
+        edit_profile: Редактировать профиль
+        update: Применить
+  views:
+    pagination:
+      truncate: Truncate

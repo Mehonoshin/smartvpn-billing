@@ -1,7 +1,8 @@
-ru:
+---
+en:
   views:
     pagination:
-      next: 'Next'
-      last: '>>'
-      first: '<<'
-      previous: 'Previous'
+      first: !!str '<<'
+      last: ">>"
+      next: Следующая
+      previous: Предыдущая
