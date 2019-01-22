@@ -11,7 +11,7 @@
         tr.option
           td= option.name
           td
-            - if !current_user.connected?
+            - unless current_user.connected?
               = option_settings(option)
               = option_toggle_button(option)
             - else
