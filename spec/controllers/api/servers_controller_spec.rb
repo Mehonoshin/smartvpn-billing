@@ -4,7 +4,6 @@ describe Api::ServersController do
   let!(:server) { create(:server) }
 
   describe "POST #activate" do
-
     context "hostname not present in DB" do
       it "raises error" do
         expect {
@@ -13,29 +12,46 @@ describe Api::ServersController do
       end
     end
 
-    context "correct ip" do
-      before do
-        @request.env['REMOTE_ADDR'] = server.ip_address
+    describe 'server ip validation' do
+      let(:params) do
+        {
+          hostname: server.hostname,
+          server_crt: 'server crt',
+          client_crt: 'client crt',
+          client_key: 'client key'
+        }
       end
 
-      it "renders json with auth key" do
-        post :activate, hostname: server.hostname
-        expect(response.body).to eq Hash[auth_key: server.auth_key].to_json
+      context "correct ip" do
+        before do
+          @request.env['REMOTE_ADDR'] = server.ip_address
+        end
+
+        it "renders json with auth key" do
+          post :activate, params
+          expect(response.body).to eq Hash[auth_key: server.auth_key].to_json
+        end
+
+        it "returns success status" do
+          post :activate, params
+          expect(response.status).to eq 200
+        end
+
+        it 'updates server pki fields' do
+          expect { post :activate, params }
+            .to change  { server.reload.server_crt }.to('server crt')
+            .and change { server.reload.client_crt }.to('client crt')
+            .and change { server.reload.client_key }.to('client key')
+        end
       end
 
-      it "returns success status" do
-        post :activate, hostname: server.hostname
-        expect(response.status).to eq 200
+      context 'incorrect ip' do
+        it 'raises error' do
+          expect {
+            post :activate, params
+          }.to raise_error ApiException
+        end
       end
     end
-
-    context "incorrect ip" do
-      it "raises error" do
-        expect{
-          post :activate, hostname: server.hostname
-        }.to raise_error ApiException
-      end
-    end
-
   end
 end
