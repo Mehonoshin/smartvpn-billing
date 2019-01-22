@@ -1,14 +1,16 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 describe Api::ServersController do
   let!(:server) { create(:server) }
 
-  describe "POST #activate" do
-    context "hostname not present in DB" do
-      it "raises error" do
-        expect {
-          post :activate, hostname: "incorrect.domain"
-        }.to raise_error ApiException, "Server for activation not found"
+  describe 'POST #activate' do
+    context 'hostname not present in DB' do
+      it 'raises error' do
+        expect do
+          post :activate, hostname: 'incorrect.domain'
+        end.to raise_error ApiException, 'Server for activation not found'
       end
     end
 
@@ -22,17 +24,17 @@ describe Api::ServersController do
         }
       end
 
-      context "correct ip" do
+      context 'correct ip' do
         before do
           @request.env['REMOTE_ADDR'] = server.ip_address
         end
 
-        it "renders json with auth key" do
+        it 'renders json with auth key' do
           post :activate, params
           expect(response.body).to eq Hash[auth_key: server.auth_key].to_json
         end
 
-        it "returns success status" do
+        it 'returns success status' do
           post :activate, params
           expect(response.status).to eq 200
         end
@@ -40,16 +42,16 @@ describe Api::ServersController do
         it 'updates server pki fields' do
           expect { post :activate, params }
             .to change  { server.reload.server_crt }.to('server crt')
-            .and change { server.reload.client_crt }.to('client crt')
-            .and change { server.reload.client_key }.to('client key')
+                                                    .and change { server.reload.client_crt }.to('client crt')
+                                                                                            .and change { server.reload.client_key }.to('client key')
         end
       end
 
       context 'incorrect ip' do
         it 'raises error' do
-          expect {
+          expect do
             post :activate, params
-          }.to raise_error ApiException
+          end.to raise_error ApiException
         end
       end
     end
