@@ -90,9 +90,6 @@ ru:
   billing:
     referrals:
       email: Email
-  date:
-    formats:
-      default: "%d.%m.%Y"
   mailers:
     user_connection_config_mailer:
       subject: Вам был создан аккаунт

@@ -54,8 +54,8 @@ data:
 # Find translate calls
 search:
   ## Paths or `File.find` patterns to search in:
-  # paths:
-  #  - app/
+  paths:
+    - app/
 
   ## Root directories for relative keys resolution.
   #relative_roots:
@@ -63,7 +63,7 @@ search:
   #  - app/helpers
   #  - app/mailers
   #  - app/presenters
-  # - app/views
+  #  - app/views
 
   ## Files or `File.fnmatch` patterns to exclude from search. Some files are always excluded regardless of this setting:
   ##   %w(*.jpg *.png *.gif *.svg *.ico *.eot *.otf *.ttf *.woff *.woff2 *.pdf *.css *.sass *.scss *.less *.yml *.json)
@@ -108,6 +108,10 @@ ignore_unused:
   - 'simple_form.{placeholders,hints,labels}.*'
   - 'simple_form.{error_notification,required}.:'
   - 'errors.messages.*'
+  - 'transaction.*'
+  - 'user_mailer.*'
+  - 'mailers.user_mailer.*'
+  - 'admin.users.*'
 
 ## Exclude these keys from the `i18n-tasks eq-base' report:
 # ignore_eq_base:

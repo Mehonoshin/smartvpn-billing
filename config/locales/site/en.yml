@@ -6,9 +6,6 @@ en:
       sign_out: Sign out
       sign_up: Sign up
     billing: Profile
-  posts:
-    index:
-      posts_list: Blog
   users:
     passwords:
       edit:

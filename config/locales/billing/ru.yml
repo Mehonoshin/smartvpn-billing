@@ -23,11 +23,8 @@ ru:
         connection_status:
           'false': нет
           'true': да
-        input: Ввод
         last_connect: Последнее подключение
-        not_exists: Нет
         server: " к серверу"
-      index: Index
       last_transactions:
         payments_stat: История операций
     options:
@@ -58,7 +55,6 @@ ru:
         all: Если вы хотите заплатить валютой, которой нет в списке - обратитесь в поддержку сервиса
         pay_systems: валюты
       merchant:
-        attention: Внимание!
         payment_finalization: Завершение оплаты
         payment_finalization_text: Для завершения оплаты вам необходимо нажать на кнопку 'Оплатить'. <br/> После этого вы будете перенаправлены на страницу выбранной платежной системы, и там сможете выполнить платеж.
         submit: Оплатить
@@ -84,7 +80,6 @@ ru:
       referrals: Ваши рефералы
       registration_date: Дата регистрации
       title: Партнерская программа
-      total_amount: Оборот
     servers:
       config: Конфиг
       country: Страна
@@ -96,13 +91,10 @@ ru:
   global:
     apply: Применить
     authorize_please: Войдите в систему, прежде чем продолжить
-    free: Бесплатно
   layouts:
     billing:
       billing: Личный кабинет
       menu:
-        dashboard: Dashboard
-        feedback: Инструкции
         options: Услуги
         payment: Оплата
         profile: Настройки
@@ -144,8 +136,5 @@ ru:
       subject: Вопросы по тарифам SmartVPN.biz?
   users:
     registrations:
-      client_configs:
-        ca_download: Скачать сертификат
-        client_bundles: Конфигурационные файлы
       promo:
         promo_code: Ввести промо-код

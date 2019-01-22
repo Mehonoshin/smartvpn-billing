@@ -90,9 +90,6 @@ en:
   billing:
     referrals:
       email: Email
-  date:
-    formats:
-      default: "%d.%m.%Y"
   mailers:
     user_connection_config_mailer:
       subject: An account has been created for you

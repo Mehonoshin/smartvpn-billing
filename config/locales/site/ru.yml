@@ -6,9 +6,6 @@ ru:
       sign_out: Выход
       sign_up: Регистрация
     billing: Личный кабинет
-  posts:
-    index:
-      posts_list: Блог
   users:
     passwords:
       edit:
