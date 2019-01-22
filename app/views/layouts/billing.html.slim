@@ -26,7 +26,7 @@ html lang="ru"
                     | VPN
                     span .
                 .slogan
-                  = t('.billing')
+                  = t('layouts.billing.billing')
 
         .container
           .navbar-inner
@@ -49,11 +49,11 @@ html lang="ru"
                   = link_to billing_root_path do
                     i.icon-home.hidden-phone
                     span.visible-phone Home
-                li= link_to t('.menu.servers'), billing_servers_path
-                li= link_to t('.menu.payment'), billing_payments_path
-                li= link_to t('.menu.options'), billing_options_path
-                li= link_to t('.menu.referrers'), billing_referrers_path
-                li= link_to t('.menu.profile'), edit_user_registration_path
+                li= link_to t('layouts.billing.menu.servers'), billing_servers_path
+                li= link_to t('layouts.billing.menu.payment'), billing_payments_path
+                li= link_to t('layouts.billing.menu.options'), billing_options_path
+                li= link_to t('layouts.billing.menu.referrers'), billing_referrers_path
+                li= link_to t('layouts.billing.menu.profile'), edit_user_registration_path
 
           = render partial: 'application/notifications'
           = yield

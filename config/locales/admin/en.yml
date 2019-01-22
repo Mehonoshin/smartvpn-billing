@@ -8,7 +8,6 @@ en:
       filter: Filter
     connections:
       active: Active
-      show: Show
       title: Connections
     dashboard:
       customers: Customers
@@ -64,9 +63,7 @@ en:
       new: Create new
       notices:
         created: Option successfully added
-        destroyed: Option deleted
         updated: Option successfully updated
-      show: 'Show:'
       title: Options
     pay_systems:
       edit: Edit
@@ -83,16 +80,13 @@ en:
         created: Plan successfully added
         destroyed: Plan deleted
         updated: Plan successfully updated
-      show: 'Show:'
       title: Plans
     promos:
       edit: 'Edit:'
       new: Create new
       notices:
         created: Promo successfully added
-        destroyed: Promo deleted
         updated: Promo successfully updated
-      show: 'Show:'
       title: Promos
     referrers:
       title: Referrers

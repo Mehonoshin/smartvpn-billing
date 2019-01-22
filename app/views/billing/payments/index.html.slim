@@ -1,9 +1,9 @@
 h2.title-divider
   span
     span.de-em
-      = "#{t('.accepted')} "
-      = t('.pay_systems')
-  small= t('.all')
+      = "#{t('billing.payments.index.accepted')} "
+      = t('billing.payments.index.pay_systems')
+  small= t('billing.payments.index.all')
 
 ul.thumbnails.block.customers
   - @pay_systems.each do |pay_system|

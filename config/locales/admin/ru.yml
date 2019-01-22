@@ -8,7 +8,6 @@ ru:
       filter: Фильтр
     connections:
       active: Активные
-      show: Просмотр
       title: Соединения
     dashboard:
       customers: Клиентов
@@ -64,9 +63,7 @@ ru:
       new: Создать новую
       notices:
         created: Опция успешно добавлена
-        destroyed: Опция удалена
         updated: Опция успешно обновлена
-      show: Просмотр
       title: Опции
     pay_systems:
       edit: Редактировать
@@ -83,16 +80,13 @@ ru:
         created: Тариф успешно добавлен
         destroyed: Тариф удален
         updated: Тариф успешно обновлен
-      show: Просмотр
       title: Тарифы
     promos:
       edit: 'Редактировать:'
       new: Создать новый
       notices:
         created: Акция успешно добавлена
-        destroyed: Акция удалена
         updated: Акция успешно обновлена
-      show: 'Просмотр:'
       title: Акции
     referrers:
       title: Рефереры

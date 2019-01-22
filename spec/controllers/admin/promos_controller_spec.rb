@@ -72,7 +72,7 @@ describe Admin::PromosController do
     end
 
     describe 'PUT #update' do
-      let(:promo) { create(:promo) }
+      let!(:promo) { create(:promo) }
 
       context 'valid params' do
         let(:attrs) { Hash[name: 'new name', type: 'withdrawal', promoter_type: 'discount'] }

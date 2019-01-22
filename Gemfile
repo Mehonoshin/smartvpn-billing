@@ -74,7 +74,7 @@ group :development do
 end
 
 group :test, :development do
-  gem 'awesome_print'
+  gem 'pry-rails'
   gem 'capybara'
   gem 'database_cleaner', '1.0.0.RC1'
   gem 'dotenv-rails'
