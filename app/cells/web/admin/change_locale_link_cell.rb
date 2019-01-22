@@ -22,9 +22,9 @@ module Web
       end
 
       def url
-        return admin_locale_set_en_languages_path if locale_ru?
+        return admin_change_languages_path(locale: :en) if locale_ru?
 
-        admin_locale_set_ru_languages_path
+        admin_change_languages_path(locale: :ru)
       end
     end
   end

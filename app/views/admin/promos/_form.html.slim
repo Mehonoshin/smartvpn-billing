@@ -13,7 +13,7 @@
 
     = f.simple_fields_for :attrs do |a|
       - if @promo.promoter
-        legend Аттрибуты
+        legend= t('admin.legends.attributes')
         br
         - @promo.promoter&.attributes&.each do |attribute_name|
           = a.input attribute_name, input_html: { value: @promo.attrs&.fetch(attribute_name.to_s, nil) }, label: t("activerecord.attributes.promoter.attributes.#{attribute_name}")

@@ -26,6 +26,7 @@ en:
       plans: 'Plans'
       servers: 'Servers'
       prices: 'Prices'
+      attributes: 'Attributes'
     tables:
       id: 'ID'
       name: 'Name'
