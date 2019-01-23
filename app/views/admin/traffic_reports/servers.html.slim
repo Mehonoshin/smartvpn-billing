@@ -1,4 +1,6 @@
-= page_title(t('admin.traffic_reports.title'), 'cloud-download-alt', t('admin.traffic_reports.servers_reports'))
+= page_title(t('admin.traffic_reports.title'), 'cloud-download-alt', 'traffic_reports') do
+  = sub_page_title(t('admin.traffic_reports.servers_reports'))
+
 .row
   = render partial: 'filter'
 = render partial: 'submenu'

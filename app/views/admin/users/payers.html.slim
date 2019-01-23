@@ -1,4 +1,5 @@
-= page_title(t('admin.users.title'), 'user', t('admin.users.payers'))
+= page_title(t('admin.users.title'), 'user', 'users') do
+  = sub_page_title(t('admin.users.payers'))
 
 .row.mt-3
   = render partial: 'filter'
