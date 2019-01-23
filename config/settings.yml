@@ -1,3 +1,5 @@
+secret_token: <%= ENV['SECRET_TOKEN'] %>
+
 partners:
   referrer_percent: 20
 

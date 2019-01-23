@@ -5,15 +5,12 @@ class ApiException < RuntimeError; end
 class Api::ServersController < Api::BaseController
   # TODO: most probably it should be a separate service
   def activate
-    if request_ip == server.ip_address
-      raise ApiException, "Already activated server #{request_ip} #{server.hostname}" if server.active?
+    raise ApiException, 'Server activation attempt with incorrect token' unless valid_activation_token?
+    raise ApiException, "Already activated server #{request_ip} #{server.hostname}" if server.active?
 
-      server.update!(activation_params)
-      server.activate!
-      render json: { auth_key: server.auth_key }.to_json
-    else
-      raise ApiException, "Server activation attempt from incorrect ip: #{request_ip}"
-    end
+    server.update!(activation_params)
+    server.activate!
+    render json: { auth_key: server.auth_key }.to_json
   end
 
   private
@@ -24,6 +21,10 @@ class Api::ServersController < Api::BaseController
 
   def server
     Server.find_by(hostname: params[:hostname]) || raise(ApiException, 'Server for activation not found')
+  end
+
+  def valid_activation_token?
+    params[:secret_token].to_s == Settings.secret_token.to_s
   end
 
   def activation_params

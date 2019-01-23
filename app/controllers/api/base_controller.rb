@@ -26,5 +26,4 @@ class Api::BaseController < ApplicationController
   def signature
     params[:signature]
   end
-
 end
