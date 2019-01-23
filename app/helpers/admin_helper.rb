@@ -34,7 +34,7 @@ module AdminHelper
     sub_title = block_given? ? capture(&block) : ''
     content_tag :h3 do
       concat content_tag(:i, '', class: "fa-fw fa fa-#{icon}")
-      concat link_to(section, public_send("admin_#{path}_path"), class: 'px-2')
+      concat link_to(section, public_send("admin_#{path}_path"), class: 'mx-2 text-dark')
       concat sub_title
     end
   end

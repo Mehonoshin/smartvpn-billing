@@ -1,4 +1,5 @@
-= page_title(t('admin.pay_systems.title'), 'user', "#{t('admin.pay_systems.show')} #{@pay_system.name}")
+= page_title(t('admin.pay_systems.title'), 'user', 'pay_systems') do
+  = sub_page_title("#{t('admin.pay_systems.show')} #{@pay_system.name}")
 
 .my-3
   = link_to t('admin.links.edit'), edit_admin_pay_system_path(@pay_system), class: 'btn btn-sm btn-info'
