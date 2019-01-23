@@ -159,7 +159,7 @@ GEM
     gibbon (1.1.5)
       httparty
       multi_json (>= 1.9.0)
-    globalid (0.4.1)
+    globalid (0.4.2)
       activesupport (>= 4.2.0)
     gyoku (1.1.1)
       builder (>= 2.1.2)
@@ -224,7 +224,7 @@ GEM
       ntlm-http (~> 0.1, >= 0.1.1)
       webrobots (>= 0.0.9, < 0.2)
     method_source (0.9.2)
-    migration_opener (0.0.2)
+    migration_opener (0.0.3)
       rails
     mime-types (1.25.1)
     mini_mime (1.0.1)
@@ -238,7 +238,7 @@ GEM
     net-http-digest_auth (1.4)
     net-http-persistent (2.9.4)
     newrelic_rpm (5.6.0.349)
-    nokogiri (1.10.0)
+    nokogiri (1.10.1)
       mini_portile2 (~> 2.4.0)
     nori (2.3.0)
     ntlm-http (0.1.1)
