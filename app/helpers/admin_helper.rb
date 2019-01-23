@@ -14,12 +14,12 @@ module AdminHelper
     sub_menu = if block_given?
                  content_tag :ul, id: path[1..-1], class: 'collapse list-unstyled ml-3' do
                    yield
-                 end.html_safe
+                 end
                end
     content_tag :li, class: 'nav-item' do
       link_to path, class: 'nav-link dropdown-toggle', 'data-toggle': 'collapse', 'aria-expanded': 'false' do
-        content_tag(:i, '', class: "fa fa-lg fa-fw fa-#{fa_icon}") +
-          content_tag(:span, title, class: 'pl-3')
+        concat content_tag(:i, '', class: "fa fa-lg fa-fw fa-#{fa_icon}")
+        concat content_tag(:span, title, class: 'pl-3')
       end.concat(sub_menu)
     end
   end

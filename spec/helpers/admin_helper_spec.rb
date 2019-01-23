@@ -46,4 +46,34 @@ describe AdminHelper do
       change_locale_link
     end
   end
+
+  describe '#page_title' do
+    context 'without block' do
+      let(:result) do
+        '<h3><i class="fa-fw fa fa-user"></i><a class="mx-2 text-dark" href="/admin/users">title</a></h3>'
+      end
+
+      it 'returns one link' do
+        expect(page_title('title', 'user', 'users')).to eq result
+      end
+    end
+
+    context 'with block' do
+      let(:result) do
+        '<h3><i class="fa-fw fa fa-user"></i><a class="mx-2 text-dark" href="/admin/users">title</a>test</h3>'
+      end
+
+      it 'returns one link' do
+        expect(page_title('title', 'user', 'users') { 'test' }).to eq result
+      end
+    end
+  end
+
+  describe '#sub_page_title' do
+    let(:result) { '<span>&gt; title</span>' }
+
+    it 'returns one link' do
+      expect(sub_page_title('title')).to eq result
+    end
+  end
 end
