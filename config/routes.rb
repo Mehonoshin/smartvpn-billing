@@ -89,6 +89,7 @@ Smartvpn::Application.routes.draw do
     resources :promos, only: %i[index new create edit update]
     resources :options, only: %i[index new create edit update]
     resources :referrers, only: [:index]
+    resource :change_languages, only: :update
   end
 
   namespace :api do

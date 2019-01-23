@@ -1,14 +1,14 @@
-= page_title('Рефереры', 'share')
+= page_title(t('admin.referrers.title'), 'share')
 
 table.table.mt-5
   thead
     tr
-      th= 'ID'
-      th= 'Email'
-      th= 'Оборот'
-      th= 'Прибыль'
-      th= 'Баланс'
-      th= 'Рефералов'
+      th= t('admin.tables.id')
+      th= t('admin.tables.email')
+      th= t('admin.tables.turnover')
+      th= t('admin.tables.profit')
+      th= t('admin.tables.balance')
+      th= t('admin.tables.referrals')
 
     - @referrers.each do |referrer|
       tbody

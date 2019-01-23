@@ -1,7 +1,7 @@
 h2.title-divider
   span
     span.de-em
-      = t('.balance_fullfillment')
+      = t('billing.payments.new.balance_fullfillment')
 
 = image_tag "pay_system_logos/#{@pay_system.code}_logo.png"
 = simple_form_for [:billing, @payment] do |f|
@@ -10,5 +10,5 @@ h2.title-divider
   p
     = label_tag :pay_system, t('activerecord.attributes.payment.pay_system')
     = text_field_tag :pay_system, @pay_system.name, readonly: true
-  = f.submit t('.submit'), class: 'big btn btn-primary'
+  = f.submit t('billing.payments.new.submit'), class: 'big btn btn-primary'
 

@@ -3,7 +3,7 @@ html lang='en-us'
   head
     meta content='text/html; charset=UTF-8' http-equiv='Content-Type'
     meta charset='utf-8'
-    title SmartVPN Admin
+    title= t('admin.layout.title', brand: ENV['BRAND_NAME'])
     meta content='width=device-width, initial-scale=1.0' name='viewport'
     meta content='' name='description'
     meta content='' name='author'
@@ -16,9 +16,11 @@ html lang='en-us'
   body
     header
       nav.navbar.navbar-expand-md.navbar-dark.bg-dark
-        = link_to 'SmartVPN Admin', '#', class: 'navbar-brand'
-        .nav.navbar-nav.ml-auto.mr-3
-          = link_to 'Sign out', destroy_admin_session_path, method: :delete
+        = link_to ENV['BRAND_NAME'], admin_root_path, class: 'navbar-brand'
+        ul.navbar-nav.ml-auto.mr-3
+          = change_locale_link
+          li.nav-item
+            = link_to t('admin.layout.sign_out'), destroy_admin_session_path, method: :delete, class: 'nav-link'
 
     .container-fluid.h-100
       .row.d-flex.h-100
@@ -27,5 +29,5 @@ html lang='en-us'
             = render partial: 'admin/shared/menu'
 
         main.col-md-9.ml-sm-auto.col-lg-10.pt-3.px-4 role='main'
-          = render partial: 'notifications'
+          = render partial: 'application/notifications'
           = yield

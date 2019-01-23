@@ -1,19 +1,19 @@
-= page_title('Соединения', 'bolt')
+= page_title(t('admin.connections.title'), 'bolt')
 
 .row
-  = render 'search'
+  = render 'filter'
   .col.my-3
-    = link_to 'Активные', active_admin_connections_path
+    = link_to t('admin.links.active'), active_admin_connections_path
 
 table.table
   thead
     tr
-      th= 'ID'
-      th= 'Пользователь'
-      th= 'Сервер'
-      th= 'Событие'
-      th= 'Траффик'
-      th= 'Дата'
+      th= t('admin.tables.id')
+      th= t('admin.tables.user')
+      th= t('admin.tables.server')
+      th= t('admin.tables.event')
+      th= t('admin.tables.traffic')
+      th= t('admin.tables.date')
 
   - @connections.each do |connection|
     tr
@@ -25,4 +25,3 @@ table.table
       td= human_date(connection.created_at)
 
 = render partial: 'admin/shared/paginate', locals: { collection: @connections }
-

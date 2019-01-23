@@ -5,7 +5,7 @@
       = f.input :code, input_html: { enabled: @option.new_record? }
       = f.input :state, as: :select, collection: object_states_select_collection(Option)
 
-      legend Тарифы
+      legend= t('admin.legends.plans')
       = f.association :plans, as: :select
 
-      = f.submit 'Применить', class: 'btn btn-primary'
+      = f.submit t('admin.buttons.apply'), class: 'btn btn-primary'

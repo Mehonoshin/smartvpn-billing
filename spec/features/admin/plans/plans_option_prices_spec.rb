@@ -23,12 +23,12 @@ describe 'Plans option prices' do
       sign_in_admin
       visit edit_admin_plan_path(plan)
 
-      expect(page).not_to have_content "#{option.name} price"
+      expect(page).not_to have_content "#{option.name} #{I18n.t('activerecord.attributes.option.price')}"
 
       select(option.name, from: 'Options')
       click_button(I18n.t('global.apply'))
       visit edit_admin_plan_path(plan)
-      expect(page).to have_content "#{option.name} price"
+      expect(page).to have_content "#{option.name} #{I18n.t('activerecord.attributes.option.price')}"
 
       within("form#edit_plan_#{plan.id}") do
         fill_in "plan_option_prices_#{option.code}", with: option_price

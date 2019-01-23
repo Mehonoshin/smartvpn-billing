@@ -3,6 +3,8 @@
           url: request.fullpath,
           method: :get,
           html: { class: 'form-inline' } do |f|
-    = f.input :date_from, as: :date, html5: true, class: 'mr-3'
-    = f.input :date_to, as: :date, html5: true, class: 'mr-3'
+    .form-group.mr-3
+      = f.input :date_from, as: :date, html5: true, label: t('admin.labels.date_from')
+    .form-group.mr-3
+      = f.input :date_to, as: :date, html5: true, label: t('admin.labels.date_to')
     = f.submit t('admin.buttons.filter'), class: 'btn btn-primary'

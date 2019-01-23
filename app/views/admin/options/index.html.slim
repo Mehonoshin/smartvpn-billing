@@ -1,17 +1,17 @@
-= page_title('Услуги', 'cogs')
+= page_title(t('admin.options.title'), 'cogs')
 
 .row.my-4
   .col
-    = link_to 'Добавить', new_admin_option_path, class: 'btn btn-primary'
+    = link_to t('admin.links.create'), new_admin_option_path, class: 'btn btn-primary'
 
 table.table
   thead
     tr
-      th= 'ID'
-      th= 'Название'
-      th= 'Код'
-      th= 'Статус'
-      th
+      th= t('admin.tables.id')
+      th= t('admin.tables.name')
+      th= t('admin.tables.code')
+      th= t('admin.tables.state')
+      th= t('admin.tables.actions')
 
   tbody
     - @options.each do |option|
@@ -21,4 +21,4 @@ table.table
         td= option.code
         td= option.state
         th
-          = link_to 'Изменить', edit_admin_option_path(option), class: 'btn btn-sm btn-info'
+          = link_to t('admin.links.edit'), edit_admin_option_path(option), class: 'btn btn-sm btn-info'

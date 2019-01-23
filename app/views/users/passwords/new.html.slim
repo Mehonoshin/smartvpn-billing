@@ -2,9 +2,9 @@
   = devise_error_messages!
 
   h3.title-divider
-    span= t('.reset_password')
+    span= t('users.passwords.new.reset_password')
     small
-      = link_to t('.sign_in_here'), new_user_session_path
+      = link_to t('users.passwords.new.sign_in_here'), new_user_session_path
 
-  = f.email_field :email, class: "input-block-level", placeholder: t('.email')
-  = f.submit t('.send'), class: "btn btn-primary"
+  = f.email_field :email, class: "input-block-level", placeholder: t('users.passwords.new.email')
+  = f.submit t('users.passwords.new.send'), class: "btn btn-primary"

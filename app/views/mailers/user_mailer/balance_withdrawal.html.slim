@@ -1,7 +1,7 @@
 p
-  = "#{t('.hello')}, #{@user.email}"
+  = "#{t('mailers.user_mailer.balance_withdrawal.hello')}, #{@user.email}"
 
 p
-  = t('.we_have_withdrawed', amount: @amount)
+  = t('mailers.user_mailer.balance_withdrawal.we_have_withdrawed', amount: @amount)
 
 = render partial: "signature"

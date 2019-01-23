@@ -1,45 +1,49 @@
-= page_title(t('admin.users.title'), 'user', t('admin.users.show'))
+= page_title(t('admin.users.title'), 'user', "#{t('admin.users.show')} #{@user.email}")
 
 = show_for user do |u|
 
-  legend Общее
-  = u.attribute :email
-  = u.attribute :balance
-  = u.attribute :sign_in_count
-  = u.attribute :last_sign_in_at
-  = u.attribute :last_sign_in_ip
-  = u.attribute :created_at
-  = u.attribute :plan
+  legend= t('admin.legends.common')
+  .ml-3
+    = u.attribute :email
+    = u.attribute :balance
+    = u.attribute :sign_in_count
+    = u.attribute :last_sign_in_at
+    = u.attribute :last_sign_in_ip
+    = u.attribute :created_at
+    = u.attribute :plan
 
-  legend Партнерская программа
-  = u.attribute :referrer
-  = u.attribute :referrals do
-    ul
-      - user.referrals.each do |referral|
-        li= referral
+  legend= t('admin.legends.referrer_program')
+  .ml-3
+    = u.attribute :referrer
+    = u.attribute :referrals do
+      ul
+        - user.referrals.each do |referral|
+          li= referral
 
-  legend Опции
-  = u.attribute 'Опции' do
-    = user.options
-  = u.attribute 'Акции' do
-    = user.promotions
+  legend= t('admin.legends.options')
+  .ml-3
+    = u.attribute :options do
+      = user.options.join(', ')
+    = u.attribute :promos do
+      = user.promotions.join(', ')
 
+  legend= t('admin.legends.connection_data')
+  .ml-3
+    = u.attribute :vpn_login
+    = u.attribute :vpn_password
 
-  legend Реквизиты
-  = u.attribute :vpn_login
-  = u.attribute :vpn_password
-
-  legend Подключения
-  = u.attribute :current_connection, label: t('admin.users.current_connection') do
-    = user.connection_status
-  = u.attribute 'Оплачен в текущем интервале' do
-    = user.current_interval_payment_status
-  = u.attribute 'Последнее подключение' do
-    = human_date user.last_connect_date
-  = u.attribute 'Последнее списание' do
-    = human_date user.last_withdrawal_date
-  = u.attribute 'Следующее списание' do
-    = human_date user.next_withdrawal_date
+  legend= t('admin.legends.connections')
+  .ml-3
+    = u.attribute :current_connection, label: t('admin.users.current_connection') do
+      = user.connection_status
+    = u.attribute :current_interval_payment_status do
+      = user.current_interval_payment_status
+    = u.attribute :last_connect_date do
+      = human_date user.last_connect_date
+    = u.attribute :last_withdrawal_date do
+      = human_date user.last_withdrawal_date
+    = u.attribute :next_withdrawal_date do
+      = human_date user.next_withdrawal_date
 
 = render partial: 'prolongation'
 = render partial: 'payment'

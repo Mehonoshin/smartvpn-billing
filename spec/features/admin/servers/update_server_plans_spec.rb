@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 describe 'server plans' do
@@ -18,8 +20,6 @@ describe 'server plans' do
     click_button(I18n.t('global.apply'))
     visit admin_servers_path
 
-    expect(
-      page
-    ).to have_content "#{plan1.name}, #{plan2.name}"
+    expect(page).to have_content "#{plan1.name}\n#{plan2.name}"
   end
 end

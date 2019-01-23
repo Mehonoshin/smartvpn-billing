@@ -1,4 +1,4 @@
-= page_title('Серверы', 'server', @server.hostname)
+= page_title(t('admin.servers.title'), 'user', "#{t('admin.servers.show')} #{@server.hostname}")
 
 = show_for @server do |s|
   = s.attribute :id

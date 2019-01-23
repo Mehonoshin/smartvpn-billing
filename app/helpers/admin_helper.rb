@@ -11,11 +11,11 @@ module AdminHelper
   end
 
   def menu_item_with_sub(title, path, fa_icon)
-    if block_given?
-      sub_menu = content_tag :ul, id: path[1..-1], class: 'collapse list-unstyled ml-3' do
-        yield
-      end.html_safe
-    end
+    sub_menu = if block_given?
+                 content_tag :ul, id: path[1..-1], class: 'collapse list-unstyled ml-3' do
+                   yield
+                 end.html_safe
+               end
     content_tag :li, class: 'nav-item' do
       link_to path, class: 'nav-link dropdown-toggle', 'data-toggle': 'collapse', 'aria-expanded': 'false' do
         content_tag(:i, '', class: "fa fa-lg fa-fw fa-#{fa_icon}") +
@@ -25,7 +25,7 @@ module AdminHelper
   end
 
   def sub_menu_item(title, path)
-    content_tag :li, class: 'nav-item' do
+    content_tag :li, class: 'nav-item pl-4' do
       link_to title, path, class: 'nav-link'
     end
   end
@@ -88,5 +88,9 @@ module AdminHelper
     else
       check_box_tag 'q[never_paid_eq]'
     end
+  end
+
+  def change_locale_link
+    Web::Admin::ChangeLocaleLinkCell.new.render
   end
 end

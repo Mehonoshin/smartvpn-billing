@@ -1,5 +1,6 @@
+---
 en:
   show_for:
-    blank: "Not specified"
-    "yes": "Yes"
-    "no": "No"
+    blank: Not specified
+    'no': 'No'
+    'yes': 'Yes'

@@ -1,14 +1,16 @@
-= simple_form_for [:admin, @server], html: { class: 'form-horizontal' },wrapper: :horizontal_form do |f|
-  = f.input :hostname
-  = f.input :ip_address
-  = f.input :protocol, as: :select, collection: Server::PROTOCOLS.map { |p| [p, p] }, include_blank: false
-  = f.input :port
-  = f.input :country_code, as: :select, collection: countries_for_select, include_blank: false
+.mt-5
+  = simple_form_for [:admin, @server], html: { class: 'form-horizontal' },wrapper: :horizontal_form do |f|
+    = f.input :hostname
+    = f.input :ip_address
+    = f.input :protocol, as: :select, collection: Server::PROTOCOLS.map { |p| [p, p] }, include_blank: false
+    = f.input :port
+    = f.input :country_code, as: :select, collection: countries_for_select, include_blank: false
 
-  - unless @server.new_record?
-    = f.input :state, as: :select, collection: object_states_select_collection(Server), include_blank: false
+    - unless @server.new_record?
+      = f.input :state, as: :select, collection: object_states_select_collection(Server), include_blank: false
 
-  legend Тарифы
-  = f.association :plans, as: :select
+    legend= t('admin.legends.plans')
+    .ml-3
+      = f.association :plans, as: :select
 
-  = f.submit 'Применить', class: 'btn btn-primary'
+    = f.submit t('admin.buttons.apply'), class: 'btn btn-primary'

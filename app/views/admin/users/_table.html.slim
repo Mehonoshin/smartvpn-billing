@@ -1,8 +1,8 @@
 table.table
   thead
     tr
-      th= 'ID'
-      th= 'Email'
+      th= t('admin.tables.id')
+      th= t('admin.tables.email')
       th= t('admin.tables.plan')
       th= t('admin.tables.registration_date')
       th= t('admin.tables.balance')
@@ -10,7 +10,7 @@ table.table
       th= t('admin.tables.logged_in_billing')
       th= t('admin.tables.turnover')
       th= t('admin.tables.unsuccessful_charges')
-      th= t('admin.tables.status')
+      th= t('admin.tables.state')
       th= t('admin.tables.actions')
 
   - @users.each do |user|

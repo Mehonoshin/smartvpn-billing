@@ -1,18 +1,18 @@
-= page_title('Серверы', 'server')
+= page_title(t('admin.servers.title'), 'server')
 
 .row.my-4
   .col
-    = link_to 'Добавить', new_admin_server_path, class: 'btn btn-primary'
+    = link_to t('admin.links.create'), new_admin_server_path, class: 'btn btn-primary'
 
 table.table
   thead
     tr
-      th= 'ID'
-      th= 'Host'
-      th= 'IP address'
-      th= 'Тарифы'
-      th= 'Статус'
-      th
+      th= t('admin.tables.id')
+      th= t('admin.tables.hostname')
+      th= t('admin.tables.ip_address')
+      th= t('admin.tables.plans')
+      th= t('admin.tables.state')
+      th= t('admin.tables.actions')
 
   tbody
     - @servers.each do |server|
@@ -22,9 +22,9 @@ table.table
         td= server.ip_address
         td
           - server.plans.each do |plan|
-            = link_to plan.name, edit_admin_plan_path(plan)
-            = ', '
+            ul.list-unstyled
+              li= link_to plan.name, edit_admin_plan_path(plan)
 
         td= server.state
         th
-          = link_to 'Изменить', edit_admin_server_path(server), class: 'btn btn-sm btn-info'
+          = link_to t('admin.links.edit'), edit_admin_server_path(server), class: 'btn btn-sm btn-info'

@@ -1,22 +1,22 @@
-= simple_form_for [:admin, @promo], html: { class: 'form-horizontal' },wrapper: :horizontal_form do |f|
-  = f.input :name
-  = f.input :type, promo_types
-  = f.input :promoter_type, promoter_types
-  .row
-    .col-md-6
-      = f.input :date_from, as: :date, html5: true
-    .col-md-6
-      = f.input :date_to, as: :date, html5: true
-  = f.input :promo_code
-  = f.input :state, as: :select, collection: Promo.state_machine.states.map { |s| [t("activerecord.attributes.promo.states.#{s.name}"), s.name] }, include_blank: false
+.my-5
+  = simple_form_for [:admin, @promo], html: { class: 'form-horizontal' },wrapper: :horizontal_form do |f|
+    = f.input :name
+    = f.input :type, promo_types
+    = f.input :promoter_type, promoter_types
+    .row
+      .col-md-6
+        = f.input :date_from, as: :date, html5: true
+      .col-md-6
+        = f.input :date_to, as: :date, html5: true
+    = f.input :promo_code
+    = f.input :state, as: :select, collection: Promo.state_machine.states.map { |s| [t("activerecord.attributes.promo.states.#{s.name}"), s.name] }, include_blank: false
 
-  = f.simple_fields_for :attrs do |a|
-    - if @promo.promoter
-      legend Аттрибуты
-      br
-      - @promo.promoter&.attributes&.each do |attribute_name|
-        = a.input attribute_name, input_html: { value: @promo.attrs&.fetch(attribute_name.to_s, nil) }, label: t("activerecord.attributes.promoter.attributes.#{attribute_name}")
+    = f.simple_fields_for :attrs do |a|
+      - if @promo.promoter
+        legend= t('admin.legends.attributes')
+        br
+        - @promo.promoter&.attributes&.each do |attribute_name|
+          = a.input attribute_name, input_html: { value: @promo.attrs&.fetch(attribute_name.to_s, nil) }, label: t("activerecord.attributes.promoter.attributes.#{attribute_name}")
 
-  br
-  = f.submit 'Применить', class: 'btn btn-primary'
-
+    br
+    = f.submit t('admin.buttons.apply'), class: 'btn btn-primary'

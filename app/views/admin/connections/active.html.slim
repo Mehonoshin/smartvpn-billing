@@ -1,17 +1,17 @@
-= page_title('Активные подключения', 'bolt')
+= page_title(t('admin.connections.title'), 'bolt', t('admin.connections.active'))
 
 .row
-  = render 'search'
+  = render 'filter'
 
 table.table
   thead
     tr
-      th= 'ID'
-      th= 'Пользователь'
-      th= 'Сервер'
-      th= 'Дата'
+      th= t('admin.tables.id')
+      th= t('admin.tables.user')
+      th= t('admin.tables.server')
+      th= t('admin.tables.date')
       -# TODO:
-      /здесь сделать колонки с траффиком по подключению
+      /This will make columns with traffic by connections
 
   - @connections.each do |connection|
     tr

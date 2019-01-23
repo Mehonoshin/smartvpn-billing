@@ -4,22 +4,28 @@
       = f.input :name
       = f.input :description
       = f.input :code, input_html: { enabled: false }
-      = f.input :enabled, as: :select
-      = f.input :special, as: :select
+      = f.input :enabled, as: :select, include_blank: false
+      = f.input :special, as: :select, include_blank: false
 
-      legend Серверы
-      = f.association :servers, as: :select
+      legend= t('admin.legends.servers')
+      .ml-3
+        = f.association :servers, as: :select
 
-      legend Услуги
-      = f.association :options, as: :select, collection: Option.all.active
+      legend= t('admin.legends.options')
+      .ml-3
+        = f.association :options, as: :select, collection: Option.all.active
 
-      legend Цены
-      = f.input :price
+      legend= t('admin.legends.prices')
+      .ml-3
+        = f.input :price
 
-      .row.mb-3
-        .col
-          - @plan.options.active.each do |option|
-            = "#{option.name} price"
-            = text_field_tag "plan[option_prices][#{option.code}]", prettify_number(plans_option_price(@plan, option.code))
+        - @plan.options.active.each do |option|
+          .form-group.row
+            label.col-sm-3.col-form-label.required
+              = "#{option.name} #{t('activerecord.attributes.option.price')}"
+            .col-sm-9
+              = text_field_tag "plan[option_prices][#{option.code}]",
+                               prettify_number(plans_option_price(@plan, option.code)),
+                               class: 'form-control'
 
-      = f.submit 'Применить', class: 'btn btn-primary'
+      = f.submit t('admin.buttons.apply'), class: 'btn btn-primary'

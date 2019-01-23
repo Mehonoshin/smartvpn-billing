@@ -1,17 +1,17 @@
-= page_title('Тарифы', 'shopping-cart')
+= page_title(t('admin.plans.title'), 'shopping-cart')
 
 .row.my-4
   .col
-    = link_to 'Добавить', new_admin_plan_path, class: 'btn btn-primary'
+    = link_to t('admin.links.create'), new_admin_plan_path, class: 'btn btn-primary'
 
 table.table
   thead
     tr
-      th= 'ID'
-      th= 'Название'
-      th= 'Описаие'
-      th= 'Код'
-      th= 'Цена'
+      th= t('admin.tables.id')
+      th= t('admin.tables.name')
+      th= t('admin.tables.description')
+      th= t('admin.tables.code')
+      th= t('admin.tables.price')
       th
 
   tbody
@@ -23,7 +23,7 @@ table.table
         td= plan.code
         td= plan.price
         th
-          = link_to 'Изменить', edit_admin_plan_path(plan), class: 'btn btn-sm btn-info'
+          = link_to t('admin.links.edit'), edit_admin_plan_path(plan), class: 'btn btn-sm btn-info'
           /TODO:
           / при удалении надо архивировать тариф, и переводить всех юзеров на другой
           /= button_to 'Удалить', admin_plan_path(plan), method: :delete, data: { confirm: 'Вы уверены?' }, class: 'btn btn-danger'

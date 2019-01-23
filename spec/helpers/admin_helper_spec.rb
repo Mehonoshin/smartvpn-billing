@@ -30,10 +30,20 @@ describe AdminHelper do
   end
 
   describe '#sub_menu_item' do
-    let(:result) { '<li class="nav-item"><a class="nav-link" href="path">title</a></li>' }
+    let(:result) { '<li class="nav-item pl-4"><a class="nav-link" href="path">title</a></li>' }
 
     it 'returns one link' do
       expect(sub_menu_item('title', 'path')).to eq result
+    end
+  end
+
+  describe '#change_locale_link' do
+    let(:cell) { double('Web::Admin::ChangeLocaleLinkCell') }
+    before { allow(Web::Admin::ChangeLocaleLinkCell).to receive(:new).and_return(cell) }
+
+    it 'runs Web::Admin::ChangeLocaleLinkCell' do
+      expect(cell).to receive(:render)
+      change_locale_link
     end
   end
 end

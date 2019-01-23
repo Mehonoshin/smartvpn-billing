@@ -1,8 +1,12 @@
+legend= t('admin.users.prolongation')
 - if can_be_prolongated? @user
-  legend= t('admin.users.prolongation')
-  = simple_form_for [:admin, WithdrawalProlongation.new], url: prolongate_admin_user_path(@user), method: :put do |f|
-    = f.input :days_number
-    = f.submit t('global.apply'), class: 'btn btn-primary'
+  .ml-3.mb-3
+    .row
+      .col-md-4
+        = simple_form_for [:admin, WithdrawalProlongation.new], url: prolongate_admin_user_path(@user), method: :put do |f|
+          = f.input :days_number
+          = f.submit t('global.apply'), class: 'btn btn-primary'
 - else
-  = t('admin.users.prolongation_not_possible')
+  .mb-3
+    = t('admin.users.prolongation_not_possible')
 
