@@ -2,6 +2,7 @@
 
 module Web
   module Admin
+    # This is cell returns actual link for change current locale
     class ChangeLocaleLinkCell < BaseCell
       def render
         content_tag :li, class: 'nav-item' do
