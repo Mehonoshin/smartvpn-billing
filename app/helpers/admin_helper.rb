@@ -30,14 +30,17 @@ module AdminHelper
     end
   end
 
-  def page_title(section, icon, subsection = nil)
-    content_tag :h3, class: 'page-title txt-color-blueDark' do
-      content_tag(:i, '', class: "fa-fw fa fa-#{icon}") +
-        content_tag(:span, "#{section} ", class: 'pl-3') +
-        content_tag(:span) do
-          "> #{subsection}" if subsection
-        end
+  def page_title(section, icon, path, &block)
+    sub_title = block_given? ? capture(&block) : ''
+    content_tag :h3 do
+      concat content_tag(:i, '', class: "fa-fw fa fa-#{icon}")
+      concat link_to(section, public_send("admin_#{path}_path"), class: 'px-2')
+      concat sub_title
     end
+  end
+
+  def sub_page_title(title)
+    content_tag(:span, "> #{title}")
   end
 
   def human_connection(type)
