@@ -1,0 +1,10 @@
+.row.mt-5.text-center
+  .col-md-4.offset-md-4
+    h4= t('admin.profile.change_password')
+.row.mt-5
+  .col-md-4.offset-md-4
+    = simple_form_for @admin, url: admin_profile_path do |f|
+      = f.input :current_password
+      = f.input :password
+      = f.input :password_confirmation
+      = f.submit t('admin.buttons.apply'), class: 'btn btn-primary btn-block'

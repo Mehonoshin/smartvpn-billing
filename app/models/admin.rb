@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class Admin < ActiveRecord::Base
-  devise :database_authenticatable, :timeoutable, timeout_in: 7.days
+  devise :database_authenticatable, :timeoutable, :validatable, timeout_in: 7.days
 end
 
 # == Schema Information
@@ -12,4 +14,3 @@ end
 #  created_at         :datetime
 #  updated_at         :datetime
 #
-

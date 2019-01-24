@@ -19,8 +19,16 @@ html lang='en-us'
         = link_to ENV['BRAND_NAME'], admin_root_path, class: 'navbar-brand'
         ul.navbar-nav.ml-auto.mr-3
           = change_locale_link
-          li.nav-item
-            = link_to t('admin.layout.sign_out'), destroy_admin_session_path, method: :delete, class: 'nav-link'
+          li.nav-item.dropdown
+            = link_to '#', id: 'navbarDropdown',
+                                   class: 'nav-link dropdown-toggle',
+                                   role: 'button',
+                                   'data-toggle': 'dropdown' do
+              i.navbar-toggler-icon
+            .dropdown-menu.dropdown-menu-right
+              = link_to t('admin.layout.change_password'), edit_admin_profile_path, class: 'dropdown-item'
+              hr
+              = link_to t('admin.layout.sign_out'), destroy_admin_session_path, method: :delete, class: 'dropdown-item'
 
     .container-fluid.h-100
       .row.d-flex.h-100
