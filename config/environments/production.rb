@@ -89,6 +89,7 @@ Smartvpn::Application.configure do
     user_name: ENV['EMAIL_USER'],
     password: ENV['EMAIL_PASS'],
     authentication: 'plain',
-    enable_starttls_auto: true
+    enable_starttls_auto: true,
+    tls: true
   }
 end
