@@ -2,6 +2,7 @@
 
 module Dto
   module Admin
+    # Returns statistics by customers
     class DiscreteCustomersRegistrations < Dto::Admin::DiscreteBase
       private
 

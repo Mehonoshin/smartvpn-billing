@@ -2,6 +2,7 @@
 
 module Dto
   module Admin
+    # Returns statistics by payments
     class DiscretePayments < Dto::Admin::DiscreteBase
       private
 

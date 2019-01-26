@@ -2,6 +2,7 @@
 
 module Dto
   module Admin
+    # Returns statistics by traffic
     class DiscreteTraffic < Dto::Admin::DiscreteBase
       private
 
