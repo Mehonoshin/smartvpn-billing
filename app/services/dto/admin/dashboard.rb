@@ -20,7 +20,7 @@ module Dto
         {
           rub_usd: fetch_course(:rub, :usd),
           eur_usd: fetch_course(:eur, :usd),
-          updated_at: course_updated_at
+          updated_at: courses_updated_at
         }
       end
 
@@ -49,7 +49,7 @@ module Dto
         Currencies::Course.new(from_currency, for_currency).get.to_f
       end
 
-      def course_updated_at
+      def courses_updated_at
         Currencies::Course.updated_at.try(:to_datetime)
       end
 
