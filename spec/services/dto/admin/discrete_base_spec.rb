@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-require 'spec_helper'
+require 'rails_helper'
 
-describe Dto::Admin::DescreteBase do
+describe Dto::Admin::DiscreteBase do
   let(:days_number) { 3 }
-  subject { described_class.new(days_number) }
+  subject { described_class.new(number_of_days: days_number) }
 
   describe '#amounts' do
     before do
