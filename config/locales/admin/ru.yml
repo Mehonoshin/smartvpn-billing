@@ -22,6 +22,7 @@ ru:
       server: Сервер
       user: Пользователь
     layout:
+      change_password: Измененить пароль
       sign_out: Выход
       title: "%{brand} Панель администрирования"
     legends:
@@ -80,6 +81,10 @@ ru:
         destroyed: Тариф удален
         updated: Тариф успешно обновлен
       title: Тарифы
+    profile:
+      change_password: Изменение пароля
+      notices:
+        updated: Пароль успешно обновлен
     promos:
       edit: 'Редактировать:'
       new: Создать новый

@@ -54,6 +54,7 @@ Smartvpn::Application.routes.draw do
       get :generate_config, on: :member
     end
     resources :plans
+    resource :profile, only: %i[edit update]
     resources :pay_systems, except: :destroy
     resources :users, except: :destroy do
       collection do

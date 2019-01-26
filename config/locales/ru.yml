@@ -2,6 +2,10 @@
 ru:
   activerecord:
     attributes:
+      admin:
+        current_password: Текущий пароль
+        password: Пароль
+        password_confirmation: Подтверждение пароля
       option:
         code: Код
         name: Имя

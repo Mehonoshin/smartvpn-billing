@@ -22,6 +22,7 @@ en:
       server: Server
       user: User
     layout:
+      change_password: Change password
       sign_out: Sign out
       title: "%{brand} Admin panel"
     legends:
@@ -80,6 +81,10 @@ en:
         destroyed: Plan deleted
         updated: Plan successfully updated
       title: Plans
+    profile:
+      change_password: Change password
+      notices:
+        updated: Password successfully updated
     promos:
       edit: 'Edit:'
       new: Create new

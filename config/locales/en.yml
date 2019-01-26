@@ -2,6 +2,10 @@
 en:
   activerecord:
     attributes:
+      admin:
+        current_password: Current password
+        password: Password
+        password_confirmation: Password confirmation
       option:
         code: Code
         name: Name
