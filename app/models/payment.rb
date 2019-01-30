@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Payment < ActiveRecord::Base
+  include AASM
   include LastDaysFilterable
 
   belongs_to :user
@@ -12,11 +13,13 @@ class Payment < ActiveRecord::Base
 
   scope :accepted, -> { where(state: 'accepted') }
 
-  state_machine :state, initial: :pending do
+  aasm column: :state do
+    state :pending, initial: true
+    state :accepted
+
     event :accept do
-      transition pending: :accepted
+      transitions from: :pending, to: :accepted, after: [:increase_balance, :try_to_withdraw_funds]
     end
-    after_transition pending: :accepted, do: %i[increase_balance try_to_withdraw_funds]
   end
 
   private

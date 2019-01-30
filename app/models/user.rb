@@ -1,4 +1,7 @@
+# frozen_string_literal: true
+
 class User < ActiveRecord::Base
+  include AASM
   include LastDaysFilterable
 
   BILLING_INTERVAL    = 30
@@ -25,8 +28,8 @@ class User < ActiveRecord::Base
   # needs to be refactored
   has_many :user_options
   has_many :enabled_user_options, -> { enabled }, foreign_key: 'user_id', class_name: 'UserOption'
-  has_many :options, ->{ active }, through: :enabled_user_options
-  has_many :subscribed_options, ->{ active }, through: :user_options, class_name: 'Option'
+  has_many :options, -> { active }, through: :enabled_user_options
+  has_many :subscribed_options, -> { active }, through: :user_options, class_name: 'Option'
 
   validates :plan_id, presence: true
   validates :accept_agreement, acceptance: true, on: :create
@@ -37,25 +40,28 @@ class User < ActiveRecord::Base
 
   scope :active_referrers, -> { joins('INNER JOIN users AS referrals ON referrals.referrer_id=users.id').distinct }
   scope :payers, -> { where(id: Payment.select(:user_id)) }
-  scope :this_month_payers, ->{ where("id IN (SELECT user_id FROM payments WHERE created_at >= ? AND created_at <= ?)", Date.current.beginning_of_month, Date.current.end_of_month) }
-  scope :non_paid_users, ->{ where("
+  scope :this_month_payers, -> { where("id IN (SELECT user_id FROM payments WHERE created_at >= ? AND created_at <= ?)", Date.current.beginning_of_month, Date.current.end_of_month) }
+  scope :non_paid_users, -> { where("
       id NOT IN (
-          SELECT user_id 
-          FROM withdrawals 
+          SELECT user_id
+          FROM withdrawals
           WHERE (DATE(?) - DATE(withdrawals.created_at)) < ?)
       ", Time.current, BILLING_INTERVAL).order("id ASC")
   }
-  scope :never_paid, ->{ where('id NOT IN (SELECT user_id FROM withdrawals)') }
+  scope :never_paid, -> { where('id NOT IN (SELECT user_id FROM withdrawals)') }
 
   ransacker :never_paid, callable: NeverPaidUsersRansacker
 
-  state_machine :state, :initial => :active do
+  aasm column: :state do
+    state :active, initial: true
+    state :disabled
+
     event :disable do
-      transition :active => :disabled
+      transitions from: :active, to: :disabled
     end
 
     event :activate do
-      transition :disabled => :active
+      transitions from: :disabled, to: :active
     end
   end
 
@@ -125,28 +131,28 @@ class User < ActiveRecord::Base
 
   private
 
-    def interval_prolongation
-      last_withdrawal ? last_withdrawal.prolongation_days : 0
-    end
+  def interval_prolongation
+    last_withdrawal ? last_withdrawal.prolongation_days : 0
+  end
 
-    def selected_plan_is_regular
-      unless plan && plan.regular?
-        errors.add(:plan_id, I18n.t('activerecord.validations.user.regular_plan'))
-      end
+  def selected_plan_is_regular
+    unless plan && plan.regular?
+      errors.add(:plan_id, I18n.t('activerecord.validations.user.regular_plan'))
     end
+  end
 
-    def generate_reflink
-      self.reflink = Signer.hashify_string(email)
-    end
+  def generate_reflink
+    self.reflink = Signer.hashify_string(email)
+  end
 
-    def generate_vpn_credentials
-      self.vpn_login = Signer.hashify_string(email)
-      self.vpn_password = RandomString.generate(12)
-    end
+  def generate_vpn_credentials
+    self.vpn_login = Signer.hashify_string(email)
+    self.vpn_password = RandomString.generate(12)
+  end
 
-    def add_to_newsletter
-      AddUserToNewsletterWorker.perform_async(email, :all)
-    end
+  def add_to_newsletter
+    AddUserToNewsletterWorker.perform_async(email, :all)
+  end
 end
 
 # == Schema Information
@@ -180,4 +186,3 @@ end
 #  state                    :string(255)
 #  can_not_withdraw_counter :integer          default(0)
 #
-
