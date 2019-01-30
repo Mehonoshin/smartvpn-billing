@@ -76,7 +76,7 @@ module AdminHelper
   end
 
   def object_states_select_collection(class_name)
-    class_name.state_machine.states.map do |s|
+    class_name.aasm.states.map do |s|
       [s.name.capitalize, s.name]
     end
   end
