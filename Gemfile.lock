@@ -12,15 +12,11 @@ GIT
       actionpack (>= 3.2, < 5)
       activemodel (>= 3.2, < 5)
 
-GIT
-  remote: git://github.com/pluginaweek/state_machine.git
-  revision: 5bbf99e2b9187070de024775ed06712e552b9a68
-  specs:
-    state_machine (1.2.0)
-
 GEM
   remote: http://rubygems.org/
   specs:
+    aasm (5.0.1)
+      concurrent-ruby (~> 1.0)
     actionmailer (4.2.11)
       actionpack (= 4.2.11)
       actionview (= 4.2.11)
@@ -451,8 +447,9 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  aasm
   active_model_serializers
-  activemerchant
+  activemerchant (~> 1.32.1)
   better_errors
   bootstrap (~> 4.2.1)
   cancan
@@ -483,7 +480,7 @@ DEPENDENCIES
   mechanize
   migration_opener
   newrelic_rpm
-  pg
+  pg (~> 0.15.1)
   pghero
   pry-rails
   puma
@@ -506,7 +503,6 @@ DEPENDENCIES
   simplecov
   sinatra
   slim
-  state_machine!
   thin
   thread_safe (= 0.3.6)
   timecop
