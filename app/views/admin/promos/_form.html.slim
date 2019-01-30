@@ -9,7 +9,7 @@
       .col-md-6
         = f.input :date_to, as: :date, html5: true
     = f.input :promo_code
-    = f.input :state, as: :select, collection: Promo.state_machine.states.map { |s| [t("activerecord.attributes.promo.states.#{s.name}"), s.name] }, include_blank: false
+    = f.input :state, as: :select, collection: Promo.aasm.states.map { |s| [t("activerecord.attributes.promo.states.#{s.name}"), s.name] }, include_blank: false
 
     = f.simple_fields_for :attrs do |a|
       - if @promo.promoter
