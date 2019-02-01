@@ -12,7 +12,7 @@ class Withdrawal < ActiveRecord::Base
   after_create :decrease_user_balance
 
   def prolongation_days
-    withdrawal_prolongations.map { |p| p.days_number }.inject { |sum, n| sum + n } || 0
+    withdrawal_prolongations.map(&:days_number).inject { |sum, n| sum + n } || 0
   end
 
   private
@@ -22,9 +22,7 @@ class Withdrawal < ActiveRecord::Base
   end
 
   def balance_greater_than_amount
-    if user.balance < amount
-      errors.add(:amount, I18n.t('activerecord.validations.withdrawal.not_enough_funds'))
-    end
+    errors.add(:amount, I18n.t('activerecord.validations.withdrawal.not_enough_funds')) if user.balance < amount
   end
 end
 

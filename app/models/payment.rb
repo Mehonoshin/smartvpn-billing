@@ -18,7 +18,7 @@ class Payment < ActiveRecord::Base
     state :accepted
 
     event :accept do
-      transitions from: :pending, to: :accepted, after: [:increase_balance, :try_to_withdraw_funds]
+      transitions from: :pending, to: :accepted, after: %i[increase_balance try_to_withdraw_funds]
     end
   end
 

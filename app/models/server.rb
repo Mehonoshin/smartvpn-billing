@@ -3,7 +3,7 @@
 class Server < ActiveRecord::Base
   include AASM
 
-  PROTOCOLS = ['udp', 'tcp']
+  PROTOCOLS = %w[udp tcp].freeze
 
   has_many :connects
   has_many :disconnects

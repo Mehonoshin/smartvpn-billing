@@ -3,7 +3,7 @@
 class PaySystem < ActiveRecord::Base
   include AASM
 
-  CURRENCIES = %w(usd rub eur)
+  CURRENCIES = %w[usd rub eur].freeze
 
   has_many :payments
   validates :name, :code, presence: true

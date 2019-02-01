@@ -140,9 +140,7 @@ class User < ActiveRecord::Base
   end
 
   def selected_plan_is_regular
-    unless plan && plan.regular?
-      errors.add(:plan_id, I18n.t('activerecord.validations.user.regular_plan'))
-    end
+    errors.add(:plan_id, I18n.t('activerecord.validations.user.regular_plan')) unless plan&.regular?
   end
 
   def generate_reflink

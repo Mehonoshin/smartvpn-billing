@@ -6,7 +6,7 @@ class Promoter
       raise 'Implement it in child class'
     end
 
-    def apply(promo, base_value)
+    def apply(_promo, _base_value)
       raise 'Implement it in child class'
     end
 

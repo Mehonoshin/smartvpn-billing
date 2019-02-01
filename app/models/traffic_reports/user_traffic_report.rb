@@ -1,5 +1,6 @@
-class UserTrafficReport < TrafficReport
+# frozen_string_literal: true
 
+class UserTrafficReport < TrafficReport
   private
 
   def build_report

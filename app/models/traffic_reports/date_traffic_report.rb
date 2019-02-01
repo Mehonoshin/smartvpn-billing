@@ -1,5 +1,6 @@
-class DateTrafficReport < TrafficReport
+# frozen_string_literal: true
 
+class DateTrafficReport < TrafficReport
   private
 
   def build_report

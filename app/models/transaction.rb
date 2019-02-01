@@ -17,7 +17,7 @@ class Transaction
 
     def cast_collection_to_transactions(payments, withdrawals)
       (payments.to_a + withdrawals.to_a)
-        .sort_by { |t| t.created_at }
+        .sort_by(&:created_at)
         .each_with_index
         .map { |t, id| Transaction.new(id + 1, t) }
         .reverse!
