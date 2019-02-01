@@ -3,14 +3,15 @@
 class Promo < ActiveRecord::Base
   include AASM
 
-  TYPES = %w( withdrawal )
+  TYPES = [withdrawal]
   self.inheritance_column = 'sti_type'
 
   validates :name, :type, :promoter_type, presence: true
 
   scope :withdrawal, -> { where(type: 'withdrawal') }
-  scope :active, -> {
-    where("state='active' AND ? BETWEEN date_from AND date_to", Date.current) }
+  scope :active, lambda {
+    where("state='active' AND ? BETWEEN date_from AND date_to", Date.current)
+  }
 
   aasm column: :state do
     state :pending, initial: true

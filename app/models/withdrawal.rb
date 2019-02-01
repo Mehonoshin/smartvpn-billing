@@ -15,15 +15,15 @@ class Withdrawal < ActiveRecord::Base
 
   private
 
-    def decrease_user_balance
-      user.decrease_balance(amount)
-    end
+  def decrease_user_balance
+    user.decrease_balance(amount)
+  end
 
-    def balance_greater_than_amount
-      if user.balance < amount
-        errors.add(:amount, I18n.t('activerecord.validations.withdrawal.not_enough_funds'))
-      end
+  def balance_greater_than_amount
+    if user.balance < amount
+      errors.add(:amount, I18n.t('activerecord.validations.withdrawal.not_enough_funds'))
     end
+  end
 end
 
 # == Schema Information

@@ -9,7 +9,5 @@ class Ability
     elsif user.is_a?(User)
       can :read, Post
     end
-
   end
-
 end

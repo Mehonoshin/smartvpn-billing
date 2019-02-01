@@ -27,5 +27,4 @@ class TrafficReport
   def persisted?
     false
   end
-
 end
