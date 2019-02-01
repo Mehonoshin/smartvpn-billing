@@ -3,7 +3,7 @@
 class Promo < ActiveRecord::Base
   include AASM
 
-  TYPES = ["withdrawal"]
+  TYPES = ['withdrawal']
   self.inheritance_column = 'sti_type'
 
   validates :name, :type, :promoter_type, presence: true
