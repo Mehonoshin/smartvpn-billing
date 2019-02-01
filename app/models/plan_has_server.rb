@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class PlanHasServer < ActiveRecord::Base
   belongs_to :plan
   belongs_to :server
@@ -13,4 +15,3 @@ end
 #  created_at :datetime
 #  updated_at :datetime
 #
-

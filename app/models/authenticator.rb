@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Authenticator
   def initialize(login, password, hostname)
     @login, @password, @hostname = login, password, hostname

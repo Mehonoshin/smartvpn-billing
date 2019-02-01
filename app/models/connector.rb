@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Connector
   attr_reader :user, :server
 
@@ -40,7 +42,7 @@ class Connector
   end
 
   def connect?
-    @action == "connect"
+    @action == 'connect'
   end
 
   # TODO:
@@ -60,6 +62,10 @@ class Connector
       hook = option.hook(@user)
       payload[option.code] = hook ? hook.disconnect : {}
     end
-    user.disconnects.create!(server_id: server.id, option_attributes: payload, traffic_in: @traffic_in, traffic_out: @traffic_out)
+    user.disconnects
+        .create!(server_id: server.id,
+                 option_attributes: payload,
+                 traffic_in: @traffic_in,
+                 traffic_out: @traffic_out)
   end
 end

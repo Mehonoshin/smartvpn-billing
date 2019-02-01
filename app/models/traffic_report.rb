@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class TrafficReport
   include ActiveModel::Validations
   include ActiveModel::Conversion
@@ -12,7 +14,7 @@ class TrafficReport
   end
 
   def result
-    @result = build_report.where("created_at >= ? AND created_at <= ?", date_from, date_to)
+    @result = build_report.where('created_at >= ? AND created_at <= ?', date_from, date_to)
   end
 
   def date_from

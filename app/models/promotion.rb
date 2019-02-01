@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Promotion < ActiveRecord::Base
   attr_accessor :promo_code
 
@@ -23,4 +25,3 @@ end
 #  created_at :datetime
 #  updated_at :datetime
 #
-

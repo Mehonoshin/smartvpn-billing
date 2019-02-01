@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Withdrawal < ActiveRecord::Base
   belongs_to :user
   belongs_to :plan
@@ -5,12 +7,12 @@ class Withdrawal < ActiveRecord::Base
   has_many :withdrawal_prolongations
 
   validates :amount, :user_id, :plan_id, presence: true
-  validate :balance_greater_than_amount, on: :create, if: "user.present? && amount.present?"
+  validate :balance_greater_than_amount, on: :create, if: 'user.present? && amount.present?'
 
   after_create :decrease_user_balance
 
   def prolongation_days
-    withdrawal_prolongations.map{ |p| p.days_number }.inject{ |sum, n| sum + n } || 0
+    withdrawal_prolongations.map { |p| p.days_number }.inject { |sum, n| sum + n } || 0
   end
 
   private
@@ -37,4 +39,3 @@ end
 #  created_at :datetime
 #  updated_at :datetime
 #
-

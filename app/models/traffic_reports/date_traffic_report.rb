@@ -13,6 +13,6 @@ class DateTrafficReport < TrafficReport
                 DATE_TRUNC('day', created_at) AS date,
                 SUM(traffic_in) AS traffic_in,
                 SUM(traffic_out) AS traffic_out")
-              .order("date DESC")
+              .order('date DESC')
   end
 end
