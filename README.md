@@ -16,6 +16,18 @@ All documentation is located in this repository: [https://github.com/Mehonoshin/
 
 VPN node configuration is located in the following [repo](https://github.com/Mehonoshin/smartvpn-node).
 
+### Installation through install.sh
+
+* Automatic installation supported only Ubuntu 18 and Centos 7
+
+[![demo](https://asciinema.org/a/I6ZMHwhNHw8qv0nuDTrF1V2N4.svg)](https://asciinema.org/a/I6ZMHwhNHw8qv0nuDTrF1V2N4?autoplay=1)
+
+1. Clone repo `git clone git@github.com:Mehonoshin/smartvpn-billing.git`
+2. `cd smartvpn-billing`
+3. Open docker-compose.yml and add your `VERY321STRONGLY432KEY` to `SECRET_TOKEN`
+4. ./install.sh
+5. Go to http://lvh.me:3000
+
 ### Set Up and Running app locally
 
 1. Clone repo `git clone git@github.com:Mehonoshin/smartvpn-billing.git`
