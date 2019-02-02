@@ -30,8 +30,8 @@ class Transaction
   end
 
   def amount
-    # Если это пополнение - то получим usd_amount
-    # иначе это списание, и тогда возьмем amount
+    # If this is a Deposit, we will get usd_amount
+    # otherwise, it is a write-off, and then take amount
     object.try(:usd_amount) || object.amount
   end
 end
