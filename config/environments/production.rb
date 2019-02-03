@@ -83,9 +83,9 @@ Smartvpn::Application.configure do
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    address: 'smtp.yandex.ru',
-    port: 465,
-    domain: 'publicitate.xyz',
+    address: ENV['EMAIL_ADDRESS'],
+    port: ENV['EMAIL_PORT'],
+    domain: ENV['EMAIL_DOMAIN'],
     user_name: ENV['EMAIL_USER'],
     password: ENV['EMAIL_PASS'],
     authentication: 'plain',
