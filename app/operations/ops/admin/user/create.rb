@@ -17,7 +17,7 @@ module Ops
 
         def build_created_user!
           user.confirm
-          CreateUserMailWorker.perform_async(user_id: user.id, crypted_password: Base64.encode64(params[:password]))
+          CreateUserMailWorker.perform_async(user.id)
         end
 
         def user

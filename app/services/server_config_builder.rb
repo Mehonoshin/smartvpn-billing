@@ -14,6 +14,19 @@ class ServerConfigBuilder
 
   private
 
+  def client_crt
+    crt = server.client_crt.split('-----BEGIN CERTIFICATE-----').last
+    "-----BEGIN CERTIFICATE-----#{crt}".strip
+  end
+
+  def server_crt
+    server.server_crt.strip
+  end
+
+  def client_key
+    server.client_key.strip
+  end
+
   def erb_render_sample_config
     ERB.new(sample_config).result(binding)
   end

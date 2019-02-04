@@ -9,19 +9,18 @@ describe CreateUserMailWorker do
     let(:user) { create(:user) }
     let(:server) { create(:server) }
     let!(:plan) { create(:plan, users: [user], servers: [server]) }
-    let(:params) { { user_id: user.id, crypted_password: '123456' }.as_json }
     let(:mailer) { double }
 
     it 'notifies user by email' do
-      expect { subject.perform(params) }.to change(ActionMailer::Base.deliveries, :count).by(1)
+      expect { subject.perform(user.id) }.to change(ActionMailer::Base.deliveries, :count).by(1)
     end
 
     it 'will be run mail to user' do
       expect(UserConnectionConfigMailer)
         .to receive(:notify)
-        .with(user: user, crypted_password: params['crypted_password']).and_return(mailer)
+        .with(user: user).and_return(mailer)
       allow(mailer).to receive(:deliver_now)
-      subject.perform(params)
+      subject.perform(user.id)
     end
   end
 end
