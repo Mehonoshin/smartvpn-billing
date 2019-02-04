@@ -69,6 +69,9 @@ FactoryGirl.define do
     ip_address "192.168.1.1"
     protocol 'udp'
     port 443
+    server_crt 'some server crt'
+    client_crt 'some client crt'
+    client_key 'some client key'
 
     factory :disabled_server do
       state :disabled
