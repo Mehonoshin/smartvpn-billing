@@ -7,7 +7,7 @@ source 'http://rubygems.org'
 
 gem 'rails', '4.2.11'
 
-gem 'pg', '~> 0.15.1'
+gem 'pg', '~> 1.1.4'
 gem 'pghero'
 gem 'thin'
 
