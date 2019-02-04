@@ -82,14 +82,19 @@ Smartvpn::Application.configure do
   config.action_mailer.default_url_options = { host: ENV['DEFAULT_HOST'] }
 
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
+
+  smtp_setting_params = {
     address: ENV['EMAIL_ADDRESS'],
     port: ENV['EMAIL_PORT'],
     domain: ENV['EMAIL_DOMAIN'],
     user_name: ENV['EMAIL_USER'],
     password: ENV['EMAIL_PASS'],
     authentication: 'plain',
-    enable_starttls_auto: true,
-    tls: true
+    enable_starttls_auto: true
   }
+  config.action_mailer.smtp_settings = if ENV['EMAIL_TLS'] == 'true'
+                                         smtp_setting_params.merge(tls: true)
+                                       else
+                                         smtp_setting_params
+                                       end
 end
