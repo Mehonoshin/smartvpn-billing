@@ -1,20 +1,26 @@
+# frozen_string_literal: true
+
 class PaySystem < ActiveRecord::Base
-  CURRENCIES = %w(usd rub eur)
+  include AASM
+
+  CURRENCIES = %w[usd rub eur].freeze
 
   has_many :payments
   validates :name, :code, presence: true
-  scope :enabled, ->{ where(state: :enabled) }
+  scope :enabled, -> { where(state: :enabled) }
 
-  state_machine :state, :initial => :disabled do
+  aasm column: :state do
+    state :disabled, initial: true
+    state :enabled
+
     event :enable do
-      transition :disabled => :enabled
+      transitions from: :disabled, to: :enabled
     end
 
     event :disable do
-      transition :enabled => :disabled
+      transitions from: :enabled, to: :disabled
     end
   end
-
 end
 
 # == Schema Information
@@ -30,4 +36,3 @@ end
 #  state       :string(255)
 #  currency    :string(255)      default("usd")
 #
-

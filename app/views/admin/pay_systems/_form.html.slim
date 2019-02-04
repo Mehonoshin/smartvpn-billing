@@ -6,7 +6,7 @@
       = f.input :description
       = f.input :state,
         as: :select,
-        collection: PaySystem.state_machine.states.map { |s| [t("admin.pay_systems.states.#{s.name}"), s.name] },
+        collection: PaySystem.aasm.states.map { |s| [t("admin.pay_systems.states.#{s.name}"), s.name] },
         include_blank: false
       = f.input :currency, as: :select, collection: PaySystem::CURRENCIES.map { |c| [c, c] }
       br

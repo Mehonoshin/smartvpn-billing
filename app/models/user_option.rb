@@ -1,26 +1,30 @@
+# frozen_string_literal: true
+
 class UserOption < ActiveRecord::Base
   # NOTICE:
   # bad name - UserOption.
   # better variant - OptionSubscription
+  include AASM
+
   belongs_to :user
   belongs_to :option
 
   validates :user_id, :option_id, presence: true
 
-  scope :enabled, ->{ with_state(:enabled) }
+  aasm column: :state do
+    state :enabled, initial: true
+    state :disabled
 
-  state_machine :state, :initial => :enabled do
     event :enable do
-      transition :disabled => :enabled
+      transitions from: :disabled, to: :enabled
     end
 
     event :disable do
-      transition :enabled => :disabled
+      transitions from: :enabled, to: :disabled
     end
   end
 
   def toggle!
     enabled? ? disable! : enable!
   end
-
 end

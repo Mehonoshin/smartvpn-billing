@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class Option < ActiveRecord::Base
+  include AASM
+
   validates :name, :code, presence: true
 
   has_and_belongs_to_many :plans
@@ -9,13 +11,16 @@ class Option < ActiveRecord::Base
 
   scope :active, -> { where(state: 'active') }
 
-  state_machine :state, initial: :disabled do
+  aasm column: :state do
+    state :disabled, initial: true
+    state :active
+
     event :activate do
-      transition disabled: :active
+      transitions from: :disabled, to: :active
     end
 
     event :disable do
-      transition active: :disabled
+      transitions from: :active, to: :disabled
     end
   end
 

@@ -1,20 +1,28 @@
+# frozen_string_literal: true
+
 class Promo < ActiveRecord::Base
-  TYPES = %w( withdrawal )
+  include AASM
+
+  TYPES = ['withdrawal'].freeze
   self.inheritance_column = 'sti_type'
 
   validates :name, :type, :promoter_type, presence: true
 
-  scope :withdrawal, ->{ where(type: "withdrawal") }
-  scope :active, ->{
-    where("state='active' AND ? BETWEEN date_from AND date_to", Date.current) }
+  scope :withdrawal, -> { where(type: 'withdrawal') }
+  scope :active, lambda {
+    where("state='active' AND ? BETWEEN date_from AND date_to", Date.current)
+  }
 
-  state_machine :state, :initial => :pending do
+  aasm column: :state do
+    state :pending, initial: true
+    state :active
+
     event :start do
-      transition :pending => :active
+      transitions from: :pending, to: :active
     end
 
     event :stop do
-      transition :active => :pending
+      transitions from: :active, to: :pending
     end
   end
 
@@ -39,4 +47,3 @@ end
 #  attrs         :hstore           default({})
 #  state         :string(255)
 #
-

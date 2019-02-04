@@ -11,6 +11,7 @@ require 'capybara/rspec'
 require 'capybara/email/rspec'
 require 'shoulda-matchers'
 require 'sidekiq/testing'
+require 'aasm/rspec'
 Sidekiq::Testing.fake!
 
 Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }

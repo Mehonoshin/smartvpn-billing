@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Ability
   include CanCan::Ability
 
@@ -9,7 +11,5 @@ class Ability
     elsif user.is_a?(User)
       can :read, Post
     end
-
   end
-
 end

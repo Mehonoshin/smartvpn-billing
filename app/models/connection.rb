@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Connection < ActiveRecord::Base
   belongs_to :user
   belongs_to :server
@@ -35,4 +37,3 @@ end
 #  created_at  :datetime
 #  updated_at  :datetime
 #
-
