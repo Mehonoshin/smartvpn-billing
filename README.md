@@ -45,29 +45,6 @@ VPN node configuration is located in the following [repo](https://github.com/Meh
 How it works :)
 https://www.youtube.com/watch?v=VFRKPO5LHDg
 
-### Set Up and Running with Docker
-
-For this type of installation we assume that you already have a VPS for billing with root access.
-Also you should have `docker` and `docker-compose` installed on your machine.
-
-For a successful project launch you also need to specify a list of environment variables on VPS, that will be ingested inside docker container.
-Keep in mind, that these variables should be available each time you start/restart containers, so it is a good idea to keep them in `.bashrc`.
-
-```
-export SECRET_TOKEN=some_super_secret_value
-```
-
-Now you are ready to launch docker-compose. Feel free to copy it from repo directly to your VPS.
-
-`docker-compose up -d`
-
-Now the billing is ready and you can try to access it:
-
-* Visit [http://vps_ip/admins/sign_in](http://vps_ip/admins/sign_in)
-* Sign in with email `admin@smartvpn.biz` and password `password`
-
-To accept the first users you need at least one tariff plan, that can be added at [http://vps_ip/admin/plans](http://vps_ip/admin/plans).
-
 ## Docker image
 
 The docker image is built automatically on every merge to master. You can always pull the latest version of the image from Docker Hub.
