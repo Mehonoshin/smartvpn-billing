@@ -77,11 +77,3 @@ docker pull mexx/smartvpn-billing
 ```
 
 For more information about the builds visit docker hub page [mexx/smartvpn-billing](https://hub.docker.com/r/mexx/smartvpn-billing)
-
-
-## Dockerization todo
-
-* Document the list of ENV variables required for production
-* Add simple nginx to proxy requests to the app
-* Create VPN node image
-* Add instructions how to run vpn on Digital Ocean
