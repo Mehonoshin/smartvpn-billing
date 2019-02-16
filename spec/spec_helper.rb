@@ -31,6 +31,8 @@ end
 
 Capybara.javascript_driver = :chrome_headless
 
+I18n.available_locales = [:ru, :en]
+
 Zonebie.set_random_timezone
 FakeWeb.allow_net_connect = false
 ActiveRecord::Migration.check_pending! if defined?(ActiveRecord::Migration)
@@ -69,6 +71,9 @@ RSpec.configure do |config|
                                  :transaction
                                end
     DatabaseCleaner.start
+
+    # freeze locale for each test
+    I18n.locale = :en
   end
 
   config.before(:each, type: :feature) do
