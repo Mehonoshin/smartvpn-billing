@@ -11,6 +11,8 @@ class Withdrawal < ActiveRecord::Base
 
   after_create :decrease_user_balance
 
+  scope :by_interval, ->(interval) { where('(DATE(?) - DATE(withdrawals.created_at)) < ?', Time.current, interval) }
+
   def prolongation_days
     withdrawal_prolongations.map(&:days_number).inject { |sum, n| sum + n } || 0
   end

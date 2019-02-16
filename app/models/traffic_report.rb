@@ -14,15 +14,15 @@ class TrafficReport
   end
 
   def result
-    @result = build_report.where('created_at >= ? AND created_at <= ?', date_from, date_to)
+    @result = build_report.where(created_at: [date_from..date_to])
   end
 
   def date_from
-    @date_from || Date.current.beginning_of_month
+    (@date_from.try(:to_time) || Time.current).beginning_of_month
   end
 
   def date_to
-    @date_to || Date.current.end_of_month
+    (@date_to.try(:to_time) || Time.current).end_of_month
   end
 
   # To behave as active model
