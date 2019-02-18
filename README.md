@@ -12,7 +12,7 @@ You can find some information about it at [https://news.ycombinator.com/item?id=
 
 ### Installation
 
-All documentation is located in this repository: [https://github.com/Mehonoshin/smartvpn-docs](https://github.com/Mehonoshin/smartvpn-docs)
+All documentation is located in this repository: [https://github.com/Mehonoshin/smartvpn](https://github.com/Mehonoshin/smartvpn)
 
 VPN node configuration is located in the following [repo](https://github.com/Mehonoshin/smartvpn-node).
 
