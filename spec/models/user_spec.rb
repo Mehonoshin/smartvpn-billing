@@ -256,7 +256,6 @@ end
 
 describe User, 'scopes' do
   describe 'by payments' do
-    subject { described_class }
     let!(:paid_user) { create(:user) }
     let!(:earliar_paid_user) { create(:user) }
     let!(:not_paid_user) { create(:user) }
@@ -268,18 +267,23 @@ describe User, 'scopes' do
     end
 
     describe '.payers' do
+      subject(:payers) { described_class.payers }
+
       it 'returns this month payers' do
-        expect(subject.payers).to include paid_user
+        expect(payers).to include paid_user
       end
 
       it 'returns old payers' do
-        expect(subject.payers).to include earliar_paid_user
+        expect(payers).to include earliar_paid_user
       end
     end
 
     describe '.this_month_payers' do
+      subject(:payers) { described_class.this_month_payers }
+
       it 'returns obly who paid at this month' do
-        expect(subject.payers).to include paid_user
+        expect(payers).to include paid_user
+        expect(payers).not_to include earliar_paid_user
       end
     end
   end
