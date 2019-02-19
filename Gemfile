@@ -16,6 +16,7 @@ gem 'chartkick'
 gem 'activemerchant', '~> 1.32.1'
 gem 'bootstrap', '~> 4.2.1'
 gem 'cancan'
+gem 'clockwork'
 gem 'devise', '4.5.0'
 gem 'devise-i18n', '~> 0.10.3'
 gem 'font-awesome-sass', '~> 5.6.1'
@@ -93,6 +94,7 @@ group :test do
   gem 'simplecov', require: false
   # TODO: switch to webmock since fakeweb is not supported anymore
   gem 'capybara-email'
+  gem 'clockwork-test'
   gem 'fakeweb', github: 'chrisk/fakeweb'
   gem 'zonebie'
 end
