@@ -38,23 +38,11 @@ class User < ActiveRecord::Base
   before_create :generate_vpn_credentials, :generate_reflink
   after_create :add_to_newsletter
 
-  scope :active_referrers, -> { joins('INNER JOIN users AS referrals ON referrals.referrer_id=users.id').distinct }
+  scope :active_referrers, -> { joins(:referrals).distinct }
   scope :payers, -> { where(id: Payment.select(:user_id)) }
-  scope :this_month_payers, lambda {
-    where('id IN (
-              SELECT user_id
-              FROM payments
-              WHERE created_at >= ? AND created_at <= ?)
-            ', Date.current.beginning_of_month, Date.current.end_of_month)
-  }
-  scope :non_paid_users, lambda {
-    where('id NOT IN (
-              SELECT user_id
-              FROM withdrawals
-              WHERE (DATE(?) - DATE(withdrawals.created_at)) < ?)
-            ', Time.current, BILLING_INTERVAL).order('id ASC')
-  }
-  scope :never_paid, -> { where('id NOT IN (SELECT user_id FROM withdrawals)') }
+  scope :this_month_payers, -> { where(id: Payment.select(:user_id).in_current_month) }
+  scope :non_paid_users, -> { where.not(id: Withdrawal.select(:user_id).by_interval(BILLING_INTERVAL)).order(id: :asc) }
+  scope :never_paid, -> { where.not(id: Withdrawal.select(:user_id)) }
 
   ransacker :never_paid, callable: NeverPaidUsersRansacker
 

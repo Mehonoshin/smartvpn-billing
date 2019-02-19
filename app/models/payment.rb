@@ -12,6 +12,7 @@ class Payment < ActiveRecord::Base
   before_create :convert_and_save_usd_amount
 
   scope :accepted, -> { where(state: 'accepted') }
+  scope :in_current_month, -> { where(created_at: [Time.current.beginning_of_month..Time.current.end_of_month]) }
 
   aasm column: :state do
     state :pending, initial: true

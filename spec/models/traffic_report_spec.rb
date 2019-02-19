@@ -19,29 +19,31 @@ describe TrafficReport do
   end
 
   context 'params on initialization passed' do
+    let(:date_from) { '01-10-2013' }
+    let(:date_to) { '31-10-2013' }
     let(:params) do
       {
-        date_from: '01-10-2013',
-        date_to: '31-10-2013'
+        date_from: date_from,
+        date_to: date_to
       }
     end
 
     it 'date_from returns date from params' do
-      expect(subject.date_from).to eq '01-10-2013'
+      expect(subject.date_from).to eq date_from.to_time.beginning_of_month
     end
 
     it 'date_to returns date from params' do
-      expect(subject.date_to).to eq '31-10-2013'
+      expect(subject.date_to).to eq date_to.to_time.end_of_month
     end
   end
 
   context 'no params passed' do
     it 'date from equals beginning of month' do
-      expect(subject.date_from).to eq Date.current.beginning_of_month
+      expect(subject.date_from).to eq Time.current.beginning_of_month
     end
 
     it 'date to equals end of month' do
-      expect(subject.date_to).to eq Date.current.end_of_month
+      expect(subject.date_to).to eq Time.current.end_of_month
     end
   end
 end

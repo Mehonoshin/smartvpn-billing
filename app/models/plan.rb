@@ -8,7 +8,7 @@ class Plan < ActiveRecord::Base
   has_many :servers, through: :included_servers
   has_and_belongs_to_many :options
 
-  scope :regular, -> { where('special IS NOT true') }
+  scope :regular, -> { where.not(special: true) }
   scope :enabled, -> { where(enabled: true) }
 
   def regular?
