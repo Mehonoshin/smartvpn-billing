@@ -13,6 +13,11 @@ services:
 matrix:
   include:
     - rvm: 2.5.3
+      name: 'RuboCop (for changed files)'
+      script:
+        - echo "$(git --no-pager diff --name-only $TRAVIS_COMMIT_RANGE)" | xargs bundle exec rubocop "$@"
+
+    - rvm: 2.5.3
       name: 'Perform DB setup (with seeds)'
       before_script:
         - cp config/database.yml.sample config/database.yml
