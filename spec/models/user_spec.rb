@@ -246,10 +246,23 @@ describe User, 'callbacks on create' do
   end
 
   describe 'newsletter subscription' do
-    it 'adds to newsletter' do
-      expect do
-        create(:user)
-      end.to change(AddUserToNewsletterWorker.jobs, :size).by(1)
+    let(:settings) { double('Settings.mailchimp') }
+    before { allow(Settings).to receive(:mailchimp).and_return(settings) }
+
+    context 'subscription set as true' do
+      before { expect(settings).to receive(:subscription).and_return('true') }
+
+      it 'adds to newsletter' do
+        expect { create(:user) }.to change(AddUserToNewsletterWorker.jobs, :size).by(1)
+      end
+    end
+
+    context 'subscription set as false' do
+      before { expect(settings).to receive(:subscription).and_return('false') }
+
+      it 'adds to newsletter' do
+        expect { create(:user) }.not_to change(AddUserToNewsletterWorker.jobs, :size)
+      end
     end
   end
 end

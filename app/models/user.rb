@@ -141,6 +141,8 @@ class User < ActiveRecord::Base
   end
 
   def add_to_newsletter
+    return unless Settings.mailchimp.subscription == 'true'
+
     AddUserToNewsletterWorker.perform_async(email, :all)
   end
 end
