@@ -14,5 +14,5 @@ untracked_files=`git ls-files --others --exclude-standard -- '*.rb' '*.rake'`
 files="$changed_files $untracked_files"
 
 if [[ -n "${files// }" ]]; then
- echo "$files" | xargs bundle exec rubocop "$@"
+ echo "$files" | xargs bundle exec rubocop -c .rubocop.yml "$@"
 fi
