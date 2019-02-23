@@ -16,7 +16,9 @@ All documentation is located in this repository: [https://github.com/Mehonoshin/
 
 VPN node configuration is located in the following [repo](https://github.com/Mehonoshin/smartvpn-node).
 
-### Set Up and Running app locally
+### Development setup
+
+#### Set Up and Running app locally
 
 1. Clone repo `git clone git@github.com:Mehonoshin/smartvpn-billing.git`
 2. `cd smartvpn-billing`
@@ -27,7 +29,7 @@ VPN node configuration is located in the following [repo](https://github.com/Meh
 7. `rake db:setup`
 8. `rails server`
 
-### Start Up and Developing with Docker
+#### Start Up and Developing with Docker
 
 1. Clone repo `git clone git@github.com:Mehonoshin/smartvpn-billing.git`
 2. `cd smartvpn-billing`
