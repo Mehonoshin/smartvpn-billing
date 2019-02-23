@@ -17,6 +17,7 @@ matrix:
   include:
     - rvm: 2.5.3
       name: 'RuboCop (for changed files)'
+      if: branch != master
       script:
         - bundle exec bin/cop
 
