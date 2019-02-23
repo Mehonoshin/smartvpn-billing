@@ -1,10 +1,10 @@
+# frozen_string_literal: true
+
 class NeverPaidUsersRansacker < BaseRansacker
-  TRUE_VALUES = ['1', 1]
+  TRUE_VALUES = ['1', 1].freeze
 
   def eq(value)
-    if apply_ransacker?(value)
-      table[:id].in(unpaid_user_ids)
-    end
+    table[:id].in(unpaid_user_ids) if apply_ransacker?(value)
   end
 
   def unpaid_user_ids
@@ -15,4 +15,3 @@ class NeverPaidUsersRansacker < BaseRansacker
     TRUE_VALUES.include?(value)
   end
 end
-

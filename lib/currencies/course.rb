@@ -1,12 +1,14 @@
+# frozen_string_literal: true
+
 require 'net/http'
 require 'uri'
 
 module Currencies
   class Course
     COURSES = [
-      {from: 'eur', to: 'usd'},
-      {from: 'rub', to: 'usd'}
-    ]
+      { from: 'eur', to: 'usd' },
+      { from: 'rub', to: 'usd' }
+    ].freeze
 
     class << self
       def update_courses
@@ -28,7 +30,7 @@ module Currencies
       end
 
       def persist_update_date
-        redis.set("smartvpn:courses:updated_at", Time.current)
+        redis.set('smartvpn:courses:updated_at', Time.current)
       end
 
       def updated_at

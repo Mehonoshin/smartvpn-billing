@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Billing::PromotionsController < Billing::BaseController
   def create
     @promo = Promo.active.find_by(promo_code: params[:promotion][:promo_code])

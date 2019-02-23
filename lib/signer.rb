@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'digest/md5'
 
 class Signer
@@ -9,4 +11,3 @@ class Signer
     Digest::MD5.hexdigest(string)
   end
 end
-

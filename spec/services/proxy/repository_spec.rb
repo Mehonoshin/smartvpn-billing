@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 describe Proxy::Repository do
@@ -7,15 +9,17 @@ describe Proxy::Repository do
     let!(:persisted_proxy) { create(:proxy_node) }
 
     context 'valid collection' do
-      let(:proxies) { [
-        { host: '127.0.0.1', port: 3000, country: 'Russia' },
-        { host: '127.0.0.2', port: 3000, country: 'Russia' },
-      ] }
+      let(:proxies) do
+        [
+          { host: '127.0.0.1', port: 3000, country: 'Russia' },
+          { host: '127.0.0.2', port: 3000, country: 'Russia' }
+        ]
+      end
 
       it 'persists collection' do
-        expect {
+        expect do
           subject.persist(proxies)
-        }.to change(Proxy::Node, :count).by(1)
+        end.to change(Proxy::Node, :count).by(1)
       end
 
       it 'contains only new proxies' do
@@ -30,15 +34,17 @@ describe Proxy::Repository do
     end
 
     context 'invalid collection' do
-      let(:proxies) { [
-        { host: '127.0.0.1', port: 3000, country: 'Russia' },
-        { host: nil, port: 3000, country: 'Russia' },
-      ] }
+      let(:proxies) do
+        [
+          { host: '127.0.0.1', port: 3000, country: 'Russia' },
+          { host: nil, port: 3000, country: 'Russia' }
+        ]
+      end
 
       it 'does not persist collection' do
-        expect {
+        expect do
           subject.persist(proxies)
-        }.not_to change(Proxy::Node, :count)
+        end.not_to change(Proxy::Node, :count)
       end
 
       it 'contains old proxy', disable_transaction: true, pending: 'Find out why transaction does not work' do

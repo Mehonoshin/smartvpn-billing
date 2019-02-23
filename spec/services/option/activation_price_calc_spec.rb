@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 describe Option::ActivationPriceCalc do
@@ -55,5 +57,4 @@ describe Option::ActivationPriceCalc do
       end
     end
   end
-
 end

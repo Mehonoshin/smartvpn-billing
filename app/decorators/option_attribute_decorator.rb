@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class OptionAttributeDecorator < Draper::Decorator
   attr_accessor :name, :current_value
 
@@ -8,9 +10,7 @@ class OptionAttributeDecorator < Draper::Decorator
   end
 
   def render
-    if object[:type] == :select
-      h.select_tag name, h.options_for_select(data_for_select, selected: current_value)
-    end
+    h.select_tag name, h.options_for_select(data_for_select, selected: current_value) if object[:type] == :select
   end
 
   private

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 describe Option::Deactivator do
@@ -10,9 +12,9 @@ describe Option::Deactivator do
 
   describe '.run' do
     it 'deactivates option for user' do
-      expect {
+      expect do
         described_class.run(user, option.id)
-      }.to change(user.options, :count).by(-1)
+      end.to change(user.options, :count).by(-1)
     end
   end
 end

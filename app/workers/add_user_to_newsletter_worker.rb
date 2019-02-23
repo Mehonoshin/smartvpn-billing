@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 class AddUserToNewsletterWorker
   include Sidekiq::Worker
-  sidekiq_options queue: "high"
+  sidekiq_options queue: 'high'
 
   def perform(email, list_name)
     api = NewsletterManager.new

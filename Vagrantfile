@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
@@ -15,51 +17,51 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     dev.vm.network :private_network, ip: "#{SUBNET}.10"
     dev.vm.network :forwarded_port, guest: 5432, host: 5432 # pq
     dev.vm.network :forwarded_port, guest: 6379, host: 6379 # redis
-    script = <<SCRIPT
-      date --set #{DateTime.now.strftime('%Y-%m-%d')}
-      date --set #{DateTime.now.strftime('%H:%M')}
-      set -e
+    script = <<~SCRIPT
+            date --set #{DateTime.now.strftime('%Y-%m-%d')}
+            date --set #{DateTime.now.strftime('%H:%M')}
+            set -e
 
-      DEBIAN_FRONTEND=noninteractive
+            DEBIAN_FRONTEND=noninteractive
 
-      apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 9D6D8F6BC857C906
-      apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 7638D0442B90D010
-      apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 7638D0442B90D010
+            apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 9D6D8F6BC857C906
+            apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 7638D0442B90D010
+            apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 7638D0442B90D010
 
-      apt-get -qqy update
+            apt-get -qqy update
 
-      PG_PKG=postgresql
-      PG_INSTALLED=$(dpkg -l | grep -q ${PG_PKG} || echo "NOT")
-      if [ "x${PG_INSTALLED}" = "xNOT" ] ; then
+            PG_PKG=postgresql
+            PG_INSTALLED=$(dpkg -l | grep -q ${PG_PKG} || echo "NOT")
+            if [ "x${PG_INSTALLED}" = "xNOT" ] ; then
 
-        echo 'deb http://apt.postgresql.org/pub/repos/apt/ wheezy-pgdg main' > /etc/apt/sources.list.d/pgdg.list
-        wget https://www.postgresql.org/media/keys/ACCC4CF8.asc --no-check-certificate
-        apt-key add ACCC4CF8.asc
-        apt-get update
+              echo 'deb http://apt.postgresql.org/pub/repos/apt/ wheezy-pgdg main' > /etc/apt/sources.list.d/pgdg.list
+              wget https://www.postgresql.org/media/keys/ACCC4CF8.asc --no-check-certificate
+              apt-key add ACCC4CF8.asc
+              apt-get update
 
-      echo 'Name: libraries/restart-without-asking
-Template: libraries/restart-without-asking
-Value: true
-Owners: libssl1.0.0
-Flags: seen' >> /var/cache/debconf/config.dat
+            echo 'Name: libraries/restart-without-asking
+      Template: libraries/restart-without-asking
+      Value: true
+      Owners: libssl1.0.0
+      Flags: seen' >> /var/cache/debconf/config.dat
 
-        apt-get -qyf install postgresql-10 postgresql-contrib-10 postgresql postgresql-contrib
+              apt-get -qyf install postgresql-10 postgresql-contrib-10 postgresql postgresql-contrib
 
-        sed -i "s|#listen_addresses.*$|listen_addresses = '*' |g" /etc/postgresql/9.3/main/postgresql.conf
-        echo "host    all             all             all               trust" > /etc/postgresql/9.3/main/pg_hba.conf
-        /etc/init.d/postgresql restart
-      fi
+              sed -i "s|#listen_addresses.*$|listen_addresses = '*' |g" /etc/postgresql/9.3/main/postgresql.conf
+              echo "host    all             all             all               trust" > /etc/postgresql/9.3/main/pg_hba.conf
+              /etc/init.d/postgresql restart
+            fi
 
-      REDIS_PKG=redis-server
-      REDIS_INSTALLED=$(dpkg -l | grep -q ${REDIS_PKG} || echo "NOT")
-      if [ "x${REDIS_INSTALLED}" = "xNOT" ] ; then
-        apt-get -qy install $REDIS_PKG
-        sed -i "s|bind 127.0.0.1|#bind = 127.0.0.1|g" /etc/redis/redis.conf
-        /etc/init.d/redis-server restart
-      fi
+            REDIS_PKG=redis-server
+            REDIS_INSTALLED=$(dpkg -l | grep -q ${REDIS_PKG} || echo "NOT")
+            if [ "x${REDIS_INSTALLED}" = "xNOT" ] ; then
+              apt-get -qy install $REDIS_PKG
+              sed -i "s|bind 127.0.0.1|#bind = 127.0.0.1|g" /etc/redis/redis.conf
+              /etc/init.d/redis-server restart
+            fi
 
-      echo DONE
-SCRIPT
+            echo DONE
+    SCRIPT
     dev.vm.provision :shell, inline: script
   end
 

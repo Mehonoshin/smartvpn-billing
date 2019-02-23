@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ReferrersController < ApplicationController
   def set_referrer
     cookies[:reflink] = reflink

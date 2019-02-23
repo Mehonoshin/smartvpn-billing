@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 describe 'user profile' do
@@ -16,5 +18,4 @@ describe 'user profile' do
       ).to have_content I18n.t('admin.users.not_connected')
     end
   end
-
 end

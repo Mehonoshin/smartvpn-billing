@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 describe 'User sign up:' do
@@ -26,7 +28,7 @@ describe 'User sign up:' do
     expect(page).to have_content I18n.t('devise.registrations.signed_up_but_unconfirmed')
 
     ## Registration email confirmation
-    #TODO: hack, for some reason in test env thee confirmation email was not sent
+    # TODO: hack, for some reason in test env thee confirmation email was not sent
     User.last.send_confirmation_instructions
     open_email(email_address)
     token_name = 'confirmation_token'

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Proxy::Updater
   def self.update(fetcher_class)
     proxies = fetcher_class.fetch

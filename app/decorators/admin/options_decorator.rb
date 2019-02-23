@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Admin::OptionsDecorator < Draper::Decorator
   delegate_all
 
@@ -18,5 +20,4 @@ class Admin::OptionsDecorator < Draper::Decorator
   def active?
     object.active?
   end
-
 end

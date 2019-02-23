@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 describe Users::RegistrationsController do
@@ -6,7 +8,7 @@ describe Users::RegistrationsController do
     let(:plan) { create(:plan) }
     let(:attrs) { Hash[email: 'user@email.com', password: '123456789', plan_id: plan.id, accept_agreement: '1'] }
 
-    before { @request.env["devise.mapping"] = Devise.mappings[:user] }
+    before { @request.env['devise.mapping'] = Devise.mappings[:user] }
 
     context 'reflink set in params' do
       before do
@@ -39,7 +41,6 @@ describe Users::RegistrationsController do
       it 'does not have referrer' do
         expect(User.last.referrer).to be_nil
       end
-
     end
   end
 end

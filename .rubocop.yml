@@ -2,6 +2,10 @@
 
 #################### Bundler ###############################
 
+AllCops:
+  Excludes:
+    - db/**
+
 Bundler/DuplicatedGem:
   Description: 'Checks for duplicate gem entries in Gemfile.'
   Enabled: true

@@ -1,1 +1,3 @@
-class SmartvpnException < StandardError; end;
+# frozen_string_literal: true
+
+class SmartvpnException < StandardError; end

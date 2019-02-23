@@ -1,11 +1,13 @@
-class Admins::SessionsController < Devise::SessionsController
-  layout "blank"
+# frozen_string_literal: true
 
-  def after_sign_out_path_for(resource)
+class Admins::SessionsController < Devise::SessionsController
+  layout 'blank'
+
+  def after_sign_out_path_for(_resource)
     new_admin_session_path
   end
 
-  def after_sign_in_path_for(resource)
+  def after_sign_in_path_for(_resource)
     admin_root_path
   end
 

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 describe ForcedDisconnect do
@@ -10,17 +12,17 @@ describe ForcedDisconnect do
       let!(:connect) { create(:connect, user: user, server: server) }
 
       it 'creates disconnect' do
-        expect {
+        expect do
           subject.invoke
-        }.to change(Disconnect, :count).by(1)
+        end.to change(Disconnect, :count).by(1)
       end
     end
 
     context 'not connected' do
       it 'does not create disconnect' do
-        expect {
+        expect do
           subject.invoke
-        }.not_to change(Disconnect, :count)
+        end.not_to change(Disconnect, :count)
       end
     end
   end

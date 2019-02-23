@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class BytesConverter
   class << self
     def bytes_to_kilobytes(bytes)
@@ -18,15 +20,15 @@ class BytesConverter
 
     def prettify_float(number)
       left_side = number.to_s.split('.')[0].to_i
-      if left_side == 0
-        precision = 4
-      elsif left_side.to_s.size == 1
-        precision = 3
-      elsif left_side.to_s.size == 2
-        precision = 2
-      else
-        precision = 1
-      end
+      precision = if left_side == 0
+                    4
+                  elsif left_side.to_s.size == 1
+                    3
+                  elsif left_side.to_s.size == 2
+                    2
+                  else
+                    1
+                  end
 
       number.round(precision)
     end

@@ -1,15 +1,13 @@
+# frozen_string_literal: true
+
 class Admin::TrafficReportsController < Admin::BaseController
-  def index
-  end
+  def index; end
 
-  def users
-  end
+  def users; end
 
-  def date
-  end
+  def date; end
 
-  def servers
-  end
+  def servers; end
 
   private
 

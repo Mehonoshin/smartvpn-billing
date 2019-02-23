@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module ServersHelper
   def server_country_name(server)
     server.country_code

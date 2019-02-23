@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Admin::TransactionsController < Admin::BaseController
   def index
     @transactions = transactions.page(params[:page])

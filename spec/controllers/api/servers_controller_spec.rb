@@ -9,10 +9,10 @@ describe Api::ServersController do
     let(:params) do
       {
         secret_token: secret_token,
-        hostname:     hostname,
-        server_crt:   'server crt',
-        client_crt:   'client crt',
-        client_key:   'client key'
+        hostname: hostname,
+        server_crt: 'server crt',
+        client_crt: 'client crt',
+        client_key: 'client key'
       }
     end
 

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Billing::HomeController < Billing::BaseController
   def index
     @transactions = transactions.page(params[:page])

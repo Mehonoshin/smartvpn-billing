@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 describe Authenticator do
@@ -12,20 +14,20 @@ describe Authenticator do
     user.plan.servers << server
   end
 
-  describe "#valid_password?" do
+  describe '#valid_password?' do
     context 'vpn credentials' do
-      context "with valid credentials" do
+      context 'with valid credentials' do
         before { create(:withdrawal, user: user) }
 
-        it "returns true" do
+        it 'returns true' do
           expect(subject.valid_credentials?).to be true
         end
       end
 
-      context "with invalid credentials" do
+      context 'with invalid credentials' do
         let(:password) { "#{user.vpn_password}RandomString" }
 
-        it "returns false" do
+        it 'returns false' do
           expect(subject.valid_credentials?).to be false
         end
       end
@@ -38,7 +40,7 @@ describe Authenticator do
       context 'valid' do
         let(:password) { 'password' }
 
-        it "returns true" do
+        it 'returns true' do
           expect(subject.valid_credentials?).to be true
         end
       end
@@ -46,18 +48,18 @@ describe Authenticator do
       context 'invalid' do
         let(:password) { 'invalid-password' }
 
-        it "returns true" do
+        it 'returns true' do
           expect(subject.valid_credentials?).to be false
         end
       end
     end
 
-    context "when already connected" do
+    context 'when already connected' do
       before do
         user.connects.create!(server_id: server.id)
       end
 
-      it "returns false" do
+      it 'returns false' do
         expect(subject.valid_credentials?).to be false
       end
     end
@@ -72,16 +74,16 @@ describe Authenticator do
       end
     end
 
-    context "didnt pay anything" do
-      it "returns false" do
+    context 'didnt pay anything' do
+      it 'returns false' do
         expect(subject.valid_credentials?).to be false
       end
     end
 
-    context "server does not belong to plan" do
+    context 'server does not belong to plan' do
       let!(:server) { create(:server) }
 
-      it "returns false" do
+      it 'returns false' do
         expect(subject.valid_credentials?).to be false
       end
     end

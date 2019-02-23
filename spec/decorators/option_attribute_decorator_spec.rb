@@ -1,19 +1,21 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 describe OptionAttributeDecorator do
-  let(:name) { "country" }
-  let(:current_value) { "Russia" }
+  let(:name) { 'country' }
+  let(:current_value) { 'Russia' }
   subject { described_class.new(name, values, current_value) }
 
   describe '.render' do
     context 'select' do
-      let(:values) do 
+      let(:values) do
         {
-          type: :select, value: ["Russia"]
+          type: :select, value: ['Russia']
         }
       end
 
-      it "renders select tag" do
+      it 'renders select tag' do
         expect(subject.render).to include 'select'
       end
 

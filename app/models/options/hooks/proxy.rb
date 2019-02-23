@@ -1,10 +1,13 @@
+# frozen_string_literal: true
+
 module Options
   module Hooks
     class Proxy
       attr_accessor :user, :option
 
       def initialize(user, option)
-        @user, @option = user, option
+        @user = user
+        @option = option
       end
 
       def connect

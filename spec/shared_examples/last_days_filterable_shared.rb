@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 shared_examples 'loads created by last days' do |model_name|
   let!(:record1) { create(model_name) }
   let!(:record2) { create(model_name) }

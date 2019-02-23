@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 describe NewsletterManager do
@@ -19,9 +21,9 @@ describe NewsletterManager do
       let(:list_name) { :non_existing }
 
       it 'raises error' do
-        expect {
+        expect do
           subject.add_to_list(email, list_name)
-        }.to raise_error SmartvpnException, 'Email list not defined'
+        end.to raise_error SmartvpnException, 'Email list not defined'
       end
     end
   end

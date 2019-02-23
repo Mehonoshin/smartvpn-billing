@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This controller contains endpoints for Robokassa paysystem HTTP callbacks,
 # that notifies system about incoming payments.
 class Billing::RobokassaController < Billing::MerchantController
@@ -7,10 +9,10 @@ class Billing::RobokassaController < Billing::MerchantController
 
   def result
     if @notification.acknowledge
-      render text: "Done"
+      render text: 'Done'
       payment.accept!
     else
-      raise "Invalid robokassa notification"
+      raise 'Invalid robokassa notification'
     end
   end
 
@@ -21,6 +23,6 @@ class Billing::RobokassaController < Billing::MerchantController
   end
 
   def payment_id
-    params["InvId"]
+    params['InvId']
   end
 end

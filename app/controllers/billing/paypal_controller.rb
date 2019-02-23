@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 class Billing::PaypalController < Billing::MerchantController
   include ActiveMerchant::Billing::Integrations
 
   def result
     if notitication.acknowledge
-      if notification.complete? and payment.amount == notification.amount
+      if notification.complete? && (payment.amount == notification.amount)
         payment.accept!
       else
         raise "Failed to verify Paypal's notification, please investigate"
@@ -25,5 +27,4 @@ class Billing::PaypalController < Billing::MerchantController
   def payment_id
     notitication.item_id
   end
-
 end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class BaseRansacker
   attr_reader :table
 

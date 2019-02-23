@@ -1,18 +1,20 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 describe WithdrawalAmountCalculator do
   let(:user) { create(:user) }
   let(:calculator) { described_class.new(user) }
 
-  describe "intialization" do
+  describe 'intialization' do
     subject { calculator }
 
-    it "assigns user accessor" do
+    it 'assigns user accessor' do
       expect(subject.user).to eq user
     end
   end
 
-  describe "#amount_to_withdraw" do
+  describe '#amount_to_withdraw' do
     subject { calculator.amount_to_withdraw }
 
     it 'returns base plan price' do
@@ -27,7 +29,7 @@ describe WithdrawalAmountCalculator do
         user.plan.update(price: 100)
       end
 
-      it "applyes promo to base amount" do
+      it 'applyes promo to base amount' do
         expect(subject.to_f).to eq 70
       end
 
@@ -51,13 +53,13 @@ describe WithdrawalAmountCalculator do
         end
       end
 
-      context "multiple promotions" do
+      context 'multiple promotions' do
         let(:second_discount_promo) { create(:active_promo, date_from: 1.week.ago, date_to: 1.week.from_now, attrs: { discount_percent: 10 }) }
         before do
           create(:promotion, user: user, promo: second_discount_promo)
         end
 
-        it "applyes all promotions" do
+        it 'applyes all promotions' do
           expect(subject.to_f).to eq 63
         end
       end

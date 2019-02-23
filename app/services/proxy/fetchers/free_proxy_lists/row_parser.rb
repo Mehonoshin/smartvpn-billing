@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Proxy
   module Fetchers
     module FreeProxyLists
@@ -14,12 +16,12 @@ module Proxy
 
         def host
           URI.unescape(
-            @row[0].
-            children[0].
-            children[0].
-            text.
-            gsub!('IPDecode("', '').
-            gsub!('")', '')
+            @row[0]
+            .children[0]
+            .children[0]
+            .text
+            .gsub!('IPDecode("', '')
+            .gsub!('")', '')
           )
         end
 
@@ -44,14 +46,13 @@ module Proxy
         end
 
         def bandwidth
-          @row[8].children[0].children[0].attributes["style"].value.split('%')[0].split(':')[1]
+          @row[8].children[0].children[0].attributes['style'].value.split('%')[0].split(':')[1]
         end
 
         def ping
-          @row[9].children[0].children[0].attributes["style"].value.split('%')[0].split(':')[1]
+          @row[9].children[0].children[0].attributes['style'].value.split('%')[0].split(':')[1]
         end
       end
     end
   end
 end
-

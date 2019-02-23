@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 describe UnpaidUsersNotificator do
@@ -16,9 +18,9 @@ describe UnpaidUsersNotificator do
     end
 
     it 'creates notification job for each unpaid user' do
-      expect {
+      expect do
         subject.notify_all
-      }.to change(UnpaidUserNotificationWorker.jobs, :count).by(3)
+      end.to change(UnpaidUserNotificationWorker.jobs, :count).by(3)
     end
   end
 end
