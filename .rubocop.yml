@@ -3,7 +3,7 @@
 #################### Bundler ###############################
 
 AllCops:
-  Excludes:
+  Exclude:
     - db/**
 
 Bundler/DuplicatedGem:

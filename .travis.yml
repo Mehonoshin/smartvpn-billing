@@ -18,7 +18,7 @@ matrix:
     - rvm: 2.5.3
       name: 'RuboCop (for changed files)'
       script:
-        - bundle exec rubocop
+        - bundle exec rubocop -c .rubocop.yml
 
     - rvm: 2.5.3
       name: 'Perform DB setup (with seeds)'
