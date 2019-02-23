@@ -19,7 +19,9 @@ services:
   app:
     tty: true
     stdin_open: true
-    image: xtrmdk/smartvpn-billing
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
     env_file: .env
     ports:
       - "3000:3000"
