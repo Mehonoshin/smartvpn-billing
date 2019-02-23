@@ -1,8 +1,7 @@
 # frozen_string_literal: true
 
 source 'http://rubygems.org'
-# TODO:
-# temporary disable http, until ruby upgrade with new openssl
+# TODO: temporary disable http, until ruby upgrade with new openssl
 # source 'https://rubygems.org'
 
 gem 'rails', '4.2.11'

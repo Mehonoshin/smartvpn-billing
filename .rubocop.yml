@@ -789,6 +789,7 @@ Metrics/BlockLength:
     - 'spec/factories/**/*.rb'
     - 'config/initializers/*.rb'
     - 'config/environments/*.rb'
+    - 'Vagrantfile'
 
 Metrics/BlockNesting:
   Description: 'Avoid excessive block nesting'
