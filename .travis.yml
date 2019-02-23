@@ -18,7 +18,7 @@ matrix:
     - rvm: 2.5.3
       name: 'RuboCop (for changed files)'
       script:
-        - echo "$(git --no-pager diff --name-only $TRAVIS_COMMIT_RANGE)" | xargs bundle exec rubocop "$@"
+        - bundle exec rubocop
 
     - rvm: 2.5.3
       name: 'Perform DB setup (with seeds)'
