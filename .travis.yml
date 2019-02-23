@@ -3,6 +3,9 @@ language: ruby
 sudo: true
 cache: bundler
 
+git:
+  depth: 50
+
 rvm:
   - 2.5.3
 
