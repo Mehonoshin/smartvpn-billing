@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class WithdrawalAmountCalculator
   attr_accessor :user
 

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class UserDecorator < Draper::Decorator
   delegate_all
 
@@ -30,10 +32,8 @@ class UserDecorator < Draper::Decorator
   def last_connect_details
     h.link_to h.admin_connection_path(model.last_connect) do
       h.t('admin.users.connected_to_server_at',
-        server: model.last_connect.server.hostname,
-        date: h.human_date(model.last_connect.created_at)
-      )
+          server: model.last_connect.server.hostname,
+          date: h.human_date(model.last_connect.created_at))
     end
   end
-
 end

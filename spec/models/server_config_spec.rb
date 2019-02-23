@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 describe ServerConfig do
   subject { described_class.new }
 
   it 'addes line to buffer' do
-    subject.append_line "new_line"
+    subject.append_line 'new_line'
     expect(subject.config_lines).to include 'new_line'
   end
 

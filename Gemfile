@@ -1,8 +1,7 @@
 # frozen_string_literal: true
 
 source 'http://rubygems.org'
-# TODO:
-# temporary disable http, until ruby upgrade with new openssl
+# TODO: temporary disable http, until ruby upgrade with new openssl
 # source 'https://rubygems.org'
 
 gem 'rails', '4.2.11'
@@ -13,6 +12,7 @@ gem 'thin'
 
 gem 'chartkick'
 
+gem 'aasm'
 gem 'activemerchant', '~> 1.32.1'
 gem 'bootstrap', '~> 4.2.1'
 gem 'cancan'
@@ -23,7 +23,6 @@ gem 'font-awesome-sass', '~> 5.6.1'
 gem 'kaminari'
 gem 'rails-i18n'
 gem 'simple_form'
-gem 'aasm'
 gem 'slim'
 # Temporary broken with rails 4.2
 gem 'active_model_serializers' # , github: 'rails-api/active_model_serializers', branch: '0-9-stable'
@@ -61,7 +60,6 @@ gem 'jquery-ui-rails'
 
 gem 'ffi', '>= 1.9.24'
 gem 'jbuilder', '~> 1.0.1'
-gem 'puma'
 
 group :development do
   gem 'better_errors'
@@ -74,13 +72,13 @@ group :development do
 end
 
 group :test, :development do
-  gem 'pry-rails'
   gem 'capybara'
   gem 'database_cleaner', '1.0.0.RC1'
   gem 'dotenv-rails'
   gem 'factory_girl_rails', '~> 4.0'
   gem 'faker'
   gem 'i18n-tasks', '~> 0.9.28'
+  gem 'pry-rails'
   gem 'rspec-its'
   gem 'rspec-rails', '~> 3.8'
   gem 'shoulda-matchers', '4.0.0.rc1'

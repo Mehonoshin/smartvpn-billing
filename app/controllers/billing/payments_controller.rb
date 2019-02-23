@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Billing::PaymentsController < Billing::BaseController
   def index
     @pay_systems = PaySystem.enabled
@@ -22,9 +24,9 @@ class Billing::PaymentsController < Billing::BaseController
 
   def default_price
     Currencies::CourseConverter
-    .new(currency_from: 'usd', currency_to: @pay_system.currency, amount: current_user.plan.price)
-    .convert_amount
-    .round
+      .new(currency_from: 'usd', currency_to: @pay_system.currency, amount: current_user.plan.price)
+      .convert_amount
+      .round
   end
 
   def payment_params

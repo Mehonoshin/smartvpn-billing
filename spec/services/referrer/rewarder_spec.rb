@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 describe Referrer::Rewarder do
@@ -12,9 +14,9 @@ describe Referrer::Rewarder do
     let(:withdrawal) { create(:withdrawal) }
 
     it 'creates new reward' do
-      expect {
+      expect do
         described_class.add_funds(withdrawal, amount)
-      }.to change(Referrer::Reward, :count).by(1)
+      end.to change(Referrer::Reward, :count).by(1)
     end
 
     describe 'fields' do
@@ -41,9 +43,9 @@ describe Referrer::Rewarder do
     let(:withdrawal) { Withdrawal.create(user: user) }
 
     it 'does not create reward' do
-      expect {
+      expect do
         described_class.add_funds(withdrawal, amount)
-      }.not_to change(Referrer::Reward, :count)
+      end.not_to change(Referrer::Reward, :count)
     end
   end
 end

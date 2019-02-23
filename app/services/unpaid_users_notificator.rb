@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class UnpaidUsersNotificator
   FAILED_WITHDRAWS = 3
 

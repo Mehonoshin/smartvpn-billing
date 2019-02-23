@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 def visit_sign_in_page
   visit('/users/sign_in')
 end
 
 def sign_in(user = nil, password = nil)
-  password = 'password' unless password
-  @user = user ? user : create(:user, password: password)
+  password ||= 'password'
+  @user = user || create(:user, password: password)
 
   visit_sign_in_page
   within('form#new_user') do

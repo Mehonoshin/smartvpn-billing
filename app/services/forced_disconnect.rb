@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ForcedDisconnect
   def initialize(user)
     @user = user

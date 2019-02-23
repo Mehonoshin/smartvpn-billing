@@ -9,6 +9,6 @@ class CreateServers < ActiveRecord::Migration
 
       t.timestamps
     end
-    add_index "servers", ["hostname"], name: "index_servers_on_hostname", unique: true
+    add_index 'servers', ['hostname'], name: 'index_servers_on_hostname', unique: true
   end
 end

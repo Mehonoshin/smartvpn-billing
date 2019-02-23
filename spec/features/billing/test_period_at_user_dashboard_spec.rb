@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
-describe "test period applying" do
+describe 'test period applying' do
   let(:user) { User.last }
 
   before do
@@ -8,7 +10,7 @@ describe "test period applying" do
     visit('/billing')
   end
 
-  it "test period in user dashboard" do
+  it 'test period in user dashboard' do
     expect(page).not_to have_content I18n.t('billing.home.account_info.test_period')
 
     user.test_period.enable!

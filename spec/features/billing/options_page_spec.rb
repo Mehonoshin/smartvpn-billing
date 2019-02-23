@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 describe 'enabling options' do
@@ -10,7 +12,7 @@ describe 'enabling options' do
   before do
     sign_in
     user.plan.options << option
-    user.plan.update(option_prices: {option.code => option_price})
+    user.plan.update(option_prices: { option.code => option_price })
     I18n.locale = :ru
   end
 

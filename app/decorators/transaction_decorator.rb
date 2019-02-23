@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class TransactionDecorator < Draper::Decorator
   delegate :id
 
@@ -46,23 +48,23 @@ class TransactionDecorator < Draper::Decorator
   end
 
   def positive_amount
-    h.content_tag :span, class: "green bold" do
+    h.content_tag :span, class: 'green bold' do
       "+#{amount_with_currency}"
     end
   end
 
   def negative_amount
-    h.content_tag :span, class: "red bold" do
+    h.content_tag :span, class: 'red bold' do
       "-#{amount_with_currency}"
     end
   end
 
   def amount_with_currency
-    "#{h.human_price model.amount}"
+    (h.human_price model.amount).to_s
   end
 
   def free_amount
-    h.content_tag :span, class: "orange bold" do
+    h.content_tag :span, class: 'orange bold' do
       h.t('global.free')
     end
   end
@@ -70,5 +72,4 @@ class TransactionDecorator < Draper::Decorator
   def transaction_user
     model.object.user
   end
-
 end

@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 describe 'manual user balance increase' do
   let!(:pay_system) { create(:pay_system) }
   let!(:user) { create(:user) }
   let(:amount) { 100 }
-  let(:comment) { "some comment" }
+  let(:comment) { 'some comment' }
 
   it 'displays new payment form and increases balance' do
     sign_in_admin

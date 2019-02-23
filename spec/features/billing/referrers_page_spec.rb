@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 describe 'Partner programm' do
@@ -14,7 +16,7 @@ describe 'Partner programm' do
         visit('/billing/referrers')
         expect(page).to have_content I18n.t('billing.referrals.no_referrals')
         expect(page).to have_content I18n.t('billing.referrals.no_operations')
-        expect(page).to have_content "0.0 $"
+        expect(page).to have_content '0.0 $'
       end
     end
 
@@ -30,7 +32,7 @@ describe 'Partner programm' do
       it 'has statistics data' do
         visit('/billing/referrers')
         expect(page).to have_content referral.email
-        expect(page).to have_content "1.0 $"
+        expect(page).to have_content '1.0 $'
       end
     end
   end
@@ -59,6 +61,5 @@ describe 'Partner programm' do
       visit('/billing/referrers')
       expect(page).to have_content email
     end
-
   end
 end

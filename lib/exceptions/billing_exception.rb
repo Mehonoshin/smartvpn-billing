@@ -1,1 +1,3 @@
-class BillingException < SmartvpnException; end;
+# frozen_string_literal: true
+
+class BillingException < SmartvpnException; end

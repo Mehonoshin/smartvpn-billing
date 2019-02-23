@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 class Withdrawer
   attr_accessor :withdrawal, :user
 
   class << self
     def mass_withdrawal
-      withdrawer = self.new
+      withdrawer = new
       User.non_paid_users.each do |user|
         withdrawer.user = user
         withdrawer.try_to_withdraw
@@ -11,7 +13,7 @@ class Withdrawer
     end
 
     def single_withdraw(user)
-      withdrawer = self.new
+      withdrawer = new
       unless user.paid?
         # TODO: maybe move it to constructor?
         # self.new(user)
@@ -23,6 +25,7 @@ class Withdrawer
 
   def try_to_withdraw
     raise WithdrawerException, 'user not defined' if user.nil?
+
     withdraw_funds
     add_funds_to_referrer
     notify_user_if_needed
@@ -46,16 +49,14 @@ class Withdrawer
 
   def increment_or_reset_counter
     if can_not_withdraw
-      user.class.where(id: user.id).update_all(["can_not_withdraw_counter = can_not_withdraw_counter + ?", 1])
+      user.class.where(id: user.id).update_all(['can_not_withdraw_counter = can_not_withdraw_counter + ?', 1])
     else
       user.update(can_not_withdraw_counter: 0)
     end
   end
 
   def notify_user_if_needed
-    if can_not_withdraw && first_notification?
-      CanNotWithdrawNotificationWorker.perform_async(user.id, user.plan.price)
-    end
+    CanNotWithdrawNotificationWorker.perform_async(user.id, user.plan.price) if can_not_withdraw && first_notification?
   end
 
   def can_not_withdraw
@@ -69,5 +70,4 @@ class Withdrawer
   def first_notification?
     user.can_not_withdraw_counter.zero?
   end
-
 end

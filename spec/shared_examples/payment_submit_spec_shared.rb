@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 shared_examples 'creates payment for pay system' do |pay_system_code|
   describe 'new payment' do
     let!(:pay_system) { create(:enabled_pay_system, code: pay_system_code) }

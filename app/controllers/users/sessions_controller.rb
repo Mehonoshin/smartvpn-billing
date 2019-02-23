@@ -1,12 +1,14 @@
-class Users::SessionsController < Devise::SessionsController
-  layout "blank"
+# frozen_string_literal: true
 
-  def after_sign_out_path_for(resource)
+class Users::SessionsController < Devise::SessionsController
+  layout 'blank'
+
+  def after_sign_out_path_for(_resource)
     new_user_session_path
   end
 
-  def after_sign_in_path_for(resource)
-    flash[:alert] = nil if flash[:alert] == I18n.t("devise.failure.already_authenticated")
+  def after_sign_in_path_for(_resource)
+    flash[:alert] = nil if flash[:alert] == I18n.t('devise.failure.already_authenticated')
     billing_root_path
   end
 

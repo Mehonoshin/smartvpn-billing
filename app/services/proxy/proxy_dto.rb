@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 module Proxy
   class ProxyDto
     attr_accessor :host, :port, :country, :protocol, :bandwidth, :ping
 
-    def initialize(host, port, country, protocol=nil, bandwidth=nil, ping=nil)
+    def initialize(host, port, country, protocol = nil, bandwidth = nil, ping = nil)
       @host      = host
       @port      = port
       @country   = country

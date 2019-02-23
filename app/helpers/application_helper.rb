@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 module ApplicationHelper
-  def human_date(date, options={time: true})
+  def human_date(date, options = { time: true })
     format = options[:time] ? '%d.%m.%Y %H:%M' : '%d.%m.%Y'
-    date.strftime(format) unless date.nil?
+    date&.strftime(format)
   end
 
   def human_price(price)
@@ -14,10 +16,10 @@ module ApplicationHelper
 
   def prettify_number(number)
     tokens = number.to_s.split('.')
-    if tokens[1] == "0"
+    if tokens[1] == '0'
       tokens[0]
     else
-      number.round(2) unless number.nil?
+      number&.round(2)
     end
   end
 end

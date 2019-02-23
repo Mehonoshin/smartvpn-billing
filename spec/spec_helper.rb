@@ -18,7 +18,7 @@ Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
 Dir[Rails.root.join('app/helpers/**/*.rb')].each { |f| require f }
 Dir[Rails.root.join('spec/shared_examples/*.rb')].each { |f| require f }
 
-Capybara.server = :puma, { Silent: true }
+Capybara.server = :webrick, { Silent: true }
 Capybara.register_driver :chrome_headless do |app|
   options = ::Selenium::WebDriver::Chrome::Options.new
 
@@ -31,7 +31,7 @@ end
 
 Capybara.javascript_driver = :chrome_headless
 
-I18n.available_locales = [:ru, :en]
+I18n.available_locales = %i[ru en]
 
 Zonebie.set_random_timezone
 FakeWeb.allow_net_connect = false

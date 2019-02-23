@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 describe TransactionDecorator do
@@ -10,10 +12,10 @@ describe TransactionDecorator do
   end
 
   it 'returns amount with currency code' do
-    expect(subject.amount).to include "USD"
+    expect(subject.amount).to include 'USD'
   end
 
-  describe "#user" do
+  describe '#user' do
     it 'returns link' do
       expect(subject.user).to include 'href'
     end
@@ -23,9 +25,9 @@ describe TransactionDecorator do
     end
   end
 
-  context "model is payment" do
+  context 'model is payment' do
     it 'returns amount with positive sign' do
-      expect(subject.amount).to include "+"
+      expect(subject.amount).to include '+'
     end
 
     it 'returns description with pay system name' do
@@ -33,11 +35,11 @@ describe TransactionDecorator do
     end
   end
 
-  context "model is withdrawal" do
+  context 'model is withdrawal' do
     let(:model) { create(:withdrawal) }
 
     it 'returns amount with negative sign' do
-      expect(subject.amount).to include "-"
+      expect(subject.amount).to include '-'
     end
 
     it 'returns description with plan name' do

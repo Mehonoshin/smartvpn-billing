@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Api::ConnectionSerializer < ActiveModel::Serializer
   self.root = false
   attributes :id, :options, :common_name, :option_attributes

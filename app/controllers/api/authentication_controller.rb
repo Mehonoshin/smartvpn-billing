@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Api::AuthenticationController < Api::BaseController
   before_action :valid_api_call?
 
@@ -10,4 +12,3 @@ class Api::AuthenticationController < Api::BaseController
     end
   end
 end
-

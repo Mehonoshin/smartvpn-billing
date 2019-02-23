@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Api::ConnectionController < Api::BaseController
   before_action :valid_api_call?
 

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Billing::ReferrersController < Billing::BaseController
   def index
     @referrals = current_user.referrals

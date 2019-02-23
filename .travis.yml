@@ -3,6 +3,9 @@ language: ruby
 sudo: true
 cache: bundler
 
+git:
+  depth: 50
+
 rvm:
   - 2.5.3
 
@@ -15,7 +18,7 @@ matrix:
     - rvm: 2.5.3
       name: 'RuboCop (for changed files)'
       script:
-        - echo "$(git --no-pager diff --name-only $TRAVIS_COMMIT_RANGE)" | xargs bundle exec rubocop "$@"
+        - bundle exec bin/cop
 
     - rvm: 2.5.3
       name: 'Perform DB setup (with seeds)'
