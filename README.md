@@ -1,4 +1,4 @@
-## SmartVPN Billing
+# SmartVPN Billing
 
 [![Build Status](https://travis-ci.org/Mehonoshin/smartvpn-billing.svg?branch=master)](https://travis-ci.org/Mehonoshin/smartvpn-billing)
 [![](https://images.microbadger.com/badges/version/mexx/smartvpn-billing.svg)](https://hub.docker.com/r/mexx/smartvpn-billing)
@@ -6,13 +6,26 @@
 <a href="https://imgbb.com/"><img src="https://image.ibb.co/gEVXM9/Screen-Shot-2018-10-14-at-18-34-17.png" alt="smartvpn-billing" border="0"></a>
 
 
-
-### About
+## About
 
 This repo contains just billing system for SmartVPN project.
 All further documentation in this repo relates only to billing system.
 
 If you are looking for general documentation about the whole SmartVPN please visit [Mehonoshin/smartvpn](https://github.com/Mehonoshin/smartvpn) repo.
+
+## Docker image
+
+The docker image is built automatically on every merge to master. You can always pull the latest version of the image from Docker Hub.
+
+```
+docker pull mexx/smartvpn-billing
+```
+
+For more information about the builds visit docker hub page [mexx/smartvpn-billing](https://hub.docker.com/r/mexx/smartvpn-billing)
+
+## Contribution guidelines
+
+TBD
 
 ### Development setup
 
@@ -45,13 +58,3 @@ If you are looking for general documentation about the whole SmartVPN please vis
 
 How it works :)
 https://www.youtube.com/watch?v=VFRKPO5LHDg
-
-## Docker image
-
-The docker image is built automatically on every merge to master. You can always pull the latest version of the image from Docker Hub.
-
-```
-docker pull mexx/smartvpn-billing
-```
-
-For more information about the builds visit docker hub page [mexx/smartvpn-billing](https://hub.docker.com/r/mexx/smartvpn-billing)
