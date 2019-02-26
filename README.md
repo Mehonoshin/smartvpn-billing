@@ -58,3 +58,13 @@ TBD
 
 How it works :)
 https://www.youtube.com/watch?v=VFRKPO5LHDg
+
+### Admin access
+
+* To get admin access you can go to [http://localhost:3000/admins/sign_in](http://localhost:3000/admins/sign_in)
+* Email: `admin@smartvpn.biz`
+* Password: `1234567`
+
+Other accounts created during seeding can be found at:
+* [Admins](https://github.com/Mehonoshin/smartvpn-billing/blob/master/db/seeds/06_admin.rb)
+* [Users](https://github.com/Mehonoshin/smartvpn-billing/blob/master/db/seeds/04_default_user.rb#L8)
