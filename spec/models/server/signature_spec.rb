@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 describe Server::Signature do
@@ -6,10 +8,10 @@ describe Server::Signature do
   describe '#valid?' do
     let(:request_params) do
       {
-        hostname:   'some_host_name',
+        hostname: 'some_host_name',
         ip_address: 'ip_address',
-        some_key:   'some_key',
-        signature:  signature
+        some_key: 'some_key',
+        signature: signature
       }
     end
 
@@ -38,7 +40,7 @@ describe Server::Signature do
         its(:valid?) { is_expected.to be true }
 
         it 'calls Signer with cleaned params' do
-          clean_params = request_params.reject { |(k, v)| k == :signature }
+          clean_params = request_params.reject { |(k, _v)| k == :signature }
           expect(Signer).to receive(:sign_hash).with(clean_params, server.auth_key)
           subject.valid?
         end

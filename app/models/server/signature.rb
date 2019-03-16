@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Allows to check if the request from the server is valid.
 # Server may be nil, which means that it does not exist in billing yet.
 # In this case we check if the secret key is equal to the secret key of application.
@@ -7,7 +9,7 @@
 # is generated on server initialization.
 class Server
   class Signature
-    IGNORED_PARAMS = %w[controller action signature]
+    IGNORED_PARAMS = %w[controller action signature].freeze
 
     attr_reader :server, :request_params
 
@@ -17,11 +19,11 @@ class Server
     end
 
     def valid?
-      if server
-        signature == Signer.sign_hash(clean_params, server.auth_key)
-      else
-        signature == Settings.secret_token.to_s
-      end
+      signature == if server
+                     Signer.sign_hash(clean_params, server.auth_key)
+                   else
+                     Settings.secret_token.to_s
+                   end
     end
 
     private
@@ -31,9 +33,8 @@ class Server
     end
 
     def clean_params
-      IGNORED_PARAMS.reduce(request_params.dup) do |attrs, param|
+      IGNORED_PARAMS.each_with_object(request_params.dup) do |param, attrs|
         attrs.delete(param)
-        attrs
       end
     end
   end

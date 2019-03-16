@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-shared_examples 'validating signature' do |action|
-  describe 'request validation' do
+shared_examples 'validating signature' do |action| # rubocop:disable Metrics/BlockLength
+  describe 'request validation' do # rubocop:disable Metrics/BlockLength
     let(:server) { create(:server) }
     let(:hostname) { server.hostname }
     let(:attrs) { Hash[hostname: hostname] }
