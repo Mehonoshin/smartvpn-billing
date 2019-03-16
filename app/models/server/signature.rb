@@ -20,7 +20,7 @@ class Server
       if server
         signature == Signer.sign_hash(clean_params, server.auth_key)
       else
-        signature == Settings.secret_token
+        signature == Settings.secret_token.to_s
       end
     end
 

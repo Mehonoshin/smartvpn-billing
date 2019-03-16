@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+# Provides an endpoint, that tracks all initiated connections to the server.
+# The same as other for API controllers, it checks signature and server status.
 class Api::ConnectionController < Api::BaseController
   before_action :valid_api_call?
 

@@ -1,5 +1,11 @@
 # frozen_string_literal: true
 
+# Provides endpoint for authentication API calls.
+# Whenever server gets incoming connection request, it should ask
+# billing whether it should allow client to connect.
+#
+# Billing checks multiple parameters, like server existence and status,
+# if the plan allows to connect to this specific server and many more.
 class Api::AuthenticationController < Api::BaseController
   before_action :valid_api_call?
 

@@ -12,17 +12,15 @@ class Api::BaseController < ApplicationController
   end
 
   def server
-    Server.where(hostname: params[:hostname], ip_address: request.remote_ip).last
+    Server.find_by(hostname: params[:hostname])
+  end
+
+  def request_ip
+    request.env['HTTP_X_FORWARDED_FOR'] || request.remote_ip
   end
 
   def valid_signature?
-    signature == Signer.sign_hash(clean_params, server.auth_key)
-  end
-
-  def clean_params
-    attrs = params.dup
-    %w[controller action signature].each { |param| attrs.delete(param) }
-    attrs
+    Server::Signature.new(server, params).valid?
   end
 
   def signature

@@ -1,0 +1,1 @@
+class ApiException < RuntimeError; end

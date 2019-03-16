@@ -16,13 +16,13 @@ describe Server::Signature do
     context 'when server does not exist' do
       let(:server) { nil }
 
-      context 'valid signature' do
-        let(:signature) { Settings.secret_token }
+      context 'with valid signature' do
+        let(:signature) { Settings.secret_token.to_s }
         its(:valid?) { is_expected.to be true }
       end
 
-      context 'invalid signature' do
-        let(:signature) { '123' }
+      context 'with invalid signature' do
+        let(:signature) { 'invalid_signature' }
         its(:valid?) { is_expected.to be false }
       end
     end
@@ -32,7 +32,7 @@ describe Server::Signature do
 
       before { server.update!(auth_key: 'QFEJYWWU') }
 
-      context 'valid signature' do
+      context 'with valid signature' do
         let(:signature) { '4db645f94cd9af74ba4d8fb21b952f20' }
 
         its(:valid?) { is_expected.to be true }
@@ -44,7 +44,7 @@ describe Server::Signature do
         end
       end
 
-      context 'invalid signature' do
+      context 'with invalid signature' do
         let(:signature) { '123' }
         its(:valid?) { is_expected.to be false }
       end
