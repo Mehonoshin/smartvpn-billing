@@ -3,14 +3,15 @@
 require 'rails_helper'
 
 describe Dto::Admin::Dashboard do
-  let(:dashboard) { described_class.new }
-  subject { dashboard }
+  subject(:dashboard) { described_class.new }
 
   before do
     redis = Redis.new
     redis.set('smartvpn:eur_usd', 10)
     redis.set('smartvpn:rub_usd', 10)
     redis.set('smartvpn:courses:updated_at', Time.current)
+
+    Timecop.travel(Time.local(2014, 9, 15, 12, 0, 0))
   end
 
   describe 'courses' do

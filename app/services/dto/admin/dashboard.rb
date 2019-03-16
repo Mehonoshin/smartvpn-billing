@@ -2,7 +2,8 @@
 
 module Dto
   module Admin
-    # This class collect statistic about traffic, income amount, customers
+    # Collects statistic about traffic, income and customers.
+    # This data is present in dashboard widgets for admin.
     class Dashboard < Dto::Base
       DISCRETE_DAYS_NUMBER = 12
       attr_reader :income, :customers, :traffic, :courses
