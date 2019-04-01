@@ -3,35 +3,34 @@
 require 'spec_helper'
 
 describe Api::ServersController do
-  let!(:server) { create(:server) }
+  let(:hostname) { 'valid_hostname' }
+  let(:signature) { Settings.secret_token }
 
   describe 'POST #activate' do
     let(:params) do
-      {
-        secret_token: secret_token,
+      attributes_for(:server).merge(
+        signature: signature,
         hostname: hostname,
         server_crt: 'server crt',
         client_crt: 'client crt',
         client_key: 'client key'
-      }
+      )
     end
 
-    context 'hostname not present in DB' do
-      let(:hostname) { 'incorrect.domain' }
-      let(:secret_token) { Settings.secret_token }
+    context 'when server exists' do
+      let!(:server) { create(:server) }
+      let(:hostname) { server.hostname }
 
       it 'raises error' do
         expect do
           post :activate, params
-        end.to raise_error ApiException, 'Server for activation not found'
+        end.to raise_error ApiException, "Server already exists: #{server}"
       end
     end
 
-    describe 'secret token validation' do
-      let(:hostname) { server.hostname }
-
+    context 'server does not exist' do
       context 'correct token' do
-        let(:secret_token) { Settings.secret_token }
+        let(:server) { Server.last }
 
         it 'renders json with auth key' do
           post :activate, params
@@ -45,19 +44,25 @@ describe Api::ServersController do
 
         it 'updates server pki fields' do
           expect { post :activate, params }
-            .to change  { server.reload.server_crt }.to('server crt')
-                                                    .and change { server.reload.client_crt }.to('client crt')
-                                                                                            .and change { server.reload.client_key }.to('client key')
+            .to change { Server.count }.by(1)
+        end
+
+        it 'assigns certificate data to server' do
+          post :activate, params
+          expect(server.server_crt).to eq('server crt')
+          expect(server.client_crt).to eq('client crt')
+          expect(server.client_key).to eq('client key')
         end
       end
 
       context 'incorrect token' do
-        let(:secret_token) { 'invalid_token' }
+        let(:hostname) { 'some_hostname' }
+        let(:signature) { 'invalid_token' }
 
         it 'raises error' do
           expect do
             post :activate, params
-          end.to raise_error ApiException, 'Server activation attempt with incorrect token'
+          end.to raise_error ApiException, "Server activation attempt with incorrect token: #{signature}"
         end
       end
     end
