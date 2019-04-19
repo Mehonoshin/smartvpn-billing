@@ -14,7 +14,7 @@ gem 'chartkick'
 
 gem 'aasm'
 gem 'activemerchant', '~> 1.32.1'
-gem 'bootstrap', '~> 4.2.1'
+gem 'bootstrap', '~> 4.3.1'
 gem 'cancan'
 gem 'clockwork'
 gem 'devise', '4.5.0'
