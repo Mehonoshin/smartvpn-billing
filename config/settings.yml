@@ -7,6 +7,7 @@ servers:
   sample_config_path: 'config/sample.server.ovpn.erb'
 
 mailchimp:
+  subscription: 'true'
   api_key: <%= ENV['MAILCHIMP_API_KEY'] %>
   all_clients_list_id: <%= ENV['MAILCHIMP_ALL_CLIENTS_LIST_ID'] %>
 
