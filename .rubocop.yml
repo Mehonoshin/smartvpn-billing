@@ -1,5 +1,5 @@
 # These are all the cops that are enabled in the default configuration.
-
+require: rubocop-performance
 #################### Bundler ###############################
 
 AllCops:
