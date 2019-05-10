@@ -13,11 +13,13 @@ gem 'thin'
 
 gem 'chartkick'
 
-gem 'activemerchant'
+gem 'aasm'
+gem 'activemerchant', '~> 1.93'
 gem 'money'
 gem 'offsite_payments'
 gem 'bootstrap', '~> 4.3.1'
 gem 'cancan'
+gem 'clockwork'
 gem 'devise', '4.6.2'
 gem 'devise-i18n', '~> 1.8'
 gem 'font-awesome-sass', '~> 5.8.1'
@@ -25,10 +27,7 @@ gem 'kaminari'
 gem 'rails-i18n'
 gem 'simple_form'
 gem 'slim'
-# TODO: switch to stable version
-gem 'state_machine', github: 'pluginaweek/state_machine'
-# Temporary broken with rails 4.2
-gem 'active_model_serializers', '0.10.9'
+gem 'active_model_serializers' , github: 'rails-api/active_model_serializers', branch: '0-9-stable'
 
 gem 'ransack', '2.1.1'
 
@@ -64,7 +63,6 @@ gem 'jquery-ui-rails'
 
 gem 'ffi', '>= 1.10'
 gem 'jbuilder', '~> 2.8'
-gem 'puma'
 
 group :development do
   gem 'awesome_print'
@@ -81,26 +79,29 @@ end
 group :test, :development do
   gem 'capybara'
   gem 'database_cleaner', '~> 1.7'
+  gem 'dotenv-rails'
   gem 'hirb'
   gem 'mocha', require: false
   gem 'rb-fchange', require: false
-  gem 'vcr'
   # TODO: switch to stable version
-  gem 'dotenv-rails'
   gem 'factory_girl_rails', '~> 4.9'
   gem 'faker'
+  gem 'i18n-tasks', '~> 0.9.29'
   gem 'pry-rails'
+  gem 'rspec-its'
   gem 'rspec-rails'
+  gem 'shoulda-matchers', '~> 4.0.1'
+  gem 'vcr'
   gem 'selenium-webdriver'
   gem 'timecop'
+  gem 'rails-controller-testing'
 end
 
 group :test do
   gem 'simplecov', require: false
   # TODO: switch to webmock since fakeweb is not supported anymore
   gem 'capybara-email'
+  gem 'clockwork-test'
   gem 'fakeweb', github: 'chrisk/fakeweb'
   gem 'zonebie'
-  gem 'shoulda-matchers', github: 'thoughtbot/shoulda-matchers'
-  gem 'rails-controller-testing'
 end
