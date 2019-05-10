@@ -16,7 +16,7 @@
 #= require ./theme/jquery.quicksand
 #= require ./theme/jquery.flexslider-min
 #= require ./theme/script
-#= require jquery.ui.all
+#= require jquery-ui
 #= require main
 #= require options
 
