@@ -5,7 +5,7 @@
 class Billing::RobokassaController < Billing::MerchantController
   include ActiveMerchant::Billing::Integrations
 
-  before_filter :create_notification
+  before_action :create_notification
 
   def result
     if @notification.acknowledge

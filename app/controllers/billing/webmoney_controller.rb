@@ -5,7 +5,7 @@
 class Billing::WebmoneyController < Billing::MerchantController
   include ActiveMerchant::Billing::Integrations
 
-  before_filter :create_notification
+  before_action :create_notification
 
   def result
     if @notification.key_present?
