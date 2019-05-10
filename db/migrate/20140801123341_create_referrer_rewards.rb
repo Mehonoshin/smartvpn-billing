@@ -1,4 +1,4 @@
-class CreateReferrerRewards < ActiveRecord::Migration
+class CreateReferrerRewards < ActiveRecord::Migration[5.1]
   def change
     create_table :referrer_rewards do |t|
       t.decimal :amount

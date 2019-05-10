@@ -1,4 +1,4 @@
-class CreatePlanHasServers < ActiveRecord::Migration
+class CreatePlanHasServers < ActiveRecord::Migration[5.1]
   def change
     create_table :plan_has_servers do |t|
       t.integer :server_id

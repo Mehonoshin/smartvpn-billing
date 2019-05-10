@@ -1,4 +1,4 @@
-class CreatePlanOptionTable < ActiveRecord::Migration
+class CreatePlanOptionTable < ActiveRecord::Migration[5.1]
   def change
     create_table :options_plans, id: false do |t|
       t.belongs_to :plan

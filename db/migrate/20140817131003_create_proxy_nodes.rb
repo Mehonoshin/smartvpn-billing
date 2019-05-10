@@ -1,4 +1,4 @@
-class CreateProxyNodes < ActiveRecord::Migration
+class CreateProxyNodes < ActiveRecord::Migration[5.1]
   def change
     create_table :proxy_nodes do |t|
       t.string :host

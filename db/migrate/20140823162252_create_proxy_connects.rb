@@ -1,4 +1,4 @@
-class CreateProxyConnects < ActiveRecord::Migration
+class CreateProxyConnects < ActiveRecord::Migration[5.1]
   def change
     create_table :proxy_connects do |t|
       t.integer :user_id

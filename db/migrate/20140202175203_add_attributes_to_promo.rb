@@ -1,4 +1,4 @@
-class AddAttributesToPromo < ActiveRecord::Migration
+class AddAttributesToPromo < ActiveRecord::Migration[5.1]
   def up
     execute 'CREATE EXTENSION hstore'
     add_column :promos, :attrs, :hstore

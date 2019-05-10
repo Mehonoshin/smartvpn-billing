@@ -1,4 +1,4 @@
-class CreateOptionsUsers < ActiveRecord::Migration
+class CreateOptionsUsers < ActiveRecord::Migration[5.1]
   def change
     create_table :options_users, id: false do |t|
       t.belongs_to :user
