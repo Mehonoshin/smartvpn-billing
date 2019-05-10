@@ -10,7 +10,7 @@ class Admin
 
     def set_session_and_redirect
       session[:locale] = I18n.locale
-      redirect_to :back
+      redirect_back fallback_location: admin_change_languages_path(locale: session[:locale])
     end
   end
 end

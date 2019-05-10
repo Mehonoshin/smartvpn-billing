@@ -22,7 +22,7 @@ class Billing::OptionsController < Billing::BaseController
   def update
     option = current_user.user_options.find_by(option_id: params[:id])
     option.update(attrs: params[:option_attributes])
-    render nothing: true
+    render body: nil
   end
 
   def toggle
