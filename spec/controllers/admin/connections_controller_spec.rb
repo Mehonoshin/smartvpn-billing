@@ -33,7 +33,7 @@ describe Admin::ConnectionsController do
   describe 'GET #show' do
     let(:connection) { create(:connect) }
 
-    before { get :show, id: connection.id }
+    before { get :show, params: { id: connection.id } }
 
     it { is_expected.to be_success }
     it { is_expected.to render_template :show }

@@ -30,7 +30,7 @@ describe Admin::UsersController do
 
   describe 'GET #show' do
     let(:user) { create(:user) }
-    before { get :show, id: user.id }
+    before { get :show, params: { id: user.id } }
 
     it { is_expected.to be_success }
     it { is_expected.to render_template :show }
@@ -38,7 +38,7 @@ describe Admin::UsersController do
 
   describe 'GET #edit' do
     let(:user) { create(:user) }
-    before { get :edit, id: user.id }
+    before { get :edit, params: { id: user.id } }
 
     it { is_expected.to be_success }
     it { is_expected.to render_template :edit }
@@ -69,12 +69,12 @@ describe Admin::UsersController do
 
       it 'run operation' do
         expect(operation).to receive(:call).and_return(success: true, user: user)
-        post :create, user: params
+        post :create, params: { user: params }
       end
 
       it 'redirects to users path' do
         allow(operation).to receive(:call).and_return(success: true, user: user)
-        post :create, user: params
+        post :create, params: { user: params }
         expect(subject).to redirect_to admin_users_path
       end
     end
@@ -91,12 +91,12 @@ describe Admin::UsersController do
 
       it 'run operation' do
         expect(operation).to receive(:call).and_return(success: false, user: user)
-        post :create, user: params
+        post :create, params: { user: params }
       end
 
       it 'redirects to users path' do
         allow(operation).to receive(:call).and_return(success: false, user: user)
-        post :create, user: params
+        post :create, params: { user: params }
         expect(subject).to render_template :new
       end
     end
@@ -105,7 +105,7 @@ describe Admin::UsersController do
   describe 'PUT #update' do
     let(:user) { create(:user) }
 
-    before { put :update, id: user.id, user: attrs }
+    before { put :update, params: { id: user.id, user: attrs } }
 
     context 'params correct' do
       let(:attrs) { Hash[email: 'new@mail.ru'] }
@@ -129,7 +129,7 @@ describe Admin::UsersController do
 
     it 'creates new withdrawal' do
       expect do
-        put :withdraw, id: user.id
+        put :withdraw, params: { id: user.id }
       end.to change(Withdrawal, :count).by(1)
     end
   end
@@ -141,18 +141,18 @@ describe Admin::UsersController do
 
     it 'creates new withdrawal prolongation' do
       expect do
-        put :prolongate, id: user.id, withdrawal_prolongation: attrs
+        put :prolongate, params: { id: user.id, withdrawal_prolongation: attrs }
       end.to change(WithdrawalProlongation, :count).by(1)
     end
 
     it 'prolongation is created for last withdrawal' do
       expect do
-        put :prolongate, id: user.id, withdrawal_prolongation: attrs
+        put :prolongate, params: { id: user.id, withdrawal_prolongation: attrs }
       end.to change(user.withdrawals.last.withdrawal_prolongations, :count).by(1)
     end
 
     it 'prolongation days number equals form data' do
-      put :prolongate, id: user.id, withdrawal_prolongation: attrs
+      put :prolongate, params: { id: user.id, withdrawal_prolongation: attrs }
       expect(user.withdrawals.last.withdrawal_prolongations.last.days_number).to eq attrs[:days_number]
     end
   end
@@ -164,12 +164,12 @@ describe Admin::UsersController do
 
     it 'creates new payment' do
       expect do
-        put :payment, id: user.id, payment: attrs
+        put :payment, params: { id: user.id, payment: attrs }
       end.to change(Payment, :count).by(1)
     end
 
     context 'after request' do
-      before { put :payment, id: user.id, payment: attrs }
+      before { put :payment, params: { id: user.id, payment: attrs } }
 
       it 'payment is accepted' do
         expect(Payment.last.accepted?).to be true
@@ -203,19 +203,19 @@ describe Admin::UsersController do
     let(:user) { create(:user) }
 
     it 'calles enable action' do
-      put :enable_test_period, id: user.id
+      put :enable_test_period, params: { id: user.id }
       expect(user.reload.test_period.enabled?).to be true
     end
 
     it 'send email' do
       allow_any_instance_of(User).to receive(:test_period_started_at).and_return(Date.current)
       expect do
-        put :enable_test_period, id: user.id
+        put :enable_test_period, params: { id: user.id }
       end.to change(ActionMailer::Base.deliveries, :size).by(1)
     end
 
     it 'redirects to user path' do
-      put :enable_test_period, id: user.id
+      put :enable_test_period, params: { id: user.id }
       expect(response).to redirect_to admin_user_path(user)
     end
   end
@@ -225,11 +225,11 @@ describe Admin::UsersController do
 
     it 'calles disable action' do
       allow_any_instance_of(TestPeriod).to receive(:disable!)
-      put :disable_test_period, id: user.id
+      put :disable_test_period, params: { id: user.id }
     end
 
     it 'redirects to user path' do
-      put :disable_test_period, id: user.id
+      put :disable_test_period, params: { id: user.id }
       expect(response).to redirect_to admin_user_path(user)
     end
   end
@@ -239,11 +239,11 @@ describe Admin::UsersController do
 
     it 'calls disconnector' do
       allow_any_instance_of(ForcedDisconnect).to receive(:invoke)
-      put :force_disconnect, id: user.id
+      put :force_disconnect, params: { id: user.id }
     end
 
     it 'redirects to user path' do
-      put :force_disconnect, id: user.id
+      put :force_disconnect, params: { id: user.id }
       expect(response).to redirect_to admin_user_path(user)
     end
   end

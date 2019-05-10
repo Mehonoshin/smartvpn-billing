@@ -36,7 +36,7 @@ describe Admin::PaySystemsController do
 
     describe 'GET #show' do
       let!(:pay_system) { create :pay_system }
-      before { get :show, id: pay_system.id }
+      before { get :show, params: { id: pay_system.id } }
 
       it 'renders template' do
         expect(response).to render_template :show
@@ -65,12 +65,12 @@ describe Admin::PaySystemsController do
 
         it 'creates new pay_system' do
           expect do
-            post :create, pay_system: attrs
+            post :create, params: { pay_system: attrs }
           end.to change(PaySystem, :count).by(1)
         end
 
         it 'redirects to pay_systems list' do
-          post :create, pay_system: attrs
+          post :create, params: { pay_system: attrs }
           expect(response).to redirect_to admin_pay_systems_path
         end
       end
@@ -79,7 +79,7 @@ describe Admin::PaySystemsController do
         let(:attrs) { Hash[name: nil, code: nil] }
 
         it 'renders pay_system form' do
-          post :create, pay_system: attrs
+          post :create, params: { pay_system: attrs }
           expect(response).to render_template :new
         end
       end
@@ -89,7 +89,7 @@ describe Admin::PaySystemsController do
       let!(:pay_system) { create(:pay_system) }
 
       it 'renders edit pay_system page' do
-        get :edit, id: pay_system.id
+        get :edit, params: { id: pay_system.id }
         expect(response).to render_template :edit
       end
     end
@@ -102,12 +102,12 @@ describe Admin::PaySystemsController do
 
         it 'updates pay_system' do
           new_pay_system = create(:pay_system)
-          put :update, id: new_pay_system.id, pay_system: attrs
+          put :update, params: { id: new_pay_system.id, pay_system: attrs }
           expect(new_pay_system.reload.name).to eq attrs[:name]
         end
 
         it 'redirects to pay_systems list' do
-          put :update, id: pay_system.id, pay_system: attrs
+          put :update, params: { id: pay_system.id, pay_system: attrs }
           expect(response).to redirect_to admin_pay_systems_path
         end
       end
@@ -116,7 +116,7 @@ describe Admin::PaySystemsController do
         let(:attrs) { Hash[name: nil] }
 
         it 'renders edit form' do
-          put :update, id: pay_system.id, pay_system: attrs
+          put :update, params: { id: pay_system.id, pay_system: attrs }
           expect(response).to render_template :edit
         end
       end

@@ -52,12 +52,12 @@ describe Admin::PlansController do
 
         it 'creates new plan' do
           expect do
-            post :create, plan: attrs
+            post :create, params: { plan: attrs }
           end.to change(Plan, :count).by(1)
         end
 
         it 'redirects to plans list' do
-          post :create, plan: attrs
+          post :create, params: { plan: attrs }
           expect(response).to redirect_to admin_plans_path
         end
       end
@@ -66,7 +66,7 @@ describe Admin::PlansController do
         let(:attrs) { Hash[name: nil, price: nil] }
 
         it 'renders plan form' do
-          post :create, plan: attrs
+          post :create, params: { plan: attrs }
           expect(response).to render_template :new
         end
       end
@@ -76,7 +76,7 @@ describe Admin::PlansController do
       let!(:plan) { create(:plan) }
 
       it 'renders edit plan page' do
-        get :edit, id: plan.id
+        get :edit, params: { id: plan.id }
         expect(response).to render_template :edit
       end
     end
@@ -89,12 +89,12 @@ describe Admin::PlansController do
 
         it 'updates plan' do
           new_plan = create(:plan)
-          put :update, id: new_plan.id, plan: attrs
+          put :update, params: { id: new_plan.id, plan: attrs }
           expect(new_plan.reload.name).to eq attrs[:name]
         end
 
         it 'redirects to plans list' do
-          put :update, id: plan.id, plan: attrs
+          put :update, params: { id: plan.id, plan: attrs }
           expect(response).to redirect_to admin_plans_path
         end
       end
@@ -103,7 +103,7 @@ describe Admin::PlansController do
         let(:attrs) { Hash[name: nil] }
 
         it 'renders edit form' do
-          put :update, id: plan.id, plan: attrs
+          put :update, params: { id: plan.id, plan: attrs }
           expect(response).to render_template :edit
         end
       end
@@ -114,7 +114,7 @@ describe Admin::PlansController do
 
       it 'removes plan' do
         expect do
-          delete :destroy, id: plan.id
+          delete :destroy, params: { id: plan.id }
         end.to change(Plan, :count).by(-1)
       end
     end

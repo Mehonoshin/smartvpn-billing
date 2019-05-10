@@ -40,7 +40,7 @@ describe Admin::ProfilesController do
 
     describe 'PUT #update' do
       let!(:old_password) { admin.encrypted_password }
-      before { put :update, admin: params }
+      before { put :update, params: { admin: params } }
 
       context 'valid params' do
         let(:params) do
