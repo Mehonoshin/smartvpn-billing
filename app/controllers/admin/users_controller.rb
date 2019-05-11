@@ -62,7 +62,7 @@ class Admin
     end
 
     def emails_export
-      users = User.search(search_params).result
+      users = User.ransack(search_params).result
       render text: Admin::UsersSerializer.new(users, :csv).emails
     end
 
@@ -93,7 +93,7 @@ class Admin
     end
 
     def search
-      User.search(params[:q])
+      User.ransack(params[:q])
     end
     helper_method :search
 

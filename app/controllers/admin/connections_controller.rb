@@ -20,7 +20,7 @@ class Admin::ConnectionsController < Admin::BaseController
   end
 
   def search
-    Connection.search(params[:q])
+    Connection.ransack(params[:q])
   end
   helper_method :search
 end
