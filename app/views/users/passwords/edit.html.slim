@@ -1,5 +1,5 @@
 = form_for resource, as: resource_name, url: password_path(resource_name), html: { class: 'form-login reset-password form-wrapper form-narrow', method: :put } do |f|
-  = devise_error_messages!
+  = render "devise/shared/error_messages"
 
   h3.title-divider
     span= t('users.passwords.edit.enter_new_password')

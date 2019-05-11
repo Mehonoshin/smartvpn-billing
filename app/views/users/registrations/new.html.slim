@@ -1,5 +1,5 @@
 = form_for resource, as: resource_name, url: registration_path(resource_name), html: { class: "form-login form-wrapper form-medium" } do |f|
-  = devise_error_messages!
+  = render "devise/shared/error_messages"
 
   h3.title-divider
     span= t('users.registrations.new.registration')
