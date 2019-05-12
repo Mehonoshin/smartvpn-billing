@@ -4,6 +4,7 @@ require 'rails_helper'
 
 describe Admin::ConnectionsController do
   subject { response }
+
   login_admin
 
   describe 'GET #index' do

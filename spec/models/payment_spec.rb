@@ -34,7 +34,7 @@ describe Payment do
     let(:pay_system) { create(:pay_system) }
 
     it 'is in peding state' do
-      payment = Payment.create!(user_id: user.id, pay_system_id: pay_system.id, amount: 10)
+      payment = described_class.create!(user_id: user.id, pay_system_id: pay_system.id, amount: 10)
       expect(payment.state).to eq 'pending'
     end
   end
@@ -84,6 +84,7 @@ describe Payment do
 
       context 'user is paid' do
         let(:user) { create(:user_with_balance) }
+
         before { create :withdrawal, user: user }
 
         it 'does not create withdrawal' do
@@ -92,8 +93,9 @@ describe Payment do
       end
 
       context 'user unpaid and has no balance,', focus: true do
-        let(:user) { create(:user) }
         subject { create(:payment, amount: 5, user: user) }
+
+        let(:user) { create(:user) }
 
         it 'does not create withdrawal' do
           expect { subject.accept! }.not_to change(Withdrawal, :count)

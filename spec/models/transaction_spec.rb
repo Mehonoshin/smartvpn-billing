@@ -3,7 +3,8 @@
 require 'spec_helper'
 
 describe Transaction do
-  subject { Transaction }
+  subject { described_class }
+
   let(:user) { create(:user, balance: 100) }
 
   describe '.user_transactions' do
@@ -30,6 +31,7 @@ describe Transaction do
 
   describe '.all' do
     subject { described_class.all }
+
     let!(:transaction1) { create(:payment, created_at: 1.day.ago, state: 'accepted') }
     let!(:transaction2) { create(:payment, created_at: 3.day.ago, state: 'accepted') }
     let!(:transaction3) { create(:withdrawal, created_at: 4.day.ago) }
@@ -55,11 +57,12 @@ describe Transaction do
   end
 
   describe 'numerates transactions' do
+    subject { described_class.user_transactions(user) }
+
     let!(:other_transaction1) { create(:withdrawal) }
     let!(:other_transaction2) { create(:withdrawal) }
     let!(:user_transaction1) { create(:withdrawal, user: user) }
     let!(:user_transaction2) { create(:withdrawal, user: user) }
-    subject { described_class.user_transactions(user) }
 
     it 'numerates transactions from 1 to N' do
       expect(subject.first.id).to eq 2
@@ -68,7 +71,7 @@ describe Transaction do
   end
 
   describe '#amount' do
-    subject { Transaction.new(1, object) }
+    subject { described_class.new(1, object) }
 
     context 'payment transaction' do
       let(:object) { create(:payment) }

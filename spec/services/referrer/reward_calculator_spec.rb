@@ -3,8 +3,9 @@
 require 'spec_helper'
 
 describe Referrer::RewardCalculator do
-  let(:payment) { create(:payment, amount: 100) }
   subject { described_class.new(payment) }
+
+  let(:payment) { create(:payment, amount: 100) }
 
   describe '#amount' do
     before do

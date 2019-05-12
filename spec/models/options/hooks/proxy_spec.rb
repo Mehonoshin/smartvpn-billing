@@ -3,10 +3,11 @@
 require 'spec_helper'
 
 describe Options::Hooks::Proxy do
+  subject { described_class.new(user, option) }
+
   let(:user) { create(:user) }
   let(:option) { create(:option, code: 'proxy') }
   let(:proxy) { create(:proxy_node) }
-  subject { described_class.new(user, option) }
 
   describe '.connect' do
     before do

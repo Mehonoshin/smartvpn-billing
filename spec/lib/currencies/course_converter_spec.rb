@@ -7,6 +7,7 @@ describe Currencies::CourseConverter do
 
   describe 'amount conversion' do
     let(:course) { 2 }
+
     before { allow_any_instance_of(Currencies::Course).to receive(:get).and_return(course) }
 
     it 'devides currency by amount' do

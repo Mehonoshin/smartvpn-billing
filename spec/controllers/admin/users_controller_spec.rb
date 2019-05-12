@@ -30,6 +30,7 @@ describe Admin::UsersController do
 
   describe 'GET #show' do
     let(:user) { create(:user) }
+
     before { get :show, params: { id: user.id } }
 
     it { is_expected.to be_successful }
@@ -38,6 +39,7 @@ describe Admin::UsersController do
 
   describe 'GET #edit' do
     let(:user) { create(:user) }
+
     before { get :edit, params: { id: user.id } }
 
     it { is_expected.to be_successful }
@@ -55,6 +57,7 @@ describe Admin::UsersController do
     let!(:user) { create(:user) }
     let!(:plan) { create(:plan) }
     let!(:operation) { double('Ops::Admin::User::Create') }
+
     before { allow(Ops::Admin::User::Create).to receive(:new).with(params: params).and_return(operation) }
 
     context 'params correct' do

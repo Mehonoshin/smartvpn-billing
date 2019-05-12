@@ -1,13 +1,13 @@
 # frozen_string_literal: true
 
-FactoryGirl.define do
+FactoryBot.define do
   factory :user_option do
-    user_id 1
-    option_id 1
-    attrs ''
+    user_id { 1 }
+    option_id { 1 }
+    attrs { '' }
 
     trait :disabled do
-      state 'disabled'
+      state { 'disabled' }
     end
   end
 end

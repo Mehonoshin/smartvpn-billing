@@ -12,6 +12,7 @@ describe Billing::PaymentsController do
 
   context 'when regular user' do
     let(:pay_system) { create(:pay_system) }
+
     login_user
 
     it 'displays pay systems list' do

@@ -3,8 +3,9 @@
 require 'spec_helper'
 
 describe User do
-  let(:user) { build(:user) }
   subject { user }
+
+  let(:user) { build(:user) }
 
   it { is_expected.to be_valid }
 
@@ -49,9 +50,10 @@ describe User, 'custom validations' do
   end
 
   context 'user changed plan from regular to special' do
+    subject { create(:user, plan_id: plan.id) }
+
     let(:plan) { create(:plan) }
     let(:new_plan) { create(:plan, special: true) }
-    subject { create(:user, plan_id: plan.id) }
 
     it 'allowes user to change plan' do
       subject.plan_id = new_plan.id
@@ -159,20 +161,21 @@ describe User, 'public methods' do
   end
 
   describe '.service_enabled?' do
-    let(:user) { create(:user_with_balance) }
     subject { user.service_enabled? }
+
+    let(:user) { create(:user_with_balance) }
 
     context 'user has paid in current billing interval' do
       before { create(:withdrawal, user: user) }
 
       it 'service is enabled' do
-        is_expected.to be true
+        expect(subject).to be true
       end
     end
 
     context "user hasn't paid" do
       it 'service is disabled' do
-        is_expected.to be false
+        expect(subject).to be false
       end
     end
   end
@@ -367,13 +370,14 @@ describe User, 'scopes' do
 
   describe '.active_referrers' do
     subject { described_class.active_referrers }
+
     let!(:referrer1) { create(:user) }
     let!(:referrer2) { create(:user) }
     let!(:referrer3) { create(:user) }
 
     before do
-      2.times { create(:user, referrer: referrer1) }
-      1.times { create(:user, referrer: referrer2) }
+      create_list(:user, 2, referrer: referrer1)
+      create_list(:user, 1, referrer: referrer2)
     end
 
     it 'returns referrers with referrals' do

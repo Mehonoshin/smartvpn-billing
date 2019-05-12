@@ -6,9 +6,10 @@ describe Signer do
   subject { described_class }
 
   describe '::sign_hash' do
+    subject { described_class.sign_hash(hash, key) }
+
     let(:hash) { Hash[a: 2, b: 1, c: 3] }
     let(:key) { '456' }
-    subject { described_class.sign_hash(hash, key) }
 
     it 'joins hash values without character' do
       expect(subject).not_to eq Digest::MD5.hexdigest("#{hash.values.sort}#{key}")

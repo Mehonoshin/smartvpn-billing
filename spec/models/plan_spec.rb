@@ -18,10 +18,11 @@ describe Plan do
   it { is_expected.to have_and_belong_to_many(:options) }
 
   describe 'regular plans scope' do
+    subject { described_class.regular }
+
     let!(:special_plan) { create(:plan, special: true) }
     let!(:regular_plan1) { create(:plan) }
     let!(:regular_plan2) { create(:plan) }
-    subject { Plan.regular }
 
     it 'returns non-special plans' do
       expect(subject).to eq [regular_plan1, regular_plan2]
@@ -33,10 +34,11 @@ describe Plan do
   end
 
   describe 'enabled' do
+    subject { described_class.enabled }
+
     let(:enabled_plan1) { create(:plan) }
     let(:enabled_plan2) { create(:plan) }
     let(:disabled_plan) { create(:plan, enabled: false) }
-    subject { Plan.enabled }
 
     it 'returns only enabled plans' do
       expect(subject).to eq [enabled_plan1, enabled_plan2]
@@ -56,6 +58,7 @@ describe Plan do
   describe '.option_price' do
     let(:option) { create(:option) }
     let(:option_price) { 100 }
+
     before { plan.update(option_prices: { option.code => option_price }) }
 
     it 'returns option price by its code' do

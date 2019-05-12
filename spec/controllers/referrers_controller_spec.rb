@@ -5,6 +5,7 @@ require 'spec_helper'
 describe ReferrersController do
   describe 'GET #set_referrer' do
     let(:user) { create(:user) }
+
     before { get :set_referrer, params: { code: user.reflink } }
 
     it 'sets reflink to cookie' do

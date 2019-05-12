@@ -3,8 +3,9 @@
 require 'spec_helper'
 
 describe Admin::OptionsDecorator do
-  let(:object) { create(:option) }
   subject { described_class.new(object) }
+
+  let(:object) { create(:option) }
 
   describe 'state' do
     it 'has state class' do

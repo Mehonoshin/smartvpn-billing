@@ -3,8 +3,9 @@
 require 'spec_helper'
 
 describe 'Password reset' do
-  let!(:user) { create(:user) }
   subject { page }
+
+  let!(:user) { create(:user) }
 
   it 'successful scenary' do
     ## Sign in page

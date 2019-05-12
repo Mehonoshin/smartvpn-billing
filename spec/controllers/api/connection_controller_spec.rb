@@ -3,6 +3,8 @@
 require 'spec_helper'
 
 describe Api::ConnectionController do
+  subject { response }
+
   let(:user) { create(:user) }
   let(:server) { create(:server) }
   let(:attrs) do
@@ -11,14 +13,13 @@ describe Api::ConnectionController do
       traffic_in: '10',
       traffic_out: '15' }
   end
-  subject { response }
 
   it_behaves_like 'validating signature', :connect
   it_behaves_like 'validating signature', :disconnect
 
   describe 'api calls' do
     before do
-      allow_any_instance_of(Api::ConnectionController).to receive(:valid_api_call?).and_return(true)
+      allow_any_instance_of(described_class).to receive(:valid_api_call?).and_return(true)
     end
 
     describe 'POST #connect' do

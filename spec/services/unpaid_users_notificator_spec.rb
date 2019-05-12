@@ -7,9 +7,7 @@ describe UnpaidUsersNotificator do
 
   describe '#notify_all' do
     before do
-      3.times do
-        create(:user, can_not_withdraw_counter: described_class::FAILED_WITHDRAWS)
-      end
+      create_list(:user, 3, can_not_withdraw_counter: described_class::FAILED_WITHDRAWS)
       create(:user, can_not_withdraw_counter: described_class::FAILED_WITHDRAWS + 1)
       create(:user, can_not_withdraw_counter: described_class::FAILED_WITHDRAWS - 1)
       create(:user)

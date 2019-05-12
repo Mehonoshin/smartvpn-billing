@@ -3,12 +3,13 @@
 require 'spec_helper'
 
 describe Authenticator do
+  subject { described_class.new(login, password, hostname) }
+
   let(:user) { create(:user_with_balance) }
   let(:server) { create(:server) }
   let(:login) { user.vpn_login }
   let(:password) { user.vpn_password }
   let(:hostname) { server.hostname }
-  subject { Authenticator.new(login, password, hostname) }
 
   before do
     user.plan.servers << server
@@ -35,6 +36,7 @@ describe Authenticator do
 
     context 'billing credentials' do
       let(:login) { user.email }
+
       before { create(:withdrawal, user: user) }
 
       context 'valid' do

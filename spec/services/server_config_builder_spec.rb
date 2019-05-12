@@ -3,6 +3,8 @@
 require 'rails_helper'
 
 describe ServerConfigBuilder do
+  subject { described_class.new(server: server) }
+
   let(:client_crt) do
     <<~TEXT
       Certificate:
@@ -179,7 +181,6 @@ describe ServerConfigBuilder do
            server_crt: ca_crt,
            client_key: client_key)
   end
-  subject { described_class.new(server: server) }
 
   describe '#to_text' do
     it 'returns expected config' do

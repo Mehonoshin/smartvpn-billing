@@ -72,6 +72,7 @@ group :development do
   gem 'migration_opener'
   gem 'rubocop', require: false
   gem 'rubocop-performance', require: false
+  gem 'rubocop-rspec', require: false
   gem 'sandi_meter', require: false
   gem 'web-console', '~> 3.7'
 end
@@ -84,7 +85,7 @@ group :test, :development do
   gem 'mocha', require: false
   gem 'rb-fchange', require: false
   # TODO: switch to stable version
-  gem 'factory_girl_rails', '~> 4.9'
+  gem 'factory_bot_rails', '~> 4.9'
   gem 'faker'
   gem 'i18n-tasks', '~> 0.9.29'
   gem 'pry-rails'

@@ -4,6 +4,7 @@ require 'rails_helper'
 
 describe Ops::Admin::User::Base do
   subject { described_class.new(params: params) }
+
   let(:plan) { create(:plan) }
   let(:params) do
     {

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-FactoryGirl.define do
+FactoryBot.define do
   sequence(:user_email)    { |n| "person#{n}@example.com" }
   sequence(:user_password) { |_n| 'password' }
 
@@ -8,11 +8,11 @@ FactoryGirl.define do
     plan
     email { generate(:user_email) }
     password { generate(:user_password) }
-    accept_agreement '1'
-    confirmed_at Time.current
+    accept_agreement { '1' }
+    confirmed_at { Time.current }
   end
 
   factory :user_with_balance, parent: :user do
-    balance 100
+    balance { 100 }
   end
 end

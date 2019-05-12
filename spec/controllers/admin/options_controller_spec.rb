@@ -4,6 +4,7 @@ require 'spec_helper'
 
 describe Admin::OptionsController do
   subject { response }
+
   login_admin
 
   describe 'GET #index' do
@@ -48,6 +49,7 @@ describe Admin::OptionsController do
 
   describe 'GET #edit' do
     let(:option) { create(:option) }
+
     before { get :edit, params: { id: option.id } }
 
     it { is_expected.to be_successful }

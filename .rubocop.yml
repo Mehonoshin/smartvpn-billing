@@ -1,6 +1,12 @@
 require: rubocop-performance
+require: rubocop-rspec
+
+FactoryBot/AttributeDefinedStatically:
+  Enabled: true
+
 # These are all the cops that are enabled in the default configuration.
 #################### Bundler ###############################
+
 
 AllCops:
   Exclude:

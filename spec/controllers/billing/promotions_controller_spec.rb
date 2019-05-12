@@ -3,9 +3,10 @@
 require 'spec_helper'
 
 describe Billing::PromotionsController do
+  subject { response }
+
   let(:promo_code) { 'promo' }
   let(:settings_path) { edit_user_registration_path }
-  subject { response }
 
   describe 'POST #create' do
     context 'when not authorized' do
@@ -51,6 +52,7 @@ describe Billing::PromotionsController do
 
       context 'promo exists, promotion not' do
         let!(:promo) { create(:active_promo, date_from: 1.week.ago, date_to: 1.week.from_now, promo_code: promo_code) }
+
         before { post :create, params: { promotion: { promo_code: promo_code } } }
 
         it 'redirects to settings page' do

@@ -4,7 +4,9 @@ require 'spec_helper'
 
 describe PromotersRepository do
   subject { described_class }
+
   let!(:custom_promoter) { OpenStruct.new(type: 'custom', attributes: []) }
+
   before { subject.persist(custom_promoter) }
 
   describe '.all' do

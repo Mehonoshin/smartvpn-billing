@@ -3,8 +3,9 @@
 require 'spec_helper'
 
 describe Promo do
-  let(:promo) { build(:promo, promoter_type: 'discount') }
   subject { promo }
+
+  let(:promo) { build(:promo, promoter_type: 'discount') }
 
   describe 'validations' do
     it { is_expected.to validate_presence_of :name }
@@ -13,10 +14,11 @@ describe Promo do
   end
 
   describe '.withdrawal scope' do
+    subject { described_class.withdrawal }
+
     let!(:withdrawal1) { create(:promo) }
     let!(:withdrawal2) { create(:promo) }
     let!(:withdrawal3) { create(:option_promo) }
-    subject { described_class.withdrawal }
 
     it 'returns only withdrawal promos' do
       expect(subject).to eq [withdrawal1, withdrawal2]

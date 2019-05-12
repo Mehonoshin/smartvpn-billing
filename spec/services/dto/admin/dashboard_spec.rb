@@ -34,21 +34,23 @@ describe Dto::Admin::Dashboard do
 
   describe 'incomes' do
     subject { dashboard.income }
+
     before do
-      2.times { create(:payment, amount: 100) }
+      create_list(:payment, 2, amount: 100)
     end
 
     it_behaves_like 'total statistics result', 200
-    it_behaves_like 'total statistics discrete result', Dto::Admin::Dashboard
+    it_behaves_like 'total statistics discrete result', described_class
   end
 
   describe 'traffic' do
     subject { dashboard.traffic }
+
     before do
-      2.times { create(:disconnect, traffic_in: 100, traffic_out: 100) }
+      create_list(:disconnect, 2, traffic_in: 100, traffic_out: 100)
     end
 
     it_behaves_like 'total statistics result', 200
-    it_behaves_like 'total statistics discrete result', Dto::Admin::Dashboard
+    it_behaves_like 'total statistics discrete result', described_class
   end
 end

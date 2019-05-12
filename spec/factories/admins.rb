@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-FactoryGirl.define do
+FactoryBot.define do
   sequence(:admin_email)    { |n| "admin#{n}@example.com" }
   sequence(:admin_password) { |n| "password#{n}" }
 

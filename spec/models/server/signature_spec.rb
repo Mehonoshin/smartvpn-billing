@@ -20,11 +20,13 @@ describe Server::Signature do
 
       context 'with valid signature' do
         let(:signature) { ENV['SECRET_TOKEN'].to_s }
+
         its(:valid?) { is_expected.to be true }
       end
 
       context 'with invalid signature' do
         let(:signature) { 'invalid_signature' }
+
         its(:valid?) { is_expected.to be false }
       end
     end
@@ -48,6 +50,7 @@ describe Server::Signature do
 
       context 'with invalid signature' do
         let(:signature) { '123' }
+
         its(:valid?) { is_expected.to be false }
       end
     end

@@ -3,9 +3,10 @@
 require 'spec_helper'
 
 describe ForcedDisconnect do
+  subject      { described_class.new(user) }
+
   let(:user)   { create(:user) }
   let(:server) { create(:server) }
-  subject      { described_class.new(user) }
 
   describe '#invoke' do
     context 'connected' do

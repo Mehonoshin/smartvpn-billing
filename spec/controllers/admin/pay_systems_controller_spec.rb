@@ -36,6 +36,7 @@ describe Admin::PaySystemsController do
 
     describe 'GET #show' do
       let!(:pay_system) { create :pay_system }
+
       before { get :show, params: { id: pay_system.id } }
 
       it 'renders template' do

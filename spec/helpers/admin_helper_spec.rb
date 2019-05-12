@@ -39,6 +39,7 @@ describe AdminHelper do
 
   describe '#change_locale_link' do
     let(:cell) { double('Web::Admin::ChangeLocaleLinkCell') }
+
     before { allow(Web::Admin::ChangeLocaleLinkCell).to receive(:new).and_return(cell) }
 
     it 'runs Web::Admin::ChangeLocaleLinkCell' do

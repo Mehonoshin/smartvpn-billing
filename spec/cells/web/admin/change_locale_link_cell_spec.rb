@@ -13,6 +13,7 @@ describe Web::Admin::ChangeLocaleLinkCell do
 
   context 'current locale is RU' do
     before { I18n.locale = :ru }
+
     after { I18n.locale = :en }
 
     it 'returns alink to chane the locale to EN' do

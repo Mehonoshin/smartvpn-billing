@@ -21,6 +21,7 @@ describe Admin::ProfilesController do
 
   context 'logged in as admin' do
     let!(:admin) { create(:admin, password: '1234567') }
+
     before do
       @request.env['devise.mapping'] = Devise.mappings[:admin]
       sign_in admin
@@ -40,6 +41,7 @@ describe Admin::ProfilesController do
 
     describe 'PUT #update' do
       let!(:old_password) { admin.encrypted_password }
+
       before { put :update, params: { admin: params } }
 
       context 'valid params' do

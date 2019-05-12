@@ -3,9 +3,10 @@
 require 'spec_helper'
 
 describe TransactionDecorator do
+  subject { described_class.new(transaction) }
+
   let(:model) { create(:payment) }
   let(:transaction) { Transaction.new(model.id, model) }
-  subject { described_class.new(transaction) }
 
   it 'delegates id to model' do
     expect(subject.id).to eq transaction.id

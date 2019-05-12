@@ -4,7 +4,9 @@ require 'spec_helper'
 
 describe Option::Activator do
   subject { described_class }
+
   let!(:option) { create(:active_option) }
+
   before { allow_any_instance_of(subject).to receive(:activation_price).and_return(1) }
 
   describe '.run' do

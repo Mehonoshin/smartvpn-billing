@@ -11,6 +11,7 @@ describe UserDecorator do
 
     context 'connected' do
       before { create(:connect, user: user) }
+
       it 'returns link to connection' do
         expect(subject).to include 'href='
       end
@@ -28,6 +29,7 @@ describe UserDecorator do
 
     context 'paid' do
       let!(:withdrawal) { create(:withdrawal, user: user) }
+
       it 'returns last withdrawal date' do
         expect(subject).to eq described_class.h.human_date(withdrawal.created_at)
       end
@@ -41,8 +43,9 @@ describe UserDecorator do
   end
 
   describe '.options' do
-    let(:option) { create(:active_option) }
     subject { decorator.options }
+
+    let(:option) { create(:active_option) }
 
     before { user.options << option }
 

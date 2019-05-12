@@ -4,9 +4,10 @@ require 'spec_helper'
 
 describe BytesConverter do
   describe '#bytes_to_gigabytes' do
+    subject { described_class.bytes_to_gigabytes(bytes) }
+
     let(:bytes) { 2_147_483_658 }
     let(:gbytes) { 2 }
-    subject { described_class.bytes_to_gigabytes(bytes) }
 
     it 'converts to gbytes' do
       expect(subject).to eq gbytes

@@ -36,6 +36,7 @@ describe Admin::ServersController do
 
     describe 'GET #show' do
       let!(:server) { create :server }
+
       before { get :show, params: { id: server.id } }
 
       it 'renders template' do

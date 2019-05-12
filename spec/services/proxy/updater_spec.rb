@@ -4,9 +4,10 @@ require 'spec_helper'
 
 describe Proxy::Updater do
   describe '.update' do
+    subject { described_class }
+
     let(:fetcher_class) { double('fetcher_class') }
     let(:proxies) { [] }
-    subject { described_class }
 
     before do
       expect(fetcher_class).to receive(:fetch).and_return(proxies)

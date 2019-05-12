@@ -3,10 +3,11 @@
 require 'spec_helper'
 
 describe Option::ActivationPriceCalc do
+  subject { described_class.activation_price(user, option) }
+
   let!(:user) { create(:user_with_balance) }
   let!(:option) { create(:active_option) }
   let(:option_price) { 30 }
-  subject { described_class.activation_price(user, option) }
 
   before do
     user.plan.options << option

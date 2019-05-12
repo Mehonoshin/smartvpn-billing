@@ -44,7 +44,7 @@ describe Api::ServersController do
 
         it 'updates server pki fields' do
           expect { post :activate, params: params }
-            .to change { Server.count }.by(1)
+            .to change(Server, :count).by(1)
         end
 
         it 'assigns certificate data to server' do

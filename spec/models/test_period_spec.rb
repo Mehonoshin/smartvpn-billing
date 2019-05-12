@@ -3,8 +3,9 @@
 require 'spec_helper'
 
 describe TestPeriod do
-  let(:user) { create(:user) }
   subject { described_class.new(user) }
+
+  let(:user) { create(:user) }
 
   it 'test period is false by default' do
     expect(subject.enabled?).to be false

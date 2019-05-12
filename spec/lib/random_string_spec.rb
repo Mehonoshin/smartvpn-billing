@@ -4,9 +4,10 @@ require 'spec_helper'
 
 describe RandomString do
   describe '::generate' do
-    subject { RandomString }
-    let(:first_string) { RandomString.generate }
-    let(:second_string) { RandomString.generate }
+    subject { described_class }
+
+    let(:first_string) { described_class.generate }
+    let(:second_string) { described_class.generate }
 
     it 'returns new string on each call' do
       expect(first_string).not_to eq second_string

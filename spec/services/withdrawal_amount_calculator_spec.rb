@@ -55,6 +55,7 @@ describe WithdrawalAmountCalculator do
 
       context 'multiple promotions' do
         let(:second_discount_promo) { create(:active_promo, date_from: 1.week.ago, date_to: 1.week.from_now, attrs: { discount_percent: 10 }) }
+
         before do
           create(:promotion, user: user, promo: second_discount_promo)
         end

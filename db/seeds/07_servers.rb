@@ -3,7 +3,7 @@ if Server.count.zero?
   puts 'Create tests servers'
   puts '----------------------------------'
   5.times do |i|
-    server = FactoryGirl.create(:server)
+    server = FactoryBot.create(:server)
     server.plans << standard_plan
     puts "Was created test server hostname: #{server.hostname} with standard plan"
     puts '----------------------------------' unless i == 4

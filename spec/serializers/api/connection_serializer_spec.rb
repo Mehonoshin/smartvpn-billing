@@ -3,6 +3,8 @@
 require 'spec_helper'
 
 describe Api::ConnectionSerializer do
+  subject { described_class.new(object) }
+
   let(:option) { create(:option) }
   let(:option_attributes) do
     {
@@ -11,7 +13,6 @@ describe Api::ConnectionSerializer do
   end
   let(:object) { create(:connect, option_attributes: option_attributes) }
   let(:user) { object.user }
-  subject { described_class.new(object) }
 
   it 'includes option code' do
     expect(subject.to_json).to include option.code

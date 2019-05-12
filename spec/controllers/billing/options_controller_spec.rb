@@ -8,8 +8,9 @@ describe Billing::OptionsController do
 
   describe 'GET #index' do
     before { get :index }
-    it { should be_successful }
-    it { should render_template :index }
+
+    it { is_expected.to be_successful }
+    it { is_expected.to render_template :index }
   end
 
   describe 'POST #create' do

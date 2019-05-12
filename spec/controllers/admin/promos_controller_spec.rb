@@ -65,6 +65,7 @@ describe Admin::PromosController do
 
     describe 'GET #edit' do
       let(:promo) { create(:promo) }
+
       before { get :edit, params: { id: promo.id } }
 
       it { is_expected.to render_template :edit }

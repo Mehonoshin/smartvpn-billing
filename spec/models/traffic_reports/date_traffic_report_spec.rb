@@ -3,10 +3,11 @@
 require 'spec_helper'
 
 describe DateTrafficReport do
+  subject { described_class.new(date_from: date_from, date_to: date_to) }
+
   let(:current_date) { DateTime.parse('13-06-2013') }
   let(:date_from) { current_date - 3.month }
   let(:date_to) { current_date.end_of_month }
-  subject { described_class.new(date_from: date_from, date_to: date_to) }
 
   before do
     create(:disconnect, created_at: current_date)

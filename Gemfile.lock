@@ -193,10 +193,10 @@ GEM
     erubi (1.8.0)
     eventmachine (1.2.7)
     execjs (2.7.0)
-    factory_girl (4.9.0)
+    factory_bot (4.11.1)
       activesupport (>= 3.0.0)
-    factory_girl_rails (4.9.0)
-      factory_girl (~> 4.9.0)
+    factory_bot_rails (4.11.1)
+      factory_bot (~> 4.11.1)
       railties (>= 3.0.0)
     faker (1.9.3)
       i18n (>= 0.7)
@@ -409,6 +409,8 @@ GEM
       unicode-display_width (>= 1.4.0, < 1.6)
     rubocop-performance (1.2.0)
       rubocop (>= 0.68.0)
+    rubocop-rspec (1.32.0)
+      rubocop (>= 0.60.0)
     ruby-progressbar (1.10.0)
     rubyzip (1.2.2)
     russian_central_bank (1.1.1)
@@ -532,7 +534,7 @@ DEPENDENCIES
   devise-i18n (~> 1.8)
   dotenv-rails
   draper (= 3.1)
-  factory_girl_rails (~> 4.9)
+  factory_bot_rails (~> 4.9)
   faker
   fakeweb!
   ffi (>= 1.10)
@@ -566,6 +568,7 @@ DEPENDENCIES
   rspec-rails
   rubocop
   rubocop-performance
+  rubocop-rspec
   russian_central_bank
   sandi_meter
   sass-rails

@@ -9,8 +9,8 @@ describe 'referrers page', js: true do
   let(:referral2_email) { referrer2.referrals.first.email }
 
   before do
-    2.times { create(:user, referrer: referrer1) }
-    3.times { create(:user, referrer: referrer2) }
+    create_list(:user, 2, referrer: referrer1)
+    create_list(:user, 3, referrer: referrer2)
     I18n.locale = :en
   end
 

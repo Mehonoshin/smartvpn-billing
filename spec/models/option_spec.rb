@@ -42,9 +42,10 @@ describe Option do
   end
 
   describe '.hook' do
+    subject { build(:option, code: code) }
+
     let(:user) { nil }
     let(:hook) { subject.hook(user) }
-    subject { build(:option, code: code) }
 
     context 'with hooks' do
       let(:code) { 'proxy' }

@@ -3,9 +3,10 @@
 require 'spec_helper'
 
 describe OptionAttributeDecorator do
+  subject { described_class.new(name, values, current_value) }
+
   let(:name) { 'country' }
   let(:current_value) { 'Russia' }
-  subject { described_class.new(name, values, current_value) }
 
   describe '.render' do
     context 'select' do

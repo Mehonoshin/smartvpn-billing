@@ -18,7 +18,7 @@ if user.payments.count.zero?
   puts '----------------------------------'
   last_pay_system = PaySystem.last
   PaySystem.all.each do |pay_system|
-    FactoryGirl.create(:payment, user: user, pay_system: pay_system).accept!
+    FactoryBot.create(:payment, user: user, pay_system: pay_system).accept!
     puts "Was created default user payment for pay system #{pay_system.name}"
     puts '----------------------------------' unless pay_system.name == last_pay_system.name
   end
@@ -28,5 +28,5 @@ if user.withdrawals.count.zero?
   puts '##################################'
   puts 'Create default user two tests withdrawals'
   puts '----------------------------------'
-  2.times { FactoryGirl.create(:withdrawal, plan: standard_plan, user: user) }
+  2.times { FactoryBot.create(:withdrawal, plan: standard_plan, user: user) }
 end

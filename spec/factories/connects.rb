@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-FactoryGirl.define do
+FactoryBot.define do
   factory :connect do
     user
     server
-    option_attributes Hash[]
+    option_attributes { Hash[] }
   end
 end

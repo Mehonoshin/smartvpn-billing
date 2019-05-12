@@ -4,6 +4,7 @@ require 'spec_helper'
 
 describe Withdrawer do
   subject { described_class }
+
   let!(:paid_client) { create :user_with_balance }
   let!(:new_client) { create :user_with_balance }
   let!(:non_paid_client) { create :user_with_balance }
@@ -87,6 +88,7 @@ describe Withdrawer do
 
     context 'user is paid' do
       let(:user) { create :user_with_balance }
+
       before { create(:withdrawal, user: user, plan: user.plan) }
 
       it 'does not create withdrawal' do

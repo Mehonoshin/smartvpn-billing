@@ -3,8 +3,9 @@
 require 'spec_helper'
 
 describe PromoDecorator do
+  subject { described_class.new(promo) }
+
   let(:promo) { create(:promo) }
-  subject { PromoDecorator.new(promo) }
 
   describe 'period' do
     it 'returns string with start date' do
@@ -39,6 +40,7 @@ describe PromoDecorator do
 
     context 'active' do
       before { promo.start! }
+
       it 'adds green color to span' do
         expect(subject.state).to include 'green'
       end

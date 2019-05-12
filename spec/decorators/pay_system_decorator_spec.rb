@@ -3,8 +3,9 @@
 require 'spec_helper'
 
 describe PaySystemDecorator do
-  let(:pay_system) { create(:pay_system) }
   subject { described_class.new(pay_system) }
+
+  let(:pay_system) { create(:pay_system) }
 
   describe '.title' do
     it 'creates link' do

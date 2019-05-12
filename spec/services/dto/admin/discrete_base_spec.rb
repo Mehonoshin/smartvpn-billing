@@ -3,8 +3,9 @@
 require 'rails_helper'
 
 describe Dto::Admin::DiscreteBase do
-  let(:days_number) { 3 }
   subject { described_class.new(number_of_days: days_number) }
+
+  let(:days_number) { 3 }
 
   describe '#amounts' do
     before do

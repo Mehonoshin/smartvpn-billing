@@ -3,9 +3,10 @@
 require 'spec_helper'
 
 describe Referrer::Account do
+  subject { described_class.new(referrer.id) }
+
   let(:referrer) { create(:user) }
   let(:amounts) { [10, 20, 30] }
-  subject { described_class.new(referrer.id) }
 
   before do
     amounts.each do |amount|
@@ -29,7 +30,7 @@ describe Referrer::Account do
     let!(:referral) { create(:user_with_balance, referrer: referrer) }
 
     before do
-      3.times { create(:withdrawal, user: referral, amount: 3) }
+      create_list(:withdrawal, 3, user: referral, amount: 3)
     end
 
     it 'returns sum of referrals withdrawals' do

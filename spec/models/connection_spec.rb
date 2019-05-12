@@ -4,10 +4,11 @@ require 'spec_helper'
 
 describe Connection do
   describe '::active' do
+    subject { described_class.active }
+
     let(:user) { create(:user) }
     let(:server) { create(:server) }
     let(:second_user) { create(:user) }
-    subject { described_class.active }
 
     context 'one last connect exists' do
       before do

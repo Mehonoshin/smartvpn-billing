@@ -10,13 +10,13 @@ describe Clockwork do
     allow(RefreshProxyListWorker).to receive(:perform_async).and_return('RefreshProxyListID')
   end
 
-  after(:each) { Clockwork::Test.clear! }
+  after { Clockwork::Test.clear! }
 
   %w[Withdrawals UpdateCourses RefreshProxyList].each do |job|
     it "runs the job #{job} once" do
       Clockwork::Test.run(max_ticks: 1)
 
-      expect(Clockwork::Test.ran_job?(job)).to be_truthy
+      expect(Clockwork::Test).to be_ran_job(job)
       expect(Clockwork::Test.times_run(job)).to eq 1
       expect(Clockwork::Test.block_for(job).call).to eq("#{job}ID")
     end

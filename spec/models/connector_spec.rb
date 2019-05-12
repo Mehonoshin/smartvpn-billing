@@ -3,20 +3,22 @@
 require 'spec_helper'
 
 describe Connector do
-  let(:user) { create(:user) }
-  let(:server) { create(:server) }
   subject { described_class.new(params) }
 
+  let(:user) { create(:user) }
+  let(:server) { create(:server) }
+
   describe 'connection test methods' do
+    subject { described_class }
+
     let(:user) { create(:user) }
-    subject { Connector }
 
     describe '#first_time_connected?' do
       context 'only one connect exists' do
         before { create(:connect, user: user) }
 
         it 'returns true' do
-          expect(subject.first_time_connected?(user)).to be_truthy
+          expect(subject).to be_first_time_connected(user)
         end
       end
 
@@ -27,7 +29,7 @@ describe Connector do
         end
 
         it 'returns false' do
-          expect(subject.first_time_connected?(user)).to be_falsy
+          expect(subject).not_to be_first_time_connected(user)
         end
       end
     end
@@ -37,7 +39,7 @@ describe Connector do
         before { create(:connect, user: user) }
 
         it 'returns true' do
-          expect(subject.connected?(user)).to be_truthy
+          expect(subject).to be_connected(user)
         end
       end
 
@@ -91,6 +93,7 @@ describe Connector do
       let(:proxy_option) { create(:proxy_option) }
       let(:country) { 'China' }
       let!(:node) { create(:proxy_node, country: country) }
+
       before { user.user_options.create!(option: i2p_option) }
 
       context 'user options are enabled' do

@@ -56,7 +56,7 @@ RSpec.configure do |config|
 
   config.include ApplicationHelper, type: :feature
   config.include Devise::Test::ControllerHelpers, type: :controller
-  config.include FactoryGirl::Syntax::Methods
+  config.include FactoryBot::Syntax::Methods
   config.include Requests::JsonHelpers, type: :controller
   config.extend  Requests::ControllerMacros, type: :controller
 
@@ -64,7 +64,7 @@ RSpec.configure do |config|
     DatabaseCleaner.strategy = :transaction
   end
 
-  config.before(:each) do |example|
+  config.before do |example|
     DatabaseCleaner.strategy = if example.metadata[:disable_transaction]
                                  :truncation
                                else
@@ -85,7 +85,7 @@ RSpec.configure do |config|
     FakeWeb.allow_net_connect = true
   end
 
-  config.after(:each) do
+  config.after do
     DatabaseCleaner.clean
   end
 end

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-FactoryGirl.define do
+FactoryBot.define do
   sequence(:name) { |n| "PaySystem#{n}" }
   sequence(:code) { |n| "code#{n}" }
 
@@ -10,11 +10,11 @@ FactoryGirl.define do
   end
 
   factory :enabled_pay_system, parent: :pay_system do
-    state :enabled
+    state { :enabled }
   end
 
   factory :rub_pay_system, parent: :pay_system do
-    state :enabled
-    currency 'rub'
+    state { :enabled }
+    currency { 'rub' }
   end
 end

@@ -3,13 +3,15 @@
 require 'spec_helper'
 
 describe TrafficReport do
-  let(:params) { Hash[] }
   subject { described_class.new(params) }
+
+  let(:params) { Hash[] }
 
   describe 'report building' do
     let(:report_ar_relation) { double('TrafficReport') }
+
     before do
-      allow_any_instance_of(TrafficReport).to receive(:build_report).and_return(report_ar_relation)
+      allow_any_instance_of(described_class).to receive(:build_report).and_return(report_ar_relation)
       allow(report_ar_relation).to receive(:where).and_return([])
     end
 

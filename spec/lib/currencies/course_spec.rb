@@ -57,6 +57,7 @@ describe Currencies::Course do
 
     context 'record exists in redis' do
       let(:cached_course) { '2' }
+
       before do
         redis.set('smartvpn:eur_usd', cached_course)
         redis.set('smartvpn:courses:updated_at', Time.current)
