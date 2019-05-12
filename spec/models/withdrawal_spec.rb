@@ -3,7 +3,7 @@
 require 'spec_helper'
 
 describe Withdrawal do
-  subject { build(:withdrawal) }
+  subject { create(:withdrawal) }
 
   it { is_expected.to be_valid }
   it { is_expected.to validate_presence_of(:plan_id) }

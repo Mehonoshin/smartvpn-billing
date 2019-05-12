@@ -4,7 +4,7 @@ require 'spec_helper'
 
 describe Api::ServersController do
   let(:hostname) { 'valid_hostname' }
-  let(:signature) { Settings.secret_token }
+  let(:signature) { ENV['SECRET_TOKEN'] }
 
   describe 'POST #activate' do
     let(:params) do
@@ -23,7 +23,7 @@ describe Api::ServersController do
 
       it 'raises error' do
         expect do
-          post :activate, params
+          post :activate, params: params
         end.to raise_error ApiException, "Server already exists: #{server}"
       end
     end
@@ -33,22 +33,22 @@ describe Api::ServersController do
         let(:server) { Server.last }
 
         it 'renders json with auth key' do
-          post :activate, params
+          post :activate, params: params
           expect(response.body).to eq Hash[auth_key: server.auth_key].to_json
         end
 
         it 'returns success status' do
-          post :activate, params
+          post :activate, params: params
           expect(response.status).to eq 200
         end
 
         it 'updates server pki fields' do
-          expect { post :activate, params }
+          expect { post :activate, params: params }
             .to change { Server.count }.by(1)
         end
 
         it 'assigns certificate data to server' do
-          post :activate, params
+          post :activate, params: params
           expect(server.server_crt).to eq('server crt')
           expect(server.client_crt).to eq('client crt')
           expect(server.client_key).to eq('client key')
@@ -61,7 +61,7 @@ describe Api::ServersController do
 
         it 'raises error' do
           expect do
-            post :activate, params
+            post :activate, params: params
           end.to raise_error ApiException, "Server activation attempt with incorrect token: #{signature}"
         end
       end

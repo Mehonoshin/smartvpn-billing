@@ -14,7 +14,7 @@ describe Billing::WebmoneyController do
       context 'key param is not present' do
         let(:attrs) { Hash[] }
 
-        before { post :result, attrs }
+        before { post :result, params: attrs }
 
         it 'renders YES text' do
           expect(subject.body).to include 'YES'
@@ -28,7 +28,7 @@ describe Billing::WebmoneyController do
 
         it 'raises error' do
           expect do
-            post :result, attrs
+            post :result, params: attrs
           end.to raise_error 'Undefined transaction_item_id'
         end
       end
@@ -39,7 +39,7 @@ describe Billing::WebmoneyController do
 
         it 'raises error' do
           expect do
-            post :result, attrs
+            post :result, params: attrs
           end.to raise_error 'Invalid webmoney verification key'
         end
       end
@@ -64,14 +64,14 @@ describe Billing::WebmoneyController do
         end
 
         before do
-          allow_any_instance_of(ActiveMerchant::Billing::Integrations::Webmoney::Notification)
+          allow_any_instance_of(OffsitePayments::Integrations::Webmoney::Notification)
             .to receive(:recognizes?)
             .and_return(true)
-          allow_any_instance_of(ActiveMerchant::Billing::Integrations::Webmoney::Notification)
+          allow_any_instance_of(OffsitePayments::Integrations::Webmoney::Notification)
             .to receive(:acknowledge)
             .and_return(true)
           allow(Payment).to receive(:find).and_return(payment)
-          post :result, attrs
+          post :result, params: attrs
         end
 
         it 'returns 200 state' do

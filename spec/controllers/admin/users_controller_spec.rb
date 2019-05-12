@@ -10,21 +10,21 @@ describe Admin::UsersController do
   describe 'GET #index' do
     before { get :index }
 
-    it { is_expected.to be_success }
+    it { is_expected.to be_successful }
     it { is_expected.to render_template :index }
   end
 
   describe 'GET #payers' do
     before { get :payers }
 
-    it { is_expected.to be_success }
+    it { is_expected.to be_successful }
     it { is_expected.to render_template :payers }
   end
 
   describe 'GET #this_month_payers' do
     before { get :this_month_payers }
 
-    it { is_expected.to be_success }
+    it { is_expected.to be_successful }
     it { is_expected.to render_template :this_month_payers }
   end
 
@@ -32,7 +32,7 @@ describe Admin::UsersController do
     let(:user) { create(:user) }
     before { get :show, params: { id: user.id } }
 
-    it { is_expected.to be_success }
+    it { is_expected.to be_successful }
     it { is_expected.to render_template :show }
   end
 
@@ -40,14 +40,14 @@ describe Admin::UsersController do
     let(:user) { create(:user) }
     before { get :edit, params: { id: user.id } }
 
-    it { is_expected.to be_success }
+    it { is_expected.to be_successful }
     it { is_expected.to render_template :edit }
   end
 
   describe 'GET #new' do
     before { get :new }
 
-    it { is_expected.to be_success }
+    it { is_expected.to be_successful }
     it { is_expected.to render_template :new }
   end
 
@@ -191,7 +191,7 @@ describe Admin::UsersController do
       get :emails_export
     end
 
-    it { is_expected.to be_success }
+    it { is_expected.to be_successful }
 
     it 'contains emails of all users' do
       emails = User.all.map(&:email).join(',')

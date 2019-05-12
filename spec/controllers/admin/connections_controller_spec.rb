@@ -35,7 +35,7 @@ describe Admin::ConnectionsController do
 
     before { get :show, params: { id: connection.id } }
 
-    it { is_expected.to be_success }
+    it { is_expected.to be_successful }
     it { is_expected.to render_template :show }
     it { expect(response.status).to eq 200 }
   end

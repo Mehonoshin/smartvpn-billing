@@ -19,7 +19,7 @@ describe Server::Signature do
       let(:server) { nil }
 
       context 'with valid signature' do
-        let(:signature) { Settings.secret_token.to_s }
+        let(:signature) { ENV['SECRET_TOKEN'].to_s }
         its(:valid?) { is_expected.to be true }
       end
 
