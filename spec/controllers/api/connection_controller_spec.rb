@@ -5,10 +5,12 @@ require 'spec_helper'
 describe Api::ConnectionController do
   let(:user) { create(:user) }
   let(:server) { create(:server) }
-  let(:attrs) { { login: user.vpn_login,
-                  hostname: server.hostname,
-                  traffic_in: '10',
-                  traffic_out: '15' } }
+  let(:attrs) do
+    { login: user.vpn_login,
+      hostname: server.hostname,
+      traffic_in: '10',
+      traffic_out: '15' }
+  end
   subject { response }
 
   it_behaves_like 'validating signature', :connect

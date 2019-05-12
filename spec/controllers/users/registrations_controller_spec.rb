@@ -6,10 +6,12 @@ describe Users::RegistrationsController do
   describe 'POST #create' do
     let!(:referrer) { create(:user) }
     let(:plan) { create(:plan) }
-    let(:attrs) { Hash[email: 'user@email.com',
-                       password: '123456789',
-                       plan_id: plan.id,
-                       accept_agreement: '1'] }
+    let(:attrs) do
+      Hash[email: 'user@email.com',
+           password: '123456789',
+           plan_id: plan.id,
+           accept_agreement: '1']
+    end
 
     before { @request.env['devise.mapping'] = Devise.mappings[:user] }
 

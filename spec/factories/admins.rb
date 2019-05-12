@@ -5,7 +5,7 @@ FactoryGirl.define do
   sequence(:admin_password) { |n| "password#{n}" }
 
   factory :admin do
-    email { generate(:admin_email)}
-    password { generate(:admin_password)}
+    email { generate(:admin_email) }
+    password { generate(:admin_password) }
   end
 end

@@ -14,9 +14,8 @@ gem 'thin'
 gem 'chartkick'
 
 gem 'aasm'
+gem 'active_model_serializers', github: 'rails-api/active_model_serializers', branch: '0-9-stable'
 gem 'activemerchant', '~> 1.93'
-gem 'money'
-gem 'offsite_payments'
 gem 'bootstrap', '~> 4.3.1'
 gem 'cancan'
 gem 'clockwork'
@@ -24,19 +23,20 @@ gem 'devise', '4.6.2'
 gem 'devise-i18n', '~> 1.8'
 gem 'font-awesome-sass', '~> 5.8.1'
 gem 'kaminari'
+gem 'money'
+gem 'offsite_payments'
 gem 'rails-i18n'
 gem 'simple_form'
 gem 'slim'
-gem 'active_model_serializers' , github: 'rails-api/active_model_serializers', branch: '0-9-stable'
 
 gem 'ransack', '2.1.1'
 
 # TODO: switch to stable version
 gem 'carrierwave'
+gem 'config'
 gem 'draper', '3.1'
 gem 'gibbon'
 gem 'mechanize'
-gem 'config'
 gem 'russian_central_bank'
 gem 'show_for', github: 'plataformatec/show_for'
 gem 'whenever', '0.11', require: false
@@ -71,7 +71,7 @@ group :development do
   gem 'letter_opener'
   gem 'migration_opener'
   gem 'rubocop', require: false
-  gem 'rubocop-performance'
+  gem 'rubocop-performance', require: false
   gem 'sandi_meter', require: false
   gem 'web-console', '~> 3.7'
 end
@@ -88,13 +88,13 @@ group :test, :development do
   gem 'faker'
   gem 'i18n-tasks', '~> 0.9.29'
   gem 'pry-rails'
+  gem 'rails-controller-testing'
   gem 'rspec-its'
   gem 'rspec-rails'
-  gem 'shoulda-matchers', '~> 4.0.1'
-  gem 'vcr'
   gem 'selenium-webdriver'
+  gem 'shoulda-matchers', '~> 4.0.1'
   gem 'timecop'
-  gem 'rails-controller-testing'
+  gem 'vcr'
 end
 
 group :test do

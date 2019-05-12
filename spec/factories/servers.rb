@@ -4,7 +4,7 @@ FactoryGirl.define do
   sequence(:server_hostname) { |n| "#{Faker::Lorem.word}#{n}" }
 
   factory :server do
-    hostname { generate(:server_hostname)}
+    hostname { generate(:server_hostname) }
     ip_address '192.168.1.1'
     protocol 'udp'
     port 443

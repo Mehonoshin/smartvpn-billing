@@ -5,8 +5,8 @@ FactoryGirl.define do
   sequence(:code) { |n| "code#{n}" }
 
   factory :pay_system do
-    name { generate(:name)}
-    code { generate(:code)}
+    name { generate(:name) }
+    code { generate(:code) }
   end
 
   factory :enabled_pay_system, parent: :pay_system do

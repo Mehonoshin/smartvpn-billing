@@ -16,9 +16,9 @@ class Server
     def initialize(server, request_params)
       @server         = server
       @request_params = if request_params.instance_of? Hash
-        request_params.with_indifferent_access
-      else
-        request_params.to_unsafe_h.with_indifferent_access
+                          request_params.with_indifferent_access
+                        else
+                          request_params.to_unsafe_h.with_indifferent_access
       end
     end
 
@@ -26,7 +26,7 @@ class Server
       signature == if server
                      Signer.sign_hash(clean_params, server.auth_key)
                    else
-                    ENV['SECRET_TOKEN'].to_s
+                     ENV['SECRET_TOKEN'].to_s
                    end
     end
 

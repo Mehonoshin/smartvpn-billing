@@ -6,8 +6,8 @@ FactoryGirl.define do
 
   factory :user do
     plan
-    email { generate(:user_email)}
-    password { generate(:user_password)}
+    email { generate(:user_email) }
+    password { generate(:user_password) }
     accept_agreement '1'
     confirmed_at Time.current
   end

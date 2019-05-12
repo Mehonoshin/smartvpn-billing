@@ -50,10 +50,12 @@ describe Billing::OptionsController do
     let(:option) { create(:proxy_option) }
     let(:old_attrs) { Hash[country: 'China'] }
     let(:new_attrs) { Hash[country: 'Russia'] }
-    let!(:user_option) { create(:user_option, state: 'enabled',
-                                              attrs: old_attrs,
-                                              user: @user,
-                                              option: option) }
+    let!(:user_option) do
+      create(:user_option, state: 'enabled',
+                           attrs: old_attrs,
+                           user: @user,
+                           option: option)
+    end
 
     before { put :update, params: { id: option.id, option_attributes: new_attrs } }
 

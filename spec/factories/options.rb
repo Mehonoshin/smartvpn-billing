@@ -5,7 +5,7 @@ FactoryGirl.define do
 
   factory :option do
     name 'I2P'
-    code { generate(:option_code)}
+    code { generate(:option_code) }
   end
 
   factory :active_option, parent: :option do
