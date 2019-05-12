@@ -194,11 +194,11 @@ Layout/ExtraSpacing:
   Description: 'Do not use unnecessary spacing.'
   Enabled: true
 
-Layout/FirstParameterIndentation:
+Layout/IndentFirstArgument:
   Description: 'Checks the indentation of the first parameter in a method call.'
   Enabled: true
 
-Layout/IndentArray:
+Layout/IndentFirstArrayElement:
   Description: >-
     Checks the indentation of the first element in an array
     literal.
@@ -210,7 +210,7 @@ Layout/IndentAssignment:
     right-hand-side of a multi-line assignment.
   Enabled: true
 
-Layout/IndentHash:
+Layout/IndentFirstHashElement:
   Description: 'Checks the indentation of the first key in a hash literal.'
   Enabled: true
 
@@ -425,6 +425,11 @@ Layout/TrailingWhitespace:
 
 #################### Lint ##################################
 ### Warnings
+
+Lint/FlipFlop:
+  Description: 'Checks for flip flops'
+  StyleGuide: '#no-flip-flops'
+  Enabled: true
 
 Lint/AmbiguousBlockAssociation:
   Description: >-
@@ -992,10 +997,6 @@ Performance/FlatMap:
   # This can be dangerous since `flat_map` will only flatten 1 level, and
   # `flatten` without any parameters can flatten multiple levels.
 
-Performance/LstripRstrip:
-  Description: 'Use `strip` instead of `lstrip.rstrip`.'
-  Enabled: true
-
 Performance/RangeInclude:
   Description: 'Use `Range#cover?` instead of `Range#include?`.'
   Reference: 'https://github.com/JuanitoFatas/fast-ruby#cover-vs-include-code'
@@ -1017,10 +1018,6 @@ Performance/RedundantMerge:
   Reference: 'https://github.com/JuanitoFatas/fast-ruby#hashmerge-vs-hash-code'
   Enabled: true
 
-Performance/RedundantSortBy:
-  Description: 'Use `sort` instead of `sort_by { |x| x }`.'
-  Enabled: true
-
 Performance/RegexpMatch:
   Description: >-
     Use `match?` instead of `Regexp#match`, `String#match`, `Symbol#match`,
@@ -1030,13 +1027,6 @@ Performance/RegexpMatch:
 Performance/ReverseEach:
   Description: 'Use `reverse_each` instead of `reverse.each`.'
   Reference: 'https://github.com/JuanitoFatas/fast-ruby#enumerablereverseeach-vs-enumerablereverse_each-code'
-  Enabled: true
-
-Performance/Sample:
-  Description: >-
-    Use `sample` instead of `shuffle.first`,
-    `shuffle.last`, and `shuffle[Integer]`.
-  Reference: 'https://github.com/JuanitoFatas/fast-ruby#arrayshufflefirst-vs-arraysample-code'
   Enabled: true
 
 Performance/Size:
@@ -1322,6 +1312,21 @@ Security/YAMLLoad:
 
 #################### Style ###############################
 
+Style/RedundantSortBy:
+  Description: 'Use `sort` instead of `sort_by { |x| x }`.'
+  Enabled: true
+
+Style/Sample:
+  Description: >-
+    Use `sample` instead of `shuffle.first`,
+    `shuffle.last`, and `shuffle[Integer]`.
+  Reference: 'https://github.com/JuanitoFatas/fast-ruby#arrayshufflefirst-vs-arraysample-code'
+  Enabled: true
+
+Style/LstripRstrip:
+  Description: 'Use `strip` instead of `lstrip.rstrip`.'
+  Enabled: true
+
 Style/Alias:
   Description: 'Use alias instead of alias_method.'
   StyleGuide: '#alias-method'
@@ -1529,11 +1534,6 @@ Style/EvenOdd:
 
 Style/ExpandPathArguments:
   Description: "Use `expand_path(__dir__)` instead of `expand_path('..', __FILE__)`."
-  Enabled: true
-
-Style/FlipFlop:
-  Description: 'Checks for flip flops'
-  StyleGuide: '#no-flip-flops'
   Enabled: true
 
 Style/For:
