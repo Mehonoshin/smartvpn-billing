@@ -36,6 +36,6 @@ class ServerConfigBuilder
   end
 
   def sample_config_path
-    Settings.servers.sample_config_path
+    ENV['SERVERS_SAMPLE_CONFIG_PATH']
   end
 end

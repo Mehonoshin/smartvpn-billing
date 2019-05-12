@@ -11,6 +11,6 @@ ul.thumbnails.block.customers
       = link_to new_billing_payment_path(code: pay_system.code) do
         span.inner-wrapper
           span.img-wrapper
-            = image_tag "pay_system_logos/#{pay_system.code}_logo.png"
+            = image_tag "pay_system_logos/#{pay_system.code}_logo.png", skip_pipeline: true
           span.title= pay_system.name
           span.description= pay_system.description

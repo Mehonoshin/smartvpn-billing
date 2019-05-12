@@ -13,7 +13,7 @@ module Referrer
     private
 
     def percent
-      Settings.partners.referrer_percent
+      ENV['PARTNERS_REFERRER_PERCENT'].to_i
     end
   end
 end

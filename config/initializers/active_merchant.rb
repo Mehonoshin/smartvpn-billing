@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 require 'active_merchant'
-require 'active_merchant/billing/integrations/action_view_helper'
 
-ActionView::Base.send(:include, ActiveMerchant::Billing::Integrations::ActionViewHelper)
+require 'offsite_payments/action_view_helper'
+ActionView::Base.send(:include, OffsitePayments::ActionViewHelper)
 
-ActiveMerchant::Billing::Base.integration_mode = :production
+ActiveMerchant::Billing::Base.mode = :production

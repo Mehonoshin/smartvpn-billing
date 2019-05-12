@@ -3,7 +3,7 @@ h2.title-divider
     span.de-em
       = t('billing.payments.new.balance_fullfillment')
 
-= image_tag "pay_system_logos/#{@pay_system.code}_logo.png"
+= image_tag "pay_system_logos/#{@pay_system.code}_logo.png", skip_pipeline: true
 = simple_form_for [:billing, @payment] do |f|
   = f.input :amount
   = f.input :pay_system_id, as: :hidden

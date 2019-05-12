@@ -1,8 +1,8 @@
-- require 'active_merchant/billing/integrations/action_view_helper'
-- ActionView::Base.send(:include, ActiveMerchant::Billing::Integrations::ActionViewHelper)
+- require 'offsite_payments/action_view_helper'
+- ActionView::Base.send(:include, OffsitePayments::ActionViewHelper)
 
-= payment_service_for @payment.id, Settings.robokassa.login,
+= payment_service_for @payment.id, ENV['ROBOKASSA_LOGIN'],
                         :amount => @payment.amount,
                         :service => :robokassa,
-                        :secret => Settings.robokassa.secret1 do |s|
+                        :secret => ENV['ROBOKASSA_SECRET1'] do |s|
   = submit_tag t('billing.payments.merchant.submit'), class: "btn btn-large btn-primary"

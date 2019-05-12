@@ -1,7 +1,7 @@
 secret_token: <%= ENV['SECRET_TOKEN'] %>
 
 partners:
-  referrer_percent: 20
+  referrer_percent: <%= ENV['PARTNERS_REFERRER_PERCENT'].to_i %>
 
 servers:
   sample_config_path: 'config/sample.server.ovpn.erb'
