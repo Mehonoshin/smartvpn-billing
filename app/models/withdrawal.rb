@@ -7,7 +7,7 @@ class Withdrawal < ActiveRecord::Base
   has_many :withdrawal_prolongations
 
   validates :amount, :user_id, :plan_id, presence: true
-  validate :balance_greater_than_amount, on: :create, if: 'user.present? && amount.present?'
+  validate :balance_greater_than_amount, on: :create, if: -> { 'user.present? && amount.present?' }
 
   after_create :decrease_user_balance
 

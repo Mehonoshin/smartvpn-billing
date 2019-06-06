@@ -63,7 +63,7 @@ class Admin
 
     def emails_export
       users = User.search(search_params).result
-      render text: Admin::UsersSerializer.new(users, :csv).emails
+      render plain: Admin::UsersSerializer.new(users, :csv).emails
     end
 
     def enable_test_period

@@ -3,15 +3,15 @@
 # This controller contains endpoints for Webmoney paysystem HTTP callbacks,
 # that notifies system about incoming payments.
 class Billing::WebmoneyController < Billing::MerchantController
-  include ActiveMerchant::Billing::Integrations
+  include OffsitePayments::Integrations
 
-  before_filter :create_notification
+  before_action :create_notification
 
   def result
     if @notification.key_present?
       if @notification.recognizes?
         if @notification.acknowledge
-          render text: 'Done'
+          render plain: 'Done'
           payment.accept!
         else
           raise 'Invalid webmoney verification key'
@@ -20,7 +20,7 @@ class Billing::WebmoneyController < Billing::MerchantController
         raise 'Undefined transaction_item_id'
       end
     else
-      render text: 'YES'
+      render plain: 'YES'
     end
   end
 

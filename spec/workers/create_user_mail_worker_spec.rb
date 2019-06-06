@@ -8,8 +8,13 @@ describe CreateUserMailWorker do
   context '#perform' do
     let(:user) { create(:user) }
     let(:server) { create(:server) }
-    let!(:plan) { create(:plan, users: [user], servers: [server]) }
+    let!(:plan) { create(:plan) }
     let(:mailer) { double }
+
+    before do
+      plan.users << user
+      plan.servers << server
+    end
 
     it 'notifies user by email' do
       expect { subject.perform(user.id) }.to change(ActionMailer::Base.deliveries, :count).by(1)

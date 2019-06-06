@@ -19,13 +19,13 @@ describe Api::ConnectionController do
     describe 'POST #connect' do
       it 'calls connector' do
         allow_any_instance_of(Connector).to receive(:invoke).once
-        post :connect, attrs
+        post :connect, params: attrs
       end
 
       it 'passed connect action to connector' do
         connector = Connector.new(attrs.merge!(action: 'connect'))
         expect(Connector).to receive(:new).with(attrs).and_return(connector)
-        post :connect, attrs
+        post :connect, params: attrs
       end
 
       context 'user has options' do
@@ -35,7 +35,7 @@ describe Api::ConnectionController do
           option = create(:active_option)
           user.plan.options << option
           user.options << option
-          post :connect, params
+          post :connect, params: params
         end
 
         it { is_expected.to be_json }
@@ -49,13 +49,13 @@ describe Api::ConnectionController do
     describe 'POST #disconnect' do
       it 'calls connector' do
         allow_any_instance_of(Connector).to receive(:invoke).once
-        post :disconnect, attrs
+        post :disconnect, params: attrs
       end
 
       it 'passed disconnect action to connector' do
         connector = Connector.new(attrs.merge!(action: 'disconnect'))
         expect(Connector).to receive(:new).with(attrs).and_return(connector)
-        post :disconnect, attrs
+        post :disconnect, params: attrs
       end
     end
   end

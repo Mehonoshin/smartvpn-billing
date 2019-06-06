@@ -13,9 +13,9 @@ module Api
     def auth
       authenticator = Authenticator.new(params[:login], params[:password], params[:hostname])
       if authenticator.valid_credentials?
-        render status: 200, nothing: true
+        render status: 200, body: nil
       else
-        render status: 404, nothing: true
+        render status: 404, body: nil
       end
     end
   end

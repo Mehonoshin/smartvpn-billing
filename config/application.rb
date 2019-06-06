@@ -31,6 +31,6 @@ module Smartvpn
     I18n.enforce_available_locales = true
 
     config.assets.precompile += %w[admin.js admin.scss]
-    config.active_record.raise_in_transactional_callbacks = true
+    # config.active_record.raise_in_transactional_callbacks = true
   end
 end

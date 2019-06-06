@@ -15,7 +15,7 @@ class Server
 
     def initialize(server, request_params)
       @server         = server
-      @request_params = request_params.with_indifferent_access
+      @request_params = with_indifferent_access(request_params)
     end
 
     def valid?
@@ -30,6 +30,14 @@ class Server
 
     def signature
       request_params[:signature]
+    end
+
+    def with_indifferent_access(request_params)
+      if request_params.instance_of? Hash
+        request_params.with_indifferent_access
+      else
+        request_params.to_unsafe_h.with_indifferent_access
+      end
     end
 
     def clean_params

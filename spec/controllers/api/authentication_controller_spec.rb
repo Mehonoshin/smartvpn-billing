@@ -19,7 +19,7 @@ describe Api::AuthenticationController do
       before { create(:withdrawal, user: user) }
 
       it 'returns 200 status' do
-        post :auth, params
+        post :auth, params: params
         expect(response.status).to eq 200
       end
     end
@@ -28,7 +28,7 @@ describe Api::AuthenticationController do
       let(:params) { Hash[login: user.vpn_login, password: 'asd', hostname: server.hostname] }
 
       it 'returns 404 status' do
-        post :auth, params
+        post :auth, params: params
         expect(response.status).to eq 404
       end
     end

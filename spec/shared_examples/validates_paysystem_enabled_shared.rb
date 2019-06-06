@@ -8,7 +8,7 @@ shared_examples 'validating pay_system state' do |action, payment_id_key|
 
       it 'raises error' do
         expect do
-          post action, payment_id_key => payment.id
+          post action, params: { payment_id_key => payment.id }
         end.to raise_error BillingException
       end
     end

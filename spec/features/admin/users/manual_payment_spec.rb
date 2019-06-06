@@ -21,7 +21,7 @@ describe 'manual user balance increase' do
       click_button I18n.t('global.apply')
     end
 
-    expect(page.find('p.user_balance')).to have_content (amount - user.plan.price)
+    expect(page.find('.user_balance')).to have_content (amount - user.plan.price)
     expect(page).to have_content I18n.t('admin.users.notices.payment_created')
   end
 end

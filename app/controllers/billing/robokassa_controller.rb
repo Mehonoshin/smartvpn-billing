@@ -3,13 +3,13 @@
 # This controller contains endpoints for Robokassa paysystem HTTP callbacks,
 # that notifies system about incoming payments.
 class Billing::RobokassaController < Billing::MerchantController
-  include ActiveMerchant::Billing::Integrations
+  include OffsitePayments::Integrations
 
-  before_filter :create_notification
+  before_action :create_notification
 
   def result
     if @notification.acknowledge
-      render text: 'Done'
+      render plain: 'Done'
       payment.accept!
     else
       raise 'Invalid robokassa notification'

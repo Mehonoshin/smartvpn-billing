@@ -8,7 +8,7 @@ describe Admin::ChangeLanguagesController do
   describe 'PUT #update' do
     before do
       request.env['HTTP_REFERER'] = 'where_i_came_from'
-      put :update, locale: :ru
+      put :update, params: { locale: :ru }
     end
 
     it 'session locale will be set to RU' do
