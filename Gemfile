@@ -4,16 +4,17 @@ source 'http://rubygems.org'
 # TODO: temporary disable http, until ruby upgrade with new openssl
 # source 'https://rubygems.org'
 
-gem 'rails', '4.2.11'
-
-gem 'pg', '~> 0.15.1'
+gem 'rails', '~> 5.2', '>= 5.2.3'
+gem 'pg'
 gem 'pghero'
 gem 'thin'
 
 gem 'chartkick'
 
 gem 'aasm'
-gem 'activemerchant', '~> 1.32.1'
+gem 'activemerchant', '~> 1.93'
+gem 'money'
+gem 'offsite_payments'
 gem 'bootstrap', '~> 4.2.1'
 gem 'cancan'
 gem 'clockwork'
@@ -27,14 +28,14 @@ gem 'slim'
 # Temporary broken with rails 4.2
 gem 'active_model_serializers' # , github: 'rails-api/active_model_serializers', branch: '0-9-stable'
 
-gem 'ransack', '1.5.1'
+gem 'ransack', '2.1.1'
 
 # TODO: switch to stable version
 gem 'carrierwave'
-gem 'draper', '1.4.0'
+gem 'draper', '3.1'
 gem 'gibbon'
 gem 'mechanize'
-gem 'rails_config'
+gem 'config'
 gem 'russian_central_bank'
 gem 'show_for', github: 'plataformatec/show_for'
 gem 'whenever', '0.9.0', require: false
@@ -46,11 +47,11 @@ gem 'rollbar'
 # TODO: make it optional via ENV flag
 gem 'newrelic_rpm'
 
-gem 'json', '~> 1.8'
+gem 'json', '~> 2.2'
 gem 'thread_safe', '0.3.6'
 
 group :assets do
-  gem 'coffee-rails', '~> 4.1.0'
+  gem 'coffee-rails', '~> 5.0'
   gem 'sass-rails'
   gem 'uglifier'
 end
@@ -59,7 +60,7 @@ gem 'jquery-rails'
 gem 'jquery-ui-rails'
 
 gem 'ffi', '>= 1.9.24'
-gem 'jbuilder', '~> 1.0.1'
+gem 'jbuilder', '~> 2.8'
 
 group :development do
   gem 'better_errors'
@@ -95,4 +96,5 @@ group :test do
   gem 'clockwork-test'
   gem 'fakeweb', github: 'chrisk/fakeweb'
   gem 'zonebie'
+  gem 'rails-controller-testing'
 end

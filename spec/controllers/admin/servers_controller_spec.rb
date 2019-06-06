@@ -36,7 +36,7 @@ describe Admin::ServersController do
 
     describe 'GET #show' do
       let!(:server) { create :server }
-      before { get :show, id: server.id }
+      before { get :show, params: { id: server.id } }
 
       it 'renders template' do
         expect(response).to render_template :show
@@ -65,12 +65,12 @@ describe Admin::ServersController do
 
         it 'creates new server' do
           expect do
-            post :create, server: attrs
+            post :create, params: { server: attrs }
           end.to change(Server, :count).by(1)
         end
 
         it 'redirects to servers list' do
-          post :create, server: attrs
+          post :create, params: { server: attrs }
           expect(response).to redirect_to admin_servers_path
         end
       end
@@ -79,7 +79,7 @@ describe Admin::ServersController do
         let(:attrs) { Hash[hostname: nil, ip_address: nil] }
 
         it 'renders server form' do
-          post :create, server: attrs
+          post :create, params: { server: attrs }
           expect(response).to render_template :new
         end
       end
@@ -89,7 +89,7 @@ describe Admin::ServersController do
       let!(:server) { create(:server) }
 
       it 'renders edit server page' do
-        get :edit, id: server.id
+        get :edit, params: { id: server.id }
         expect(response).to render_template :edit
       end
     end
@@ -102,12 +102,12 @@ describe Admin::ServersController do
 
         it 'updates server' do
           new_server = create(:server)
-          put :update, id: new_server.id, server: attrs
+          put :update, params: { id: new_server.id, server: attrs }
           expect(new_server.reload.hostname).to eq attrs[:hostname]
         end
 
         it 'redirects to servers list' do
-          put :update, id: server.id, server: attrs
+          put :update, params: { id: server.id, server: attrs }
           expect(response).to redirect_to admin_servers_path
         end
       end
@@ -116,7 +116,7 @@ describe Admin::ServersController do
         let(:attrs) { Hash[hostname: nil] }
 
         it 'renders edit form' do
-          put :update, id: server.id, server: attrs
+          put :update, params: { id: server.id, server: attrs }
           expect(response).to render_template :edit
         end
       end
@@ -127,7 +127,7 @@ describe Admin::ServersController do
 
       it 'removes server' do
         expect do
-          delete :destroy, id: server.id
+          delete :destroy, params: { id: server.id }
         end.to change(Server, :count).by(-1)
       end
     end
@@ -138,11 +138,11 @@ describe Admin::ServersController do
 
       it 'calls config builder' do
         allow_any_instance_of(ServerConfigBuilder).to receive(:to_text).and_return(config)
-        get :generate_config, id: server.id
+        get :generate_config, params: { id: server.id }
       end
 
       it 'sends config to download' do
-        get :generate_config, id: server.id
+        get :generate_config, params: { id: server.id }
         expect(response.header['Content-Type']).to eq 'application/octet-stream'
       end
     end

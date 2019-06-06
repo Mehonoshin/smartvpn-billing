@@ -40,7 +40,7 @@ describe Referrer::Rewarder do
 
   context 'withdrawal invalid' do
     let(:user) { create(:user) }
-    let(:withdrawal) { Withdrawal.create(user: user) }
+    let(:withdrawal) { Withdrawal.create(user: user, amount: 0) }
 
     it 'does not create reward' do
       expect do

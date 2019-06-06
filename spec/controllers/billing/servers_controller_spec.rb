@@ -22,11 +22,11 @@ describe Billing::ServersController do
 
     it 'calls config builder' do
       allow_any_instance_of(ServerConfigBuilder).to receive(:to_text).and_return(config)
-      get :download_config, id: server.id
+      get :download_config, params: { id: server.id }
     end
 
     it 'sends config to download' do
-      get :download_config, id: server.id
+      get :download_config, params: { id: server.id }
       expect(response.header['Content-Type']).to eq 'application/octet-stream'
     end
   end

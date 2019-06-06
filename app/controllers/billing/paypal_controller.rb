@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Billing::PaypalController < Billing::MerchantController
-  include ActiveMerchant::Billing::Integrations
+  include OffsitePayments::Integrations
 
   def result
     if notitication.acknowledge

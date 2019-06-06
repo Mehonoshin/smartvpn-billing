@@ -15,7 +15,7 @@ class Server
 
     def initialize(server, request_params)
       @server         = server
-      @request_params = request_params.with_indifferent_access
+      @request_params = request_params.to_h.with_indifferent_access
     end
 
     def valid?

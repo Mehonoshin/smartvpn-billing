@@ -13,7 +13,7 @@ describe Users::RegistrationsController do
     context 'reflink set in params' do
       before do
         request.cookies['reflink'] = referrer.reflink
-        post :create, user: attrs
+        post :create, params: { user: attrs }
       end
 
       it 'creates user' do
@@ -31,7 +31,7 @@ describe Users::RegistrationsController do
 
     context 'no reflink in params' do
       before do
-        post :create, user: attrs
+        post :create, params: { user: attrs }
       end
 
       it 'creates user' do

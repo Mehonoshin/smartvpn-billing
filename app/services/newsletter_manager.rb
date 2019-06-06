@@ -4,7 +4,7 @@ class NewsletterManager
   attr_reader :api
 
   def initialize
-    @api = ::Gibbon::API.new(Settings.mailchimp.api_key)
+    @api = Gibbon::Request.new(api_key: Settings.mailchimp.api_key)
   end
 
   def add_to_list(email, list_name)

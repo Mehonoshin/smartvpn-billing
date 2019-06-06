@@ -15,7 +15,7 @@ describe Billing::RobokassaController do
 
       it 'raises error' do
         expect do
-          post :result, attrs
+          post :result, params: attrs
         end.to raise_error 'Invalid robokassa notification'
       end
     end
@@ -25,11 +25,11 @@ describe Billing::RobokassaController do
       let(:attrs) { Hash['OutSum' => '9.99', 'InvId' => '10', 'SignatureValue' => 'D25F8F107E3482EF3CCAFC620CC8BA3E'] }
 
       before do
-        allow_any_instance_of(ActiveMerchant::Billing::Integrations::Robokassa::Notification)
+        allow_any_instance_of(OffsitePayments::Integrations::Robokassa::Notification)
           .to receive(:acknowledge)
           .and_return(true)
         allow(Payment).to receive(:find).and_return(payment)
-        post :result, attrs
+        post :result, params: attrs
       end
 
       it 'returns 200 state' do

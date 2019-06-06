@@ -18,7 +18,7 @@ describe Billing::OptionsController do
 
     before do
       allow(Option::Activator).to receive(:run).with(@user, option_code).and_return(activation_result)
-      post :create, code: option_code
+      post :create, params: { code: option_code }
     end
 
     context 'success' do
@@ -52,7 +52,7 @@ describe Billing::OptionsController do
     let(:new_attrs) { Hash[country: 'Russia'] }
     let!(:user_option) { create(:user_option, state: 'enabled', attrs: old_attrs, user: @user, option: option) }
 
-    before { put :update, id: option.id, option_attributes: new_attrs }
+    before { put :update, params: { id: option.id, option_attributes: new_attrs } }
 
     it 'changes attributes' do
       expect(user_option.reload.attrs['country']).to eq 'Russia'
@@ -65,7 +65,7 @@ describe Billing::OptionsController do
 
     it 'calles toggle! on option' do
       allow_any_instance_of(UserOption).to receive(:toggle!)
-      put :toggle, id: option.id
+      put :toggle, params: { id: option.id }
     end
   end
 end

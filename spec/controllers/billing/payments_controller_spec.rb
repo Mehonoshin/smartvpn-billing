@@ -20,12 +20,12 @@ describe Billing::PaymentsController do
     end
 
     it 'displays new payment form' do
-      get :new, code: pay_system.code
+      get :new, params: { code: pay_system.code }
       expect(response).to render_template :new
     end
 
     it 'redirects to merchant form page on payment create' do
-      post :create, payment: attributes_for(:payment).merge!(pay_system_id: pay_system.id)
+      post :create, params: { payment: attributes_for(:payment).merge!(pay_system_id: pay_system.id) }
       expect(response).to redirect_to merchant_billing_payment_path(Payment.last)
     end
 
@@ -36,7 +36,7 @@ describe Billing::PaymentsController do
       end
 
       it 'redirects to pay systems list' do
-        get :merchant, id: @payment.id
+        get :merchant, params: { id: @payment.id }
         expect(response).to redirect_to billing_payments_path
       end
     end
