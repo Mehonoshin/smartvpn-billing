@@ -12,7 +12,7 @@ shared_examples 'validating signature' do |action| # rubocop:disable Metrics/Blo
 
         it 'raises error' do
           expect do
-            post action, attrs
+            post action, params: attrs
           end.to raise_error ApiException, 'Server not found'
         end
       end
@@ -22,7 +22,7 @@ shared_examples 'validating signature' do |action| # rubocop:disable Metrics/Blo
       context 'when pending' do
         it 'raises error' do
           expect do
-            post action, attrs
+            post action, params: attrs
           end.to raise_error ApiException, 'Server not active'
         end
       end
@@ -32,7 +32,7 @@ shared_examples 'validating signature' do |action| # rubocop:disable Metrics/Blo
 
         it 'raises error' do
           expect do
-            post action, attrs
+            post action, params: attrs
           end.to raise_error ApiException, 'Server not active'
         end
       end
@@ -51,7 +51,7 @@ shared_examples 'validating signature' do |action| # rubocop:disable Metrics/Blo
 
         it 'raises error' do
           expect do
-            post action, attrs
+            post action, params: attrs
           end.to raise_error ApiException, 'Invalid api call'
         end
       end

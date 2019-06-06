@@ -12,7 +12,7 @@ describe NewsletterManager do
       let(:list_name) { :all }
 
       it 'calls Mailchimp api' do
-        ::FakeWeb.register_uri(:post, 'https://key.api.mailchimp.com/2.0/lists/subscribe', body: '{}')
+        FakeWeb.register_uri(:post, 'https://key.api.mailchimp.com/2.0/lists/subscribe', body: '{}')
         subject.add_to_list(email, list_name)
       end
     end

@@ -1,5 +1,5 @@
 - require 'offsite_payments/action_view_helper'
-- ActionView::Base.send(:include, OffsitePayments::Integrations::ActionViewHelper)
+- ActionView::Base.send(:include, OffsitePayments::ActionViewHelper)
 
 = payment_service_for @payment.id, Settings.webmoney.wallet.wmr,
                         :amount => @payment.amount,

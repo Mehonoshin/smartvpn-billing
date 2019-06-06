@@ -69,7 +69,7 @@ group :development do
   gem 'migration_opener'
   gem 'rubocop', require: false
   gem 'sandi_meter', require: false
-  gem 'web-console', '~> 2.0'
+  gem 'web-console', '~> 3.7'
 end
 
 group :test, :development do
