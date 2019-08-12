@@ -242,7 +242,7 @@ GEM
     net-http-digest_auth (1.4)
     net-http-persistent (2.9.4)
     newrelic_rpm (5.6.0.349)
-    nokogiri (1.10.1)
+    nokogiri (1.10.4)
       mini_portile2 (~> 2.4.0)
     nori (2.3.0)
     ntlm-http (0.1.1)
