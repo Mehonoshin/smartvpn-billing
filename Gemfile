@@ -4,7 +4,7 @@ source 'http://rubygems.org'
 # TODO: temporary disable http, until ruby upgrade with new openssl
 # source 'https://rubygems.org'
 
-gem 'rails', '4.2.11'
+gem 'rails', '4.2.11.1'
 
 gem 'pg', '~> 0.15.1'
 gem 'pghero'
