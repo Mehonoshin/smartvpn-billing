@@ -46,7 +46,7 @@ gem 'rollbar'
 # TODO: make it optional via ENV flag
 gem 'newrelic_rpm'
 
-gem 'json', '~> 1.8'
+gem 'json', '~> 2.3'
 gem 'thread_safe', '0.3.6'
 
 group :assets do
