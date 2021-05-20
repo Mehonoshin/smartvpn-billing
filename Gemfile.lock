@@ -232,7 +232,7 @@ GEM
       rails
     mime-types (1.25.1)
     mini_mime (1.0.1)
-    mini_portile2 (2.4.0)
+    mini_portile2 (2.5.1)
     minitest (5.11.3)
     mixlib-cli (1.4.0)
     money (6.5.0)
@@ -242,8 +242,9 @@ GEM
     net-http-digest_auth (1.4)
     net-http-persistent (2.9.4)
     newrelic_rpm (5.6.0.349)
-    nokogiri (1.10.1)
-      mini_portile2 (~> 2.4.0)
+    nokogiri (1.11.5)
+      mini_portile2 (~> 2.5.0)
+      racc (~> 1.4)
     nori (2.3.0)
     ntlm-http (0.1.1)
     orm_adapter (0.5.0)
@@ -264,6 +265,7 @@ GEM
     pry-rails (0.3.9)
       pry (>= 0.10.4)
     psych (3.1.0)
+    racc (1.5.2)
     rack (1.6.11)
     rack-protection (1.5.5)
       rack
