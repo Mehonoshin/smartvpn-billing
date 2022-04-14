@@ -1,11 +1,11 @@
 GIT
-  remote: git://github.com/chrisk/fakeweb.git
+  remote: https://github.com/chrisk/fakeweb.git
   revision: 2b08c1ff2714ec13a12f3497d67fcefce95c2cbe
   specs:
     fakeweb (1.3.0)
 
 GIT
-  remote: git://github.com/plataformatec/show_for.git
+  remote: https://github.com/plataformatec/show_for.git
   revision: 7f2dc583ee84e9fd86d00c70c5e63027b20a8efc
   specs:
     show_for (0.3.0.rc)
@@ -232,7 +232,7 @@ GEM
       rails
     mime-types (1.25.1)
     mini_mime (1.0.1)
-    mini_portile2 (2.4.0)
+    mini_portile2 (2.8.0)
     minitest (5.11.3)
     mixlib-cli (1.4.0)
     money (6.5.0)
@@ -242,8 +242,9 @@ GEM
     net-http-digest_auth (1.4)
     net-http-persistent (2.9.4)
     newrelic_rpm (5.6.0.349)
-    nokogiri (1.10.1)
-      mini_portile2 (~> 2.4.0)
+    nokogiri (1.13.4)
+      mini_portile2 (~> 2.8.0)
+      racc (~> 1.4)
     nori (2.3.0)
     ntlm-http (0.1.1)
     orm_adapter (0.5.0)
@@ -264,6 +265,7 @@ GEM
     pry-rails (0.3.9)
       pry (>= 0.10.4)
     psych (3.1.0)
+    racc (1.6.0)
     rack (1.6.11)
     rack-protection (1.5.5)
       rack
